@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   post 'main/login'
   get 'sign_up', to: 'main#sign_up', as: 'sign_up'
   post 'main/sign_up'
+
+
+
 end

@@ -7,6 +7,10 @@ Feature: Allow users to creat an account
 
 Scenario: Creating an account
   Given I am on the Account Creation page
-  And my credentials are filled in
-  When I Click "Sign up"
+  And I fill in "First name" with "Adnane"
+  And I fill in "Last name" with "Ezouhri"
+  And I fill in "Email address" with "aezouhri@uiowa.edu"
+  And I fill in "Password" with "password"
+#  Need to check the radio button
+  When I Click "Create account"
   Then A new account should be created

@@ -77,3 +77,7 @@ end
 And(/^my credentials are filled in with an email address already registered$/) do
   pending
 end
+
+And(/^I fill in "([^"]*)" with "([^"]*)"$/) do |arg1, arg2|
+  pending
+end

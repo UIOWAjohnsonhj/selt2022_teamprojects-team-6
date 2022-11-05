@@ -1,1 +1,23 @@
 %h1 Sign Up
+-# When Christian is done with a profile page should redirect there
+=form_tag main_login_path, :method=>:post do
+  =label :user, :first_name
+  =text_field :user, :first_name
+  =label :user, :last_name
+  =text_field :user, :last_name
+  =label :user, :email_address
+  =text_field :user, :email
+  =label :user, :password
+  = password_field :user, :password
+
+  %br/
+  %br/
+  ="Student"
+  =radio_button_tag :type ,"radio_button_student"
+  ="Faculty"
+  =radio_button_tag :type ,"radio_button_faculty"
+
+  %br/
+  %br/
+
+  = submit_tag "Create Account", :id => "create_account_button"
