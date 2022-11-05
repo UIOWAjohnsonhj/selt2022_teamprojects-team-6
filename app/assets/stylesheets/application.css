@@ -15,15 +15,53 @@
  */
 .field{
   border-radius: 30px;
-  width: 10%;
+  width: 80%;
   float: left;
-  margin-left: 42px;
+  margin-right: 42px;
+}
+.field2{
+  border-radius: 30px;
+  width: 40%;
+  float: left;
+  margin-right: 42px;
 }
 .label{
   margin-left: 50px;
   float: left;
-  width: 10%;
+  width: 40%;
 }
 .row{
   display: flex;
+}
+.profile:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.profile_features{
+  float: left;
+  width: 48%;
+
+}
+.profile_features2{
+  float: left;
+  width: 1%;
+}
+
+.btn{
+  border-radius: 30px;
+  width: 100px;
+  float: left;
+  margin-left: 8px;
+  background-color: orange;
+}
+.btn:hover{
+  background-color: #ff9900;
+}
+.btn:active{
+  background-color: #be5602;
+}
+.vl {
+  border-left: 6px solid orange;
+  height: 100vh;
 }
