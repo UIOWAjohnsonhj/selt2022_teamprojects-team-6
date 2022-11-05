@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+.field{
+  border-radius: 30px;
+  width: 10%;
+  float: left;
+  margin-left: 42px;
+}
+.label{
+  margin-left: 50px;
+  float: left;
+  width: 10%;
+}
+.row{
+  display: flex;
+}
