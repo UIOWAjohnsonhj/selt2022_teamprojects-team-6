@@ -4,8 +4,9 @@ class MainController < ApplicationController
   end
   def login
     @student = Student
-    @student.all.each do |s|
-      puts s.id
+    @profiles = Profile
+    @profiles.all.each do |s|
+      puts s.interested_major
     end
   end
   def sign_up

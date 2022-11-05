@@ -13,7 +13,14 @@ students = [{:first_name => 'Kiana', :last_name => 'Erickson', :user_name => 'kb
           {:first_name => 'Adnane', :last_name => 'Ezouhri', :user_name => 'aezouhri'},
           {:first_name => 'Christian', :last_name => 'Baseme', :user_name => 'cbaseme'},
   	 ]
-
+profiles = [{:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Mechanical Engineering", :term => "spring", :year =>"2022" } ,
+            {:student_id=>4,:gre=> 23, :toefl => 10, :interested_major => "Electrical Engineering", :term => "spring", :year =>"2022" },
+            {:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Computer Engineering", :term => "spring", :year =>"2022" },
+            ]
 students.each do |student|
   Student.create!(student)
+end
+
+profiles.each do |profile|
+  Profile.create!(profile)
 end
