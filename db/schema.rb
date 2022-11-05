@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(version: 20150809022253) do
   create_table "students", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string     "email"
-    t.string "password"
+    t.string   "user_name"
+    t.string   "email"
+    t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

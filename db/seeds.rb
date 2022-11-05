@@ -6,14 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-students = [{:first_name => 'Kiana', :last_name => 'Erickson', :username => 'kberickson'},
-          {:first_name => 'Joslin', :last_name => 'Some', :username => 'jsome'},
-          {:first_name => 'Evan', :last_name => 'Brewer', :username => 'ebrewer'},
-          {:first_name => 'Ben', :last_name => 'Desollar', :username => 'bdesollar'},
-          {:first_name => 'Adnane', :last_name => 'Ezouhri', :username => 'aezouhri'},
-          {:first_name => 'Christian', :last_name => 'Baseme', :username => 'cbaseme'},
+students = [{:first_name => 'Kiana', :last_name => 'Erickson', :user_name => 'kberickson'},
+          {:first_name => 'Joslin', :last_name => 'Some', :user_name => 'jsome'},
+          {:first_name => 'Evan', :last_name => 'Brewer', :user_name => 'ebrewer'},
+          {:first_name => 'Ben', :last_name => 'Desollar', :user_name => 'bdesollar'},
+          {:first_name => 'Adnane', :last_name => 'Ezouhri', :user_name => 'aezouhri'},
+          {:first_name => 'Christian', :last_name => 'Baseme', :user_name => 'cbaseme'},
   	 ]
 
 students.each do |student|
   Student.create!(student)
+  puts "HEEERE"
 end
