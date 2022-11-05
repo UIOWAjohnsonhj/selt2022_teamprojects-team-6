@@ -11,9 +11,9 @@
       </div>
       <br>
       <div class="row">
-        <input value="" class="field" name="gre">
-        <input value="" class="field" name="toefl">
-        <input value="" class="field" name="capa">
+        <input value="<%= @current_profile.gre %>" class="field" name="gre">
+        <input value="<%= @current_profile.toefl %>" class="field" name="toefl">
+        <input value="<%= @current_profile.capa %>" class="field" name="capa">
       </div>
       <br>
       <div class="row">
@@ -23,7 +23,7 @@
       </div>
       <br>
       <div class="row">
-        <input list="majors" class="field" name="major">
+        <input value="<%= @current_profile.interested_major %>"  list="majors" class="field" name="major">
         <datalist id="majors">
           <option value="Mechanical Engineering">
           <option value="Computer Science Engineering">
@@ -31,13 +31,13 @@
           <option value="Industrial Engineering">
           <option value="Civil Engineering">
         </datalist>
-        <input list="term" class="field" name="term">
+        <input value="<%= @current_profile.term %>" list="term" class="field" name="term">
         <datalist id="term" >
           <option value="Fall">
           <option value="Spring">
           <option value="Summer">
         </datalist>
-        <input list="year" class="field" name="year">
+        <input value="<%= @current_profile.year %>" list="year" class="field" name="year">
 
         <datalist id="year">
           <option value="2022">
@@ -54,7 +54,7 @@
       <br>
 
       <div class="row">
-        <input class="field2" name="college_name">
+        <input value="<%= @current_profile.college_name %>" class="field2" name="college_name">
       </div>
       <br>
       <h2>Work experience</h2>
