@@ -2,7 +2,7 @@
 <div class="profile">
   <div class="profile_features">
     <br>
-    <form method="post" action="edit_profile">
+    <form method="post" action="view_profile">
       <br>
       <div class="row">
         <label class="label">GRE</label>
@@ -11,9 +11,9 @@
       </div>
       <br>
       <div class="row">
-        <input value="" class="field" name="gre" readonly>
-        <input value="" class="field" name="toefl" readonly>
-        <input value="" class="field" name="capa" readonly>
+        <input value="" class="field" name="gre">
+        <input value="" class="field" name="toefl">
+        <input value="" class="field" name="capa">
       </div>
       <br>
       <div class="row">
@@ -23,7 +23,7 @@
       </div>
       <br>
       <div class="row">
-        <input list="majors" class="field" name="major" readonly>
+        <input list="majors" class="field" name="major">
         <datalist id="majors">
           <option value="Mechanical Engineering">
           <option value="Computer Science Engineering">
@@ -31,13 +31,13 @@
           <option value="Industrial Engineering">
           <option value="Civil Engineering">
         </datalist>
-        <input list="term" class="field" name="term" readonly>
+        <input list="term" class="field" name="term">
         <datalist id="term" >
           <option value="Fall">
           <option value="Spring">
           <option value="Summer">
         </datalist>
-        <input list="year" class="field" name="year" readonly>
+        <input list="year" class="field" name="year">
 
         <datalist id="year">
           <option value="2022">
@@ -54,7 +54,7 @@
       <br>
 
       <div class="row">
-        <input class="field2" name="college_name" readonly>
+        <input class="field2" name="college_name">
       </div>
       <br>
       <h2>Work experience</h2>
@@ -68,28 +68,27 @@
       </div>
       <br>
       <div class="row">
-        <input class="field2" name="company" readonly>
-        <input class="field2" name="position" readonly>
-        <input class="field2" name="description" readonly>
-        <input class="field2" name="from" readonly>
-        <input class="field2" name="to" readonly>
-
+        <input class="field2" name="company">
+        <input class="field2" name="title">
+        <input class="field2" name="description">
+        <input class="field2" name="from">
+        <input class="field2" name="to">
       </div>
-      <br>
-      <br>
-      <input type="submit" class = "btn" value="Edit profile">
-
+      <input type="submit" class = "btn" value="save">
       <br>
     </form>
     <br>
+    <button class="btn">Add Experience</button>
   </div>
-
   <div class="profile_features2">
     <div class="vl"></div>
   </div>
   <div class="profile_features">
     <h1>Universities Applied</h1>
-
+    <h3>Add University</h3>
+    <br>
+    <input class="field2" name="university_name">
+    <button class="btn">Add</button>
   </div>
 </div>
 

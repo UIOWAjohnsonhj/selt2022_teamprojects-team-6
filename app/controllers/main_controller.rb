@@ -15,6 +15,9 @@ class MainController < ApplicationController
 
   end
   def view_profile
+  end
 
+  def edit_profile
+    puts params[:gre]
   end
 end

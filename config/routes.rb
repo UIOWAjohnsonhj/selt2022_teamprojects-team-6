@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   get 'view_profile', to: 'main#view_profile', as: 'view_profile'
   post 'main/view_profile'
+  get 'edit_profile', to: 'main#edit_profile', as: 'edit_profile'
+  post 'main/edit_profile'
+
 end
