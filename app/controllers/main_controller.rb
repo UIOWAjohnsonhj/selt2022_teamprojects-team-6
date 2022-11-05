@@ -5,7 +5,7 @@ class MainController < ApplicationController
   def login
     @student = Student
     @student.all.each do |s|
-      puts s.first_name
+      puts s.id
     end
   end
   def sign_up

@@ -15,6 +15,5 @@ students = [{:first_name => 'Kiana', :last_name => 'Erickson', :user_name => 'kb
   	 ]
 
 students.each do |student|
-  Student.create!(student)
   puts "HEEERE"
 end
