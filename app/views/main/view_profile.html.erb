@@ -1,4 +1,5 @@
 <h1>Profile</h1>
+
 <div class="profile">
   <div class="profile_features">
     <br>
@@ -11,9 +12,9 @@
       </div>
       <br>
       <div class="row">
-        <input value="" class="field" name="gre" readonly>
-        <input value="" class="field" name="toefl" readonly>
-        <input value="" class="field" name="capa" readonly>
+        <input value="<%= @current_profile.gre %>" class="field" name="gre" readonly >
+        <input value="<%= @current_profile.toefl %>" class="field" name="toefl" readonly>
+        <input value="<%= @current_profile.capa %>" class="field" name="capa" readonly>
       </div>
       <br>
       <div class="row">
@@ -23,27 +24,10 @@
       </div>
       <br>
       <div class="row">
-        <input list="majors" class="field" name="major" readonly>
-        <datalist id="majors">
-          <option value="Mechanical Engineering">
-          <option value="Computer Science Engineering">
-          <option value="Biomedical Engineering">
-          <option value="Industrial Engineering">
-          <option value="Civil Engineering">
-        </datalist>
-        <input list="term" class="field" name="term" readonly>
-        <datalist id="term" >
-          <option value="Fall">
-          <option value="Spring">
-          <option value="Summer">
-        </datalist>
-        <input list="year" class="field" name="year" readonly>
+        <input value="<%= @current_profile.interested_major %>" list="majors" class="field" name="major" readonly>
+        <input value="<%= @current_profile.term %>" list="term" class="field" name="term" readonly>
+        <input value="<%= @current_profile.year %>" list="year" class="field" name="year" readonly>
 
-        <datalist id="year">
-          <option value="2022">
-          <option value="2023">
-          <option value="2024">
-        </datalist>
         <br>
       </div>
       <br>
@@ -54,7 +38,7 @@
       <br>
 
       <div class="row">
-        <input class="field2" name="college_name" readonly>
+        <input value="<%= @current_profile.college_name %>" class="field2" name="college_name" readonly>
       </div>
       <br>
       <h2>Work experience</h2>
