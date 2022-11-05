@@ -4928,3 +4928,24 @@ Processing by MainController#sign_up as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"mqcqlOAgkzA/Oqu+8+DBHRoW2fbR9EShYp2n7aB/KhvukYwxI+jZapOnbSkf4OUoge9kmP0SXNi8IVF6FljQzA==", "commit"=>"sign_up"}
   Rendered main/sign_up.html.haml within layouts/application (6.3ms)
 Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-05 17:39:19 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (18.4ms)
+Completed 200 OK in 182ms (Views: 181.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-05 17:39:21 -0500
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hJp9QBCdPFWm6gEo0kfKZrkSd7D5tXJzmyLW+RSHwzDwrNvl01V2Dwp3x78+R+5TIuvK3tVTagpFniBuoqA55w==", "commit"=>"sign_up"}
+  Rendered main/sign_up.html.haml within layouts/application (16.9ms)
+Completed 200 OK in 35ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/index" for 127.0.0.1 at 2022-11-05 17:39:23 -0500
+Processing by MainController#index as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Mx9+l3mbNWhGfjAgKND0anGJpA2qyJSfuh+jVuaZyZJHKdgyulN/Murj9rfE0NBf6nAZY4YujOZko1XBUL4zRQ==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  Rendered main/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)

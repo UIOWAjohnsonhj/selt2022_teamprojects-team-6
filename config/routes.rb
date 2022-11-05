@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'main#sign_up', as: 'sign_up'
   post 'main/sign_up'
 
+  get 'index', to: 'main#index', as: 'index'
+  post 'main/index'
 
 
 end
