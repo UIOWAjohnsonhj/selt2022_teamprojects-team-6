@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'index', to: 'main#index', as: 'index'
   post 'main/index'
 
-
+  get 'view_profile', to: 'main#view_profile', as: 'view_profile'
+  post 'main/view_profile'
 end
