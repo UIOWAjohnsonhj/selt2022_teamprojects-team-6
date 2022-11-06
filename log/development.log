@@ -799,7 +799,7 @@ Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms)
 ActionView::Template::Error (undefined local variable or method `maisdn_login_path' for #<#<Class:0x00007f7d992049a0>:0x00007f7d992212f8>
 Did you mean?  main_login_path):
     1: <h1>Welcome</h1>
-    2: 
+    2:
     3: <form method="post" action=<% maisdn_login_path%>>
     4:   <input type="submit" value="Log In">
     5: </form>
@@ -1117,7 +1117,7 @@ Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
 ActionView::Template::Error (undefined method `simple_form_for' for #<#<Class:0x00007f7d9d109e20>:0x00007f7d9d116238>
 Did you mean?  simple_format):
     1: <h1>Welcome</h1>
-    2: 
+    2:
     3: <%= simple_form_for :login, :url => login_path do |f| %>
     4:   <%= f.submit 'Log In' %>
     5: <% end %>
@@ -2933,7 +2933,7 @@ ActiveRecord::StatementInvalid (Could not find table 'students'):
 Migrating to CreateStudents (20150809022253)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
 DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/ssome/selt2022_teamprojects-team-6/db/migrate/20150809022253_create_students.rb:11)
-  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
   [1m[35m (7.0ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -4478,7 +4478,7 @@ Migrations are pending. To resolve this issue, run:
 Migrating to CreateStudents (20150809022253)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
 DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/cbasemee/October_New_SELT_2022/selt2022_teamprojects-team-6/db/migrate/20150809022253_create_students.rb:11)
-  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
   [1m[35m (8.8ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -4745,7 +4745,7 @@ Completed 500 Internal Server Error in 270ms (ActiveRecord: 12.1ms)
 ActionView::Template::Error (undefined local variable or method `sessions_path' for #<#<Class:0x0000564e19384c68>:0x00007eff65378488>
 Did you mean?  session):
     1: %h1 Log In
-    2: 
+    2:
     3: =form_tag (sessions_path) do
     4:  =text_field_tag :user
     5:  =text_field_tag :password
@@ -4826,3 +4826,4 @@ Migrating to CreateFaculties (20221105224322)
   [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
