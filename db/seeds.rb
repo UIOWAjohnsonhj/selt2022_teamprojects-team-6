@@ -13,6 +13,16 @@ students = [{:first_name => 'Kiana', :last_name => 'Erickson', :user_name => 'kb
           {:first_name => 'Adnane', :last_name => 'Ezouhri', :user_name => 'aezouhri'},
           {:first_name => 'Christian', :last_name => 'Baseme', :user_name => 'cbaseme'},
   	 ]
+
+#i added the faculty in front of first names to differentiate from the students names
+faculties = [{:first_name => 'Kiana-faculty', :last_name => 'Erickson', :user_name => 'kberickson_f'},
+            {:first_name => 'Joslin-faculty', :last_name => 'Some', :user_name => 'jsome_f'},
+            {:first_name => 'Evan-faculty', :last_name => 'Brewer', :user_name => 'ebrewer_f'},
+            {:first_name => 'Ben-faculty', :last_name => 'Desollar', :user_name => 'bdesollar_f'},
+            {:first_name => 'Adnane-faculty', :last_name => 'Ezouhri', :user_name => 'aezouhri_f'},
+            {:first_name => 'Christian-faculty', :last_name => 'Baseme', :user_name => 'cbaseme_f'},
+]
+
 profiles = [{:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Mechanical Engineering", :term => "spring", :year =>"2022" } ,
             {:student_id=>4,:gre=> 23, :toefl => 10, :interested_major => "Electrical Engineering", :term => "spring", :year =>"2022" },
             {:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Computer Engineering", :term => "spring", :year =>"2022" },
@@ -23,4 +33,9 @@ end
 
 profiles.each do |profile|
   Profile.create!(profile)
+end
+
+
+faculties.each do |faculty|
+  Faculty.create!(faculty)
 end
