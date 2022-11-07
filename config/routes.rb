@@ -21,4 +21,10 @@ Rails.application.routes.draw do
   post 'main/intermediate_sign_up'
 
 
+
+  get 'intermediate_login', to: 'main#intermediate_login', as: 'intermediate_login'
+  post 'main/intermediate_login'
+
+  # get 'intermediate_login', to: 'main#intermediate_login', as: 'intermediate_login'
+  # post 'main/sign_up/view_profile'
 end
