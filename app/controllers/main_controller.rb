@@ -12,7 +12,8 @@ class MainController < ApplicationController
 
   end
   def login
-
+    @student = Student
+    @profiles = Profile
   end
   def sign_up
     @profiles = Profile
@@ -35,7 +36,6 @@ class MainController < ApplicationController
       @current_profile.year = params[:year]
       @current_profile.college_name = params[:college_name]
       @current_profile.save
-
     end
   end
 
