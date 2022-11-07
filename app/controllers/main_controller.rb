@@ -20,29 +20,38 @@ class MainController < ApplicationController
 
 
   def intermediate_login
-    puts params[:user_first_name]
-    if params[:user_first_name]==nil
+    # puts params[:user_first_name]
+    if params[:user_fn].blank?
       puts "first"
+      # puts params[:user_first_name].to_s
       flash[:warning]= "Empty first name"
-    end
-    if params[:user_last_name]==nil
+      end # return
+    if params[:user_last_name].to_s.blank?
       puts "last"
       flash[:warning]= "Empty last name"
-    end
-    if params[:user_email]==nil
+      end# return
+    if params[:user_email].blank?
       puts "email"
       flash[:warning]= "Empty first name"
-    end
-    if params[:user_password]==nil
+      # return
+      end
+    if params[:user_password].blank?
       puts "pwd"
       flash[:warning]= "Empty first name"
-    end
+      end  # return
     if params[:type].blank?
       puts "radio"
       flash[:warning]= "Empty radio"
+      # return
     end
 
-    # redirect_to main_sign_up_path
+    puts params[:user_last_name].to_s
+    if params[:type]=="type_radio_button_faculty"
+    #  create a faculty account
+    else
+    #  create a student account
+    end
   end
+
 
 end
