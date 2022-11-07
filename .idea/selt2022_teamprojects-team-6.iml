@@ -23,6 +23,7 @@
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.5.2, Remote-rbenv: ruby-2.6.6-p146) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v6.0.4, Remote-rbenv: ruby-2.6.6-p146) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="backports (v3.11.4, Remote-rbenv: ruby-2.6.6-p146) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.18, Remote-rbenv: ruby-2.6.6-p146) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, Remote-rbenv: ruby-2.6.6-p146) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.3.25, Remote-rbenv: ruby-2.6.6-p146) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v10.0.2, Remote-rbenv: ruby-2.6.6-p146) [gem]" level="application" />
