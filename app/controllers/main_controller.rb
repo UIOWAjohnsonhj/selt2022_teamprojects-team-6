@@ -3,7 +3,7 @@ class MainController < ApplicationController
 
   def initialize
     super
-    @id = 3
+    @id =nil
     @current_profile = nil
   end
   def index
