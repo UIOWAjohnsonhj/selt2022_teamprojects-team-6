@@ -1,0 +1,79 @@
+<h1>Profile</h1>
+
+<div class="profile">
+  <div class="profile_features">
+    <br>
+    <form method="post" action="edit_profile">
+      <br>
+      <div class="row">
+        <label class="label">GRE</label>
+        <label class="label">TOEFL</label>
+        <label class="label">CAPA</label>
+      </div>
+      <br>
+      <div class="row">
+        <input value="<%= @current_profile.gre %>" class="field" name="gre" readonly >
+        <input value="<%= @current_profile.toefl %>" class="field" name="toefl" readonly>
+        <input value="<%= @current_profile.capa %>" class="field" name="capa" readonly>
+      </div>
+      <br>
+      <div class="row">
+        <label class="label">Intrested Major</label>
+        <label class="label">Term</label>
+        <label class="label">Year</label>
+      </div>
+      <br>
+      <div class="row">
+        <input value="<%= @current_profile.interested_major %>" list="majors" class="field" name="major" readonly>
+        <input value="<%= @current_profile.term %>" list="term" class="field" name="term" readonly>
+        <input value="<%= @current_profile.year %>" list="year" class="field" name="year" readonly>
+
+        <br>
+      </div>
+      <br>
+
+      <div class="row">
+        <label class="label">Undergrad college</label>
+      </div>
+      <br>
+
+      <div class="row">
+        <input value="<%= @current_profile.college_name %>" class="field2" name="college_name" readonly>
+      </div>
+      <br>
+      <h2>Work experience</h2>
+      <br>
+      <div class="row">
+        <label class="label">Company name</label>
+        <label class="label">Job title</label>
+        <label class="label">Description</label>
+        <label class="label">from</label>
+        <label class="label">to</label>
+      </div>
+      <br>
+      <div class="row">
+        <input class="field2" name="company" readonly>
+        <input class="field2" name="position" readonly>
+        <input class="field2" name="description" readonly>
+        <input class="field2" name="from" readonly>
+        <input class="field2" name="to" readonly>
+
+      </div>
+      <br>
+      <br>
+      <input type="submit" class = "btn" value="Edit profile">
+
+      <br>
+    </form>
+    <br>
+  </div>
+
+  <div class="profile_features2">
+    <div class="vl"></div>
+  </div>
+  <div class="profile_features">
+    <h1>Universities Applied</h1>
+
+  </div>
+</div>
+

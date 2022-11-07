@@ -20,7 +20,7 @@ end
 
 describe StudentsController do
   describe '' do
-   it 'Should ' do
+   it '' do
 
     end
   end

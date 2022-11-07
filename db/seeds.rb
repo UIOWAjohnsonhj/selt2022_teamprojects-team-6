@@ -6,12 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-students = [{:first_name => 'Kiana', :last_name => 'Erickson', :user_name => 'kberickson'},
-          {:first_name => 'Joslin', :last_name => 'Some', :user_name => 'jsome'},
-          {:first_name => 'Evan', :last_name => 'Brewer', :user_name => 'ebrewer'},
-          {:first_name => 'Ben', :last_name => 'Desollar', :user_name => 'bdesollar'},
-          {:first_name => 'Adnane', :last_name => 'Ezouhri', :user_name => 'aezouhri'},
-          {:first_name => 'Christian', :last_name => 'Baseme', :user_name => 'cbaseme'},
+students = [{:first_name => 'Kiana', :last_name => 'Erickson', :user_name => 'kberickson', :password=>"1234"},
+          {:first_name => 'Joslin', :last_name => 'Some', :user_name => 'jsome', :password=>"1234"},
+          {:first_name => 'Evan', :last_name => 'Brewer', :user_name => 'ebrewer', :password=>"1234"},
+          {:first_name => 'Ben', :last_name => 'Desollar', :user_name => 'bdesollar', :password=>"1234"},
+          {:first_name => 'Adnane', :last_name => 'Ezouhri', :user_name => 'aezouhri', :password=>"1234"},
+          {:first_name => 'Christian', :last_name => 'Baseme', :user_name => 'cbaseme', :password=>"1234"},
   	 ]
 
 #i added the faculty in front of first names to differentiate from the students names
