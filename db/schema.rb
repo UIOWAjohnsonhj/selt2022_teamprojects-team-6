@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20221105224322) do
     t.string  "last_name"
     t.string  "user_name"
     t.string  "email"
-    t.string  "password_digest"
+    t.string  "password"
     t.string  "department"
     t.boolean "chair"
     t.string  "university"
@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(version: 20221105224322) do
     t.integer "student_id"
     t.integer "gre"
     t.integer "toefl"
+    t.integer "capa"
     t.string  "interested_major"
     t.string  "term"
     t.string  "year"
+    t.string  "college_name"
   end
 
   create_table "students", force: :cascade do |t|
@@ -39,6 +41,7 @@ ActiveRecord::Schema.define(version: 20221105224322) do
     t.string   "user_name"
     t.string   "email"
     t.string   "password"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
