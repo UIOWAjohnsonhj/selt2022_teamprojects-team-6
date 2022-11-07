@@ -15,6 +15,7 @@ class MainController < ApplicationController
     end
   end
   def sign_up
+
   end
   def view_profile
   end
@@ -85,5 +86,4 @@ class MainController < ApplicationController
     redirect_to root_path
 
   end
-
 end
