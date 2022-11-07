@@ -39400,3 +39400,346 @@ Processing by MainController#intermediate_login as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"OXbU/NfM++xpPMb4dADQEphund98dhr0mFjq4gPYM4bR6rj+joixWQ1yTXR/dOccduqrIGEGIVzuDuiuyMX72A==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
   Rendered main/intermediate_login.html.haml within layouts/application (1.0ms)
 Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-07 13:07:55 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 18ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:07:57 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XMpWNctSINtTMHt/gVq0h+RpjneY9F2pvnp7PteER0K0Vjo3khZqbjd+8POKLoOJCu24iIWEZgHILHlyHJmPHA==", "commit"=>"sign_up"}
+  Rendered main/sign_up.html.haml within layouts/application (3.6ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:07:59 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hOXvROyidpEJHYRKQNzAjPnZ5YrLqgpVHPmEYkIhnR1seYNGteY8JG1TD8ZLqPeCF13TddbaMf1qr4YuiTxVQw==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:17:24 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hOXvROyidpEJHYRKQNzAjPnZ5YrLqgpVHPmEYkIhnR1seYNGteY8JG1TD8ZLqPeCF13TddbaMf1qr4YuiTxVQw==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"aezouhri@uiowa.edu", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:17:53 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hOXvROyidpEJHYRKQNzAjPnZ5YrLqgpVHPmEYkIhnR1seYNGteY8JG1TD8ZLqPeCF13TddbaMf1qr4YuiTxVQw==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"aezouhri@uiowa.edu", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:18:32 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hOXvROyidpEJHYRKQNzAjPnZ5YrLqgpVHPmEYkIhnR1seYNGteY8JG1TD8ZLqPeCF13TddbaMf1qr4YuiTxVQw==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"aezouhri@uiowa.edu", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/index" for 127.0.0.1 at 2022-11-07 13:18:57 -0600
+Processing by MainController#index as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YyEAzD1WSeyKtpTlvOSszEvvzbPxVX4uwVSWOhScuw5EOgBabETktZkUd+dh6W936uJydK1blDNU1AUI0+6sg==", "commit"=>"Home page"}
+  Rendered main/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 17ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:18:59 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+48Awl+4ap0IwZhgHlAz27fMzKUS0oLf0BULWjl0yXcTE2zABvwgKGyPE+wVJATVWUj6Wg+iuXemQwkW8mkBKQ==", "commit"=>"sign_up"}
+  Rendered main/sign_up.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 20ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:19:06 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gFjKzuPCAI/WB5G1fFBJk+gtlQVN/EwAgkroAagaWj1oxKbMuoZKOrJJGjl3JH6dBqmj+lCMd6j0HOpNYweSYw==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/index" for 127.0.0.1 at 2022-11-07 13:19:22 -0600
+Processing by MainController#index as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vpjs/44iTdGK2MEJt2ncHY60zYsgTDui7wEOxCh0PtZWBID912YHZO6WSoW8HesTYDD7dD08AAqZVwyI42n2iA==", "commit"=>"Home page"}
+  Rendered main/index.html.haml within layouts/application (2.4ms)
+Completed 200 OK in 18ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:19:23 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"opqmfXhY6t0y+K4mTmqGcvdGfhB6fII0ZoU8D83G0OlKBsp/IRygaFa2JapFHrF8GcJI72cMuZwQ0z5DBtsYtw==", "commit"=>"sign_up"}
+  Rendered main/sign_up.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 23ms (Views: 22.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:19:30 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/ND4btfbCPMegrtLRWCfNvGNeld6DVOmYDK6OZg7GfkUTJRsjp9CRnrMMMdOFKg4HwlMqGd9aA4WZLh1UybRpw==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/index" for 127.0.0.1 at 2022-11-07 13:20:17 -0600
+Processing by MainController#index as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8hptZBvHr+jegL5KaUhaLo9y4VNs90pkCXTist/f/D8ahgFmQoPlXbrONcZiPG0gYfbXrHGHccx/IuD+FMI0YQ==", "commit"=>"Home page"}
+  Rendered main/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:20:18 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IZt6tbDlzrT2osaxdFZn2KbT885QJuWYGlC3EZuqwR7JBxa36aGEAZLsTT1/IlDWSFfFMU1W3jBsBrVdULcJQA==", "commit"=>"sign_up"}
+  Rendered main/sign_up.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 14ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:20:25 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LMC71yTb1JwavUWzf87vHsP/0ZyuLbusRqtx19Fqy6LEXNfVfZ+eKX7zzj90utgQLXvnY7NdgAQw/XObGncD/A==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_faculty", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:22:00 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dEp0YQYMvUHISWsm/qKSnMb+0ZFGlkO/fk2obtCp90ec1hhjX0j39KwH4Kr11qWSKHrnblvmeBcIG6oiG7Q/GQ==", "commit"=>"Back to Sign up"}
+  Rendered main/sign_up.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 14ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:22:06 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fogO1NnGOgctsowXJu3OQ4GDL+rKVi4TfYmvmfXfAcaWFGLWgIJwskn8B5stmflNbwcZFdcmFbsL363VPsLJmA==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:22:32 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fogO1NnGOgctsowXJu3OQ4GDL+rKVi4TfYmvmfXfAcaWFGLWgIJwskn8B5stmflNbwcZFdcmFbsL363VPsLJmA==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:23:25 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N49KpeRB9m8oH0U/rFQbulCbeP4g4ao5FEwU2nid6v7fEyanvQW82kxRzrOnICy0vh9OAT2RkZFiGhaWs4AioA==", "commit"=>"Back to Sign up"}
+  Rendered main/sign_up.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 21ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:23:31 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yDejK1TSSRlZNk1zGAqGmz+2RT5euzLePFPDXex2db8gq88pDZYDrD14xv8TfrGV0TJzwUPLCXZKBcERJ2u94Q==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:23:54 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KmmS1AxmpW9jwyAnVpqdgLXzZJHZ0UTiK762FqnCUJnC9f7WVSLv2geNq6td7qqOW3dSbsShf0pd6LRaYt+Yxw==", "commit"=>"Back to Sign up"}
+  Rendered main/sign_up.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:24:01 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Jdl668S56jV1liJiaTokWpyB7vP46gPnemtxAa975ijNRRbpnf2ggBHYqe5iThNUcgXYDOWaOE8MPXNNZGYudg==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 39ms (Views: 38.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:24:07 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oQsBXO1eHXuBXxlTcIDf2c7CGaxciASySGjmU/xZHV5Jl21etBpXzuURkt979OjXIEYvU0H4Pxo+PuQfN0TVAA==", "commit"=>"Back to Sign up"}
+  Rendered main/sign_up.html.haml within layouts/application (3.7ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:24:14 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t5XH1LVU/2pcbX7f7ZUlkZ2KfQka1FSV/x5n/o38fXRfCavW7BC13zgj9VPm4RKfcw5L9gekbz2JSGWyRuG1Kg==", "user"=>{"first_name"=>"Adnane", "last_name"=>"", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:24:16 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zBbFFkH4kNaCxFXTtPRgHEY/tlqlNJhvPm/OvnyO5jUkiqkUGLzaY+aK3l+/gFcSqLuApbhEo8dIOczyt5Muaw==", "commit"=>"Back to Sign up"}
+  Rendered main/sign_up.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 17ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:24:18 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZInmf4K2lDNNfDgJBEyLPaOSGdKSpDs+kUSyDr5rAyOMFYp92/Lehikys4UPOLwzTRYvLY/UAJbnErBCdXbLfQ==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-07 13:24:22 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-07 13:24:23 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:24:24 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+IyuJlsufCbKKvZs9iLpH8QVrlq1eARvuaFb7XhiCZYQEMIkAmo2k65kfeD9Vt4RKpGYpagIP8fP91mhs3/ByA==", "commit"=>"sign_up"}
+  Rendered main/sign_up.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 13ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:24:26 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+yZhEHVonvBgOkTj+fS4Lq4i+07GEJ9yuawwAOrKwPsTug0SLCzURQR0z2/ygI8gQKbNsdtgpNrP+jJMIdcIpQ==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/index" for 127.0.0.1 at 2022-11-07 13:25:10 -0600
+Processing by MainController#index as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2VDqWsgA0VvFhXTk/c/tTluJPi5Xk25DVTb/NzT4SyUxzIZYkUSb7qHL/2j2u9pAtQ0I0UrjVesjYP17/+WDew==", "commit"=>"Home page"}
+  Rendered main/index.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/index" for 127.0.0.1 at 2022-11-07 13:25:11 -0600
+Processing by MainController#index as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2VDqWsgA0VvFhXTk/c/tTluJPi5Xk25DVTb/NzT4SyUxzIZYkUSb7qHL/2j2u9pAtQ0I0UrjVesjYP17/+WDew==", "commit"=>"Home page"}
+  Rendered main/index.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:25:13 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qahs6TwcgBhssIEciltYqSYuoO6eqA53XLC6A4/KklipNADrZVjKrQj+CpCBL2+nyKqWEYPYNd8q5rhPRNdaBg==", "commit"=>"sign_up"}
+  Rendered main/sign_up.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:25:15 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dWI8yARsN3rFCvtbnD5OcegRJPx2NsxW+KffV9+7TvCd/lDKXSh9z6FEcNeXSnl/BpUSA2tG9/6O8d0bFKaGrg==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:25:20 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dWI8yARsN3rFCvtbnD5OcegRJPx2NsxW+KffV9+7TvCd/lDKXSh9z6FEcNeXSnl/BpUSA2tG9/6O8d0bFKaGrg==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:25:24 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dWI8yARsN3rFCvtbnD5OcegRJPx2NsxW+KffV9+7TvCd/lDKXSh9z6FEcNeXSnl/BpUSA2tG9/6O8d0bFKaGrg==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:25:41 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dWI8yARsN3rFCvtbnD5OcegRJPx2NsxW+KffV9+7TvCd/lDKXSh9z6FEcNeXSnl/BpUSA2tG9/6O8d0bFKaGrg==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:26:30 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dWI8yARsN3rFCvtbnD5OcegRJPx2NsxW+KffV9+7TvCd/lDKXSh9z6FEcNeXSnl/BpUSA2tG9/6O8d0bFKaGrg==", "user"=>{"first_name"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/index" for 127.0.0.1 at 2022-11-07 13:26:34 -0600
+Processing by MainController#index as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D8J4i4m18Xhng6cl7LZdZNEU65z1mZAFLezsmfYYueznXhSJ0PG7zQPNLKnnwmpqP5DdY+jpq61buu7VPQVxsg==", "commit"=>"Home page"}
+  Rendered main/index.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/index" for 127.0.0.1 at 2022-11-07 13:26:36 -0600
+Processing by MainController#index as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D8J4i4m18Xhng6cl7LZdZNEU65z1mZAFLezsmfYYueznXhSJ0PG7zQPNLKnnwmpqP5DdY+jpq61buu7VPQVxsg==", "commit"=>"Home page"}
+  Rendered main/index.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:26:37 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/Cp2MkI0umvIeELKy2CXwng4RUpoA6e7KzCTNI6fBYsUthowG3Dw3qw2yUbAFKDMlrxztXVznBNdZpF4RYLN1Q==", "commit"=>"sign_up"}
+  Rendered main/sign_up.html.haml within layouts/application (5.8ms)
+Completed 200 OK in 17ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:26:42 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bg1GVsRhZqXb0BJbQddFWEjE3bagpZ0aMQrymDrV0GqGkSpUnSUsEL+emddKo3JWpkDrSb3VprJHXPDU8cgYNA==", "user"=>{"fn"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/index" for 127.0.0.1 at 2022-11-07 13:27:14 -0600
+Processing by MainController#index as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LaWcdAViw+tA8Ow+BFNttJTR5O+bYmCep0vpwvnKGpjFOfB2XCaJXiS+Z7IPJ1q6elXSEIYSWzbRHeuOMtfSxg==", "commit"=>"Home page"}
+  Rendered main/index.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 14ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:27:32 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TRxJCKlEwHttoSyRtd7bovvaWyxH6TbgDn7N6BtcouilgCUK8ACKzgnvpx2+quysFV5t01qZDUh4KM+k0EFqtg==", "commit"=>"sign_up"}
+  Rendered main/sign_up.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 22ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:27:47 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B14YPpW6f20lxGiseas+MvobfRTuqkQ4oumCPRFtRQrvwnQ8zP412EGK4yBy3wk8FJ9L6/Paf5DUv4Bx2nCNVA==", "user"=>{"fn"=>"Adnane", "last_name"=>"Ezouhri", "email"=>"ezouhriadnane@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  Rendered main/intermediate_login.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-07 13:27:58 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TRxJCKlEwHttoSyRtd7bovvaWyxH6TbgDn7N6BtcouilgCUK8ACKzgnvpx2+quysFV5t01qZDUh4KM+k0EFqtg==", "commit"=>"sign_up"}
+  Rendered main/sign_up.html.haml within layouts/application (8.0ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (wrong number of arguments (given 1, expected 2..4)):
+    1: %h1 Sign Up
+    2: 
+    3: =form_tag main_intermediate_login_path, :method=>:post do
+    4:   =label :first_name
+    5:   =text_field :user, :fn
+    6:   =label :user, :last_name
+    7:   =text_field :user, :last_name
+  app/views/main/sign_up.html.haml:4:in `block in _app_views_main_sign_up_html_haml___3496710192047270440_70043954422460'
+  app/views/main/sign_up.html.haml:3:in `_app_views_main_sign_up_html_haml___3496710192047270440_70043954422460'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (20.2ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (41.8ms)
+
+
+Started POST "/main/index" for 127.0.0.1 at 2022-11-07 13:28:06 -0600
+Processing by MainController#index as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LaWcdAViw+tA8Ow+BFNttJTR5O+bYmCep0vpwvnKGpjFOfB2XCaJXiS+Z7IPJ1q6elXSEIYSWzbRHeuOMtfSxg==", "commit"=>"Home page"}
+  Rendered main/index.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms)
