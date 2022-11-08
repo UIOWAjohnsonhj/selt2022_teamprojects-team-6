@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'login', to: 'main#login', as: 'login'
   post 'main/login'
 
-  # get 'main/sign_up', to: 'main#sign_up', as: 'main/sign_up'
+  get 'main/intermediate_login', to: redirect('sign_up')
   # post 'sign_up'
 
   get 'sign_up', to: 'main#sign_up', as: 'sign_up'

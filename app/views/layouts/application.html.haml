@@ -9,5 +9,9 @@
   %body
     %h1.title Simplaply
     #main
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
 
       = yield
