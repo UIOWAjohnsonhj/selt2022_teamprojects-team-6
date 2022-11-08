@@ -13953,17 +13953,17 @@ Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac
 Migrating to CreateStudents (20150809022253)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
 DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/ssome/selt2022_teamprojects-team-6/db/migrate/20150809022253_create_students.rb:11)
-  [1m[35m (0.3ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.3ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
   [1m[35m (4.7ms)[0m  commit transaction
 Migrating to CreateProfiles (20150809022254)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022254"]]
   [1m[35m (4.7ms)[0m  commit transaction
 Migrating to CreateFaculties (20221105224322)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "department" varchar, "chair" boolean, "university" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "department" varchar, "chair" boolean, "university" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221105224322"]]
   [1m[35m (5.0ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -14479,12 +14479,12 @@ Completed 200 OK in 24ms (Views: 14.6ms | ActiveRecord: 1.3ms)
 Migrating to CreateStudents (20150809022253)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
 DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/ssome/selt2022_teamprojects-team-6/db/migrate/20150809022253_create_students.rb:11)
-  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
   [1m[35m (6.2ms)[0m  commit transaction
 Migrating to CreateProfiles (20150809022254)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022254"]]
   [1m[35m (6.1ms)[0m  commit transaction
 Migrating to CreateExperience (20150809022256)
@@ -14495,22 +14495,22 @@ Migrating to CreateExperience (20150809022256)
 Migrating to CreateStudents (20150809022253)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
 DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/ssome/selt2022_teamprojects-team-6/db/migrate/20150809022253_create_students.rb:11)
-  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
   [1m[35m (7.1ms)[0m  commit transaction
 Migrating to CreateProfiles (20150809022254)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.3ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar) 
+  [1m[35m (0.3ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022254"]]
   [1m[35m (7.5ms)[0m  commit transaction
 Migrating to CreateExperiences (20150809022256)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022256"]]
   [1m[35m (6.3ms)[0m  commit transaction
 Migrating to CreateFaculties (20221105224322)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "department" varchar, "chair" boolean, "university" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "department" varchar, "chair" boolean, "university" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221105224322"]]
   [1m[35m (5.7ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -14577,7 +14577,7 @@ Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.2ms)
 ActionView::Template::Error (undefined local variable or method `sessions_path' for #<#<Class:0x0000561fee289a38>:0x00007f9a30058c38>
 Did you mean?  session):
     1: %h1 Log In
-    2: 
+    2:
     3: =form_tag (sessions_path) do
     4:  =text_field_tag :user
     5:  =text_field_tag :password
@@ -14989,22 +14989,22 @@ NoMethodError (undefined method `gre=' for #<ActiveRecord::Relation []>):
 Migrating to CreateStudents (20150809022253)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
 DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/ssome/selt2022_teamprojects-team-6/db/migrate/20150809022253_create_students.rb:11)
-  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
   [1m[35m (8.0ms)[0m  commit transaction
 Migrating to CreateProfiles (20150809022254)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022254"]]
   [1m[35m (6.4ms)[0m  commit transaction
 Migrating to CreateExperiences (20150809022256)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022256"]]
   [1m[35m (4.4ms)[0m  commit transaction
 Migrating to CreateFaculties (20221105224322)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.1ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "department" varchar, "chair" boolean, "university" varchar) 
+  [1m[35m (0.1ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "department" varchar, "chair" boolean, "university" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221105224322"]]
   [1m[35m (4.5ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -16163,22 +16163,22 @@ Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac
 Migrating to CreateStudents (20150809022253)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
 DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/ssome/selt2022_teamprojects-team-6/db/migrate/20150809022253_create_students.rb:11)
-  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
   [1m[35m (6.1ms)[0m  commit transaction
 Migrating to CreateProfiles (20150809022254)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022254"]]
   [1m[35m (5.3ms)[0m  commit transaction
 Migrating to CreateExperiences (20150809022256)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.1ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar) 
+  [1m[35m (0.1ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022256"]]
   [1m[35m (4.6ms)[0m  commit transaction
 Migrating to CreateFaculties (20221105224322)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.1ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "department" varchar, "chair" boolean, "university" varchar) 
+  [1m[35m (0.1ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "department" varchar, "chair" boolean, "university" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221105224322"]]
   [1m[35m (4.4ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -16352,22 +16352,22 @@ Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac
 Migrating to CreateStudents (20150809022253)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
 DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/ssome/selt2022_teamprojects-team-6/db/migrate/20150809022253_create_students.rb:11)
-  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
   [1m[35m (6.9ms)[0m  commit transaction
 Migrating to CreateProfiles (20150809022254)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022254"]]
   [1m[35m (4.9ms)[0m  commit transaction
 Migrating to CreateExperiences (20150809022256)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.1ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar) 
+  [1m[35m (0.1ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022256"]]
   [1m[35m (4.3ms)[0m  commit transaction
 Migrating to CreateFaculties (20221105224322)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.1ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "department" varchar, "chair" boolean, "university" varchar) 
+  [1m[35m (0.1ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "department" varchar, "chair" boolean, "university" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221105224322"]]
   [1m[35m (4.8ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
