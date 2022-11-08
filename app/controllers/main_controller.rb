@@ -12,10 +12,8 @@ class MainController < ApplicationController
     end
   end
   def sign_up
-
   end
   def view_profile
-
   end
 
 
@@ -37,10 +35,10 @@ class MainController < ApplicationController
     elsif params[:user][:password].blank?
       puts "pwd"
       flash[:notice]= "Empty password"
-      return
+      # redirect_to main_sign_up_path
     elsif params[:type].blank?
       puts "radio"
-      flash[:warning]= "Empty radio"
+      flash[:notice]= "Empty radio"
       return
     end
 
@@ -54,5 +52,4 @@ class MainController < ApplicationController
     end
   end
 
-  # redirect_to main_index_path
 end
