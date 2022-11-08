@@ -1,4 +1,3 @@
-
 describe Student do
   describe '' do
     context '' do

@@ -4827,3 +4827,320 @@ Migrating to CreateFaculties (20221105224322)
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
   [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Started GET "/" for ::1 at 2022-11-06 16:15:55 -0600
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.0.7.2/lib/active_record/railtie.rb:113)
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.7.2) lib/active_record/migration.rb:573:in `check_pending!'
+activerecord (5.0.7.2) lib/active_record/migration.rb:549:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+rack (2.2.4) lib/rack/handler/webrick.rb:95:in `service'
+/Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/2.7.0/webrick/httpserver.rb:140:in `service'
+/Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/2.7.0/webrick/httpserver.rb:96:in `run'
+/Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/2.7.0/webrick/server.rb:307:in `block in start_thread'
+  Rendering /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (0.7ms)
+  Rendering /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.5ms)
+  Rendering /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.3ms)
+  Rendered /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.3ms)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from require at /Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/bin/rails:8)
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStudents (20150809022253)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateStudents < ActiveRecord::Migration[4.2] (called from require at /Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/bin/rails:8)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStudents (20150809022253)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateStudents < ActiveRecord::Migration[4.2] (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStudents (20150809022253)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateStudents < ActiveRecord::Migration[4.2] (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProfiles (20150809022254)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateProfiles < ActiveRecord::Migration[4.2] (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "interested_major" varchar, "term" varchar, "year" varchar)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022254"]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFaculties (20221105224322)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateFaculties < ActiveRecord::Migration[4.2] (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password_digest" varchar, "department" varchar, "chair" boolean, "university" varchar)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221105224322"]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-06 22:17:02.264177"], ["updated_at", "2022-11-06 22:17:02.264177"]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from require at /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/site_ruby/2.7.0/rubygems/core_ext/kernel_require.rb:85)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kiana"], ["last_name", "Erickson"], ["user_name", "kberickson"], ["password_digest", "$2a$12$tprY4bLjP/JPZp763V3KJeNKxHd8/xc/BWttS1RDdDUxE/M6wQE.6"], ["created_at", "2022-11-07 21:46:54.633976"], ["updated_at", "2022-11-07 21:46:54.633976"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Joslin"], ["last_name", "Some"], ["user_name", "jsome"], ["password_digest", "$2a$12$Oulyk1yEKe9eNCLGZ/BQoub6IafrQRzh/cfSZjIlW9EJeyb4qklM6"], ["created_at", "2022-11-07 21:46:54.875576"], ["updated_at", "2022-11-07 21:46:54.875576"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Evan"], ["last_name", "Brewer"], ["user_name", "ebrewer"], ["password_digest", "$2a$12$oalrP2hAenRymCbksBoXdeDYgv2TvvH/NUSFzP3dxaEv50TRHO8VC"], ["created_at", "2022-11-07 21:46:55.116477"], ["updated_at", "2022-11-07 21:46:55.116477"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ben"], ["last_name", "Desollar"], ["user_name", "bdesollar"], ["password_digest", "$2a$12$rB.YCslOBlWeullKpVVMQ.zOny8WLgBKi6KhChEjizZFXEsp9eRU6"], ["created_at", "2022-11-07 21:46:55.357182"], ["updated_at", "2022-11-07 21:46:55.357182"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Adnane"], ["last_name", "Ezouhri"], ["user_name", "aezouhri"], ["password_digest", "$2a$12$AXIc7uD2FitbrEkPUAGQ1.ZY9EWEf3MBvxeB4E7zpp8kTUfp7ZLL6"], ["created_at", "2022-11-07 21:46:55.599666"], ["updated_at", "2022-11-07 21:46:55.599666"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Christian"], ["last_name", "Baseme"], ["user_name", "cbaseme"], ["password_digest", "$2a$12$VJQVQ59EN5Fgg3ZVTBbs7OYTLCe4jog02OUHul229mNkyYiPF2HTm"], ["created_at", "2022-11-07 21:46:55.842737"], ["updated_at", "2022-11-07 21:46:55.842737"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 1], ["gre", 33], ["toefl", 109], ["interested_major", "Mechanical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 4], ["gre", 23], ["toefl", 10], ["interested_major", "Electrical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 1], ["gre", 33], ["toefl", 109], ["interested_major", "Computer Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStudents (20150809022253)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateStudents < ActiveRecord::Migration[4.2] (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProfiles (20150809022254)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateProfiles < ActiveRecord::Migration[4.2] (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022254"]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFaculties (20221105224322)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateFaculties < ActiveRecord::Migration[4.2] (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password" varchar, "department" varchar, "chair" boolean, "university" varchar)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221105224322"]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-07 21:47:16.434899"], ["updated_at", "2022-11-07 21:47:16.434899"]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/bendesollar/.rbenv/versions/2.7.6/bin/rake:25)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kiana"], ["last_name", "Erickson"], ["user_name", "kberickson"], ["password_digest", "$2a$12$xPcKD/3JckEYlUCjx9BlRev2ZnlMyZ1y19c92tYMs7aA6jgBRUlQ2"], ["created_at", "2022-11-07 21:47:22.135105"], ["updated_at", "2022-11-07 21:47:22.135105"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Joslin"], ["last_name", "Some"], ["user_name", "jsome"], ["password_digest", "$2a$12$lhrsyPsoCWdTv558n18HTeGrBFua7H/2P5eSr1dUnY7Y6TuH6G..."], ["created_at", "2022-11-07 21:47:22.375521"], ["updated_at", "2022-11-07 21:47:22.375521"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Evan"], ["last_name", "Brewer"], ["user_name", "ebrewer"], ["password_digest", "$2a$12$OY.6pmVgvrOWhPktNuAYMeLOfTvNJ7L0tAnLJTfNXHN5jI7SteKmC"], ["created_at", "2022-11-07 21:47:22.616665"], ["updated_at", "2022-11-07 21:47:22.616665"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ben"], ["last_name", "Desollar"], ["user_name", "bdesollar"], ["password_digest", "$2a$12$hxrVZj5y932.w.jxizFDpOIK4RXlpdlOgmQIEFE.jwEz04HQV/BGO"], ["created_at", "2022-11-07 21:47:22.860256"], ["updated_at", "2022-11-07 21:47:22.860256"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Adnane"], ["last_name", "Ezouhri"], ["user_name", "aezouhri"], ["password_digest", "$2a$12$VeLVMhRSMzFmu6QeEUH6iOrIh7K0PCyH7eJaCW6jNd.WMv1SDHnuC"], ["created_at", "2022-11-07 21:47:23.101717"], ["updated_at", "2022-11-07 21:47:23.101717"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Christian"], ["last_name", "Baseme"], ["user_name", "cbaseme"], ["password_digest", "$2a$12$2X84Sq65kuYG5ARU5bjq2e3ee7A34X5mmtNdkNgRot.bNgBpY3Kp2"], ["created_at", "2022-11-07 21:47:23.343176"], ["updated_at", "2022-11-07 21:47:23.343176"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 1], ["gre", 33], ["toefl", 109], ["interested_major", "Mechanical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 4], ["gre", 23], ["toefl", 10], ["interested_major", "Electrical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 1], ["gre", 33], ["toefl", 109], ["interested_major", "Computer Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/" for ::1 at 2022-11-07 15:47:40 -0600
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.0.7.2/lib/active_record/railtie.rb:113)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:MainController> at /Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/main_controller.rb:2)
+Processing by MainController#index as HTML
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 144ms (Views: 143.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2022-11-07 15:47:40 -0600
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for ::1 at 2022-11-07 15:47:40 -0600
+Started POST "/main/login" for ::1 at 2022-11-07 15:47:45 -0600
+Processing by MainController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eqlREfkeQem4wKzGfupvrOK+Fg7FyPjCIJ0+TjTrKyXleZ8SE8gzdRqIrfOBGyYO3NfrFcQ6+55XfRADZQXwuw==", "commit"=>"login"}
+  Rendering main/login.html.haml within layouts/application
+  Rendered main/login.html.haml within layouts/application (17.5ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `sessions_path' for #<#<Class:0x0000000110048010>:0x0000000111819e28>
+Did you mean?  session):
+    1: %h1 Log In
+    2: 
+    3: =form_tag (sessions_path) do
+    4:  =text_field_tag :user
+    5:  =text_field_tag :password
+    6:  =submit_tag 'login'
+  
+app/views/main/login.html.haml:3:in `_app_views_main_login_html_haml__2480663170579268182_62120'
+  Rendering /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.3ms)
+  Rendering /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendering /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.9ms)
+Started POST "/main/sign_up" for ::1 at 2022-11-07 15:47:48 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eqlREfkeQem4wKzGfupvrOK+Fg7FyPjCIJ0+TjTrKyXleZ8SE8gzdRqIrfOBGyYO3NfrFcQ6+55XfRADZQXwuw==", "commit"=>"sign_up"}
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  Rendering main/sign_up.html.haml within layouts/application
+  Rendered main/sign_up.html.haml within layouts/application (16.5ms)
+Completed 200 OK in 41ms (Views: 28.3ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/main/view_profile" for ::1 at 2022-11-07 15:47:50 -0600
+Processing by MainController#view_profile as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eqlREfkeQem4wKzGfupvrOK+Fg7FyPjCIJ0+TjTrKyXleZ8SE8gzdRqIrfOBGyYO3NfrFcQ6+55XfRADZQXwuw==", "commit"=>"profile"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main/view_profile.html.erb within layouts/application
+  Rendered main/view_profile.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 9.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/main/view_profile" for ::1 at 2022-11-07 15:49:03 -0600
+Processing by MainController#view_profile as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eqlREfkeQem4wKzGfupvrOK+Fg7FyPjCIJ0+TjTrKyXleZ8SE8gzdRqIrfOBGyYO3NfrFcQ6+55XfRADZQXwuw==", "commit"=>"profile"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main/view_profile.html.erb within layouts/application
+  Rendered main/view_profile.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 14.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/main/view_profile" for ::1 at 2022-11-07 15:49:06 -0600
+Processing by MainController#view_profile as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eqlREfkeQem4wKzGfupvrOK+Fg7FyPjCIJ0+TjTrKyXleZ8SE8gzdRqIrfOBGyYO3NfrFcQ6+55XfRADZQXwuw==", "commit"=>"profile"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main/view_profile.html.erb within layouts/application
+  Rendered main/view_profile.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/main/view_profile" for ::1 at 2022-11-07 15:50:54 -0600
+Processing by MainController#view_profile as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eqlREfkeQem4wKzGfupvrOK+Fg7FyPjCIJ0+TjTrKyXleZ8SE8gzdRqIrfOBGyYO3NfrFcQ6+55XfRADZQXwuw==", "commit"=>"profile"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main/view_profile.html.erb within layouts/application
+  Rendered main/view_profile.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 37ms (Views: 33.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2022-11-08 15:50:30 -0600
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.0.7.2/lib/active_record/railtie.rb:113)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:MainController> at /Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/main_controller.rb:2)
+Processing by MainController#index as HTML
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (10.2ms)
+Completed 200 OK in 74ms (Views: 73.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2022-11-08 15:50:30 -0600
+Started POST "/main/view_profile" for ::1 at 2022-11-08 15:50:34 -0600
+Processing by MainController#view_profile as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VR/TnLgdBeRkZBD1VXtK3uSgRXhfiq2NuUTISxl90/nKzx2fUst3eMYsEcCqigN82sm4Y154rtHOpOYGSJMIZw==", "commit"=>"profile"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main/view_profile.html.erb within layouts/application
+  Rendered main/view_profile.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 9.1ms | ActiveRecord: 0.7ms)
+
+
