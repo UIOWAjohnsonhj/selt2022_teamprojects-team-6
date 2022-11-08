@@ -1,13 +1,13 @@
 %h1 Sign Up
 
 =form_tag main_intermediate_login_path, :method=>:post do
-  =label :user, :first_name
+  =label :label, :first_name
   =text_field :user, :first_name
-  =label :user, :last_name
+  =label :label, :last_name
   =text_field :user, :last_name
-  =label :user, :email_address
+  =label :label, :email_address
   =text_field :user, :email
-  =label :user, :password
+  =label :label, :password
   = password_field :user, :password
 
   %br/
