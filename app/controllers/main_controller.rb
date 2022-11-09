@@ -22,6 +22,8 @@ class MainController < ApplicationController
 
   def intermediate_login
     @student = Student
+    @profile= Profile
+
     puts params[:user]
     missing=false
     if params[:user][:first_name].blank?
@@ -55,8 +57,12 @@ class MainController < ApplicationController
     puts params
     if params[:type].present? && !missing
       if params[:type]=="radio_button_faculty"
-      #  create a faculty account
-      # Faculty.create!()
+        faculty={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
+                 :email => params[:user][:email],:password=>params[:user][:password] }
+        Faculty.create!(faculty)
+
+        # id=@profile.where(email:params[:user][:email])
+        # Commented out as we have yet to decide if we're making
         flash[:notice]= "Faculty Account created successfully"
       else
         #  create a student account
