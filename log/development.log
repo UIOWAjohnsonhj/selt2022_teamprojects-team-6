@@ -4837,7 +4837,6 @@ Migrations are pending. To resolve this issue, run:
         bin/rails db:migrate RAILS_ENV=development
 
 ):
-
 activerecord (5.0.7.2) lib/active_record/migration.rb:573:in `check_pending!'
 activerecord (5.0.7.2) lib/active_record/migration.rb:549:in `call'
 actionpack (5.0.7.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
@@ -5058,18 +5057,10 @@ Processing by MainController#login as HTML
   Rendering main/login.html.haml within layouts/application
   Rendered main/login.html.haml within layouts/application (17.5ms)
 Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.5ms)
-
-
-
-ActionView::Template::Error (undefined local variable or method `sessions_path' for #<#<Class:0x0000000110048010>:0x0000000111819e28>
-Did you mean?  session):
-    1: %h1 Log In
-    2:
     3: =form_tag (sessions_path) do
     4:  =text_field_tag :user
     5:  =text_field_tag :password
     6:  =submit_tag 'login'
-
 app/views/main/login.html.haml:3:in `_app_views_main_login_html_haml__2480663170579268182_62120'
   Rendering /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
   Rendering /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
