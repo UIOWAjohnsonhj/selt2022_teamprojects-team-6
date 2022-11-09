@@ -1,6 +1,9 @@
-class MainController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+require 'bcrypt'
 
+class MainController < ApplicationController
+  include BCrypt
+  skip_before_filter :verify_authenticity_token
+  # has_secure_password
   def index
 
   end
@@ -18,6 +21,7 @@ class MainController < ApplicationController
 
 
   def intermediate_login
+    @student = Student
     puts params[:user]
     missing=false
     if params[:user][:first_name].blank?
@@ -54,18 +58,21 @@ class MainController < ApplicationController
       #  create a faculty account
       # Faculty.create!()
         flash[:notice]= "Faculty Account created successfully"
-      # redirect_to main_index_path
       else
       #  create a student account
-      # Student.create!()
-        flash[:notice]= "Student Account created successfully"
-        # redirect_to main_index_path
+      hash={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
+            :email => params[:user][:email],:password=>params[:user][:password] }
+      puts hash
+      Student.create!(hash)
+      @student.all.each do |s|
+        puts s.first_name
       end
-    else
+        flash[:notice]= "Student Account created successfully"
+      end
 
-      redirect_to main_intermediate_login_path
     end
-  #  redirect to main page
+    redirect_to root_path
+
   end
 
 end
