@@ -5134,3 +5134,4 @@ Processing by MainController#view_profile as HTML
   Rendered main/view_profile.html.erb within layouts/application (0.7ms)
 Completed 200 OK in 18ms (Views: 9.1ms | ActiveRecord: 0.7ms)
 
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from require at /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/site_ruby/2.7.0/rubygems/core_ext/kernel_require.rb:85)
