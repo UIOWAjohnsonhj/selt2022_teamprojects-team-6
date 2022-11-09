@@ -27,6 +27,17 @@ profiles = [{:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Mech
             {:student_id=>4,:gre=> 23, :toefl => 10, :interested_major => "Electrical Engineering", :term => "spring", :year =>"2022" },
             {:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Computer Engineering", :term => "spring", :year =>"2022" },
             ]
+
+undergrad_schools = [{:student_id=>1, :country=>"United States", :university_name=>"University of Iowa", :major=>"Mechanical Engineering", :gpa => 3.53,
+                      :grading_scale=>"Letter Grading", :start_year=>2019, :expected_grad_year=>2023},
+                     {:student_id=>2, :country=>"China", :university_name=>"Peking University", :major=>"Biology", :gpa => 3.89,
+                      :grading_scale=>"Pass/Fail", :start_year=>2014, :expected_grad_year=>2018}
+                    ]
+
+undergrad_schools.each do |school|
+  UndergraduateSchool.create!(school)
+end
+
 students.each do |student|
   Student.create!(student)
 end
