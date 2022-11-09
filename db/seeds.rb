@@ -25,7 +25,7 @@ faculties = [{:first_name => 'Kiana-faculty', :last_name => 'Erickson', :user_na
 
 profiles = [{:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Mechanical Engineering", :term => "spring", :year =>"2022" } ,
             {:student_id=>4,:gre=> 23, :toefl => 10, :interested_major => "Electrical Engineering", :term => "spring", :year =>"2022" },
-            {:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Computer Engineering", :term => "spring", :year =>"2022" },
+            {:student_id=>2,:gre=> 33, :toefl => 109, :interested_major => "Computer Engineering", :term => "spring", :year =>"2022" },
             ]
 students.each do |student|
   Student.create!(student)

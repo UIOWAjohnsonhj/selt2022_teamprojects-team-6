@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20221105224322) do
 
+  create_table "experiences", force: :cascade do |t|
+    t.integer "student_id"
+    t.string  "company_name"
+    t.string  "description"
+    t.string  "job_title"
+    t.string  "from"
+    t.string  "to"
+  end
+
   create_table "faculties", force: :cascade do |t|
     t.string  "first_name"
     t.string  "last_name"
