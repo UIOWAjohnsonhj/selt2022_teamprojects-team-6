@@ -54,4 +54,17 @@ ActiveRecord::Schema.define(version: 20221108040054) do
     t.datetime "updated_at"
   end
 
+  create_table "undergraduate_schools", force: :cascade do |t|
+    t.string   "student_id"
+    t.string   "country"
+    t.string   "university_name"
+    t.string   "major"
+    t.float    "gpa"
+    t.string   "grading_scale"
+    t.integer  "start_year"
+    t.integer  "expected_grad_year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end
