@@ -59,14 +59,19 @@ class MainController < ApplicationController
       # Faculty.create!()
         flash[:notice]= "Faculty Account created successfully"
       else
-      #  create a student account
-      hash={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
-            :email => params[:user][:email],:password=>params[:user][:password] }
-      puts hash
-      Student.create!(hash)
-      @student.all.each do |s|
-        puts s.first_name
-      end
+        #  create a student account
+        student={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
+              :email => params[:user][:email],:password=>params[:user][:password] }
+
+        Student.create!(student)
+        id=@student.where(email:params[:user][:email])
+
+        student_profile={:student_id=>id,:gre=>nil, :toefl => nil,
+                         :interested_major => nil, :term => nil,
+                         :year =>nil }
+
+        Profile.create!(student_profile)
+
         flash[:notice]= "Student Account created successfully"
       end
 
