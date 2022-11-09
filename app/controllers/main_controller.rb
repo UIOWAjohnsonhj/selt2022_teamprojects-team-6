@@ -3,15 +3,16 @@ class MainController < ApplicationController
 
   def initialize
     super
-    @id = 3
+    @student = Student
+    @profiles = Profile
+    @id = 2
     @current_profile = nil
   end
   def index
 
   end
   def login
-    @student = Student
-    @profiles = Profile
+
   end
   def sign_up
     @profiles = Profile
@@ -20,9 +21,11 @@ class MainController < ApplicationController
     end
   end
   def view_profile
-    @current_profile = Profile.find(@id)
 
-    puts(@current_profile.gre)
+    @current_profile = Profile.where(student_id: @id).take
+    #@experience = Experience.where(student_id: @id).take
+    @student = Student.find(@id)
+
     if params.include? "gre"
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
@@ -32,6 +35,7 @@ class MainController < ApplicationController
       @current_profile.year = params[:year]
       @current_profile.college_name = params[:college_name]
       @current_profile.save
+
     end
   end
 
