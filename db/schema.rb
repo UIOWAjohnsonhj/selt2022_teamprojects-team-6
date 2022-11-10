@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20221110000653) do
     t.string  "last_name"
     t.string  "user_name"
     t.string  "email"
-    t.string  "password_digest"
+    t.string  "password"
     t.string  "department"
     t.boolean "chair"
     t.string  "university"

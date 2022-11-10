@@ -13,7 +13,6 @@ class MainController < ApplicationController
 
   end
   def login
-
     @student = Student
     @profiles = Profile
   end
@@ -45,11 +44,7 @@ class MainController < ApplicationController
     @current_profile = Profile.find(@@id)
 
   end
-  def which_user
-    #look in student db for given credentials, if found then go to view profile
 
-    #look in faculty db for given credentials, if found then go to my evaluation
-  end
   def intermediate_login
     given_email= params[:user][:email]
 
