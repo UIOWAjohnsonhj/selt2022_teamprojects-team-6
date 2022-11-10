@@ -1,9 +1,8 @@
 class CreateStudents < ActiveRecord::Migration
   def change
     create_table :students do |t|
-      t.string :first_name, unique: true
+      t.string :first_name
       t.string :last_name
-      t.string :user_name
       t.string :email, unique: true
       t.string :password_digest
       # Add fields that let Rails automatically keep track
