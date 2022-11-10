@@ -44,7 +44,9 @@ class MainController < ApplicationController
     @current_profile = Profile.find(@@id)
 
   end
+  def faculty_profile
 
+  end
   def intermediate_login
     given_email= params[:user][:email]
 
@@ -53,7 +55,9 @@ class MainController < ApplicationController
    if not @student.nil?
       @@id = @student.id
       redirect_to view_profile_path
-    elsif not @faculty.nil?
+   elsif not @faculty.nil?
+     @@id = @faculty.id
+     redirect_to faculty_profile_path
 
    else
          flash[:notice]="Invalid user"
