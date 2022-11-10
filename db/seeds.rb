@@ -6,26 +6,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-students = [{:first_name => 'Kiana', :last_name => 'Erickson', :email => 'kberickson@uiowa.edu'},
-          {:first_name => 'Joslin', :last_name => 'Some', :email => 'jsome@uiowa.edu'},
-          {:first_name => 'Evan', :last_name => 'Brewer', :email => 'ebrewer@uiowa.edu'},
-          {:first_name => 'Ben', :last_name => 'Desollar', :email => 'bdesollar@uiowa.edu'},
-          {:first_name => 'Adnane', :last_name => 'Ezouhri', :email => 'aezouhri@uiowa.edu'},
-          {:first_name => 'Christian', :last_name => 'Baseme', :email => 'cbaseme@uiowa.edu'},
+students = [{:first_name => 'Kiana', :last_name => 'Erickson', :email => 'kberickson@uiowa.edu', :password_digest=>"1234"},
+          {:first_name => 'Joslin', :last_name => 'Some', :email => 'jsome@uiowa.edu', :password_digest=>"1234"},
+          {:first_name => 'Evan', :last_name => 'Brewer', :email => 'ebrewer@uiowa.edu', :password_digest=>"1234"},
+          {:first_name => 'Ben', :last_name => 'Desollar', :email => 'bdesollar@uiowa.edu', :password_digest=>"1234"},
+          {:first_name => 'Adnane', :last_name => 'Ezouhri', :email => 'aezouhri@uiowa.edu', :password_digest=>"1234"},
+          {:first_name => 'Christian', :last_name => 'Baseme', :email => 'cbaseme@uiowa.edu', :password_digest=>"1234"},
   	 ]
 
 #i added the faculty in front of first names to differentiate from the students names
-faculties = [{:first_name => 'Kiana-faculty', :last_name => 'Erickson', :email => 'kberickson_f@uiowa.edu'},
-            {:first_name => 'Joslin-faculty', :last_name => 'Some', :email => 'jsome_f@uiowa.edu'},
-            {:first_name => 'Evan-faculty', :last_name => 'Brewer', :email => 'ebrewer_f@uiowa.edu'},
-            {:first_name => 'Ben-faculty', :last_name => 'Desollar', :email => 'bdesollar_f@uiowa.edu'},
-            {:first_name => 'Adnane-faculty', :last_name => 'Ezouhri', :email => 'aezouhri_f@uiowa.edu'},
-            {:first_name => 'Christian-faculty', :last_name => 'Baseme', :email => 'cbaseme_f@uiowa.edu'},
+faculties = [{:first_name => 'Kiana-faculty', :last_name => 'Erickson', :email => 'kberickson_f@uiowa.edu', :password_digest=>"1234"},
+            {:first_name => 'Joslin-faculty', :last_name => 'Some', :email => 'jsome_f@uiowa.edu', :password_digest=>"1234"},
+            {:first_name => 'Evan-faculty', :last_name => 'Brewer', :email => 'ebrewer_f@uiowa.edu', :password_digest=>"1234"},
+            {:first_name => 'Ben-faculty', :last_name => 'Desollar', :email => 'bdesollar_f@uiowa.edu', :password_digest=>"1234"},
+            {:first_name => 'Adnane-faculty', :last_name => 'Ezouhri', :email => 'aezouhri_f@uiowa.edu', :password_digest=>"1234"},
+            {:first_name => 'Christian-faculty', :last_name => 'Baseme', :email => 'cbaseme_f@uiowa.edu', :password_digest=>"1234"},
 ]
 
 profiles = [{:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Mechanical Engineering", :term => "spring", :year =>"2022" } ,
             {:student_id=>4,:gre=> 23, :toefl => 10, :interested_major => "Electrical Engineering", :term => "spring", :year =>"2022" },
-            {:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Computer Engineering", :term => "spring", :year =>"2022" },
+            {:student_id=>2,:gre=> 33, :toefl => 109, :interested_major => "Computer Engineering", :term => "spring", :year =>"2022" },
             ]
 
 undergrad_schools = [{:student_id=>1, :country=>"United States", :university_name=>"University of Iowa", :major=>"Mechanical Engineering", :gpa => 3.53,

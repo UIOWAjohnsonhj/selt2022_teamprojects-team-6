@@ -1,0 +1,94 @@
+<h1>Profile</h1>
+<div class="profile">
+  <div class="profile_features">
+    <br>
+    <form method="post" action="<%= main_view_profile_path %>">
+      <br>
+      <div class="row">
+        <label class="label">GRE</label>
+        <label class="label">TOEFL</label>
+        <label class="label">CAPA</label>
+      </div>
+      <br>
+      <div class="row">
+        <input value="<%= @current_profile.gre %>" class="field" name="gre">
+        <input value="<%= @current_profile.toefl %>" class="field" name="toefl">
+        <input value="<%= @current_profile.capa %>" class="field" name="capa">
+      </div>
+      <br>
+      <div class="row">
+        <label class="label">Intrested Major</label>
+        <label class="label">Term</label>
+        <label class="label">Year</label>
+      </div>
+      <br>
+      <div class="row">
+        <input value="<%= @current_profile.interested_major %>"  list="majors" class="field" name="major">
+        <datalist id="majors">
+          <option value="Mechanical Engineering">
+          <option value="Computer Science Engineering">
+          <option value="Biomedical Engineering">
+          <option value="Industrial Engineering">
+          <option value="Civil Engineering">
+        </datalist>
+        <input value="<%= @current_profile.term %>" list="term" class="field" name="term">
+        <datalist id="term" >
+          <option value="Fall">
+          <option value="Spring">
+          <option value="Summer">
+        </datalist>
+        <input value="<%= @current_profile.year %>" list="year" class="field" name="year">
+
+        <datalist id="year">
+          <option value="2022">
+          <option value="2023">
+          <option value="2024">
+        </datalist>
+        <br>
+      </div>
+      <br>
+
+      <div class="row">
+        <label class="label">Undergrad college</label>
+      </div>
+      <br>
+
+      <div class="row">
+        <input value="<%= @current_profile.college_name %>" class="field2" name="college_name">
+      </div>
+      <br>
+      <h2>Work experience</h2>
+      <br>
+      <div class="row">
+        <label class="label">Company name</label>
+        <label class="label">Job title</label>
+        <label class="label">Description</label>
+        <label class="label">from</label>
+        <label class="label">to</label>
+      </div>
+      <br>
+      <div class="row">
+        <input class="field2" name="company">
+        <input class="field2" name="title">
+        <input class="field2" name="description">
+        <input class="field2" name="from">
+        <input class="field2" name="to">
+      </div>
+      <input type="submit" class = "btn" value="save">
+      <br>
+    </form>
+    <br>
+    <button class="btn">Add Experience</button>
+  </div>
+  <div class="profile_features2">
+    <div class="vl"></div>
+  </div>
+  <div class="profile_features">
+    <h1>Universities Applied</h1>
+    <h3>Add University</h3>
+    <br>
+    <input class="field2" name="university_name">
+    <button class="btn">Add</button>
+  </div>
+</div>
+
