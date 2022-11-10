@@ -1,17 +1,19 @@
 class MainController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  @@id = 2
 
   def initialize
     super
     @student = Student
     @profiles = Profile
-    @id = 2
+    @faculty = Faculty
     @current_profile = nil
   end
   def index
 
   end
   def login
+
     @student = Student
     @profiles = Profile
   end
@@ -23,9 +25,9 @@ class MainController < ApplicationController
   end
   def view_profile
 
-    @current_profile = Profile.where(student_id: @id).take
+    @current_profile = Profile.where(student_id: @@id).take
     #@experience = Experience.where(student_id: @id).take
-    @student = Student.find(@id)
+    @student = Student.find(@@id)
 
     if params.include? "gre"
       @current_profile.gre = params[:gre]
@@ -40,7 +42,30 @@ class MainController < ApplicationController
   end
 
   def edit_profile
-    @current_profile = Profile.find(@id)
+    @current_profile = Profile.find(@@id)
 
   end
+  def which_user
+    #look in student db for given credentials, if found then go to view profile
+
+    #look in faculty db for given credentials, if found then go to my evaluation
+  end
+  def intermediate_login
+    given_email= params[:user][:email]
+
+    @student = Student.where(email: given_email).take
+    @faculty = Faculty.where(email: given_email).take
+   if not @student.nil?
+      @@id = @student.id
+      redirect_to view_profile_path
+    elsif not @faculty.nil?
+
+   else
+         flash[:notice]="Invalid user"
+         redirect_to login_path
+   end
+
+
+  end
+
 end

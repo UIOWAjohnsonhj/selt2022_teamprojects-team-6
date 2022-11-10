@@ -5134,3 +5134,196 @@ Processing by MainController#view_profile as HTML
   Rendered main/view_profile.html.erb within layouts/application (0.7ms)
 Completed 200 OK in 18ms (Views: 9.1ms | ActiveRecord: 0.7ms)
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPasswordDigestToFaculty (20221108035549)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "faculties" ADD "password_digest" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20221108035549"]]
+  [1m[36m (6.3ms)[0m  [1mcommit transaction[0m
+Migrating to AddPasswordDigestToStudents (20221108040054)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "students" ADD "password_digest" varchar[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPasswordDigestToStudents (20221108040054)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221108040054"]]
+  [1m[35m (7.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kiana"], ["last_name", "Erickson"], ["user_name", "kberickson"], ["password", "1234"], ["created_at", "2022-11-09 22:59:43.416674"], ["updated_at", "2022-11-09 22:59:43.416674"]]
+  [1m[35m (7.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Joslin"], ["last_name", "Some"], ["user_name", "jsome"], ["password", "1234"], ["created_at", "2022-11-09 22:59:43.425765"], ["updated_at", "2022-11-09 22:59:43.425765"]]
+  [1m[36m (5.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Evan"], ["last_name", "Brewer"], ["user_name", "ebrewer"], ["password", "1234"], ["created_at", "2022-11-09 22:59:43.432137"], ["updated_at", "2022-11-09 22:59:43.432137"]]
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Ben"], ["last_name", "Desollar"], ["user_name", "bdesollar"], ["password", "1234"], ["created_at", "2022-11-09 22:59:43.436428"], ["updated_at", "2022-11-09 22:59:43.436428"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Adnane"], ["last_name", "Ezouhri"], ["user_name", "aezouhri"], ["password", "1234"], ["created_at", "2022-11-09 22:59:43.441076"], ["updated_at", "2022-11-09 22:59:43.441076"]]
+  [1m[35m (4.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Christian"], ["last_name", "Baseme"], ["user_name", "cbaseme"], ["password", "1234"], ["created_at", "2022-11-09 22:59:43.445758"], ["updated_at", "2022-11-09 22:59:43.445758"]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 1], ["gre", 33], ["toefl", 109], ["interested_major", "Mechanical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (5.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)  [["student_id", 4], ["gre", 23], ["toefl", 10], ["interested_major", "Electrical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 2], ["gre", 33], ["toefl", 109], ["interested_major", "Computer Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (3.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "faculties" ("first_name", "last_name", "user_name", "password") VALUES (?, ?, ?, ?)  [["first_name", "Kiana-faculty"], ["last_name", "Erickson"], ["user_name", "kberickson_f"], ["password", "1234"]]
+  [1m[36m (4.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "faculties" ("first_name", "last_name", "user_name", "password") VALUES (?, ?, ?, ?)[0m  [["first_name", "Joslin-faculty"], ["last_name", "Some"], ["user_name", "jsome_f"], ["password", "1234"]]
+  [1m[35m (3.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "faculties" ("first_name", "last_name", "user_name", "password") VALUES (?, ?, ?, ?)  [["first_name", "Evan-faculty"], ["last_name", "Brewer"], ["user_name", "ebrewer_f"], ["password", "1234"]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "faculties" ("first_name", "last_name", "user_name", "password") VALUES (?, ?, ?, ?)[0m  [["first_name", "Ben-faculty"], ["last_name", "Desollar"], ["user_name", "bdesollar_f"], ["password", "1234"]]
+  [1m[35m (4.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "faculties" ("first_name", "last_name", "user_name", "password") VALUES (?, ?, ?, ?)  [["first_name", "Adnane-faculty"], ["last_name", "Ezouhri"], ["user_name", "aezouhri_f"], ["password", "1234"]]
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "faculties" ("first_name", "last_name", "user_name", "password") VALUES (?, ?, ?, ?)[0m  [["first_name", "Christian-faculty"], ["last_name", "Baseme"], ["user_name", "cbaseme_f"], ["password", "1234"]]
+  [1m[35m (3.1ms)[0m  commit transaction
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (4.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateStudents (20150809022253)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/cbasemee/October_New_SELT_2022/selt2022_teamprojects-team-6/db/migrate/20150809022253_create_students.rb:11)
+  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
+  [1m[35m (4.3ms)[0m  commit transaction
+Migrating to CreateProfiles (20150809022254)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar) 
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022254"]]
+  [1m[35m (4.4ms)[0m  commit transaction
+Migrating to CreateExperiences (20150809022256)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022256"]]
+  [1m[35m (7.5ms)[0m  commit transaction
+Migrating to CreateFaculties (20221105224322)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password_digest" varchar, "department" varchar, "chair" boolean, "university" varchar) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221105224322"]]
+  [1m[35m (4.2ms)[0m  commit transaction
+Migrating to AddPasswordDigestToFaculty (20221108035549)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "faculties" ADD "password_digest" varchar
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPasswordDigestToFaculty (20221108035549)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221108035549"]]
+  [1m[35m (4.3ms)[0m  commit transaction
+Migrating to AddPasswordDigestToStudents (20221108040054)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20221108040054"]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPasswordToStudent (20221110000612)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "students" ADD "password" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "students" ADD "string" varchar
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221110000612"]]
+  [1m[35m (7.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kiana"], ["last_name", "Erickson"], ["user_name", "kberickson"], ["password", "1234"], ["email", "stuedent1@gmail.com"], ["created_at", "2022-11-10 00:06:27.679792"], ["updated_at", "2022-11-10 00:06:27.679792"]]
+  [1m[35m (5.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["first_name", "Joslin"], ["last_name", "Some"], ["user_name", "jsome"], ["password", "1234"], ["email", "student2@gmail.com"], ["created_at", "2022-11-10 00:06:27.687597"], ["updated_at", "2022-11-10 00:06:27.687597"]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Evan"], ["last_name", "Brewer"], ["user_name", "ebrewer"], ["password", "1234"], ["created_at", "2022-11-10 00:06:27.692637"], ["updated_at", "2022-11-10 00:06:27.692637"]]
+  [1m[35m (5.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Ben"], ["last_name", "Desollar"], ["user_name", "bdesollar"], ["password", "1234"], ["created_at", "2022-11-10 00:06:27.698872"], ["updated_at", "2022-11-10 00:06:27.698872"]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Adnane"], ["last_name", "Ezouhri"], ["user_name", "aezouhri"], ["password", "1234"], ["created_at", "2022-11-10 00:06:27.703747"], ["updated_at", "2022-11-10 00:06:27.703747"]]
+  [1m[35m (4.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Christian"], ["last_name", "Baseme"], ["user_name", "cbaseme"], ["password", "1234"], ["created_at", "2022-11-10 00:06:27.708474"], ["updated_at", "2022-11-10 00:06:27.708474"]]
+  [1m[36m (6.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 1], ["gre", 33], ["toefl", 109], ["interested_major", "Mechanical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (4.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)  [["student_id", 4], ["gre", 23], ["toefl", 10], ["interested_major", "Electrical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[36m (4.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 2], ["gre", 33], ["toefl", 109], ["interested_major", "Computer Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (4.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPasswordToFaculty (20221110000653)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "faculties" ADD "password" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "faculties" ADD "string" varchar
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221110000653"]]
+  [1m[35m (6.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kiana"], ["last_name", "Erickson"], ["user_name", "kberickson"], ["password", "1234"], ["email", "stuedent1@gmail.com"], ["created_at", "2022-11-10 00:07:05.240805"], ["updated_at", "2022-11-10 00:07:05.240805"]]
+  [1m[35m (5.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["first_name", "Joslin"], ["last_name", "Some"], ["user_name", "jsome"], ["password", "1234"], ["email", "student2@gmail.com"], ["created_at", "2022-11-10 00:07:05.247293"], ["updated_at", "2022-11-10 00:07:05.247293"]]
+  [1m[36m (4.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Evan"], ["last_name", "Brewer"], ["user_name", "ebrewer"], ["password", "1234"], ["created_at", "2022-11-10 00:07:05.252543"], ["updated_at", "2022-11-10 00:07:05.252543"]]
+  [1m[35m (4.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Ben"], ["last_name", "Desollar"], ["user_name", "bdesollar"], ["password", "1234"], ["created_at", "2022-11-10 00:07:05.257486"], ["updated_at", "2022-11-10 00:07:05.257486"]]
+  [1m[36m (4.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Adnane"], ["last_name", "Ezouhri"], ["user_name", "aezouhri"], ["password", "1234"], ["created_at", "2022-11-10 00:07:05.262835"], ["updated_at", "2022-11-10 00:07:05.262835"]]
+  [1m[35m (4.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Christian"], ["last_name", "Baseme"], ["user_name", "cbaseme"], ["password", "1234"], ["created_at", "2022-11-10 00:07:05.267802"], ["updated_at", "2022-11-10 00:07:05.267802"]]
+  [1m[36m (4.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 1], ["gre", 33], ["toefl", 109], ["interested_major", "Mechanical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (4.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)  [["student_id", 4], ["gre", 23], ["toefl", 10], ["interested_major", "Electrical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[36m (4.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 2], ["gre", 33], ["toefl", 109], ["interested_major", "Computer Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (4.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "faculties" ("first_name", "last_name", "user_name", "password", "email") VALUES (?, ?, ?, ?, ?)  [["first_name", "Kiana-faculty"], ["last_name", "Erickson"], ["user_name", "kberickson_f"], ["password", "1234"], ["email", "test@gmail.com"]]
+  [1m[36m (5.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "faculties" ("first_name", "last_name", "user_name", "password") VALUES (?, ?, ?, ?)[0m  [["first_name", "Joslin-faculty"], ["last_name", "Some"], ["user_name", "jsome_f"], ["password", "1234"]]
+  [1m[35m (5.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "faculties" ("first_name", "last_name", "user_name", "password") VALUES (?, ?, ?, ?)  [["first_name", "Evan-faculty"], ["last_name", "Brewer"], ["user_name", "ebrewer_f"], ["password", "1234"]]
+  [1m[36m (5.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "faculties" ("first_name", "last_name", "user_name", "password") VALUES (?, ?, ?, ?)[0m  [["first_name", "Ben-faculty"], ["last_name", "Desollar"], ["user_name", "bdesollar_f"], ["password", "1234"]]
+  [1m[35m (4.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "faculties" ("first_name", "last_name", "user_name", "password") VALUES (?, ?, ?, ?)  [["first_name", "Adnane-faculty"], ["last_name", "Ezouhri"], ["user_name", "aezouhri_f"], ["password", "1234"]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "faculties" ("first_name", "last_name", "user_name", "password") VALUES (?, ?, ?, ?)[0m  [["first_name", "Christian-faculty"], ["last_name", "Baseme"], ["user_name", "cbaseme_f"], ["password", "1234"]]
+  [1m[35m (4.7ms)[0m  commit transaction
