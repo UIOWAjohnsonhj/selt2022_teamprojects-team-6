@@ -30,5 +30,6 @@ Rails.application.routes.draw do
   get 'intermediate_login', to: 'main#intermediate_login', as: 'intermediate_login'
   post 'main/intermediate_login'
 
-
+  get 'intermediate_logout', to: 'main#intermediate_logout', as: 'intermediate_logout'
+  post 'main/intermediate_logout'
 end

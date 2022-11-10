@@ -7,8 +7,6 @@ class MainController < ApplicationController
   # has_secure_password
 
   @@id = nil
-
-
   def index
 
   end
@@ -130,5 +128,8 @@ class MainController < ApplicationController
    end
 
 
+  end
+  def intermediate_logout
+    redirect_to root_path
   end
 end
