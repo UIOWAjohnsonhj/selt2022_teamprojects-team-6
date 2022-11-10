@@ -8,5 +8,5 @@ Feature: Unique email per user
     Given I am on the Account Creation page
     And my credentials are filled in with an email address already registered
     When I Click "Sign up"
-
+    Then I should get an error message
 
