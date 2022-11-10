@@ -20,7 +20,7 @@ class MainController < ApplicationController
   end
 
 
-  def intermediate_login
+  def intermediate_sign_up
     @student = Student
     puts params[:user]
     missing=false

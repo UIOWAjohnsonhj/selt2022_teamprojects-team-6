@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'login', to: 'main#login', as: 'login'
   post 'main/login'
 
-  get 'main/intermediate_login', to: redirect('sign_up')
+  get 'main/intermediate_sign_up', to: redirect('sign_up')
   # post 'sign_up'
 
   get 'sign_up', to: 'main#sign_up', as: 'sign_up'
@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get 'view_profile', to: 'main#view_profile', as: 'view_profile'
   post 'main/view_profile'
 
-  get 'intermediate_login', to: 'main#intermediate_login', as: 'intermediate_login'
-  post 'main/intermediate_login'
+  get 'intermediate_sign_up', to: 'main#intermediate_sign_up', as: 'intermediate_sign_up'
+  post 'main/intermediate_sign_up'
 
 
 end
