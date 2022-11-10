@@ -54,7 +54,7 @@ describe MainController do
           expect(assigns(:profiles)).to eq(fake_results)
         end
         describe 'login page' do
-          it 'should call the model that shows profile info' do
+          it 'should call the model that shows profiles info' do
             allow(Profile).to receive(:login)
             post :login
             expect(response).to render_template('login')
