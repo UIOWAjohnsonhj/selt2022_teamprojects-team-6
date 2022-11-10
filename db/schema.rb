@@ -11,26 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221105224322) do
+ActiveRecord::Schema.define(version: 20221110000653) do
+
+  create_table "experiences", force: :cascade do |t|
+    t.integer "student_id"
+    t.string  "company_name"
+    t.string  "description"
+    t.string  "job_title"
+    t.string  "from"
+    t.string  "to"
+  end
 
   create_table "faculties", force: :cascade do |t|
     t.string  "first_name"
     t.string  "last_name"
     t.string  "user_name"
     t.string  "email"
-    t.string  "password_digest"
+    t.string  "password"
     t.string  "department"
     t.boolean "chair"
     t.string  "university"
+    t.string  "password"
+    t.string  "string"
   end
 
   create_table "profiles", force: :cascade do |t|
     t.integer "student_id"
     t.integer "gre"
     t.integer "toefl"
+    t.integer "capa"
     t.string  "interested_major"
     t.string  "term"
     t.string  "year"
+    t.string  "college_name"
   end
 
   create_table "students", force: :cascade do |t|
@@ -38,9 +51,11 @@ ActiveRecord::Schema.define(version: 20221105224322) do
     t.string   "last_name"
     t.string   "user_name"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password"
+    t.string   "string"
   end
 
 end
