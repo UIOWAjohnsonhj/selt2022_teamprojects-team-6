@@ -1,8 +1,17 @@
 %h1 Log In
 
-=form_tag (sessions_path) do
- =text_field_tag :user
- =text_field_tag :password
- =submit_tag 'login'
+=form_tag main_intermediate_login_path, :method=>:post do
 
+  =label :user, :email_address
+  =text_field :user, :email ,:id=> 'email'
+  =label :user, :password
+  = password_field :user, :password, :id=> 'password'
 
+  %br/
+  %br/
+
+  = submit_tag "Login", :id => "login_button"
+
+  %br/
+  %br/
+= link_to 'Forgot Password', root_path
