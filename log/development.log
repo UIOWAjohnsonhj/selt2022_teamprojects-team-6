@@ -4925,7 +4925,7 @@ Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.8ms)
 ActionView::Template::Error (undefined local variable or method `sessions_path' for #<#<Class:0x00007f5a44a330b8>:0x00007f5a443c95d8>
 Did you mean?  session):
     1: %h1 Log In
-    2: 
+    2:
     3: =form_tag (sessions_path) do
     4:  =text_field_tag :user
     5:  =text_field_tag :password
@@ -16024,7 +16024,7 @@ Completed 500 Internal Server Error in 67ms (ActiveRecord: 1.0ms)
 ActionView::Template::Error (undefined local variable or method `sessions_path' for #<#<Class:0x00007f763555cc58>:0x00007f763022f800>
 Did you mean?  session):
     1: %h1 Log In
-    2: 
+    2:
     3: =form_tag (sessions_path) do
     4:  =text_field_tag :user
     5:  =text_field_tag :password
@@ -16330,7 +16330,7 @@ Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.0ms)
 ActionView::Template::Error (undefined local variable or method `main_index_path' for #<#<Class:0x00007f3254b2beb0>:0x00007f3254bf8aa0>
 Did you mean?  main_login_path):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_index_path, :method=>:post do
     4:   =label :user, :first_name
     5:   =text_field :user, :first_name
@@ -16374,7 +16374,7 @@ ActionView::Template::Error (undefined local variable or method `main_path' for 
 Did you mean?  main_app
                image_path):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_path, :method=>:post do
     4:   =label :user, :first_name
     5:   =text_field :user, :first_name
@@ -16411,7 +16411,7 @@ Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.9ms)
 ActionView::Template::Error (undefined local variable or method `sessions_path' for #<#<Class:0x00007f3254496f78>:0x000055a2d7832118>
 Did you mean?  session):
     1: %h1 Log In
-    2: 
+    2:
     3: =form_tag (sessions_path) do
     4:  =text_field_tag :user
     5:  =text_field_tag :password
@@ -16442,7 +16442,7 @@ Did you mean?  main_login_path
                main_view_profile_path
                view_profile_path):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_profile_path, :method=>:post do
     4:   =label :user, :first_name
     5:   =text_field :user, :first_name
@@ -16786,7 +16786,7 @@ _path
 
 _url):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_intermediate_login_path, :method=>:post do
     4:   =label :user, :first_name
     5:   =text_field :user, :first_name
@@ -16841,7 +16841,7 @@ _path
 
 _url):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_intermediate_login_path, :method=>:post do
     4:   =label :user, :first_name
     5:   =text_field :user, :first_name
@@ -16869,7 +16869,7 @@ _path
 
 _url):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_intermediate_login_path, :method=>:post do
     4:   =label :user, :first_name
     5:   =text_field :user, :first_name
@@ -16897,7 +16897,7 @@ _path
 
 _url):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_intermediate_login_path, :method=>:post do
     4:   =label :user, :first_name
     5:   =text_field :user, :first_name
@@ -16929,7 +16929,7 @@ Did you mean?  main_intermediate_login
 
 _url):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_intermediate_login, :method=>:post do
     4:   =label :user, :first_name
     5:   =text_field :user, :first_name
@@ -16957,7 +16957,7 @@ _path
 
 _url):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_intermediate_login_path, :method=>:post do
     4:   =label :user, :first_name
     5:   =text_field :user, :first_name
@@ -16991,7 +16991,7 @@ _path
 
 _url):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_intermediate_login_path, :method=>:post do
     4:   =label :user, :first_name
     5:   =text_field :user, :first_name
@@ -17146,7 +17146,7 @@ ActionView::Template::Error (undefined local variable or method `main_path' for 
 Did you mean?  main_app
                image_path):
     1: %h1 Intermediate page
-    2: 
+    2:
     3: =form_tag main_path, :method=>:post do
     4:    = submit_tag "Home page", :id=> "home_page"
     5: = form_tag main_sign_up_path, :method => :post do
@@ -17210,7 +17210,7 @@ ActionView::Template::Error (undefined local variable or method `main_path' for 
 Did you mean?  main_app
                image_path):
     1: %h1 Intermediate page
-    2: 
+    2:
     3: =form_tag main_path, :method=>:post do
     4:    = submit_tag "Home page", :id=> "home_page"
     5: = form_tag main_sign_up_path, :method => :post do
@@ -39216,7 +39216,7 @@ Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
 Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:03:12 -0600
 Processing by MainController#intermediate_login as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"WcrWGUELLzYDs937iIBjZCxF3EifnPjPyZ7PYR6/eAexVrobGE9lg2f9VneD9FRqwsHqt4Lsw2e/yM0t1aKwWQ==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
-Redirected to 
+Redirected to
 Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
 
 ActionController::ActionControllerError (Cannot redirect to nil!):
@@ -39232,7 +39232,7 @@ ActionController::ActionControllerError (Cannot redirect to nil!):
 Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-07 13:03:39 -0600
 Processing by MainController#intermediate_login as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"WcrWGUELLzYDs937iIBjZCxF3EifnPjPyZ7PYR6/eAexVrobGE9lg2f9VneD9FRqwsHqt4Lsw2e/yM0t1aKwWQ==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
-Redirected to 
+Redirected to
 Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
 
 ActionController::ActionControllerError (Cannot redirect to nil!):
@@ -39722,7 +39722,7 @@ Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
 
 ActionView::Template::Error (wrong number of arguments (given 1, expected 2..4)):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_intermediate_login_path, :method=>:post do
     4:   =label :first_name
     5:   =text_field :user, :fn
@@ -39816,7 +39816,7 @@ Completed 500 Internal Server Error in 60ms (ActiveRecord: 1.1ms)
 ActionView::Template::Error (undefined local variable or method `sessions_path' for #<#<Class:0x000055f16ec786b0>:0x00007f6c5d2cb570>
 Did you mean?  session):
     1: %h1 Log In
-    2: 
+    2:
     3: =form_tag (sessions_path) do
     4:  =text_field_tag :user
     5:  =text_field_tag :password
@@ -40128,7 +40128,7 @@ Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.8ms)
 ActionView::Template::Error (undefined local variable or method `sessions_path' for #<#<Class:0x000055abc14fd130>:0x000055abc0d75b10>
 Did you mean?  session):
     1: %h1 Log In
-    2: 
+    2:
     3: =form_tag (sessions_path) do
     4:  =text_field_tag :user
     5:  =text_field_tag :password
@@ -40165,7 +40165,7 @@ Completed 500 Internal Server Error in 65ms (ActiveRecord: 0.0ms)
 ActionView::Template::Error (undefined local variable or method `main_intermediate_login_path' for #<#<Class:0x0000557b84772360>:0x00007f2ca19dc338>
 Did you mean?  main_intermediate_sign_up_path):
     1: %h1 Sign Up
-    2: 
+    2:
     3: =form_tag main_intermediate_login_path, :method=>:post do
     4:   =label :label, :first_name
     5:   =text_field :user, :first_name
@@ -40693,22 +40693,22 @@ Did you mean?  sti_name):
 Migrating to CreateStudents (20150809022253)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
 DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/ssome/selt2022_teamprojects-team-6/db/migrate/20150809022253_create_students.rb:11)
-  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
   [1m[35m (4.7ms)[0m  commit transaction
 Migrating to CreateProfiles (20150809022254)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022254"]]
   [1m[35m (10.9ms)[0m  commit transaction
 Migrating to CreateExperiences (20150809022256)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022256"]]
   [1m[35m (5.2ms)[0m  commit transaction
 Migrating to CreateFaculties (20221105224322)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password_digest" varchar, "department" varchar, "chair" boolean, "university" varchar) 
+  [1m[35m (0.2ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password_digest" varchar, "department" varchar, "chair" boolean, "university" varchar)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221105224322"]]
   [1m[35m (6.3ms)[0m  commit transaction
 Migrating to AddPasswordDigestToFaculty (20221108035549)
@@ -42283,3 +42283,5 @@ ActionController::RoutingError (No route matches [POST] "/login"):
   Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
   Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
   Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (15.9ms)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from require at /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/site_ruby/2.7.0/rubygems/core_ext/kernel_require.rb:85)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from require at /Users/bendesollar/.rbenv/versions/2.7.6/lib/ruby/site_ruby/2.7.0/rubygems/core_ext/kernel_require.rb:85)
