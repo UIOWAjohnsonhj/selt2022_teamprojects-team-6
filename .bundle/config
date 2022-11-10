@@ -1,4 +1,4 @@
 ---
 BUNDLE_JOBS: "8"
-BUNDLE_WITHOUT: "somerandomstring"
-BUNDLE_WITH: "production:development:test"
+BUNDLE_WITHOUT: "production:somerandomstring"
+BUNDLE_WITH: "development:test"
