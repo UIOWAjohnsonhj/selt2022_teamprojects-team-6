@@ -37,9 +37,11 @@ ActiveRecord::Schema.define(version: 20221108040054) do
     t.integer "student_id"
     t.integer "gre"
     t.integer "toefl"
+    t.integer "capa"
     t.string  "interested_major"
     t.string  "term"
     t.string  "year"
+    t.string  "college_name"
   end
 
   create_table "students", force: :cascade do |t|
