@@ -170,4 +170,4 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
-Gemfile
+log/development.log
