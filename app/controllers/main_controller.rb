@@ -6,15 +6,8 @@ class MainController < ApplicationController
 
   # has_secure_password
 
-  @@id = 2
+  @@id = nil
 
-  def initialize
-    super
-    @student = Student
-    @profiles = Profile
-    @faculty = Faculty
-    @current_profile = nil
-  end
 
   def index
 
@@ -24,15 +17,24 @@ class MainController < ApplicationController
     @profiles = Profile
   end
   def sign_up
-
-
     @profiles = Profile
-    @profiles.all.each do |p|
-      puts p.id
-    end
-
   end
   def view_profile
+
+    @current_profile = Profile.where(student_id: @@id).take
+    #@experience = Experience.where(student_id: @id).take
+    puts @@id,"View"
+    @student = Student.find(@@id)
+    if params.include? "gre"
+      @current_profile.gre = params[:gre]
+      @current_profile.toefl = params[:toefl]
+      @current_profile.capa = params[:capa]
+      @current_profile.interested_major =params[:major]
+      @current_profile.term = params[:term]
+      @current_profile.year = params[:year]
+      @current_profile.college_name = params[:college_name]
+      @current_profile.save
+    end
   end
 
 
@@ -74,7 +76,7 @@ class MainController < ApplicationController
     if params[:type].present? && !missing
       if params[:type]=="radio_button_faculty"
         faculty={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
-                 :email => params[:user][:email],:password=>params[:user][:password] }
+                 :email => params[:user][:email],:password_digest=>params[:user][:password] }
         Faculty.create!(faculty)
 
         # id=@profile.where(email:params[:user][:email])
@@ -83,11 +85,11 @@ class MainController < ApplicationController
       else
         #  create a student account
         student={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
-              :email => params[:user][:email],:password=>params[:user][:password] }
+              :email => params[:user][:email],:password_digest=>params[:user][:password] }
 
         Student.create!(student)
-        id=@student.where(email:params[:user][:email])
-
+        id=@student.where(email:params[:user][:email]).take.id
+        puts id,"create"
         student_profile={:student_id=>id,:gre=>nil, :toefl => nil,
                          :interested_major => nil, :term => nil,
                          :year =>nil }
@@ -100,24 +102,11 @@ class MainController < ApplicationController
     end
     redirect_to root_path
 
-    @current_profile = Profile.where(student_id: @@id).take
-    #@experience = Experience.where(student_id: @id).take
-    @student = Student.find(@@id)
 
-    if params.include? "gre"
-      @current_profile.gre = params[:gre]
-      @current_profile.toefl = params[:toefl]
-      @current_profile.capa = params[:capa]
-      @current_profile.interested_major =params[:major]
-      @current_profile.term = params[:term]
-      @current_profile.year = params[:year]
-      @current_profile.college_name = params[:college_name]
-      @current_profile.save
-    end
   end
 
   def edit_profile
-    @current_profile = Profile.find(@@id)
+    @current_profile = Profile.where(student_id: @@id).take
 
   end
   def faculty_profile

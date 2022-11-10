@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   get 'edit_profile', to: 'main#edit_profile', as: 'edit_profile'
   post 'main/edit_profile'
+
   get 'faculty_profile', to: 'main#faculty_profile', as: 'faculty_profile'
   post 'main/faculty_profile'
   get 'intermediate_login', to: 'main#intermediate_login', as: 'intermediate_login'

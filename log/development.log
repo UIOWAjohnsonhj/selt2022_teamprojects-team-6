@@ -40686,3 +40686,1600 @@ Did you mean?  sti_name):
   Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
   Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
   Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.7ms)
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (5.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateStudents (20150809022253)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/ssome/selt2022_teamprojects-team-6/db/migrate/20150809022253_create_students.rb:11)
+  [1m[35m (0.2ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022253"]]
+  [1m[35m (4.7ms)[0m  commit transaction
+Migrating to CreateProfiles (20150809022254)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "gre" integer, "toefl" integer, "capa" integer, "interested_major" varchar, "term" varchar, "year" varchar, "college_name" varchar) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022254"]]
+  [1m[35m (10.9ms)[0m  commit transaction
+Migrating to CreateExperiences (20150809022256)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "experiences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "company_name" varchar, "description" varchar, "job_title" varchar, "from" varchar, "to" varchar) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150809022256"]]
+  [1m[35m (5.2ms)[0m  commit transaction
+Migrating to CreateFaculties (20221105224322)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "faculties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "email" varchar, "password_digest" varchar, "department" varchar, "chair" boolean, "university" varchar) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221105224322"]]
+  [1m[35m (6.3ms)[0m  commit transaction
+Migrating to AddPasswordDigestToFaculty (20221108035549)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20221108035549"]]
+  [1m[36m (4.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddPasswordDigestToStudents (20221108040054)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221108040054"]]
+  [1m[35m (4.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kiana"], ["last_name", "Erickson"], ["user_name", "kberickson"], ["password_digest", "1234"], ["email", "stuedent1@gmail.com"], ["created_at", "2022-11-10 02:21:28.746351"], ["updated_at", "2022-11-10 02:21:28.746351"]]
+  [1m[35m (8.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["first_name", "Joslin"], ["last_name", "Some"], ["user_name", "jsome"], ["password_digest", "1234"], ["email", "student2@gmail.com"], ["created_at", "2022-11-10 02:21:28.756090"], ["updated_at", "2022-11-10 02:21:28.756090"]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Evan"], ["last_name", "Brewer"], ["user_name", "ebrewer"], ["password_digest", "1234"], ["created_at", "2022-11-10 02:21:28.760714"], ["updated_at", "2022-11-10 02:21:28.760714"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Ben"], ["last_name", "Desollar"], ["user_name", "bdesollar"], ["password_digest", "1234"], ["created_at", "2022-11-10 02:21:28.765557"], ["updated_at", "2022-11-10 02:21:28.765557"]]
+  [1m[36m (4.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Adnane"], ["last_name", "Ezouhri"], ["user_name", "aezouhri"], ["password_digest", "1234"], ["created_at", "2022-11-10 02:21:28.770619"], ["updated_at", "2022-11-10 02:21:28.770619"]]
+  [1m[35m (5.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "user_name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Christian"], ["last_name", "Baseme"], ["user_name", "cbaseme"], ["password_digest", "1234"], ["created_at", "2022-11-10 02:21:28.777003"], ["updated_at", "2022-11-10 02:21:28.777003"]]
+  [1m[36m (6.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 1], ["gre", 33], ["toefl", 109], ["interested_major", "Mechanical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (5.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)  [["student_id", 4], ["gre", 23], ["toefl", 10], ["interested_major", "Electrical Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[36m (5.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "profiles" ("student_id", "gre", "toefl", "interested_major", "term", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["student_id", 2], ["gre", 33], ["toefl", 109], ["interested_major", "Computer Engineering"], ["term", "spring"], ["year", "2022"]]
+  [1m[35m (6.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "faculties" ("first_name", "last_name", "user_name", "password_digest", "email") VALUES (?, ?, ?, ?, ?)  [["first_name", "Kiana-faculty"], ["last_name", "Erickson"], ["user_name", "kberickson_f"], ["password_digest", "1234"], ["email", "test@gmail.com"]]
+  [1m[36m (6.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "faculties" ("first_name", "last_name", "user_name", "password_digest") VALUES (?, ?, ?, ?)[0m  [["first_name", "Joslin-faculty"], ["last_name", "Some"], ["user_name", "jsome_f"], ["password_digest", "1234"]]
+  [1m[35m (4.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "faculties" ("first_name", "last_name", "user_name", "password_digest") VALUES (?, ?, ?, ?)  [["first_name", "Evan-faculty"], ["last_name", "Brewer"], ["user_name", "ebrewer_f"], ["password_digest", "1234"]]
+  [1m[36m (4.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "faculties" ("first_name", "last_name", "user_name", "password_digest") VALUES (?, ?, ?, ?)[0m  [["first_name", "Ben-faculty"], ["last_name", "Desollar"], ["user_name", "bdesollar_f"], ["password_digest", "1234"]]
+  [1m[35m (4.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "faculties" ("first_name", "last_name", "user_name", "password_digest") VALUES (?, ?, ?, ?)  [["first_name", "Adnane-faculty"], ["last_name", "Ezouhri"], ["user_name", "aezouhri_f"], ["password_digest", "1234"]]
+  [1m[36m (4.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "faculties" ("first_name", "last_name", "user_name", "password_digest") VALUES (?, ?, ?, ?)[0m  [["first_name", "Christian-faculty"], ["last_name", "Baseme"], ["user_name", "cbaseme_f"], ["password_digest", "1234"]]
+  [1m[35m (5.2ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:21:44 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (16.8ms)
+Completed 200 OK in 434ms (Views: 433.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:21:44 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:21:44 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:21:44 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:21:44 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:21:44 -0600
+
+
+Started POST "/main/view_profile" for 127.0.0.1 at 2022-11-09 20:21:48 -0600
+Processing by MainController#view_profile as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wCR3dFtUnVZd/BzlkhFZn3C8E29WXYaKJ+SWz4Pp6+wZY4MIRx2f2XeAuyII36zIST50gY0aflWssvtfqJytpg==", "commit"=>"profile"}
+  Rendered main/view_profile.html.erb within layouts/application (9.1ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined method `first_name' for #<Class:0x0000558a14f56dd0>
+Did you mean?  sti_name):
+    1: <h1>Profile</h1>
+    2: <h2>Hi <%= @student.first_name %></h2>
+    3: <div class="profile">
+    4:   <div class="profile_features">
+    5:     <br>
+  app/views/main/view_profile.html.erb:2:in `_app_views_main_view_profile_html_erb___2108510408878731457_70225439963500'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.8ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-09 20:21:52 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wCR3dFtUnVZd/BzlkhFZn3C8E29WXYaKJ+SWz4Pp6+wZY4MIRx2f2XeAuyII36zIST50gY0aflWssvtfqJytpg==", "commit"=>"sign_up"}
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles"
+  Rendered main/sign_up.html.haml within layouts/application (22.9ms)
+Completed 200 OK in 34ms (Views: 28.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/main/intermediate_sign_up" for 127.0.0.1 at 2022-11-09 20:22:14 -0600
+Processing by MainController#intermediate_sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tm/3zyanN60egN1rIhqEhmu3cXN12PzDO/rNni36y4dvKAOzOu41IjT8eqy41HHRUjUWna6fBBywrKAOBo+NzQ==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+Redirected to http://localhost:3000/
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1[0m  [["student_id", 2]]
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 2]]
+Completed 302 Found in 16ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:22:14 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/login" for 127.0.0.1 at 2022-11-09 20:22:17 -0600
+Processing by MainController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"grlps0asH9bBSkTmkogWZ/56+n9Ib++Nsn6Xxq+NV7Fb/p3PWuUdWes24yEIRuMwx/idkZMoF1I5KPpWhPgR+w==", "commit"=>"login"}
+  Rendered main/login.html.haml within layouts/application (6.5ms)
+Completed 200 OK in 12ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:22:28 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"btr7FcNrXsEKnw3FyRw3G+ZXpIet6hg7kHnz65SC54y3nQ9p3yJcTiDjqgJT0sJM39XDaXat4OQbL557v/ehxg==", "user"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1[0m  [["email", ""]]
+  [1m[35mFaculty Load (0.1ms)[0m  SELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1  [["email", ""]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2022-11-09 20:22:28 -0600
+Processing by MainController#login as HTML
+  Rendered main/login.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:22:43 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CHDPyyNgOfciyey+hS1O2n4Eb/lCYIaj+RUpv7mSwibRNzu3Pyk7eAi1S3kf47uNR4YIF5knfnxyQ0QvkueEbA==", "user"=>{"email"=>"student2@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1[0m  [["email", "student2@gmail.com"]]
+  [1m[35mFaculty Load (0.1ms)[0m  SELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1  [["email", "student2@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:22:43 -0600
+Processing by MainController#view_profile as HTML
+  Rendered main/view_profile.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `first_name' for #<Class:0x0000558a14f56dd0>
+Did you mean?  sti_name):
+    1: <h1>Profile</h1>
+    2: <h2>Hi <%= @student.first_name %></h2>
+    3: <div class="profile">
+    4:   <div class="profile_features">
+    5:     <br>
+  app/views/main/view_profile.html.erb:2:in `_app_views_main_view_profile_html_erb___2108510408878731457_70225439963500'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.3ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:25:24 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CHDPyyNgOfciyey+hS1O2n4Eb/lCYIaj+RUpv7mSwibRNzu3Pyk7eAi1S3kf47uNR4YIF5knfnxyQ0QvkueEbA==", "user"=>{"email"=>"student2@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1[0m  [["email", "student2@gmail.com"]]
+  [1m[35mFaculty Load (0.1ms)[0m  SELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1  [["email", "student2@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:25:24 -0600
+Processing by MainController#view_profile as HTML
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1[0m  [["student_id", 2]]
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered main/view_profile.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 19ms (Views: 12.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2022-11-09 20:25:34 -0600
+
+ActionController::RoutingError (No route matches [GET] "/main/index"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (16.9ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-09 20:25:42 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"grlps0asH9bBSkTmkogWZ/56+n9Ib++Nsn6Xxq+NV7Fb/p3PWuUdWes24yEIRuMwx/idkZMoF1I5KPpWhPgR+w==", "commit"=>"sign_up"}
+  [1m[36mProfile Load (0.5ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  Rendered main/sign_up.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/main/intermediate_sign_up" for 127.0.0.1 at 2022-11-09 20:26:03 -0600
+Processing by MainController#intermediate_sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"foPezrMejVgvWWSnaCeSJUjKI5JbLpBsVW+dtMnC87WnxCqyr1eP1wUlw2Dy6WdycUhEfIBpaLPeOfAk4re1/w==", "user"=>{"first_name"=>"test", "last_name"=>"testson", "email"=>"test@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'password' for Student.):
+  app/controllers/main_controller.rb:103:in `intermediate_sign_up'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (10.1ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-09 20:26:43 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"grlps0asH9bBSkTmkogWZ/56+n9Ib++Nsn6Xxq+NV7Fb/p3PWuUdWes24yEIRuMwx/idkZMoF1I5KPpWhPgR+w==", "commit"=>"sign_up"}
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  Rendered main/sign_up.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:26:43 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:26:43 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:26:43 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:26:43 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:26:43 -0600
+
+
+Started POST "/main/intermediate_sign_up" for 127.0.0.1 at 2022-11-09 20:26:58 -0600
+Processing by MainController#intermediate_sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i9/U0rXoYQCQ6TqRIG+WzyD8foVqeslazudZ5FzEuclSmCCuqaFjj7qVnVa6oWOYGX4Za7E9MYVFsTR0d7H/gw==", "user"=>{"first_name"=>"test", "last_name"=>"tester", "email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "test"], ["last_name", "tester"], ["email", "t@gmail.com"], ["password_digest", "asd"], ["created_at", "2022-11-10 02:26:58.679541"], ["updated_at", "2022-11-10 02:26:58.679541"]]
+  [1m[36m (10.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "profiles" DEFAULT VALUES[0m
+  [1m[35m (5.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1[0m  [["student_id", 2]]
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 2]]
+Completed 302 Found in 30ms (ActiveRecord: 17.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:26:58 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/login" for 127.0.0.1 at 2022-11-09 20:27:03 -0600
+Processing by MainController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VAf0+JbXpNlfjP2rQjAr3jYXmi9kjtdwCzahRNt18bCNQACEip6mVnXwWmzY/t6JD5X9wb/JL6+AYMzU8AC3+g==", "commit"=>"login"}
+  Rendered main/login.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:27:09 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HNtsRsKbONxSFLKr+XKai1vUx00Xh42Stgn3LWTjf27FnJg63tI6U3hoFWxjvG/cYlago8zAdU09X5q9T5Y5JA==", "user"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1[0m  [["email", "t@gmail.com"]]
+  [1m[35mFaculty Load (0.4ms)[0m  SELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1  [["email", "t@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:27:09 -0600
+Processing by MainController#view_profile as HTML
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1[0m  [["student_id", 7]]
+  [1m[35mStudent Load (0.0ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered main/view_profile.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined method `gre' for nil:NilClass):
+    12:       </div>
+    13:       <br>
+    14:       <div class="row">
+    15:         <input value="<%= @current_profile.gre %>" class="field" name="gre" readonly >
+    16:         <input value="<%= @current_profile.toefl %>" class="field" name="toefl" readonly>
+    17:         <input value="<%= @current_profile.capa %>" class="field" name="capa" readonly>
+    18:       </div>
+  app/views/main/view_profile.html.erb:15:in `_app_views_main_view_profile_html_erb___2108510408878731457_70225439963500'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.3ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:29:24 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HNtsRsKbONxSFLKr+XKai1vUx00Xh42Stgn3LWTjf27FnJg63tI6U3hoFWxjvG/cYlago8zAdU09X5q9T5Y5JA==", "user"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1[0m  [["email", "t@gmail.com"]]
+  [1m[35mFaculty Load (0.1ms)[0m  SELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1  [["email", "t@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:29:24 -0600
+Processing by MainController#view_profile as HTML
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1[0m  [["student_id", 7]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `gre' for nil:NilClass):
+  app/controllers/main_controller.rb:39:in `view_profile'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (10.8ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:29:27 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HNtsRsKbONxSFLKr+XKai1vUx00Xh42Stgn3LWTjf27FnJg63tI6U3hoFWxjvG/cYlago8zAdU09X5q9T5Y5JA==", "user"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mStudent Load (0.5ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1  [["email", "t@gmail.com"]]
+  [1m[36mFaculty Load (0.1ms)[0m  [1mSELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1[0m  [["email", "t@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:29:27 -0600
+Processing by MainController#view_profile as HTML
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 7]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+NoMethodError (undefined method `gre' for nil:NilClass):
+  app/controllers/main_controller.rb:39:in `view_profile'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (9.7ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:30:58 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HNtsRsKbONxSFLKr+XKai1vUx00Xh42Stgn3LWTjf27FnJg63tI6U3hoFWxjvG/cYlago8zAdU09X5q9T5Y5JA==", "user"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1[0m  [["email", "t@gmail.com"]]
+  [1m[35mFaculty Load (0.1ms)[0m  SELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1  [["email", "t@gmail.com"]]
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.9ms)
+
+NameError (undefined local variable or method `id' for #<MainController:0x00007fbd34ae93d8>
+Did you mean?  @@id):
+  app/controllers/main_controller.rb:149:in `intermediate_login'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.1ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:31:14 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HNtsRsKbONxSFLKr+XKai1vUx00Xh42Stgn3LWTjf27FnJg63tI6U3hoFWxjvG/cYlago8zAdU09X5q9T5Y5JA==", "user"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1[0m  [["email", "t@gmail.com"]]
+  [1m[35mFaculty Load (0.1ms)[0m  SELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1  [["email", "t@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:31:14 -0600
+Processing by MainController#view_profile as HTML
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1[0m  [["student_id", 7]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `gre' for nil:NilClass):
+  app/controllers/main_controller.rb:39:in `view_profile'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (10.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:31:55 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HNtsRsKbONxSFLKr+XKai1vUx00Xh42Stgn3LWTjf27FnJg63tI6U3hoFWxjvG/cYlago8zAdU09X5q9T5Y5JA==", "user"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1  [["email", "t@gmail.com"]]
+  [1m[36mFaculty Load (0.1ms)[0m  [1mSELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1[0m  [["email", "t@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:31:55 -0600
+Processing by MainController#view_profile as HTML
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 7]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `gre' for nil:NilClass):
+  app/controllers/main_controller.rb:39:in `view_profile'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (9.8ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:32:38 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HNtsRsKbONxSFLKr+XKai1vUx00Xh42Stgn3LWTjf27FnJg63tI6U3hoFWxjvG/cYlago8zAdU09X5q9T5Y5JA==", "user"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1[0m  [["email", "t@gmail.com"]]
+  [1m[35mFaculty Load (0.1ms)[0m  SELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1  [["email", "t@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:32:38 -0600
+Processing by MainController#view_profile as HTML
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1[0m  [["student_id", 7]]
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.4ms)
+
+NoMethodError (undefined method `gre' for nil:NilClass):
+  app/controllers/main_controller.rb:39:in `view_profile'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (11.8ms)
+
+
+Started POST "/main/login" for 127.0.0.1 at 2022-11-09 20:33:05 -0600
+Processing by MainController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VAf0+JbXpNlfjP2rQjAr3jYXmi9kjtdwCzahRNt18bCNQACEip6mVnXwWmzY/t6JD5X9wb/JL6+AYMzU8AC3+g==", "commit"=>"login"}
+  Rendered main/login.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:33:05 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:33:05 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:33:05 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:33:05 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:33:05 -0600
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:33:09 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UmA9Acp2kSamj6koLR2ekTT112GxZ0mHzFRU08n3g7KLJ8l91j+TqYzzDu+302vGDXewj2ogsVhHAjlD4oLF+A==", "user"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1  [["email", "t@gmail.com"]]
+  [1m[36mFaculty Load (0.1ms)[0m  [1mSELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1[0m  [["email", "t@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:33:09 -0600
+Processing by MainController#view_profile as HTML
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 7]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+NoMethodError (undefined method `gre' for nil:NilClass):
+  app/controllers/main_controller.rb:39:in `view_profile'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (11.1ms)
+
+
+Started POST "/main/login" for 127.0.0.1 at 2022-11-09 20:34:53 -0600
+Processing by MainController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VAf0+JbXpNlfjP2rQjAr3jYXmi9kjtdwCzahRNt18bCNQACEip6mVnXwWmzY/t6JD5X9wb/JL6+AYMzU8AC3+g==", "commit"=>"login"}
+  Rendered main/login.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:34:53 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:34:53 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:34:53 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:34:53 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:34:53 -0600
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:34:56 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"34pkupNiyzdDwaNIN/aEsjryP6GadhH/RVYAWyaMmrQGzZDGjyvJuGm9BI+tOHHlA3BYT0Ex6SDOAG3LDfnc/g==", "user"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1[0m  [["email", "t@gmail.com"]]
+  [1m[35mFaculty Load (0.1ms)[0m  SELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1  [["email", "t@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 8ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:34:57 -0600
+Processing by MainController#view_profile as HTML
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1[0m  [["student_id", 7]]
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered main/view_profile.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.7ms)
+
+ActionView::Template::Error (undefined method `gre' for nil:NilClass):
+    12:       </div>
+    13:       <br>
+    14:       <div class="row">
+    15:         <input value="<%= @current_profile.gre %>" class="field" name="gre" readonly >
+    16:         <input value="<%= @current_profile.toefl %>" class="field" name="toefl" readonly>
+    17:         <input value="<%= @current_profile.capa %>" class="field" name="capa" readonly>
+    18:       </div>
+  app/views/main/view_profile.html.erb:15:in `_app_views_main_view_profile_html_erb___2108510408878731457_70225439963500'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.1ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:35:16 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"34pkupNiyzdDwaNIN/aEsjryP6GadhH/RVYAWyaMmrQGzZDGjyvJuGm9BI+tOHHlA3BYT0Ex6SDOAG3LDfnc/g==", "user"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1[0m  [["email", "t@gmail.com"]]
+  [1m[35mFaculty Load (0.1ms)[0m  SELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1  [["email", "t@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:35:17 -0600
+Processing by MainController#view_profile as HTML
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1[0m  [["student_id", 7]]
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered main/view_profile.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `gre' for nil:NilClass):
+    12:       </div>
+    13:       <br>
+    14:       <div class="row">
+    15:         <input value="<%= @current_profile.gre %>" class="field" name="gre" readonly >
+    16:         <input value="<%= @current_profile.toefl %>" class="field" name="toefl" readonly>
+    17:         <input value="<%= @current_profile.capa %>" class="field" name="capa" readonly>
+    18:       </div>
+  app/views/main/view_profile.html.erb:15:in `_app_views_main_view_profile_html_erb___2108510408878731457_70225439963500'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:36:51 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:36:51 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:36:51 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:36:51 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:36:51 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:36:51 -0600
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-09 20:36:52 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EJR8Ec68Wiec775JmXHMn7ZUJNk33Up49iRkzT53OyrJ04ht0vVYqLaTGY4DvznIj9ZDN+yasqd9cgldFQJ9YA==", "commit"=>"sign_up"}
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  Rendered main/sign_up.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 12ms (Views: 6.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/main/intermediate_sign_up" for 127.0.0.1 at 2022-11-09 20:37:10 -0600
+Processing by MainController#intermediate_sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ioAJNn6cQrJyK6faYePJLaqtei5uQrFfZDzX+VqRpSZTx/1KYtVAPVhXAB37LTx6ky8dwLUFSYDvarppceTjbA==", "user"=>{"first_name"=>"bob", "last_name"=>"marely", "email"=>"b@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "bob"], ["last_name", "marely"], ["email", "b@gmail.com"], ["password_digest", "dsf"], ["created_at", "2022-11-10 02:37:10.198968"], ["updated_at", "2022-11-10 02:37:10.198968"]]
+  [1m[35m (6.7ms)[0m  commit transaction
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."email" = ?[0m  [["email", "b@gmail.com"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "profiles" DEFAULT VALUES[0m
+  [1m[35m (6.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1[0m  [["student_id", 2]]
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 2]]
+Completed 302 Found in 28ms (ActiveRecord: 14.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:37:10 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/login" for 127.0.0.1 at 2022-11-09 20:37:12 -0600
+Processing by MainController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+TMw5ZcA7wcieqXuZ1IoJD2AeIAYPU7/WVqcy2aloscgdMSZi0ntiAgGAin9nN1zBAIfbsN6tiDSDPFbTdDkjQ==", "commit"=>"login"}
+  Rendered main/login.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:37:36 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 12ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:37:36 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:37:36 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:37:36 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:37:36 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:37:36 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:37:37 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:37:37 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:37:37 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:37:37 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:37:37 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:37:37 -0600
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-09 20:37:38 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P4s50ndTJUKutpKdKpvyISQz7ctxwQ4lLmUeMtT4AenmzM2uaxonzYTKNVqwVQd2HbGKJaqG9vqlM3Oi/41How==", "commit"=>"sign_up"}
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  Rendered main/sign_up.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 6.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/main/intermediate_sign_up" for 127.0.0.1 at 2022-11-09 20:37:54 -0600
+Processing by MainController#intermediate_sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+QS+bohRhZrDpcKVI3U54HplFBFGZr9UVdxMmaDC+pwgQ0oSlBiHFenZZVK5u8y3Q+dz/50hR4veiiEJi7e81g==", "user"=>{"first_name"=>"faculty", "last_name"=>"asd", "email"=>"f@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_faculty", "commit"=>"Create Account"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'password' for Faculty.):
+  app/controllers/main_controller.rb:94:in `intermediate_sign_up'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (11.5ms)
+
+
+Started POST "/main/intermediate_sign_up" for 127.0.0.1 at 2022-11-09 20:38:22 -0600
+Processing by MainController#intermediate_sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+QS+bohRhZrDpcKVI3U54HplFBFGZr9UVdxMmaDC+pwgQ0oSlBiHFenZZVK5u8y3Q+dz/50hR4veiiEJi7e81g==", "user"=>{"first_name"=>"faculty", "last_name"=>"asd", "email"=>"f@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_faculty", "commit"=>"Create Account"}
+Redirected to http://localhost:3000/
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 2]]
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 302 Found in 10ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:38:22 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-09 20:38:27 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xo9uvleKseHYCLyNdO0F08fsawbXIyvKr/AWPKpE6GUfyJrCS8OzbvJ0G0ruI/CE/m4M6Axk0xUkpnusgTGuLw==", "commit"=>"sign_up"}
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles"
+  Rendered main/sign_up.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/main/intermediate_sign_up" for 127.0.0.1 at 2022-11-09 20:38:45 -0600
+Processing by MainController#intermediate_sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0pXjMDr/eXmH/fpIF+wZtpJzQkB8kE5JXOJ7ObP7LzkL0hdMJrZ79q2BXY+NIuzhq/ElrqfXtpbXtBapmI5pcw==", "user"=>{"first_name"=>"faculty", "last_name"=>"asd", "email"=>"f@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_faculty", "commit"=>"Create Account"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "faculties" ("first_name", "last_name", "email", "password_digest") VALUES (?, ?, ?, ?)  [["first_name", "faculty"], ["last_name", "asd"], ["email", "f@gmail.com"], ["password_digest", "sdf"]]
+  [1m[36m (5.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 2]]
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 302 Found in 11ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:38:45 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/login" for 127.0.0.1 at 2022-11-09 20:38:46 -0600
+Processing by MainController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y4PeYKk8uuIayyijhvUuK7nQyq19hqtE/yW1SQUDU+wSxCoctXW4bTC3j2QcO9t8gFKtQ6bBU5t0c9jZLnYVpg==", "commit"=>"login"}
+  Rendered main/login.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 25ms (Views: 24.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:38:51 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HqdY4qvF0gLiljc0X/J6sFdB2+8jNgoPoOMhm4VVLCTH4Kyet4zQjcjqkPPFPI/nbsO8Afhx8tArtUwLriBqbg==", "user"=>{"email"=>"f@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1  [["email", "f@gmail.com"]]
+  [1m[36mFaculty Load (0.1ms)[0m  [1mSELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1[0m  [["email", "f@gmail.com"]]
+Redirected to http://localhost:3000/faculty_profile
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/faculty_profile" for 127.0.0.1 at 2022-11-09 20:38:51 -0600
+Processing by MainController#faculty_profile as HTML
+  Rendered main/faculty_profile.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:38:55 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:38:55 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:38:55 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:38:55 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:38:55 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:38:55 -0600
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-09 20:38:56 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vh5DNTmYYSLhG5TudlwwM2fb4uTYdx8f2//9muc7hGVnWbdJJdFjrctnMynsksVkXlmFCgMw58BQqZAKzE7CLw==", "commit"=>"sign_up"}
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles"
+  Rendered main/sign_up.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/main/intermediate_sign_up" for 127.0.0.1 at 2022-11-09 20:39:27 -0600
+Processing by MainController#intermediate_sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vbq4tKqUfLF6Jj1v0GYzctBWghrpInTFZNlJn3sKdOlk/UzItt1+PlBamqhKqMYl6dTl9DJljBrvjyQPUH8yow==", "user"=>{"first_name"=>"jimmy", "last_name"=>"falleny", "email"=>"jimmy@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "jimmy"], ["last_name", "falleny"], ["email", "jimmy@gmail.com"], ["password_digest", "gvnb"], ["created_at", "2022-11-10 02:39:27.873178"], ["updated_at", "2022-11-10 02:39:27.873178"]]
+  [1m[36m (11.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1  [["email", "jimmy@gmail.com"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "profiles" DEFAULT VALUES
+  [1m[36m (7.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 7]]
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 7]]
+Completed 302 Found in 24ms (ActiveRecord: 18.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:39:27 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/login" for 127.0.0.1 at 2022-11-09 20:39:30 -0600
+Processing by MainController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wvMFBsqqHw1WMFDFHlSbgwRDJ+O/bnjl1EK8A9lTu/obtPF61uMdgnxM9wKEmm7UPcFADWQpgDpfFNGT8ib9sA==", "commit"=>"login"}
+  Rendered main/login.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:39:35 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q7YZLgRCEPWXbsOq81Zr5vGSpyfn5CnCvpIiNuWq6IKa8e1SGAsSer0SZG1pmJ6xyBDAyTyj0R01xE+mzt+uyA==", "user"=>{"email"=>"jimmy@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1  [["email", "jimmy@gmail.com"]]
+  [1m[36mFaculty Load (0.0ms)[0m  [1mSELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1[0m  [["email", "jimmy@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:39:35 -0600
+Processing by MainController#view_profile as HTML
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 9]]
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered main/view_profile.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `gre' for nil:NilClass):
+    12:       </div>
+    13:       <br>
+    14:       <div class="row">
+    15:         <input value="<%= @current_profile.gre %>" class="field" name="gre" readonly >
+    16:         <input value="<%= @current_profile.toefl %>" class="field" name="toefl" readonly>
+    17:         <input value="<%= @current_profile.capa %>" class="field" name="capa" readonly>
+    18:       </div>
+  app/views/main/view_profile.html.erb:15:in `_app_views_main_view_profile_html_erb___2108510408878731457_70225439963500'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:41:15 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:41:17 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:41:17 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:41:17 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:41:17 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:41:17 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:41:17 -0600
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-09 20:41:21 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhT+gqoHV9GVWKktyP9xMCMiTsCyP3K8Eedg9gGAs+1jUwr+tk5VXr8kDupSMYRnGqApLml4imOasQ1mKvX1pw==", "commit"=>"sign_up"}
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  Rendered main/sign_up.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 13ms (Views: 7.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/main/intermediate_sign_up" for 127.0.0.1 at 2022-11-09 20:41:40 -0600
+Processing by MainController#intermediate_sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lzsiuMtzT3DGeVOve3J/IoT3crY7GGEd6OOg0HCtE2tOfNbE1zpN/+wF9GjhvIp1vXUVWOBfmcJjtc1AW9hVIQ==", "user"=>{"first_name"=>"pearl", "last_name"=>"peakl", "email"=>"p@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "students" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "pearl"], ["last_name", "peakl"], ["email", "p@gmail.com"], ["password_digest", "ewrw"], ["created_at", "2022-11-10 02:41:40.536864"], ["updated_at", "2022-11-10 02:41:40.536864"]]
+  [1m[36m (6.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1  [["email", "p@gmail.com"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "profiles" DEFAULT VALUES
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 2]]
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 302 Found in 29ms (ActiveRecord: 16.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:41:40 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/sign_up" for 127.0.0.1 at 2022-11-09 20:42:06 -0600
+Processing by MainController#sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kmeAyNgXSmLrrve44H9ZEHi6Q7PH+scgi1+DoI7XyUrDmp/PylfpqHSHBl5TwgzeGCO4BRYE8MJexOeqU4Zbw==", "commit"=>"sign_up"}
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  Rendered main/sign_up.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/main/intermediate_sign_up" for 127.0.0.1 at 2022-11-09 20:42:26 -0600
+Processing by MainController#intermediate_sign_up as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gyLia1vcEIw7cE4ooWGmyGpAIMwZar+6XBXm2AW0ri1aZRYXR5USAxEM6e87r1OfU8JHIsItR2XXQ4tILsHoZw==", "user"=>{"first_name"=>"densom", "last_name"=>"sdfsd", "email"=>"d@gmail.com", "password"=>"[FILTERED]"}, "type"=>"radio_button_student", "commit"=>"Create Account"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "densom"], ["last_name", "sdfsd"], ["email", "d@gmail.com"], ["password_digest", "sdfsd"], ["created_at", "2022-11-10 02:42:26.107314"], ["updated_at", "2022-11-10 02:42:26.107314"]]
+  [1m[36m (6.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1  [["email", "d@gmail.com"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "profiles" ("student_id") VALUES (?)  [["student_id", 11]]
+  [1m[36m (5.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 2]]
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 302 Found in 22ms (ActiveRecord: 13.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-09 20:42:26 -0600
+Processing by MainController#index as HTML
+  Rendered main/index.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/login" for 127.0.0.1 at 2022-11-09 20:42:28 -0600
+Processing by MainController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lIao17uaRXMQnhqaGCwhhLi31LdynJq6VfKY6MQW+lBNwVyrp9NH/DrivV2C4tTTgTWzWanbYmXepPV472O8Gg==", "commit"=>"login"}
+  Rendered main/login.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/main/intermediate_login" for 127.0.0.1 at 2022-11-09 20:42:45 -0600
+Processing by MainController#intermediate_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f2OLgHoyK87RY1ldZfoJv0ehH4weLrhkZG5MH9hyeoGmJH/8ZnspQfsf/pr/NPzofiN4YsVpQLvvOCGP8wc8yw==", "user"=>{"email"=>"d@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."email" = ? LIMIT 1  [["email", "d@gmail.com"]]
+  [1m[36mFaculty Load (0.3ms)[0m  [1mSELECT  "faculties".* FROM "faculties" WHERE "faculties"."email" = ? LIMIT 1[0m  [["email", "d@gmail.com"]]
+Redirected to http://localhost:3000/view_profile
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:42:45 -0600
+Processing by MainController#view_profile as HTML
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 11]]
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered main/view_profile.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/edit_profile" for 127.0.0.1 at 2022-11-09 20:42:50 -0600
+
+ActionController::RoutingError (No route matches [POST] "/edit_profile"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (14.7ms)
+
+
+Started POST "/edit_profile" for 127.0.0.1 at 2022-11-09 20:45:08 -0600
+
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  config/routes.rb:26:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.9ms)
+
+
+Started POST "/edit_profile" for 127.0.0.1 at 2022-11-09 20:45:25 -0600
+
+ActionController::RoutingError (No route matches [POST] "/edit_profile"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (20.3ms)
+
+
+Started POST "/edit_profile" for 127.0.0.1 at 2022-11-09 20:45:49 -0600
+
+ActionController::RoutingError (No route matches [POST] "/edit_profile"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (26.5ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:45:52 -0600
+Processing by MainController#view_profile as HTML
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 2]]
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered main/view_profile.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 32ms (Views: 16.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:45:52 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:45:52 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:45:52 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:45:52 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:45:52 -0600
+
+
+Started POST "/login" for 127.0.0.1 at 2022-11-09 20:45:54 -0600
+
+ActionController::RoutingError (No route matches [POST] "/login"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (10.7ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-11-09 20:48:15 -0600
+
+ActionController::RoutingError (No route matches [POST] "/login"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.8ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (12.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-11-09 20:48:22 -0600
+
+ActionController::RoutingError (No route matches [POST] "/login"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (16.1ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:48:24 -0600
+Processing by MainController#view_profile as HTML
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 2]]
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered main/view_profile.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:48:24 -0600
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:48:24 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:48:24 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:48:24 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:48:24 -0600
+
+
+Started POST "/main_edit_profile_path" for 127.0.0.1 at 2022-11-09 20:48:26 -0600
+
+ActionController::RoutingError (No route matches [POST] "/main_edit_profile_path"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.5ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (13.0ms)
+
+
+Started POST "/main_edit_profile_path" for 127.0.0.1 at 2022-11-09 20:48:52 -0600
+
+ActionController::RoutingError (No route matches [POST] "/main_edit_profile_path"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (14.8ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:48:56 -0600
+Processing by MainController#view_profile as HTML
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 2]]
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered main/view_profile.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:48:56 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:48:56 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:48:56 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:48:56 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:48:56 -0600
+
+
+Started POST "/login" for 127.0.0.1 at 2022-11-09 20:48:57 -0600
+
+ActionController::RoutingError (No route matches [POST] "/login"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (10.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-11-09 20:49:44 -0600
+
+ActionController::RoutingError (No route matches [POST] "/login"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (15.1ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-11-09 20:51:53 -0600
+
+ActionController::RoutingError (No route matches [POST] "/login"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.6ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (10.6ms)
+
+
+Started GET "/view_profile" for 127.0.0.1 at 2022-11-09 20:51:55 -0600
+Processing by MainController#view_profile as HTML
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."student_id" = ? LIMIT 1  [["student_id", 2]]
+  [1m[36mStudent Load (0.0ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered main/view_profile.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 127.0.0.1 at 2022-11-09 20:51:55 -0600
+
+
+Started GET "/assets/application.self-f6f2250393742152e75f43091ed614333458b537e10a891f5b4c727e24fdf85f.css?body=1" for 127.0.0.1 at 2022-11-09 20:51:55 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-11-09 20:51:55 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-11-09 20:51:55 -0600
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-11-09 20:51:55 -0600
+
+
+Started POST "/login" for 127.0.0.1 at 2022-11-09 20:51:56 -0600
+
+ActionController::RoutingError (No route matches [POST] "/login"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /root/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (15.9ms)

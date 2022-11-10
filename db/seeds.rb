@@ -6,12 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-students = [{:first_name => 'Kiana', :last_name => 'Erickson', :user_name => 'kberickson', :password=>"1234",:email =>"stuedent1@gmail.com"},
-          {:first_name => 'Joslin', :last_name => 'Some', :user_name => 'jsome', :password=>"1234",:email =>"student2@gmail.com"},
-          {:first_name => 'Evan', :last_name => 'Brewer', :user_name => 'ebrewer', :password=>"1234"},
-          {:first_name => 'Ben', :last_name => 'Desollar', :user_name => 'bdesollar', :password=>"1234"},
-          {:first_name => 'Adnane', :last_name => 'Ezouhri', :user_name => 'aezouhri', :password=>"1234"},
-          {:first_name => 'Christian', :last_name => 'Baseme', :user_name => 'cbaseme', :password=>"1234"},
+students = [{:first_name => 'Kiana', :last_name => 'Erickson', :user_name => 'kberickson', :password_digest=>"1234",:email =>"stuedent1@gmail.com"},
+          {:first_name => 'Joslin', :last_name => 'Some', :user_name => 'jsome', :password_digest=>"1234",:email =>"student2@gmail.com"},
+          {:first_name => 'Evan', :last_name => 'Brewer', :user_name => 'ebrewer', :password_digest=>"1234"},
+          {:first_name => 'Ben', :last_name => 'Desollar', :user_name => 'bdesollar', :password_digest=>"1234"},
+          {:first_name => 'Adnane', :last_name => 'Ezouhri', :user_name => 'aezouhri', :password_digest=>"1234"},
+          {:first_name => 'Christian', :last_name => 'Baseme', :user_name => 'cbaseme', :password_digest=>"1234"},
   	 ]
 
 #i added the faculty in front of first names to differentiate from the students names
