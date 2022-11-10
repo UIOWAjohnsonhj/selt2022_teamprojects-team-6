@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20221108040054) do
   create_table "faculties", force: :cascade do |t|
     t.string  "first_name"
     t.string  "last_name"
-    t.string  "user_name"
     t.string  "email"
     t.string  "password_digest"
     t.string  "department"
@@ -47,9 +46,21 @@ ActiveRecord::Schema.define(version: 20221108040054) do
   create_table "students", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "user_name"
     t.string   "email"
     t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "undergraduate_schools", force: :cascade do |t|
+    t.string   "student_id"
+    t.string   "country"
+    t.string   "university_name"
+    t.string   "major"
+    t.float    "gpa"
+    t.string   "grading_scale"
+    t.integer  "start_year"
+    t.integer  "expected_grad_year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -12,4 +12,9 @@ Feature: Allow users to edit their profile
     When I click "edit"
     Then my data should be updated
 
+  Scenario: Uploading profile picture
+    Given I am a Student
+    And I have previously set up a profile picture
+    And I am on the "Edit Profile" page
+    Then I should the image "profile.jpeg" as my profile picture
 
