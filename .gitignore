@@ -171,3 +171,4 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 Gemfile
+/.ruby-version
