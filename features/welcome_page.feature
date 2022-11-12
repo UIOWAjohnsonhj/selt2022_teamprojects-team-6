@@ -5,5 +5,6 @@ Feature: Visit the welcome page
 
 
   Scenario:
+    Given I enter the application's URL
     When I enter "URL"
     Then I should see a welcome page
