@@ -1,7 +1,7 @@
 class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
-  @@id = 2
+  @@id = nil
 
   def initialize
     super
