@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'rails_helper'
-
+#test
 if RUBY_VERSION >= '2.6.0'
   if Rails.version < '5'
     class ActionController::TestResponse < ActionDispatch::TestResponse
