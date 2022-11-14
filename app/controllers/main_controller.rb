@@ -1,12 +1,15 @@
-require 'bcrypt'
-
 class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
-
-  # has_secure_password
-
   @@id = nil
+
+  def initialize
+    super
+    @student = Student
+    @profiles = Profile
+    @faculty = Faculty
+    @current_profile = nil
+  end
   def index
 
   end
@@ -16,6 +19,9 @@ class MainController < ApplicationController
   end
   def sign_up
     @profiles = Profile
+    @profiles.all.each do |p|
+      puts p.id
+    end
   end
   def view_profile
 
@@ -23,6 +29,7 @@ class MainController < ApplicationController
     #@experience = Experience.where(student_id: @id).take
     puts @@id,"View"
     @student = Student.find(@@id)
+
     if params.include? "gre"
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
@@ -127,9 +134,9 @@ class MainController < ApplicationController
          redirect_to login_path
    end
 
-
   end
-  def intermediate_logout
-    redirect_to root_path
+  def reset_password
+    #redirect_to reset_password_path
+
   end
 end

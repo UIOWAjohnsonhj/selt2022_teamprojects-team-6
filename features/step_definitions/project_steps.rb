@@ -123,3 +123,15 @@ end
 Then(/^I should the image "(.+)" as my profile picture$/) do |image|
   page.should have_xpath("//img[@src=\"/public/images/#{image}\"]")
 end
+
+Given(/^Am on the login page$/) do
+  pending
+end
+
+When(/^I click the forgot password link$/) do
+  visit reset_password
+end
+
+Then(/^I should see the reset password page$/) do
+  expect(page).to have_content("Reset Password")
+end

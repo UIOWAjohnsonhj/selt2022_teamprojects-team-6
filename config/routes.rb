@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "main#index"
-
   get 'login', to: 'main#login', as: 'login'
   post 'main/login'
 
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
   post 'main/view_profile'
 
 
+
   get 'intermediate_sign_up', to: 'main#intermediate_sign_up', as: 'intermediate_sign_up'
   post 'main/intermediate_sign_up'
 
@@ -27,8 +27,14 @@ Rails.application.routes.draw do
 
   get 'faculty_profile', to: 'main#faculty_profile', as: 'faculty_profile'
   post 'main/faculty_profile'
+
   get 'intermediate_login', to: 'main#intermediate_login', as: 'intermediate_login'
   post 'main/intermediate_login'
+
+
+  get 'reset_password', to: 'main#reset_password', as: 'reset_password'
+  post 'main/reset_password'
+
 
   get 'intermediate_logout', to: 'main#intermediate_logout', as: 'intermediate_logout'
   post 'main/intermediate_logout'
