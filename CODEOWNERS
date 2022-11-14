@@ -1,0 +1,15 @@
+* @saanbe16 @aezouhri
+
+/db/  @saanbe16 @christianBaseme @kianaerickson
+
+/spec/ @kianaerickson @erbrewer @bdesollar
+
+/app/views @saanbe16
+
+/app/views/main/forgotpassword.html.haml @christianBaseme
+/app/views/main/sign_up.html.haml @aezouhri
+/app/views/main/login.html.haml @christianBaseme
+/app/ @saanbe16
+
+/app/controllers/main_controller.rb @saanbe16 @christianBaseme @aezouhri
+/CODEOWNERS @saanbe16
