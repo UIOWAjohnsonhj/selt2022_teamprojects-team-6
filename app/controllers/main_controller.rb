@@ -49,6 +49,11 @@ class MainController < ApplicationController
 
     puts params[:user]
     missing=false
+    if Student.where(:email => (params[:user][:email])).exists? || Faculty.where(:email => (params[:user][:email])).exists?
+      puts "email"
+      flash[:notice]= "Email already in use"
+      missing=true
+    end
     if params[:user][:first_name].blank?
       puts "first"
       flash[:notice]= "Empty first name"
