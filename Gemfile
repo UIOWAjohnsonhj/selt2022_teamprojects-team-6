@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
-ruby '2.6.6'
+ruby '2.7.6'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Use Haml as the templating library
 gem 'haml'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.10'
+gem 'rails' # , '4.2.10'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -20,21 +21,23 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'pg', '~> 0.20' # for Heroku deployment
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails', group: :development
 
 gem 'themoviedb'
 
+gem 'rails-controller-testing'
+
 group :development do
-   # Access an IRB console on exception pages or by using <%= console %> in views
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'rubocop'
   gem 'web-console'
 end
 
@@ -46,20 +49,22 @@ group :development, :test do
   gem 'rspec', '~>3.5'
   gem 'rspec-rails'
   gem 'guard-rspec'
-  gem 'simplecov', :require => false, :group => :test
+  gem 'simplecov', require: false
+
   # Use sqlite3 as the database for Active Record
+  #gem 'sqlite3', '~> 1.3.6', '< 1.4'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '< 3.0.0'
 end
 
 group :test do
   gem 'rspec-expectations'
-  gem 'cucumber-rails', :require=>false
+  gem 'cucumber-rails', '1.6.0', :require=>false
   gem 'database_cleaner'
 end
 
 group :production do
+  gem 'pg', '~> 0.20' # for Heroku deployment
   gem 'rails_12factor'
 end
-
