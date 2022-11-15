@@ -148,6 +148,9 @@ class MainController < ApplicationController
 
   end
   def search_universities
-
+    @universities = University
+  end
+  def view_university
+    @university = University.find(params[:id])
   end
 end

@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   post 'main/intermediate_login'
   get 'search_universities', to: 'main#search_universities', as: 'search_universities'
   post 'main/search_universities'
+  get 'view_university', to: 'main#view_university', as: 'view_university'
+  post 'main/view_university'
 
   get 'reset_password', to: 'main#reset_password', as: 'reset_password'
   post 'main/reset_password'

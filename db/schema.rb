@@ -12,6 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20221108040054) do
 
+  create_table "departments", force: :cascade do |t|
+    t.integer "university_id"
+    t.string  "name"
+    t.string  "description"
+  end
+
   create_table "experiences", force: :cascade do |t|
     t.integer "student_id"
     t.string  "company_name"
@@ -62,6 +68,12 @@ ActiveRecord::Schema.define(version: 20221108040054) do
     t.integer  "expected_grad_year"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "universities", force: :cascade do |t|
+    t.string  "name"
+    t.string  "state"
+    t.integer "rank"
   end
 
 end
