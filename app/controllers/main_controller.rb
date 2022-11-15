@@ -117,7 +117,10 @@ class MainController < ApplicationController
 
   def edit_profile
     @current_profile = Profile.where(student_id: @@id).take
-
+    puts @@id,"asdsada"
+    @profiles.all.each do |p|
+      puts p.student_id
+    end
   end
   def faculty_profile
 
@@ -142,6 +145,9 @@ class MainController < ApplicationController
   end
   def reset_password
     #redirect_to reset_password_path
+
+  end
+  def search_universities
 
   end
 end
