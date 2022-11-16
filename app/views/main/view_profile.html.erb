@@ -78,8 +78,10 @@
     <form method="post" action="<%= main_search_universities_path %>">
       <h1>Universities Applied</h1>
       <input type="submit" value="Add University" class="btn">
+
     </form>
-    <%= @@applied_Departments.all.each do |k,v| %>
+    <% @applied_Departments.each do |k,v| %>
+      <br>
       <h2><%=k %></h2>
       <table>
         <tr>

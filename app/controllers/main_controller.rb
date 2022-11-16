@@ -3,6 +3,7 @@ class MainController < ApplicationController
   skip_before_filter :verify_authenticity_token
   @@id = nil
   @@applied_Departments={}
+
   def initialize
     super
     @student = Student
@@ -29,7 +30,7 @@ class MainController < ApplicationController
     #@experience = Experience.where(student_id: @id).take
     puts @@id,"View"
     @student = Student.find(@@id)
-
+    @applied_Departments=@@applied_Departments
     if params.include? "gre"
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
@@ -48,9 +49,6 @@ class MainController < ApplicationController
       else
         @@applied_Departments[@university.name.to_sym] = [params[:department]]
       end
-    end
-    @@applied_Departments.each do |k,v|
-      puts "dsfds"
     end
   end
 
