@@ -2,7 +2,7 @@ class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
   @@id = nil
-
+  @@applied_Departments={}
   def initialize
     super
     @student = Student
@@ -39,6 +39,18 @@ class MainController < ApplicationController
       @current_profile.year = params[:year]
       @current_profile.college_name = params[:college_name]
       @current_profile.save
+    elsif params.include? "department"
+      @university= University.find(params[:university_id])
+      puts @university.name
+
+      if @@applied_Departments.include? @university.name.to_sym
+        @@applied_Departments[@university.name.to_sym].append(params[:department])
+      else
+        @@applied_Departments[@university.name.to_sym] = [params[:department]]
+      end
+    end
+    @@applied_Departments.each do |k,v|
+      puts "dsfds"
     end
   end
 
@@ -152,5 +164,9 @@ class MainController < ApplicationController
   end
   def view_university
     @university = University.find(params[:id])
+    @departments = Department.where(university_id: params[:id])
+    @departments.all.each do |d|
+      puts d.name
+    end
   end
 end

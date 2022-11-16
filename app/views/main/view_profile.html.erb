@@ -79,6 +79,22 @@
       <h1>Universities Applied</h1>
       <input type="submit" value="Add University" class="btn">
     </form>
+    <%= @@applied_Departments.all.each do |k,v| %>
+      <h2><%=k %></h2>
+      <table>
+        <tr>
+          <th>Department</th>
+          <th>Status</th>
+        </tr>
+        <%v.each do |a| %>
+        <tr>
+          <td><%=a %></td>
+          <td>pending</td>
+        </tr>
+        <%end %>
+      </table>
+      <br>
+    <%end %>
   </div>
 </div>
 
