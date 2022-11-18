@@ -1,12 +1,7 @@
-require 'open-uri'
-require 'json'
-
-
 class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
   @@id = nil
-  @@applied_Departments={}
   @@universities=nil
   @@user_type = nil
   @@location = nil
@@ -40,7 +35,6 @@ class MainController < ApplicationController
     end
   end
   def view_profile
-
     @current_profile = Profile.where(student_id: @@id).take
     #@experience = Experience.where(student_id: @id).take
     puts @@id,"View"
@@ -151,10 +145,7 @@ class MainController < ApplicationController
 
   def edit_profile
     @current_profile = Profile.where(student_id: @@id).take
-    puts @@id,"asdsada"
-    @profiles.all.each do |p|
-      puts p.student_id
-    end
+
   end
   def faculty_profile
 
