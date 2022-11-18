@@ -1,7 +1,3 @@
-require 'open-uri'
-require 'json'
-
-
 class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
@@ -39,6 +35,7 @@ class MainController < ApplicationController
     end
   end
   def view_profile
+
     @current_profile = Profile.where(student_id: @@id).take
     #@experience = Experience.where(student_id: @id).take
     puts @@id,"View"
@@ -148,31 +145,52 @@ class MainController < ApplicationController
 
   def edit_profile
     @current_profile = Profile.where(student_id: @@id).take
-    puts @@id,"asdsada"
-    @profiles.all.each do |p|
-      puts p.student_id
-    end
+
   end
   def faculty_profile
 
   end
   def intermediate_login
     given_email= params[:user][:email]
+    given_password = params[:user][:password]
 
-    @student = Student.where(email: given_email).take
-    @faculty = Faculty.where(email: given_email).take
-   if not @student.nil?
-      @@id = @student.id
-      @@user_type = :student
-      redirect_to view_profile_path
-   elsif not @faculty.nil?
-     @@id = @faculty.id
-     @@user_type = :faulty
-     redirect_to faculty_profile_path
-   else
+    #@student = Student.where( email:given_email).take
+
+    #@faculty = Faculty.where( email: given_email).take
+    #puts 'line 134: ', @student
+    #p 'line 135  ', @faculty
+    #if (not @student.nil?) || (not @faculty.nil?)
+    @student = Student.find_by(email:given_email,password_digest:given_password)
+    @faculty = Faculty.find_by(email:given_email,password_digest:given_password)
+
+    begin
+      puts 'line 139'
+      if not @student.nil? #student1 && student1.authenticate(given_password)
+        #&.authenticate(given_password)
+        puts 'line 141'
+
+        @@id = @student.id
+        @@user_type = :student
+        #p @student
+        redirect_to view_profile_path
+      #elsif not @faculty.nil?
+      elsif not @faculty.nil?
+        #&.authenticate(given_password)
+        puts 'line 148'
+        @@id = @faculty.id
+        @@user_type = :faulty
+        redirect_to faculty_profile_path
+
+      else
          flash[:notice]="Invalid user"
          redirect_to login_path
-   end
+      end
+    rescue BCrypt::Errors::InvalidHash
+      flash[:error] = 'We recently adjusted the way our passwords are store. Please Reset your password '
+    end
+    #else
+    # flash[:notice]="Invalid user 2"
+    #  redirect_to login_path
 
   end
   def reset_password
