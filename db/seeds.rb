@@ -33,7 +33,16 @@ undergrad_schools = [{:student_id=>1, :country=>"United States", :university_nam
                      {:student_id=>2, :country=>"China", :university_name=>"Peking University", :major=>"Biology", :gpa => 3.89,
                       :grading_scale=>"Pass/Fail", :start_year=>2014, :expected_grad_year=>2018}
                     ]
-
+universities = [{:name=> "University of Iowa",:rank=>12,:state=>"Iowa"},
+                {:name=> "University of Illinois",:rank=>5,:state=>"Illinois"},
+                {:name=> "Stanford",:rank=>2,:state=>"California"},
+                {:name=> "Cornell",:rank=>12,:state=>"Iowa"},
+                {:name=> "University of California Berkly",:rank=>5,:state=>"California"},
+                {:name=> "University of Michigan",:rank=>8,:state=>"Michigan"},
+                {:name=> "University of Florida",:rank=>19,:state=>"Florida"},
+                ]
+department = [{:university_id=>1,:name=>"Electrical Engineering"},{:university_id=>1,:name=>"Mechanical Engineering"},
+  {:university_id=>1,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"}]
 undergrad_schools.each do |school|
   UndergraduateSchool.create!(school)
 end
@@ -49,4 +58,10 @@ end
 
 faculties.each do |faculty|
   Faculty.create!(faculty)
+end
+department.each do |department|
+  Department.create!(department)
+end
+universities.each do |uni|
+  University.create!(uni)
 end

@@ -1,0 +1,25 @@
+<h2>Search US Universities</h2>
+  <input name="search" class="field2"/>
+  <input type="submit" value="search" class="btn">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <table>
+    <%@universities.all.each do |p| %>
+      <form method="post"action="<%=main_view_university_path %>" >
+        <input type="hidden" value="<%=p.id %>" name="id">
+        <tr>
+          <td><%=p.id %></td>
+          <td><%=p.name %></td>
+          <td><%=p.state %></td>
+          <td><%=p.rank %></td>
+          <td><input type="submit" class="btn" value="view"></td>
+        </tr>
+      </form>
+  <%end %>
+
+  </table>
