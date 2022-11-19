@@ -2,6 +2,7 @@ class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
   @@id = nil
+  @@applied_Departments={}
 
   def initialize
     super
@@ -29,7 +30,7 @@ class MainController < ApplicationController
     #@experience = Experience.where(student_id: @id).take
     puts @@id,"View"
     @student = Student.find(@@id)
-
+    @applied_Departments=@@applied_Departments
     if params.include? "gre"
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
@@ -39,6 +40,15 @@ class MainController < ApplicationController
       @current_profile.year = params[:year]
       @current_profile.college_name = params[:college_name]
       @current_profile.save
+    elsif params.include? "department"
+      @university= University.find(params[:university_id])
+      puts @university.name
+
+      if @@applied_Departments.include? @university.name.to_sym
+        @@applied_Departments[@university.name.to_sym].append(params[:department])
+      else
+        @@applied_Departments[@university.name.to_sym] = [params[:department]]
+      end
     end
   end
 
@@ -117,7 +127,10 @@ class MainController < ApplicationController
 
   def edit_profile
     @current_profile = Profile.where(student_id: @@id).take
-
+    puts @@id,"asdsada"
+    @profiles.all.each do |p|
+      puts p.student_id
+    end
   end
   def faculty_profile
 
@@ -143,5 +156,15 @@ class MainController < ApplicationController
   def reset_password
     #redirect_to reset_password_path
 
+  end
+  def search_universities
+    @universities = University
+  end
+  def view_university
+    @university = University.find(params[:id])
+    @departments = Department.where(university_id: params[:id])
+    @departments.all.each do |d|
+      puts d.name
+    end
   end
 end
