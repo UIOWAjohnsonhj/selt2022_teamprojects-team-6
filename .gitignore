@@ -2,3 +2,4 @@
 .idea/httpRequests
 log/development.log
 /.ruby-version
+/db/development.sqlite3
