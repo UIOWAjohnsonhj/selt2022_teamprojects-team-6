@@ -38,7 +38,8 @@ Rails.application.routes.draw do
   get 'reset_password', to: 'main#reset_password', as: 'reset_password'
   post 'main/reset_password'
 
-
+  get 'intermediate_search', to: 'main#intermediate_search', as: 'intermediate_search'
+  post 'main/intermediate_search'
   get 'intermediate_logout', to: 'main#intermediate_logout', as: 'intermediate_logout'
   post 'main/intermediate_logout'
 end
