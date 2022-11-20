@@ -1,9 +1,13 @@
+require 'open-uri'
+require 'json'
+
+
 class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
   @@id = nil
   @@applied_Departments={}
-
+  @@universities=nil
   def initialize
     super
     @student = Student
@@ -184,7 +188,8 @@ class MainController < ApplicationController
 
   end
   def search_universities
-    @universities = University
+    @universities= @@universities
+    puts @@universities.nil?," sdsafds"
   end
   def view_university
     @university = University.find(params[:id])
@@ -192,5 +197,13 @@ class MainController < ApplicationController
     @departments.all.each do |d|
       puts d.name
     end
+  end
+  def intermediate_search
+    filter = params[:filter]
+    entry = params[:search]
+    response = data = JSON.parse(open('https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=10&sort=world_rank&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.country=United+States&refine.year=2018').read)
+    @@universities = response["records"]
+    redirect_to search_universities_path
+
   end
 end
