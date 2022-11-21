@@ -6,14 +6,16 @@ class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
   @@id = nil
-  @@applied_Departments={}
   @@universities=nil
+  @@user_type = nil
   def initialize
     super
     @student = Student
     @profiles = Profile
     @faculty = Faculty
     @current_profile = nil
+    @id = @@id
+    @user_type = @@user_type
   end
   def index
 
@@ -22,6 +24,10 @@ class MainController < ApplicationController
     @student = Student
     @profiles = Profile
   end
+  def intermediate_logout
+    @@id = nil
+    redirect_to root_path
+  end
   def sign_up
     @profiles = Profile
     @profiles.all.each do |p|
@@ -29,12 +35,11 @@ class MainController < ApplicationController
     end
   end
   def view_profile
-
     @current_profile = Profile.where(student_id: @@id).take
     #@experience = Experience.where(student_id: @id).take
     puts @@id,"View"
     @student = Student.find(@@id)
-    @applied_Departments=@@applied_Departments
+    @applied_Departments ={}
     if params.include? "gre"
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
@@ -46,12 +51,23 @@ class MainController < ApplicationController
       @current_profile.save
     elsif params.include? "department"
       @university= University.find(params[:university_id])
-      puts @university.name
+      @department = Department.find(params[:department])
+      application = {:student_id=>@@id, :university_id=> @university.id,:department_id=>@department.id}
+      @applications.create!(application)
+    end
+    @applications = Application.where(student_id: @@id)
+    puts @@id, "sadasd"
+    Application.all.each do |a|
+      puts a.student_id
+    end
+    @applications.each do |app|
+      current_uni= University.find(app.university_id)
+      current_dep = Department.find(app.department_id)
 
-      if @@applied_Departments.include? @university.name.to_sym
-        @@applied_Departments[@university.name.to_sym].append(params[:department])
+      if @applied_Departments.include? current_uni.name.to_sym
+        @applied_Departments[current_uni.name.to_sym].append(current_dep.name)
       else
-        @@applied_Departments[@university.name.to_sym] = [params[:department]]
+        @applied_Departments[current_uni.name.to_sym] = [current_dep.name]
       end
     end
   end
@@ -146,11 +162,12 @@ class MainController < ApplicationController
     @faculty = Faculty.where(email: given_email).take
    if not @student.nil?
       @@id = @student.id
+      @@user_type = :student
       redirect_to view_profile_path
    elsif not @faculty.nil?
      @@id = @faculty.id
+     @@user_type = :faulty
      redirect_to faculty_profile_path
-
    else
          flash[:notice]="Invalid user"
          redirect_to login_path
