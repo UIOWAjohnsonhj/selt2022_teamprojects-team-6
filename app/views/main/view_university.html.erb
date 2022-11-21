@@ -3,7 +3,7 @@
 <table>
   <%@departments.all.each do |p| %>
     <form method="post"action="<%=main_view_profile_path %>" >
-      <input type="hidden" value="<%=p.name%>" name="department">
+      <input type="hidden" value="<%=p.id%>" name="department">
       <input type="hidden" value="<%=p.university_id %>" name="university_id">
 
       <tr>

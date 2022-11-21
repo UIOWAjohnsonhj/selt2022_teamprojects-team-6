@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   get 'intermediate_login', to: 'main#intermediate_login', as: 'intermediate_login'
   post 'main/intermediate_login'
+
   get 'search_universities', to: 'main#search_universities', as: 'search_universities'
   post 'main/search_universities'
   get 'view_university', to: 'main#view_university', as: 'view_university'

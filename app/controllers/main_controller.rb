@@ -8,12 +8,15 @@ class MainController < ApplicationController
   @@id = nil
   @@applied_Departments={}
   @@universities=nil
+  @@user_type = nil
   def initialize
     super
     @student = Student
     @profiles = Profile
     @faculty = Faculty
     @current_profile = nil
+    @id = @@id
+    @user_type = @@user_type
   end
   def index
 
@@ -21,6 +24,10 @@ class MainController < ApplicationController
   def login
     @student = Student
     @profiles = Profile
+  end
+  def intermediate_logout
+    @@id = nil
+    redirect_to root_path
   end
   def sign_up
     @profiles = Profile
@@ -35,7 +42,7 @@ class MainController < ApplicationController
     puts @@id,"View"
 
     @student = Student.find(@@id)
-    @applied_Departments=@@applied_Departments
+    @applied_Departments ={}
     if params.include? "gre"
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
@@ -47,15 +54,25 @@ class MainController < ApplicationController
       @current_profile.save
     elsif params.include? "department"
       @university= University.find(params[:university_id])
-      puts @university.name
+      @department = Department.find(params[:department])
+      application = {:student_id=>@@id, :university_id=> @university.id,:department_id=>@department.id}
+      @applications.create!(application)
+    end
+    @applications = Application.where(student_id: @@id)
+    puts @@id, "sadasd"
+    Application.all.each do |a|
+      puts a.student_id
+    end
+    @applications.each do |app|
+      current_uni= University.find(app.university_id)
+      current_dep = Department.find(app.department_id)
 
-      if @@applied_Departments.include? @university.name.to_sym
-        @@applied_Departments[@university.name.to_sym].append(params[:department])
+      if @applied_Departments.include? current_uni.name.to_sym
+        @applied_Departments[current_uni.name.to_sym].append(current_dep.name)
       else
-        @@applied_Departments[@university.name.to_sym] = [params[:department]]
+        @applied_Departments[current_uni.name.to_sym] = [current_dep.name]
       end
     end
-
   end
 
 
@@ -159,7 +176,7 @@ class MainController < ApplicationController
       if not @student.nil? #student1 && student1.authenticate(given_password)
         #&.authenticate(given_password)
         puts 'line 141'
-
+        @@user_type = :student
         @@id = @student.id
         #p @student
         redirect_to view_profile_path
@@ -168,6 +185,7 @@ class MainController < ApplicationController
         #&.authenticate(given_password)
         puts 'line 148'
         @@id = @faculty.id
+        @@user_type = :faulty
         redirect_to faculty_profile_path
 
       else
@@ -181,7 +199,6 @@ class MainController < ApplicationController
     # flash[:notice]="Invalid user 2"
     #  redirect_to login_path
 
-    #end
   end
   def reset_password
     #redirect_to reset_password_path
