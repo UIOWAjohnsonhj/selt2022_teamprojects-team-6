@@ -8,7 +8,7 @@ ruby '2.6.6'
 gem 'haml'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails' # , '4.2.10'
+gem 'rails' #, '~> 5.1.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.3'
 # Use Uglifier as compressor for JavaScript assets
