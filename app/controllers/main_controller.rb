@@ -163,11 +163,15 @@ class MainController < ApplicationController
   end
   def search_universities
     @universities= @@universities
-    puts @@universities.nil?," sdsafds"
+    @all_universities = []
+    University.all.each do |u|
+      @all_universities.append(u.name.downcase)
+    end
+    puts @all_universities
   end
   def view_university
-    @university = University.find(params[:id])
-    @departments = Department.where(university_id: params[:id])
+    @university = University.where(name:params[:name]).take
+    @departments = Department.where(university_id: @university.id)
     @departments.all.each do |d|
       puts d.name
     end
@@ -175,7 +179,12 @@ class MainController < ApplicationController
   def intermediate_search
     filter = params[:filter]
     entry = params[:search]
-    response = data = JSON.parse(open('https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=10&sort=world_rank&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.country=United+States&refine.year=2018').read)
+    if filter == "Country"
+      url = 'https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=10&sort=world_rank&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.country='+entry+'&refine.year=2018'
+    elsif filter == "university name"
+      url = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=20&sort=world_rank&facet=university_name&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.university_name="+entry+"&refine.year=2018"
+    end
+    response = data = JSON.parse(open(url).read)
     @@universities = response["records"]
     redirect_to search_universities_path
 

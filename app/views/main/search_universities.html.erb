@@ -37,11 +37,13 @@
     <th>Country</th>
     <th>National Rank</th>
     <th>World Rank</th>
+    <th>Status</th>
+    <th>View</th>
 
-    <%if !@universities.nil? %>
+    <%if !@universities.nil? && !@universities.blank?%>
     <% @universities.each do |record|%>
       <form method="post"action="<%=main_view_university_path %>" >
-<!--        <input type="hidden" value="<%#=p.id %>" name="id">-->
+        <input type="hidden" value="<%=record["fields"]["university_name"] %>" name="name">
 
 
         <tr>
@@ -49,13 +51,21 @@
           <td><%=record["fields"]["country"] %></td>
           <td><%=record["fields"]["national_rank"] %></td>
           <td><%=record["fields"]["world_rank"] %></td>
-
-          <td><input type="submit" class="btn" value="view"></td>
+          <%if @all_universities.include? record["fields"]["university_name"].downcase %>
+            <td>Supported</td>
+            <td><input type="submit" class="btn" value="view"></td>
+          <%else %>
+            <td>Not Supported</td>
+            <td></td>
+          <%end %>
         </tr>
       </form>
   <%end %>
+      <%elsif @universities.blank?%>
+        <h2>No results found</h2>
+
       <%end %>
 <!--    <iframe src="https://public.opendatasoft.com/explore/embed/dataset/shanghai-world-university-ranking/table/?sort=university_name&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJzY2F0dGVyIiwiZnVuYyI6IkFWRyIsInlBeGlzIjoid29ybGRfcmFua19pbnQiLCJzY2llbnRpZmljRGlzcGxheSI6dHJ1ZSwiY29sb3IiOiJyYW5nZS1jdXN0b20ifV0sInhBeGlzIjoidW5pdmVyc2l0eV9uYW1lIiwibWF4cG9pbnRzIjo1MCwic29ydCI6IiIsInNlcmllc0JyZWFrZG93biI6InllYXIiLCJjb25maWciOnsiZGF0YXNldCI6InNoYW5naGFpLXdvcmxkLXVuaXZlcnNpdHktcmFua2luZyIsIm9wdGlvbnMiOnsic29ydCI6IndvcmxkX3JhbmsifX19XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D&rows=60&location=2,4.21494,-21.97266&basemap=jawg.light&static=false&datasetcard=false" width="100%" height="300" frameborder="0"></iframe>-->
 <!--    <iframe src="https://public.opendatasoft.com/explore/embed/dataset/shanghai-world-university-ranking/map/?sort=world_rank&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJzY2F0dGVyIiwiZnVuYyI6IkFWRyIsInlBeGlzIjoid29ybGRfcmFua19pbnQiLCJzY2llbnRpZmljRGlzcGxheSI6dHJ1ZSwiY29sb3IiOiJyYW5nZS1jdXN0b20ifV0sInhBeGlzIjoidW5pdmVyc2l0eV9uYW1lIiwibWF4cG9pbnRzIjo1MCwic29ydCI6IiIsInNlcmllc0JyZWFrZG93biI6InllYXIiLCJjb25maWciOnsiZGF0YXNldCI6InNoYW5naGFpLXdvcmxkLXVuaXZlcnNpdHktcmFua2luZyIsIm9wdGlvbnMiOnsic29ydCI6IndvcmxkX3JhbmsifX19XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D&rows=20&location=2,57.70415,26.19141&basemap=jawg.light&static=false&datasetcard=true&scrollWheelZoom=false" width="100%" height="300" frameborder="0"></iframe>-->
-    <%= button_tag "Do It", type: 'button', onclick: "getTag()", class: 'btn btn-default' %>
+    <%#= button_tag "Do It", type: 'button', onclick: "getTag()", class: 'btn btn-default' %>
   </table>
