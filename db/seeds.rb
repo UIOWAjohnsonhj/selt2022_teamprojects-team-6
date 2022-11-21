@@ -34,17 +34,27 @@ undergrad_schools = [{:student_id=>1, :country=>"United States", :university_nam
                       :grading_scale=>"Pass/Fail", :start_year=>2014, :expected_grad_year=>2018}
                     ]
 universities = [{:name=> "University of Iowa",:rank=>12,:state=>"Iowa"},
-                {:name=> "University of Illinois",:rank=>5,:state=>"Illinois"},
-                {:name=> "Stanford",:rank=>2,:state=>"California"},
-                {:name=> "Cornell",:rank=>12,:state=>"Iowa"},
-                {:name=> "University of California Berkly",:rank=>5,:state=>"California"},
+                {:name=> "University of Chicago",:rank=>5,:state=>"Illinois"},
+                {:name=> "Stanford University",:rank=>2,:state=>"California"},
+                {:name=> "Cornell University",:rank=>12,:state=>"Iowa"},
+                {:name=> "University of California, Berkely",:rank=>5,:state=>"California"},
                 {:name=> "University of Michigan",:rank=>8,:state=>"Michigan"},
                 {:name=> "University of Florida",:rank=>19,:state=>"Florida"},
                 ]
 department = [{:university_id=>1,:name=>"Electrical Engineering"},{:university_id=>1,:name=>"Mechanical Engineering"},
-  {:university_id=>1,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"},
-  {:university_id=>2,:name=>"Electrical Engineering"},{:university_id=>2,:name=>"Mechanical Engineering"},
-  {:university_id=>2,:name=>"Hardware Engineering"},{:university_id=>2,:name=>"Physics"}]
+              {:university_id=>1,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"},
+              {:university_id=>2,:name=>"Electrical Engineering"},{:university_id=>2,:name=>"Mechanical Engineering"},
+              {:university_id=>2,:name=>"Hardware Engineering"},{:university_id=>2,:name=>"Physics"},
+              {:university_id=>3,:name=>"Electrical Engineering"},{:university_id=>1,:name=>"Mechanical Engineering"},
+              {:university_id=>3,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"},
+              {:university_id=>4,:name=>"Electrical Engineering"},{:university_id=>2,:name=>"Mechanical Engineering"},
+              {:university_id=>4,:name=>"Hardware Engineering"},{:university_id=>2,:name=>"Physics"},
+{:university_id=>5,:name=>"Electrical Engineering"},{:university_id=>1,:name=>"Mechanical Engineering"},
+  {:university_id=>5,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"},
+  {:university_id=>6,:name=>"Electrical Engineering"},{:university_id=>2,:name=>"Mechanical Engineering"},
+  {:university_id=>6,:name=>"Hardware Engineering"},{:university_id=>2,:name=>"Physics"}
+
+]
 undergrad_schools.each do |school|
   UndergraduateSchool.create!(school)
 end
