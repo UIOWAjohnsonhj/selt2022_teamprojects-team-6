@@ -49,11 +49,9 @@
 }
 
 .btn{
-  border-radius: 30px;
-  width: 100px;
-  float: left;
-  margin-left: 8px;
-  background-color: orange;
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50; /* Green */
 }
 .btn:hover{
   background-color: #ff9900;
