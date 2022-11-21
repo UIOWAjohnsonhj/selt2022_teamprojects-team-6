@@ -44,7 +44,7 @@ universities = [{:name=> "University of Iowa",:rank=>12,:state=>"Iowa"},
 department = [{:university_id=>1,:name=>"Electrical Engineering"},{:university_id=>1,:name=>"Mechanical Engineering"},
   {:university_id=>1,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"}]
 undergrad_schools.each do |school|
-  UndergraduateSchool.create!(school)
+  UndergraduateSchools.create!(school)
 end
 
 students.each do |student|

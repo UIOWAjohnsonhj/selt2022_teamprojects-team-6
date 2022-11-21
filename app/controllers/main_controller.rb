@@ -27,7 +27,7 @@ class MainController < ApplicationController
   def view_profile
 
     @current_profile = Profile.where(student_id: @@id).take
-    #@experience = Experience.where(student_id: @id).take
+    #@experience = Experiences.where(student_id: @id).take
     puts @@id,"View"
     @student = Student.find(@@id)
     @applied_Departments=@@applied_Departments
