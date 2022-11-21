@@ -8,6 +8,7 @@ class MainController < ApplicationController
   @@id = nil
   @@universities=nil
   @@user_type = nil
+  @@location = nil
   def initialize
     super
     @student = Student
@@ -16,6 +17,9 @@ class MainController < ApplicationController
     @current_profile = nil
     @id = @@id
     @user_type = @@user_type
+    @location = @@location
+    @applications= Application
+
   end
   def index
 
@@ -52,14 +56,11 @@ class MainController < ApplicationController
     elsif params.include? "department"
       @university= University.find(params[:university_id])
       @department = Department.find(params[:department])
-      application = {:student_id=>@@id, :university_id=> @university.id,:department_id=>@department.id}
+      application = {:student_id=>@@id, :university_id=> @university.id,:department_id=>@department.id,:status=>"pending"}
       @applications.create!(application)
     end
     @applications = Application.where(student_id: @@id)
-    puts @@id, "sadasd"
-    Application.all.each do |a|
-      puts a.student_id
-    end
+
     @applications.each do |app|
       current_uni= University.find(app.university_id)
       current_dep = Department.find(app.department_id)
@@ -196,13 +197,26 @@ class MainController < ApplicationController
   def intermediate_search
     filter = params[:filter]
     entry = params[:search]
-    if filter == "Country"
-      url = 'https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=10&sort=world_rank&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.country='+entry+'&refine.year=2018'
+
+    puts filter, filter.nil?,filter.blank?
+    if filter == "Location"
+      @@location = true
+    elsif filter.blank? or entry.blank?
+      flash[:notice] = "Please fill out all fields"
+      @@location = false
+    elsif filter == "Country"
+      url = 'https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=100&sort=world_rank&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.country='+entry+'&refine.year=2018'
+      response = data = JSON.parse(open(url).read)
+      @@universities = response["records"]
+      @@location = false
     elsif filter == "university name"
-      url = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=20&sort=world_rank&facet=university_name&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.university_name="+entry+"&refine.year=2018"
+      url = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=1&sort=world_rank&facet=university_name&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.university_name="+entry+"&refine.year=2018"
+      response = data = JSON.parse(open(url).read)
+      @@universities = response["records"]
+      @@location = false
     end
-    response = data = JSON.parse(open(url).read)
-    @@universities = response["records"]
+
+
     redirect_to search_universities_path
 
   end

@@ -19,7 +19,7 @@
   <input name="search" class="field2"/>
   <input  list="filters" class="field2" name="filter">
   <datalist id="filters">
-    <option value="ranking">
+    <option value="Location">
     <option value="university name">
     <option value="Country">
   </datalist>
@@ -40,7 +40,7 @@
     <th>Status</th>
     <th>View</th>
 
-    <%if !@universities.nil? && !@universities.blank?%>
+    <%if !@universities.nil? && !@universities.blank? and not @location%>
     <% @universities.each do |record|%>
       <form method="post"action="<%=main_view_university_path %>" >
         <input type="hidden" value="<%=record["fields"]["university_name"] %>" name="name">
@@ -61,11 +61,13 @@
         </tr>
       </form>
   <%end %>
-      <%elsif @universities.blank?%>
+      <%elsif @universities.blank? and not @location%>
         <h2>No results found</h2>
 
       <%end %>
 <!--    <iframe src="https://public.opendatasoft.com/explore/embed/dataset/shanghai-world-university-ranking/table/?sort=university_name&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJzY2F0dGVyIiwiZnVuYyI6IkFWRyIsInlBeGlzIjoid29ybGRfcmFua19pbnQiLCJzY2llbnRpZmljRGlzcGxheSI6dHJ1ZSwiY29sb3IiOiJyYW5nZS1jdXN0b20ifV0sInhBeGlzIjoidW5pdmVyc2l0eV9uYW1lIiwibWF4cG9pbnRzIjo1MCwic29ydCI6IiIsInNlcmllc0JyZWFrZG93biI6InllYXIiLCJjb25maWciOnsiZGF0YXNldCI6InNoYW5naGFpLXdvcmxkLXVuaXZlcnNpdHktcmFua2luZyIsIm9wdGlvbnMiOnsic29ydCI6IndvcmxkX3JhbmsifX19XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D&rows=60&location=2,4.21494,-21.97266&basemap=jawg.light&static=false&datasetcard=false" width="100%" height="300" frameborder="0"></iframe>-->
-<!--    <iframe src="https://public.opendatasoft.com/explore/embed/dataset/shanghai-world-university-ranking/map/?sort=world_rank&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJzY2F0dGVyIiwiZnVuYyI6IkFWRyIsInlBeGlzIjoid29ybGRfcmFua19pbnQiLCJzY2llbnRpZmljRGlzcGxheSI6dHJ1ZSwiY29sb3IiOiJyYW5nZS1jdXN0b20ifV0sInhBeGlzIjoidW5pdmVyc2l0eV9uYW1lIiwibWF4cG9pbnRzIjo1MCwic29ydCI6IiIsInNlcmllc0JyZWFrZG93biI6InllYXIiLCJjb25maWciOnsiZGF0YXNldCI6InNoYW5naGFpLXdvcmxkLXVuaXZlcnNpdHktcmFua2luZyIsIm9wdGlvbnMiOnsic29ydCI6IndvcmxkX3JhbmsifX19XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D&rows=20&location=2,57.70415,26.19141&basemap=jawg.light&static=false&datasetcard=true&scrollWheelZoom=false" width="100%" height="300" frameborder="0"></iframe>-->
+  <%if @location %>
+    <iframe src="https://public.opendatasoft.com/explore/embed/dataset/shanghai-world-university-ranking/map/?sort=world_rank&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJzY2F0dGVyIiwiZnVuYyI6IkFWRyIsInlBeGlzIjoid29ybGRfcmFua19pbnQiLCJzY2llbnRpZmljRGlzcGxheSI6dHJ1ZSwiY29sb3IiOiJyYW5nZS1jdXN0b20ifV0sInhBeGlzIjoidW5pdmVyc2l0eV9uYW1lIiwibWF4cG9pbnRzIjo1MCwic29ydCI6IiIsInNlcmllc0JyZWFrZG93biI6InllYXIiLCJjb25maWciOnsiZGF0YXNldCI6InNoYW5naGFpLXdvcmxkLXVuaXZlcnNpdHktcmFua2luZyIsIm9wdGlvbnMiOnsic29ydCI6IndvcmxkX3JhbmsifX19XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D&rows=20&location=2,57.70415,26.19141&basemap=jawg.light&static=false&datasetcard=true&scrollWheelZoom=false" width="100%" height="500" frameborder="0"></iframe>
+   <%end %>
     <%#= button_tag "Do It", type: 'button', onclick: "getTag()", class: 'btn btn-default' %>
   </table>
