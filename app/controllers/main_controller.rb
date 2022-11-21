@@ -167,4 +167,14 @@ class MainController < ApplicationController
       puts d.name
     end
   end
+
+  def admission_decision
+    #@current_profile = Profile.where(student_id: @@id).take
+    @professor = Faculty.find(@@id)
+    @student_list = Student.all
+    puts @student_list
+    @student_list.each do |s|
+      puts s.first_name
+    end
+  end
 end
