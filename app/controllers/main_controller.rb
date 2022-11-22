@@ -260,7 +260,7 @@ class MainController < ApplicationController
     redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
   end
 
-  end
+    end
 
   def intermediate_search
     filter = params[:filter]
