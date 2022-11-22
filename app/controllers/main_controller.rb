@@ -7,7 +7,7 @@ class MainController < ApplicationController
   @@universities=nil
   @@user_type = nil
   @@search_type = nil
-  @@page_counter = 3
+  @@page_counter = 1
 
 
   def initialize
@@ -69,11 +69,12 @@ class MainController < ApplicationController
       current_dep = Department.find(app.department_id)
 
       if @applied_Departments.include? current_uni.name.to_sym
-        @applied_Departments[current_uni.name.to_sym].append(current_dep.name)
+        @applied_Departments[current_uni.name.to_sym].append([current_dep.name,app.application_status])
       else
-        @applied_Departments[current_uni.name.to_sym] = [current_dep.name]
+        @applied_Departments[current_uni.name.to_sym] = [[current_dep.name,app.application_status]]
       end
     end
+    puts @applied_Departments
   end
 
 
@@ -220,7 +221,7 @@ class MainController < ApplicationController
   def intermediate_search
     filter = params[:filter]
     entry = params[:search]
-
+    @@page_counter =1
     puts filter, filter.nil?,filter.blank?
     if filter == "Location"
       @@search_type = :location
