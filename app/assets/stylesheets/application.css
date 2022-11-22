@@ -60,7 +60,7 @@
   background-color: #be5602;
 }
 .vl {
-  border-left: 6px solid orange;
+  border-left: 6px solid #2da1e1;
   height: 100vh;
 }
 table {
@@ -841,10 +841,7 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
-.row {
-  margin-right: -15px;
-  margin-left: -15px;
-}
+
 .col-xs-1,
 .col-sm-1,
 .col-md-1,
@@ -2551,13 +2548,7 @@ input[type="button"].btn-block {
 @font-face {
   font-family: "Glyphicons Halflings";
 
-  src: url("../fonts/glyphicons-halflings-regular.eot");
-  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix")
-  format("embedded-opentype"),
-  url("../fonts/glyphicons-halflings-regular.woff") format("woff"),
-  url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"),
-  url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular")
-  format("svg");
+
 }
 .glyphicon {
   position: relative;
@@ -4123,10 +4114,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-right: 0;
   }
 }
+/*Background color of nav bar*/
 .navbar-default {
   background-color: #f8f8f8;
   border-color: #e7e7e7;
 }
+/*Color of nav bar text*/
 .navbar-default .navbar-brand {
   color: #777;
 }
@@ -4445,20 +4438,16 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #fff;
 }
 .label {
-  display: inline;
-  padding: 0.2em 0.6em 0.3em;
-  font-size: 75%;
+  font-size: 100%;
   font-weight: bold;
-  line-height: 1;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 0.25em;
+  color: black;
+  margin-left: 50px;
+  float: left;
+  width: 25%;
 }
 .label[href]:hover,
 .label[href]:focus {
-  color: #fff;
+  color: black;
   text-decoration: none;
   cursor: pointer;
 }
@@ -5967,8 +5956,6 @@ button.close {
 .container:after,
 .container-fluid:before,
 .container-fluid:after,
-.row:before,
-.row:after,
 .form-horizontal .form-group:before,
 .form-horizontal .form-group:after,
 .btn-toolbar:before,
@@ -5995,7 +5982,6 @@ button.close {
 .clearfix:after,
 .container:after,
 .container-fluid:after,
-.row:after,
 .form-horizontal .form-group:after,
 .btn-toolbar:after,
 .btn-group-vertical > .btn-group:after,
@@ -6029,7 +6015,6 @@ button.close {
   visibility: hidden;
 }
 .text-hide {
-  font: 0/0 a;
   color: transparent;
   text-shadow: none;
   background-color: transparent;
@@ -6042,9 +6027,7 @@ button.close {
 .affix {
   position: fixed;
 }
-@-ms-viewport {
-  width: device-width;
-}
+
 .visible-xs,
 .visible-sm,
 .visible-md,
@@ -6154,4 +6137,3 @@ button.close {
     display: none !important;
   }
 }
-/*# sourceMappingURL=bootstrap.css.map */
