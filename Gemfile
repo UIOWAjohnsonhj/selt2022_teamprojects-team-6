@@ -35,6 +35,12 @@ gem 'themoviedb'
 
 gem 'rails-controller-testing'
 
+#Used for 2FA
+gem 'devise'
+
+gem 'devise-two-factor'
+gem 'rqrcode'
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'rubocop'
