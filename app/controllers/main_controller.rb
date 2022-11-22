@@ -221,7 +221,7 @@ class MainController < ApplicationController
       puts s.first_name
     end
 
-  end
+    end
 
   def intermediate_search
     filter = params[:filter]
