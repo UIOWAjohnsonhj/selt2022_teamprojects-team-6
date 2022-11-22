@@ -8,26 +8,36 @@
 
 
   %body
-    -#%h1.title Simplaply
     %nav.navbar.navbar-default{:role => "navigation"}
       .container-fluid
         / Brand and toggle get grouped for better mobile display
         .navbar-header
-          %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
           %a.navbar-brand{:href => "/index"} Simplaply
+          -if @id.nil?
+            %ul.nav.navbar-nav
+              %li
+                %a{:href => "/login"} Login
+              %li
+                %a{:href => "/sign_up"} Sign up
 
-    -if !@id.nil? && @user_type == :student
-      .row
-        = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
-          = submit_tag 'Log out'
-        = form_tag main_view_profile_path, :method => 'post', :class => 'form form-inline' do
-          = submit_tag 'profiles'
-        = form_tag main_search_universities_path, :method => 'post', :class => 'form form-inline' do
-          = submit_tag 'Search Universities'
+          -if !@id.nil? && (@user_type == :student or @user_type == :faculty)
+            %ul.nav.navbar-nav
+              %li
+                %a{:href => "/search_universities"} Search Universities
+              %li
+                %a{:href => "/view_profile"} Profile
+              %li
+                %a{:href => "/intermediate_logout"} Logout
+
+
+        -#.row
+        -#  = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
+        -#    = submit_tag 'Log out'
+        -#  = form_tag main_view_profile_path, :method => 'post', :class => 'form form-inline' do
+        -#    = submit_tag 'profile'
+        -#  = form_tag main_search_universities_path, :method => 'post', :class => 'form form-inline' do
+        -#    = submit_tag 'Search Universities'
+
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]

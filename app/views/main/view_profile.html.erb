@@ -7,11 +7,11 @@
     <form method="post" action="<%= main_edit_profile_path %>">
       <br>
       <div class="row">
-        <label class="label">GRE</label>
-        <label class="label">TOEFL</label>
-        <label class="label">CAPA</label>
+        <label class="label" style="margin-right: auto; margin-left: 15px">GRE</label>
+        <label class="label" style="margin-right: auto; margin-left: 15px">TOEFL</label>
+        <label class="label" style="margin-right: auto; margin-left: 15px">CAPA</label>
       </div>
-      <br>
+
       <div class="row">
         <input value="<%= @current_profile.gre %>" class="field" name="gre" readonly >
         <input value="<%= @current_profile.toefl %>" class="field" name="toefl" readonly>
@@ -19,11 +19,11 @@
       </div>
       <br>
       <div class="row">
-        <label class="label">Intrested Major</label>
-        <label class="label">Term</label>
-        <label class="label">Year</label>
+        <label class="label" style="margin-right: auto; margin-left: 15px">Intrested Major</label>
+        <label class="label" style="margin-right: auto; margin-left: 15px">Term</label>
+        <label class="label" style="margin-right: auto; margin-left: 15px">Year</label>
       </div>
-      <br>
+
       <div class="row">
         <input value="<%= @current_profile.interested_major %>" list="majors" class="field" name="major" readonly>
         <input value="<%= @current_profile.term %>" list="term" class="field" name="term" readonly>
@@ -34,26 +34,24 @@
       <br>
 
       <div class="row">
-        <label class="label">Undergrad college</label>
+        <label class="label" style="margin-right: auto; margin-left: 15px">Undergraduate college</label>
       </div>
-      <br>
-
       <div class="row">
         <input value="<%= @current_profile.college_name %>" class="field2" name="college_name" readonly>
       </div>
       <br>
       <h2>Work experience</h2>
       <br>
-      <div class="row">
-        <label class="label">Company name</label>
-        <label class="label">Job title</label>
-        <label class="label">Description</label>
-        <label class="label">from</label>
-        <label class="label">to</label>
+      <div class="row" >
+        <label class="label" style="margin-right: auto; margin-left: 0">Company name</label>
+        <label class="label" style="margin-right: auto; margin-left: 0">Job title</label>
+        <label class="label" style="margin-right: auto; margin-left: 0">Description</label>
+        <label class="label" style="margin-right: auto; margin-left: 0">Start Date</label>
+        <label class="label" style="margin-right: auto; margin-left: 0">End Date</label>
       </div>
       <br>
-      <div class="row">
-        <input  class="field2" name="company" readonly>
+      <div class="row" >
+        <input class="field2" name="company" readonly>
         <input class="field2" name="position" readonly>
         <input class="field2" name="description" readonly>
         <input class="field2" name="from" readonly>
