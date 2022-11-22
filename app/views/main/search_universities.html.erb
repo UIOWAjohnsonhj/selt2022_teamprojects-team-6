@@ -23,6 +23,7 @@
     <option value="Location">
     <option value="university name">
     <option value="Country">
+    <option value="Supported">
   </datalist>
   <input type="submit" value="search" class="btn">
 
@@ -34,7 +35,7 @@
 
   <table>
     <th>University</th>
-    <th>Country</th>
+    <th>Location</th>
     <th>National Rank</th>
     <th>World Rank</th>
     <th>Status</th>
@@ -84,9 +85,22 @@
           </tr>
         </form>
       <%end %>
+    <%elsif !@universities.nil? && !@universities.blank? && @search_type==:supported %>
+      <%@universities.all.each do |p| %>
+        <form method="post"action="<%=main_view_university_path %>" >
+          <input type="hidden" value="<%=p.id %>" name="id">
+          <tr>
+            <td><%=p.name %></td>
+            <td><%=p.state %></td>
+            <td><%=p.rank %></td>
+            <td>?</td>
+            <td>Supported</td>
+            <td><input type="submit" class="btn" value="view"></td>
+          </tr>
+        </form>
+        <%end %>
 
-
-      <%elsif @universities.blank? and @search_type!= :location %>
+    <%elsif @universities.blank? and @search_type!= :location %>
         <h2>No results found</h2>
 
       <%end %>

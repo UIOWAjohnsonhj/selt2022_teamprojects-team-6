@@ -222,9 +222,11 @@ class MainController < ApplicationController
     filter = params[:filter]
     entry = params[:search]
     @@page_counter =1
-    puts filter, filter.nil?,filter.blank?
     if filter == "Location"
       @@search_type = :location
+    elsif filter == "Supported"
+      @@search_type = :supported
+      @@universities = University
     elsif filter.blank? or entry.blank?
       flash[:notice] = "Please fill out all fields"
       @@search_type = nil
@@ -238,13 +240,13 @@ class MainController < ApplicationController
       response = data = JSON.parse(open(url).read)
       @@universities = response["records"]
       @@search_type = :name
+
     end
 
     redirect_to search_universities_path
 
   end
   def change_page
-    puts "HEEERERERRERS"
     puts params.include? "prev"
     if params.include? "prev"
       if @@page_counter>1
