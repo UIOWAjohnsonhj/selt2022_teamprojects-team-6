@@ -43,8 +43,9 @@ class MainController < ApplicationController
   end
   def view_profile
     @current_profile = Profile.where(student_id: @@id).take
+    #@experience = Experiences.where(student_id: @id).take
+    puts @@id,"View"
     #@experience = Experience.where(student_id: @id).take
-
     @student = Student.find(@@id)
     @applied_Departments ={}
     if params.include? "gre"
@@ -218,6 +219,16 @@ class MainController < ApplicationController
       puts d.name
     end
   end
+
+  def admission_decision
+    #@current_profile = Profile.where(student_id: @@id).take
+    @professor = Faculty.find(@@id)
+    @student_list = Student.all
+    puts @student_list
+    @student_list.each do |s|
+      puts s.first_name
+    end
+
   def intermediate_search
     filter = params[:filter]
     entry = params[:search]
@@ -240,8 +251,6 @@ class MainController < ApplicationController
       response = data = JSON.parse(open(url).read)
       @@universities = response["records"]
       @@search_type = :name
-
-    end
 
     redirect_to search_universities_path
 
