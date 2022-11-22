@@ -43,4 +43,6 @@ Rails.application.routes.draw do
   post 'main/intermediate_search'
   get 'intermediate_logout', to: 'main#intermediate_logout', as: 'intermediate_logout'
   post 'main/intermediate_logout'
+  get 'change_page', to: 'main#change_page', as: 'change_page'
+  post 'main/change_page'
 end
