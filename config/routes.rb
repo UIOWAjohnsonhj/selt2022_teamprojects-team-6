@@ -25,9 +25,6 @@ Rails.application.routes.draw do
   get 'edit_profile', to: 'main#edit_profile', as: 'edit_profile'
   post 'main/edit_profile'
 
-  get 'faculty_profile', to: 'main#faculty_profile', as: 'faculty_profile'
-  post 'main/faculty_profile'
-
   get 'intermediate_login', to: 'main#intermediate_login', as: 'intermediate_login'
   post 'main/intermediate_login'
   get 'search_universities', to: 'main#search_universities', as: 'search_universities'
@@ -41,4 +38,16 @@ Rails.application.routes.draw do
 
   get 'intermediate_logout', to: 'main#intermediate_logout', as: 'intermediate_logout'
   post 'main/intermediate_logout'
+
+  # Faculty Routes
+  get 'faculty_profile', to: 'faculty_members#faculty_profile', as: 'faculty_profile'
+  post 'faculty_members/faculty_profile'
+
+  get 'edit_faculty_profile', to: 'faculty_members#edit_faculty_profile', as: 'edit_faculty_profile'
+  post 'faculty_members/edit_faculty_profile'
+
+  get 'faculty_evaluations', to: 'faculty_members#faculty_evaluations', as: 'faculty_evaluations'
+
+  get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
+
 end

@@ -1,0 +1,20 @@
+<h1>Faculty Evaluations</h1>
+<h2>Hi Faculty Name</h2>
+<form method="post" action="<%= main_index_path %>">
+  <input type="submit" value="logout">
+</form>
+<h3>Student: Student Name</h3>
+<table class="evaluations_table">
+  <tr>
+    <th>Professor Name</th>
+    <th>Date of Evaluation</th>
+    <th>Score</th>
+    <th>Comment</th>
+  </tr>
+    <tr>
+      <td><%#= eval.professor %></td>
+      <td><%#= eval.evaluation_date %></td>
+      <td><%#= eval.score %></td>
+      <td><%#= eval.comment %></td>
+    </tr>
+</table>

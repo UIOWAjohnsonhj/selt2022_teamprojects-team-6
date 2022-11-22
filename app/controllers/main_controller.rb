@@ -132,9 +132,7 @@ class MainController < ApplicationController
       puts p.student_id
     end
   end
-  def faculty_profile
 
-  end
   def intermediate_login
     given_email= params[:user][:email]
 
