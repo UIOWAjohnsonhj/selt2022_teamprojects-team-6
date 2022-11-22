@@ -56,7 +56,7 @@ department = [{:university_id=>1,:name=>"Electrical Engineering"},{:university_i
 
 ]
 undergrad_schools.each do |school|
-  UndergraduateSchool.create!(school)
+  UndergraduateSchools.create!(school)
 end
 
 students.each do |student|

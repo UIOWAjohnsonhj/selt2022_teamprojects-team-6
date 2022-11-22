@@ -1,7 +1,7 @@
 class CreateExperiences < ActiveRecord::Migration
   def change
     create_table :experiences do |t|
-      t.integer :student_id
+      t.references :student, index: true, foreign_key: true
       t.string :company_name
       t.string :description
       t.string :job_title

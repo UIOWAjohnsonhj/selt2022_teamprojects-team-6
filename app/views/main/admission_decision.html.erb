@@ -1,0 +1,23 @@
+<div class="Decision">
+  <h1> Welcome <%= @professor.first_name%> <%=@professor.last_name%></h1>
+
+  <div class="student_table">
+    <table>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </tr>
+      <% @student_list.each do |student| %>
+        <tr>
+          <td><%= student.first_name %></td>
+          <td><%= student.last_name %></td>
+          <td><%= student.email %></td>
+        </tr>
+      <% end %>
+      </tr>
+    </table>
+
+  </div>
+
+</div>
