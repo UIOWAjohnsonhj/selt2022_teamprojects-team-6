@@ -1,10 +1,15 @@
+require 'open-uri'
+require 'json'
 class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
   @@id = nil
   @@universities=nil
   @@user_type = nil
-  @@location = nil
+  @@search_type = nil
+  @@page_counter = 1
+
+
   def initialize
     super
     @student = Student
@@ -13,8 +18,9 @@ class MainController < ApplicationController
     @current_profile = nil
     @id = @@id
     @user_type = @@user_type
-    @location = @@location
+    @search_type = @@search_type
     @applications= Application
+    @page_counter =@@page_counter
 
   end
   def index
@@ -26,6 +32,7 @@ class MainController < ApplicationController
   end
   def intermediate_logout
     @@id = nil
+    @@page_counter=1
     redirect_to root_path
   end
   def sign_up
@@ -53,7 +60,7 @@ class MainController < ApplicationController
     elsif params.include? "department"
       @university= University.find(params[:university_id])
       @department = Department.find(params[:department])
-      application = {:student_id=>@@id, :university_id=> @university.id,:department_id=>@department.id,:status=>"pending"}
+      application = {:student_id=>@@id, :university_id=> @university.id,:department_id=>@department.id,:application_status=>"pending"}
       @applications.create!(application)
     end
     @applications = Application.where(student_id: @@id)
@@ -63,11 +70,12 @@ class MainController < ApplicationController
       current_dep = Department.find(app.department_id)
 
       if @applied_Departments.include? current_uni.name.to_sym
-        @applied_Departments[current_uni.name.to_sym].append(current_dep.name)
+        @applied_Departments[current_uni.name.to_sym].append([current_dep.name,app.application_status])
       else
-        @applied_Departments[current_uni.name.to_sym] = [current_dep.name]
+        @applied_Departments[current_uni.name.to_sym] = [[current_dep.name,app.application_status]]
       end
     end
+    puts @applied_Departments
   end
 
 
@@ -224,26 +232,40 @@ class MainController < ApplicationController
   def intermediate_search
     filter = params[:filter]
     entry = params[:search]
-
-    puts filter, filter.nil?,filter.blank?
+    @@page_counter =1
     if filter == "Location"
-      @@location = true
+      @@search_type = :location
+    elsif filter == "Supported"
+      @@search_type = :supported
+      @@universities = University
     elsif filter.blank? or entry.blank?
       flash[:notice] = "Please fill out all fields"
-      @@location = false
+      @@search_type = nil
     elsif filter == "Country"
       url = 'https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=100&sort=world_rank&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.country='+entry+'&refine.year=2018'
       response = data = JSON.parse(open(url).read)
       @@universities = response["records"]
-      @@location = false
+      @@search_type = :country
     elsif filter == "university name"
       url = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=1&sort=world_rank&facet=university_name&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.university_name="+entry+"&refine.year=2018"
       response = data = JSON.parse(open(url).read)
       @@universities = response["records"]
-      @@location = false
-    end
+      @@search_type = :name
 
     redirect_to search_universities_path
 
+  end
+  def change_page
+    puts params.include? "prev"
+    if params.include? "prev"
+      if @@page_counter>1
+        @@page_counter-=1
+      end
+    else
+      if @@page_counter< @@universities.length/10
+        @@page_counter+=1
+      end
+    end
+    redirect_to search_universities_path
   end
 end
