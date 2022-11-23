@@ -18,25 +18,11 @@ end
 
 describe MainController do
   describe 'home page' do
-    #------ going to move to Faculty controller spec
     it 'should call the model that shows profile info' do
       allow(Profile).to receive(:view_profile)
       post :view_profile
       expect(response).to render_template('view_profile')
     end
-  end
-  describe 'My Evaluations page' do
-    it 'should show the my Evaluations page' do
-      allow(Faculty).to receive(:view_my_evaluations)
-      get :view_my_evaluations
-      expect(response).to render_template('my_evaluations')
-    end
-    it 'should show the Faculty Evaluations page' do
-      allow(Faculty).to receive(:view_faculty_evaluations)
-      get :view_faculty_evaluations
-      expect(response).to render_template('faculty_evaluations')
-    end
-    #----------
   end
   it 'should call the model that shows profile info' do
     allow(Profile).to receive(:view_profile)
