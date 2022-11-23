@@ -1,7 +1,7 @@
 class CreateUndergraduateSchools < ActiveRecord::Migration
   def change
     create_table :undergraduate_schools do |t|
-      t.string :student_id, unique: true
+      t.references :student, index: true, foreign_key: true
       t.string :country
       t.string :university_name
       t.string :major

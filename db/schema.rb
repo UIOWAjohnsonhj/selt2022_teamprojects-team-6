@@ -12,6 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20221108040054) do
 
+  create_table "applications", force: :cascade do |t|
+    t.string "student_id"
+    t.string "university_id"
+    t.string "department_id"
+    t.string "application_status"
+  end
+
   create_table "departments", force: :cascade do |t|
     t.integer "university_id"
     t.string  "name"

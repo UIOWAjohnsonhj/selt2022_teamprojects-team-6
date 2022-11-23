@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   get 'intermediate_login', to: 'main#intermediate_login', as: 'intermediate_login'
   post 'main/intermediate_login'
+
   get 'search_universities', to: 'main#search_universities', as: 'search_universities'
   post 'main/search_universities'
   get 'view_university', to: 'main#view_university', as: 'view_university'
@@ -38,7 +39,12 @@ Rails.application.routes.draw do
   get 'reset_password', to: 'main#reset_password', as: 'reset_password'
   post 'main/reset_password'
 
+  get 'admission_decision', to: 'main#admission_decision', as: 'admission_decision'
+  post 'main/admission_decision'
 
+  get 'intermediate_search', to: 'main#intermediate_search', as: 'intermediate_search'
+  post 'main/intermediate_search'
+  
   get 'intermediate_logout', to: 'main#intermediate_logout', as: 'intermediate_logout'
   post 'main/intermediate_logout'
 end
