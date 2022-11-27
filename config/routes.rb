@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'view_profile', to: 'main#view_profile', as: 'view_profile'
   post 'main/view_profile'
 
+  get 'profile_viewer', to: 'profiles#profile_viewer', as: 'profile_viewer'
+  post 'profiles/profile_viewer'
 
 
   get 'intermediate_sign_up', to: 'main#intermediate_sign_up', as: 'intermediate_sign_up'
@@ -44,9 +46,19 @@ Rails.application.routes.draw do
 
   get 'intermediate_search', to: 'main#intermediate_search', as: 'intermediate_search'
   post 'main/intermediate_search'
-  
+
   get 'intermediate_logout', to: 'main#intermediate_logout', as: 'intermediate_logout'
   post 'main/intermediate_logout'
+
   get 'change_page', to: 'main#change_page', as: 'change_page'
   post 'main/change_page'
+
+  get 'accept_application', to: 'main#accept_application', as: 'accept_application'
+  post 'main/accept_application'
+
+  get 'reject_application', to: 'main#reject_application', as: 'reject_application'
+  post 'main/reject_application'
+
+  get 'waitlist_application', to: 'main#waitlist_application', as: 'waitlist_application'
+  post 'main/waitlist_application'
 end

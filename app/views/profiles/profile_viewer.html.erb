@@ -1,0 +1,71 @@
+<h1>Profile</h1>
+<h2>Hi <%= @student.first_name %></h2>
+
+<div class="profile">
+  <div class="profile_features">
+      <br>
+      <div class="row">
+        <label class="label">GRE</label>
+        <label class="label">TOEFL</label>
+        <label class="label">CAPA</label>
+      </div>
+      <br>
+      <div class="row">
+        <label class="label">"<%= @current_profile.gre %>"</label>
+        <label class="label">"<%= @current_profile.toefl %>"</label>
+        <label class="label">"<%= @current_profile.capa %>"</label>
+      </div>
+      <br>
+      <div class="row">
+        <label class="label">Interested Major</label>
+        <label class="label">Term</label>
+        <label class="label">Year</label>
+      </div>
+      <br>
+      <div class="row">
+        <label class="label"> <%= @current_profile.interested_major %>" </label>
+        <label class="label"> <%= @current_profile.term %>" </label>
+        <label class="label"> <%= @current_profile.year %>" </label>
+        <br>
+      </div>
+      <br>
+      <div class="row">
+        <label class="label">Undergrad college</label>
+      </div>
+      <br>
+      <div class="row">
+        <label class="label"> <%= @current_profile.college_name %>" </label>
+      </div>
+      <br>
+      <h2>Work experience</h2>
+      <br>
+      <div class="row">
+        <label class="label">Company name</label>
+        <label class="label">Job title</label>
+        <label class="label">Description</label>
+        <label class="label">from</label>
+        <label class="label">to</label>
+      </div>
+      <br>
+      <div class="row">
+
+      </div>
+      <br>
+    <br>
+  </div>
+  <br>
+
+  <div class="profile_features2">
+    <div class="row">
+      <h1> Application Decision</h1>
+      <br>
+    </div>
+    <div class="row">
+      <%= button_to "Accept", main_accept_application_path(@student, student_id: @student.id, professor_id: @professor.id) %>
+      <%= button_to "Reject", main_reject_application_path(@student, student_id: @student.id, professor_id: @professor.id) %>
+      <%= button_to "Waitlist", main_waitlist_application_path(@student, student_id: @student.id, professor_id: @professor.id) %>
+      <br>
+    </div>
+  </div>
+</div>
+

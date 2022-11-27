@@ -125,7 +125,7 @@ class MainController < ApplicationController
                  :email => params[:user][:email],:password_digest=>params[:user][:password] }
         Faculty.create!(faculty)
 
-        # id=@profile.where(email:params[:user][:email])
+        # id=@profiles.where(email:params[:user][:email])
         # Commented out as we have yet to decide if we're making
         flash[:notice]= "Faculty Account created successfully"
       else
@@ -156,6 +156,9 @@ class MainController < ApplicationController
 
   end
   def faculty_profile
+    puts "faculty"
+    puts params
+    @faculty = Faculty.where(id: @@id).take
 
   end
   def intermediate_login
@@ -221,13 +224,42 @@ class MainController < ApplicationController
   end
 
   def admission_decision
-    #@current_profile = Profile.where(student_id: @@id).take
-    @professor = Faculty.find(@@id)
-    @student_list = Student.all
-    puts @student_list
-    @student_list.each do |s|
-      puts s.first_name
+    puts params
+    puts "Admission decision"
+    @professor = Faculty.where(id: params[:professor_id]).take
+    if @professor.nil?
+      @professor = Faculty.where(id:  params[:format]).take
     end
+    # Below will be added when application is created and we have a university id
+    # @application_list = Application.where(university_id: @professor.university_id, department_id: @professor.department_id)
+    @application_list = Application.where(department_id: @professor.department_id)
+    @student_app_dict = {}
+    @application_list.each do |app|
+      @student = Student.find(app.student_id)
+      @student_app_dict[@student] = app
+    end
+  end
+
+  def accept_application
+    puts params
+    @application = Application.where(student_id: params[:student_id]).take
+    @application.update(application_status: 'Accepted')
+    redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
+  end
+
+  def reject_application
+    puts params
+    @application = Application.where(student_id: params[:student_id]).take
+    @application.update(application_status: 'Rejected')
+    redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
+  end
+
+  def waitlist_application
+    puts params
+    @application = Application.where(student_id: params[:student_id]).take
+    @application.update(application_status: 'Waitlisted')
+    redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
+  end
 
   def intermediate_search
     filter = params[:filter]
@@ -253,6 +285,7 @@ class MainController < ApplicationController
       @@search_type = :name
 
     redirect_to search_universities_path
+  end
 
   end
   def change_page
