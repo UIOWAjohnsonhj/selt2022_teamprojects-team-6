@@ -1,5 +1,5 @@
 <h1>My Evaluations</h1>
-<h2>Hi Faculty Name</h2>
+<h2>Hi <%= @user_name %></h2>
 <form method="post" action="<%= main_index_path %>">
   <input type="submit" value="logout">
 </form>
@@ -15,12 +15,14 @@
   </tr>
 
   <tr>
-    <td><%#= eval.name %></td>
-    <td><%#= eval.email %></td>
-    <td><%#= eval.applied_term %></td>
-    <td><%#= eval.evaluation_date %></td>
-    <td><%#= eval.score %></td>
-    <td><%#= eval.comment %></td>
-    <td><%#= eval.status %></td>
+    <% evaluations.each do |eval| %>
+      <td><%= eval.name %></td>
+      <td><%= eval.email %></td>
+      <td><%= eval.applied_term %></td>
+      <td><%= eval.evaluation_date %></td>
+      <td><%= eval.score %></td>
+      <td><%= eval.comment %></td>
+      <td><%= eval.status %></td>
+    <% end %>
   </tr>
 </table>

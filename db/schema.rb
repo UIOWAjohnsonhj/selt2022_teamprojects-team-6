@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221108040054) do
+ActiveRecord::Schema.define(version: 20221127200247) do
 
   create_table "departments", force: :cascade do |t|
     t.integer "university_id"
     t.string  "name"
     t.string  "description"
+  end
+
+  create_table "evaluations", force: :cascade do |t|
+    t.integer  "faculty_id"
+    t.integer  "student_id"
+    t.string   "comment"
+    t.string   "applied_term"
+    t.integer  "score"
+    t.string   "status"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["faculty_id"], name: "index_evaluations_on_faculty_id"
+    t.index ["student_id"], name: "index_evaluations_on_student_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -27,14 +40,17 @@ ActiveRecord::Schema.define(version: 20221108040054) do
     t.string  "to"
   end
 
-  create_table "faculties", force: :cascade do |t|
+  create_table "faculty_members", force: :cascade do |t|
     t.string  "first_name"
     t.string  "last_name"
+    t.string  "user_name"
     t.string  "email"
     t.string  "password_digest"
     t.string  "department"
     t.boolean "chair"
     t.string  "university"
+    t.string  "password"
+    t.string  "string"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -51,10 +67,13 @@ ActiveRecord::Schema.define(version: 20221108040054) do
   create_table "students", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "user_name"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password"
+    t.string   "string"
   end
 
   create_table "undergraduate_schools", force: :cascade do |t|

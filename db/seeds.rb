@@ -57,7 +57,7 @@ end
 
 
 faculties.each do |faculty|
-  Faculty.create!(faculty)
+  FacultyMember.create!(faculty)
 end
 department.each do |department|
   Department.create!(department)

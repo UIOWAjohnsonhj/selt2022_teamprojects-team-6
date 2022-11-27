@@ -19,36 +19,35 @@ end
 describe FacultyMembersController do
   describe 'My Evaluations page' do
     it 'should show the My Evaluations page' do
-      allow(Faculty).to receive(:view_my_evaluations)
-      get :view_my_evaluations
+      allow(FacultyMember).to receive(:my_evaluations)
+      get :my_evaluations, faculty_id: 1
       expect(response).to render_template('my_evaluations')
     end
   end
-  describe 'Create new Faculty' do
+  describe 'Create new FacultyMember' do
     it 'should show the sign_up page on new' do
-      allow(Faculty).to receive(:view_new_faculty)
-      get :view_new_faculty
-      expect(response).to render_template('sign_up')
+      allow(FacultyMember).to receive(:new)
+      get :new_faculty
+      expect(response).to render_template('main/sign_up')
     end
   end
-  describe 'Faculty Profile page' do
-    it 'should show the Faculty Profile page' do
-      allow(Faculty).to receive(:view_faculty_profile)
-      get :view_faculty_evaluations
+  describe 'FacultyMember Profile page' do
+    it 'should redirect to index page if FacultyMember Profile not found' do
+      allow(FacultyMember).to receive(:faculty_profile)
+      get :faculty_profile
+      expect(response).to redirect_to('/')
+    end
+    it 'should show the FacultyMember Profile page if profile is found' do
+      allow(FacultyMember).to receive(:faculty_profile)
+      get :faculty_profile, faculty_id: 1
       expect(response).to render_template('faculty_profile')
     end
-    it 'should show the Faculty Edit page' do
-      allow(Faculty).to receive(:view_edit_faculty_profile)
-      get :view_edit_faculty_profile
-      expect(response).to render_template('edit_faculty_profile')
-    end
   end
-  describe 'Faculty Evaluations page' do
-    it 'should show the Faculty Evaluations page' do
-      allow(Faculty).to receive(:view_faculty_evaluations)
-      get :view_faculty_evaluations
+  describe 'FacultyMember Evaluations page' do
+    it 'should show the FacultyMember Evaluations page' do
+      allow(FacultyMember).to receive(:faculty_evaluations)
+      get :faculty_evaluations, faculty_id: 1, selected_student_id: 1
       expect(response).to render_template('faculty_evaluations')
     end
   end
-
 end

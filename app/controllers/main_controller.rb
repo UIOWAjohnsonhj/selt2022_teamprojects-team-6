@@ -8,7 +8,7 @@ class MainController < ApplicationController
     super
     @student = Student
     @profiles = Profile
-    @faculty = Faculty
+    @faculty = FacultyMember
     @current_profile = nil
   end
   def index
@@ -59,7 +59,7 @@ class MainController < ApplicationController
 
     puts params[:user]
     missing=false
-    if Student.where(:email => (params[:user][:email])).exists? || Faculty.where(:email => (params[:user][:email])).exists?
+    if Student.where(:email => (params[:user][:email])).exists? || FacultyMember.where(:email => (params[:user][:email])).exists?
       puts "email"
       flash[:notice]= "Email already in use"
       missing=true
@@ -97,11 +97,12 @@ class MainController < ApplicationController
       if params[:type]=="radio_button_faculty"
         faculty={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
                  :email => params[:user][:email],:password_digest=>params[:user][:password] }
-        Faculty.create!(faculty)
+        FacultyMember.create!(faculty)
 
         # id=@profile.where(email:params[:user][:email])
         # Commented out as we have yet to decide if we're making
-        flash[:notice]= "Faculty Account created successfully"
+        # should redirect_to 'faculty_create'
+        flash[:notice]= "FacultyMember Account created successfully"
       else
         #  create a student account
         student={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
@@ -137,13 +138,14 @@ class MainController < ApplicationController
     given_email= params[:user][:email]
 
     @student = Student.where(email: given_email).take
-    @faculty = Faculty.where(email: given_email).take
+    @faculty = FacultyMember.where(email: given_email).take
    if not @student.nil?
       @@id = @student.id
       redirect_to view_profile_path
    elsif not @faculty.nil?
      @@id = @faculty.id
-     redirect_to faculty_profile_path
+     @faculty_id = faculty.id
+     redirect_to faculty_members_faculty_profile_path
 
    else
          flash[:notice]="Invalid user"

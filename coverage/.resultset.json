@@ -1,13 +1,13 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/helpers/application_helper.rb": {
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/helpers/movies_helper.rb": {
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/helpers/movies_helper.rb": {
         "lines": [
           1,
           null,
@@ -17,11 +17,275 @@
           null
         ]
       },
-      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/faculty.rb": {
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/faculty_members_controller.rb": {
         "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
           0,
           null,
           null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          2,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/faculty_member.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/evaluation.rb": {
+        "lines": [
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/student.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/main_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/students_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/experiences_controller.rb": {
+        "lines": [
+          0,
           null,
           null,
           0
@@ -29,10 +293,30 @@
         "branches": {
         }
       },
-      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/student.rb": {
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/profiles_controller.rb": {
         "lines": [
           0,
           null,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/faculty_profile.rb": {
+        "lines": [
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/profile.rb": {
+        "lines": [
+          0,
           null,
           null,
           0
@@ -40,7 +324,7 @@
         "branches": {
         }
       },
-      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/experience.rb": {
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/university.rb": {
         "lines": [
           0,
           null,
@@ -51,200 +335,37 @@
         "branches": {
         }
       },
-      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/profile.rb": {
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/experience.rb": {
         "lines": [
           0,
           null,
           null,
-          0
+          0,
+          null
         ],
         "branches": {
         }
       },
-      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/application_controller.rb": {
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/undergraduate_school.rb": {
         "lines": [
-          0,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/experiences_controller.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/students_controller.rb": {
-        "lines": [
-          0,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/main_controller.rb": {
-        "lines": [
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
           0,
           0
         ],
         "branches": {
         }
       },
-      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/profiles_controller.rb": {
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/department.rb": {
         "lines": [
           0,
           null,
-          0,
           null,
           0,
-          0
+          null
         ],
         "branches": {
         }
       }
     },
-    "timestamp": 1668055845
+    "timestamp": 1669583468
   }
 }

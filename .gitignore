@@ -1,4 +1,6 @@
 # Editor-based Rest Client
 .idea/httpRequests
-log/development.log
 /.ruby-version
+/tmp/
+/log/
+log/test.log
