@@ -4,6 +4,6 @@
   <input type="submit" value="logout">
 </form>
 
-<form method="get" action="<%= admission_decision_path %>">
+<form method="get" action="<%= admission_decision_path(@faculty, professor_id: @faculty.id) %>">
   <input type="submit" value="Admission Review">
 </form>
