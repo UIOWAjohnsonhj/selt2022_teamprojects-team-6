@@ -40,10 +40,9 @@ Rails.application.routes.draw do
   post 'main/intermediate_logout'
 
   # FacultyMember Routes
-  get 'faculty_members/faculty_profile'
-  get 'faculty_members/new_faculty'
-  get 'faculty_members/faculty_evaluations'
-
-  get 'faculty_members/my_evaluations'
+  get 'faculty_profile', to: 'faculty_members#faculty_profile', as: 'faculty_profile'
+  get 'new_faculty', to: 'faculty_members#new_faculty', as: 'new_faculty'
+  get 'faculty_evaluations', to: 'faculty_members#faculty_evaluations', as: 'faculty_evaluations'
+  get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
 
 end
