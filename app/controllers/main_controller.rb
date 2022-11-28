@@ -33,6 +33,7 @@ class MainController < ApplicationController
   def intermediate_logout
     @@id = nil
     @@page_counter=1
+    reset_session
     redirect_to root_path
   end
   def sign_up
@@ -185,6 +186,8 @@ class MainController < ApplicationController
         puts 'line 148'
         @@id = @faculty.id
         @@user_type = :faulty
+        session[:faculty_id] = @faculty.id
+        session[:user_type] = :faculty
         redirect_to faculty_profile_path
 
       else

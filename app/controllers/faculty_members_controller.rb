@@ -15,28 +15,28 @@ class FacultyMembersController < ApplicationController
   end
 
   def faculty_profile
-    @faculty = FacultyMember.where(id: @@id).take
+    @faculty = FacultyMember.find_by(id: session[:faculty_id])
     if @faculty.nil?
-      flash[:notice] = "FacultyMember Account not Found"
+      flash[:notice] = "Faculty Account not Found"
       redirect_to controller: "main", action: 'index' and return
     end
-    @user_name = @faculty.user_name
+    @display_name = @faculty.first_name
     @name = "#{@faculty.first_name} #{@faculty.last_name}"
     @department = @faculty.department
   end
 
   def faculty_evaluations
-    faculty = FacultyMember.find_by(id: params[:faculty_id])
-    student_eval = Student.find_by(id: params[:selected_student_id])
+    faculty = FacultyMember.find_by(id: session[:faculty_id])
+    student_eval = Student.find_by(id: session[:selected_student_id])
+    @display_name = @faculty.first_name
     @evaluations = Evaluation.where(student_id: student_eval.id)
-    @user_name = faculty.user_name
     @student_name = "#{student_eval.first_name} #{student_eval.last_name}"
   end
 
   def my_evaluations
-    faculty = FacultyMember.find_by(id: params[:faculty_id])
+    faculty = FacultyMember.find_by(id: session[:faculty_id])
     @evaluations = Evaluation.where(faculty_id: faculty.id)
-    @user_name = faculty.user_name
+    @display_name = @faculty.first_name
   end
 end
 

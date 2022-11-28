@@ -1,5 +1,5 @@
 <h1>Profile</h1>
-<h2>Hi <%=@user_name %></h2>
+<h2>Hi <%=@display_name %></h2>
 <form method="post" action="<%= main_index_path %>">
   <input type="submit" value="logout">
 </form>
@@ -18,7 +18,6 @@
       <label value=<%@department%> class="field" name="toefl" readonly/>
     </div>
     <br>
-    <input type="submit" class="btn" value="Edit Profile">
   </div>
 </div>
 
