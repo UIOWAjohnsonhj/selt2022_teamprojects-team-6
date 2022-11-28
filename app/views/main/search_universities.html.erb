@@ -1,25 +1,126 @@
-<h2>Search US Universities</h2>
-  <input name="search" class="field2"/>
-  <input type="submit" value="search" class="btn">
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <table>
-    <%@universities.all.each do |p| %>
-      <form method="post"action="<%=main_view_university_path %>" >
-        <input type="hidden" value="<%=p.id %>" name="id">
-        <tr>
-          <td><%=p.id %></td>
-          <td><%=p.name %></td>
-          <td><%=p.state %></td>
-          <td><%=p.rank %></td>
-          <td><input type="submit" class="btn" value="view"></td>
-        </tr>
-      </form>
-  <%end %>
+<script type="text/javascript">
+  function getTag() {
+    const tags = document.querySelector("iframe").contentDocument.body.querySelector("h2")
 
+    alert(tags.length)
+    for (let i = 0; i < tags.length; i++) {
+      console.log(tags[i])
+    }
+  }
+</script>
+
+<h2>Search US Universities</h2>
+
+<div class="row">
+  <h3 class="label">Entry</h3>
+  <h3 class="label">search by</h3>
+</div>
+
+<form method="post" action="<%= main_intermediate_search_path %>">
+  <input name="search" class="field2"/>
+  <input  list="filters" class="field2" name="filter">
+  <datalist id="filters">
+    <option value="Location">
+    <option value="university name">
+    <option value="Country">
+    <option value="Supported">
+  </datalist>
+  <input type="submit" value="search" class="btn">
+
+</form>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <table>
+    <th>University</th>
+    <th>Location</th>
+    <th>National Rank</th>
+    <th>World Rank</th>
+    <th>Status</th>
+    <th>View</th>
+
+    <%if !@universities.nil? && !@universities.blank? and @search_type== :country%>
+    <% ((@page_counter*10-10)..@page_counter*10-1).each do |i| %>
+        <%record = @universities[i] %>
+    <form method="post" action="<%= main_view_university_path  %>">
+      <input type="hidden" value="<%= record["fields"]["university_name"]  %>" name="name">
+
+
+      <tr>
+        <td><%= record["fields"]["university_name"]  %></td>
+        <td><%= record["fields"]["country"] %></td>
+        <td><%= record["fields"]["national_rank"]  %></td>
+        <td><%= record["fields"]["world_rank"]  %></td>
+        <% if @all_universities.include? record["fields"]["university_name"].downcase  %>
+        <td>Supported</td>
+        <td><input type="submit" class="btn" value="view"></td>
+        <% else  %>
+        <td>Not Supported</td>
+        <td></td>
+        <% end  %>
+      </tr>
+    </form>
+      <% end  %>
+
+    <%elsif !@universities.nil? && !@universities.blank? && @search_type==:name %>
+      <% @universities.each do |record|%>
+        <form method="post"action="<%=main_view_university_path %>" >
+          <input type="hidden" value="<%=record["fields"]["university_name"] %>" name="name">
+
+
+          <tr>
+            <td><%=record["fields"]["university_name"] %></td>
+            <td><%=record["fields"]["country"] %></td>
+            <td><%=record["fields"]["national_rank"] %></td>
+            <td><%=record["fields"]["world_rank"] %></td>
+            <%if @all_universities.include? record["fields"]["university_name"].downcase %>
+              <td>Supported</td>
+              <td><input type="submit" class="btn" value="view"></td>
+            <%else %>
+              <td>Not Supported</td>
+              <td></td>
+            <%end %>
+          </tr>
+        </form>
+      <%end %>
+    <%elsif !@universities.nil? && !@universities.blank? && @search_type==:supported %>
+      <%@universities.all.each do |p| %>
+        <form method="post"action="<%=main_view_university_path %>" >
+          <input type="hidden" value="<%=p.id %>" name="id">
+          <tr>
+            <td><%=p.name %></td>
+            <td><%=p.state %></td>
+            <td><%=p.rank %></td>
+            <td>?</td>
+            <td>Supported</td>
+            <td><input type="submit" class="btn" value="view"></td>
+          </tr>
+        </form>
+        <%end %>
+
+    <%elsif @universities.blank? and @search_type!= :location %>
+        <h2>No results found</h2>
+
+      <%end %>
   </table>
+
+<%if @search_type ==:country %>
+      <div class="row">
+        <form method="post" action="<%= main_change_page_path %>">
+          <input type="submit" value="Prev">
+          <input type="hidden" name="prev">
+        </form>
+        <form method="post" action="<%= main_change_page_path %>">
+          <input type="submit" value="Next">
+          <input type="hidden" name="next">
+
+        </form>
+      </div>
+      <%end %>
+<!--    <iframe src="https://public.opendatasoft.com/explore/embed/dataset/shanghai-world-university-ranking/table/?sort=university_name&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJzY2F0dGVyIiwiZnVuYyI6IkFWRyIsInlBeGlzIjoid29ybGRfcmFua19pbnQiLCJzY2llbnRpZmljRGlzcGxheSI6dHJ1ZSwiY29sb3IiOiJyYW5nZS1jdXN0b20ifV0sInhBeGlzIjoidW5pdmVyc2l0eV9uYW1lIiwibWF4cG9pbnRzIjo1MCwic29ydCI6IiIsInNlcmllc0JyZWFrZG93biI6InllYXIiLCJjb25maWciOnsiZGF0YXNldCI6InNoYW5naGFpLXdvcmxkLXVuaXZlcnNpdHktcmFua2luZyIsIm9wdGlvbnMiOnsic29ydCI6IndvcmxkX3JhbmsifX19XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D&rows=60&location=2,4.21494,-21.97266&basemap=jawg.light&static=false&datasetcard=false" width="100%" height="300" frameborder="0"></iframe>-->
+  <%if @search_type== :location %>
+    <iframe src="https://public.opendatasoft.com/explore/embed/dataset/shanghai-world-university-ranking/map/?sort=world_rank&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJzY2F0dGVyIiwiZnVuYyI6IkFWRyIsInlBeGlzIjoid29ybGRfcmFua19pbnQiLCJzY2llbnRpZmljRGlzcGxheSI6dHJ1ZSwiY29sb3IiOiJyYW5nZS1jdXN0b20ifV0sInhBeGlzIjoidW5pdmVyc2l0eV9uYW1lIiwibWF4cG9pbnRzIjo1MCwic29ydCI6IiIsInNlcmllc0JyZWFrZG93biI6InllYXIiLCJjb25maWciOnsiZGF0YXNldCI6InNoYW5naGFpLXdvcmxkLXVuaXZlcnNpdHktcmFua2luZyIsIm9wdGlvbnMiOnsic29ydCI6IndvcmxkX3JhbmsifX19XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D&rows=20&location=2,57.70415,26.19141&basemap=jawg.light&static=false&datasetcard=true&scrollWheelZoom=false" width="100%" height="500" frameborder="0"></iframe>
+   <%end %>
+    <%#= button_tag "Do It", type: 'button', onclick: "getTag()", class: 'btn btn-default' %>

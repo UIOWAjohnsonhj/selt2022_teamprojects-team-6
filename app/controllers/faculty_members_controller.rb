@@ -15,14 +15,14 @@ class FacultyMembersController < ApplicationController
   end
 
   def faculty_profile
-    faculty = FacultyMember.find_by(id: params[:faculty_id])
-    if faculty.nil?
+    @faculty = FacultyMember.where(id: @@id).take
+    if @faculty.nil?
       flash[:notice] = "FacultyMember Account not Found"
       redirect_to controller: "main", action: 'index' and return
     end
-    @user_name = faculty.user_name
-    @name = "#{faculty.first_name} #{faculty.last_name}"
-    @department = faculty.department
+    @user_name = @faculty.user_name
+    @name = "#{@faculty.first_name} #{@faculty.last_name}"
+    @department = @faculty.department
   end
 
   def faculty_evaluations

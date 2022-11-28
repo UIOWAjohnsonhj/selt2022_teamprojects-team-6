@@ -1,8 +1,14 @@
+require 'open-uri'
+require 'json'
 class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
   @@id = nil
-  @@applied_Departments={}
+  @@universities=nil
+  @@user_type = nil
+  @@search_type = nil
+  @@page_counter = 1
+
 
   def initialize
     super
@@ -10,6 +16,12 @@ class MainController < ApplicationController
     @profiles = Profile
     @faculty = FacultyMember
     @current_profile = nil
+    @id = @@id
+    @user_type = @@user_type
+    @search_type = @@search_type
+    @applications= Application
+    @page_counter =@@page_counter
+
   end
   def index
 
@@ -18,6 +30,11 @@ class MainController < ApplicationController
     @student = Student
     @profiles = Profile
   end
+  def intermediate_logout
+    @@id = nil
+    @@page_counter=1
+    redirect_to root_path
+  end
   def sign_up
     @profiles = Profile
     @profiles.all.each do |p|
@@ -25,12 +42,12 @@ class MainController < ApplicationController
     end
   end
   def view_profile
-
     @current_profile = Profile.where(student_id: @@id).take
-    #@experience = Experience.where(student_id: @id).take
+    #@experience = Experiences.where(student_id: @id).take
     puts @@id,"View"
+    #@experience = Experience.where(student_id: @id).take
     @student = Student.find(@@id)
-    @applied_Departments=@@applied_Departments
+    @applied_Departments ={}
     if params.include? "gre"
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
@@ -42,14 +59,23 @@ class MainController < ApplicationController
       @current_profile.save
     elsif params.include? "department"
       @university= University.find(params[:university_id])
-      puts @university.name
+      @department = Department.find(params[:department])
+      application = {:student_id=>@@id, :university_id=> @university.id,:department_id=>@department.id,:application_status=>"pending"}
+      @applications.create!(application)
+    end
+    @applications = Application.where(student_id: @@id)
 
-      if @@applied_Departments.include? @university.name.to_sym
-        @@applied_Departments[@university.name.to_sym].append(params[:department])
+    @applications.each do |app|
+      current_uni= University.find(app.university_id)
+      current_dep = Department.find(app.department_id)
+
+      if @applied_Departments.include? current_uni.name.to_sym
+        @applied_Departments[current_uni.name.to_sym].append([current_dep.name,app.application_status])
       else
-        @@applied_Departments[@university.name.to_sym] = [params[:department]]
+        @applied_Departments[current_uni.name.to_sym] = [[current_dep.name,app.application_status]]
       end
     end
+    puts @applied_Departments
   end
 
 
@@ -99,7 +125,7 @@ class MainController < ApplicationController
                  :email => params[:user][:email],:password_digest=>params[:user][:password] }
         FacultyMember.create!(faculty)
 
-        # id=@profile.where(email:params[:user][:email])
+        # id=@profiles.where(email:params[:user][:email])
         # Commented out as we have yet to decide if we're making
         # should redirect_to 'faculty_create'
         flash[:notice]= "FacultyMember Account created successfully"
@@ -128,29 +154,49 @@ class MainController < ApplicationController
 
   def edit_profile
     @current_profile = Profile.where(student_id: @@id).take
-    puts @@id,"asdsada"
-    @profiles.all.each do |p|
-      puts p.student_id
-    end
+
   end
 
   def intermediate_login
     given_email= params[:user][:email]
+    given_password = params[:user][:password]
 
-    @student = Student.where(email: given_email).take
-    @faculty = FacultyMember.where(email: given_email).take
-   if not @student.nil?
-      @@id = @student.id
-      redirect_to view_profile_path
-   elsif not @faculty.nil?
-     @@id = @faculty.id
-     @faculty_id = faculty.id
-     redirect_to faculty_members_faculty_profile_path
+    #@student = Student.where( email:given_email).take
 
-   else
+    #@faculty = Faculty.where( email: given_email).take
+    #puts 'line 134: ', @student
+    #p 'line 135  ', @faculty
+    #if (not @student.nil?) || (not @faculty.nil?)
+    @student = Student.find_by(email:given_email,password_digest:given_password)
+    @faculty = FacultyMember.find_by(email:given_email,password_digest:given_password)
+
+    begin
+      puts 'line 139'
+      if not @student.nil? #student1 && student1.authenticate(given_password)
+        #&.authenticate(given_password)
+        puts 'line 141'
+        @@user_type = :student
+        @@id = @student.id
+        #p @student
+        redirect_to view_profile_path
+      #elsif not @faculty.nil?
+      elsif not @faculty.nil?
+        #&.authenticate(given_password)
+        puts 'line 148'
+        @@id = @faculty.id
+        @@user_type = :faulty
+        redirect_to faculty_profile_path
+
+      else
          flash[:notice]="Invalid user"
          redirect_to login_path
-   end
+      end
+    rescue BCrypt::Errors::InvalidHash
+      flash[:error] = 'We recently adjusted the way our passwords are store. Please Reset your password '
+    end
+    #else
+    # flash[:notice]="Invalid user 2"
+    #  redirect_to login_path
 
   end
   def reset_password
@@ -158,13 +204,97 @@ class MainController < ApplicationController
 
   end
   def search_universities
-    @universities = University
+    @universities= @@universities
+    @all_universities = []
+    University.all.each do |u|
+      @all_universities.append(u.name.downcase)
+    end
+    puts @all_universities
   end
   def view_university
-    @university = University.find(params[:id])
-    @departments = Department.where(university_id: params[:id])
+    @university = University.where(name:params[:name]).take
+    @departments = Department.where(university_id: @university.id)
     @departments.all.each do |d|
       puts d.name
     end
+  end
+
+  def admission_decision
+    puts params
+    puts "Admission decision"
+    @professor = FacultyMember.where(id: params[:professor_id]).take
+    if @professor.nil?
+      @professor = FacultyMember.where(id:  params[:format]).take
+    end
+    # Below will be added when application is created and we have a university id
+    # @application_list = Application.where(university_id: @professor.university_id, department_id: @professor.department_id)
+    @application_list = Application.where(department_id: @professor.department_id)
+    @student_app_dict = {}
+    @application_list.each do |app|
+      @student = Student.find(app.student_id)
+      @student_app_dict[@student] = app
+    end
+  end
+
+  def accept_application
+    puts params
+    @application = Application.where(student_id: params[:student_id]).take
+    @application.update(application_status: 'Accepted')
+    redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
+  end
+
+  def reject_application
+    puts params
+    @application = Application.where(student_id: params[:student_id]).take
+    @application.update(application_status: 'Rejected')
+    redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
+  end
+
+  def waitlist_application
+    puts params
+    @application = Application.where(student_id: params[:student_id]).take
+    @application.update(application_status: 'Waitlisted')
+    redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
+  end
+
+  def intermediate_search
+    filter = params[:filter]
+    entry = params[:search]
+    @@page_counter =1
+    if filter == "Location"
+      @@search_type = :location
+    elsif filter == "Supported"
+      @@search_type = :supported
+      @@universities = University
+    elsif filter.blank? or entry.blank?
+      flash[:notice] = "Please fill out all fields"
+      @@search_type = nil
+    elsif filter == "Country"
+      url = 'https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=100&sort=world_rank&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.country='+entry+'&refine.year=2018'
+      response = data = JSON.parse(open(url).read)
+      @@universities = response["records"]
+      @@search_type = :country
+    elsif filter == "university name"
+      url = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=1&sort=world_rank&facet=university_name&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.university_name="+entry+"&refine.year=2018"
+      response = data = JSON.parse(open(url).read)
+      @@universities = response["records"]
+      @@search_type = :name
+
+    redirect_to search_universities_path
+  end
+
+  end
+  def change_page
+    puts params.include? "prev"
+    if params.include? "prev"
+      if @@page_counter>1
+        @@page_counter-=1
+      end
+    else
+      if @@page_counter< @@universities.length/10
+        @@page_counter+=1
+      end
+    end
+    redirect_to search_universities_path
   end
 end

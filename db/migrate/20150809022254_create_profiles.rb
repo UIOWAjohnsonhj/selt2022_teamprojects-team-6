@@ -1,7 +1,7 @@
 class CreateProfiles < ActiveRecord::Migration
   def change
     create_table :profiles do |t|
-      t.integer :student_id
+      t.references :student, index: true, foreign_key: true
       t.integer :gre
       t.integer :toefl
       t.integer :capa

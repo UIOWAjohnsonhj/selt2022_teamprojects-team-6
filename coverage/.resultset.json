@@ -1,13 +1,13 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/helpers/application_helper.rb": {
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/helpers/movies_helper.rb": {
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/helpers/movies_helper.rb": {
         "lines": [
           1,
           null,
@@ -17,90 +17,352 @@
           null
         ]
       },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/faculty_members_controller.rb": {
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/department.rb": {
         "lines": [
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
           0,
           null,
           0,
           0,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          2,
-          2,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
+          0,
+          0,
           null
-        ]
+        ],
+        "branches": {
+        }
       },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/application_controller.rb": {
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/faculty.rb": {
         "lines": [
-          1,
+          0,
+          null,
+          0,
+          0,
           null,
           null,
-          1,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/student.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/application.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
           null
-        ]
+        ],
+        "branches": {
+        }
       },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/faculty_member.rb": {
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/experiences.rb": {
         "lines": [
-          1,
+          0,
           null,
-          1,
+          0,
           null,
-          null,
+          0,
           null
-        ]
+        ],
+        "branches": {
+        }
       },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/evaluation.rb": {
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/undergraduate_schools.rb": {
         "lines": [
-          1,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/profile.rb": {
+        "lines": [
+          0,
+          0,
           null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/models/university.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
           null
-        ]
+        ],
+        "branches": {
+        }
       },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/student.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/main_controller.rb": {
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/application_controller.rb": {
         "lines": [
           0,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/experiences_controller.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/students_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/main_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           0,
           0,
@@ -127,107 +389,9 @@
           0,
           0,
           0,
-          null,
           0,
-          null,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
           0,
           0,
           0,
@@ -242,22 +406,6 @@
           0,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
           0,
           0,
           0,
@@ -274,26 +422,7 @@
         "branches": {
         }
       },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/students_controller.rb": {
-        "lines": [
-          0,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/experiences_controller.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/controllers/profiles_controller.rb": {
+      "/Users/bendesollar/Desktop/School/SELT/RubymineProjects/selt2022_teamprojects-team-6/app/controllers/profiles_controller.rb": {
         "lines": [
           0,
           null,
@@ -301,71 +430,11 @@
           null,
           0,
           0
-        ],
-        "branches": {
-        }
-      },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/faculty_profile.rb": {
-        "lines": [
-          0,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/profile.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/university.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          0,
-          null
-        ],
-        "branches": {
-        }
-      },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/experience.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          0,
-          null
-        ],
-        "branches": {
-        }
-      },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/undergraduate_school.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/department.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          0,
-          null
         ],
         "branches": {
         }
       }
     },
-    "timestamp": 1669587901
+    "timestamp": 1669347243
   }
 }

@@ -8,10 +8,18 @@
 
   %body
     %h1.title Simplaply
+    -if !@id.nil? && @user_type == :student
+      .row
+
+        = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
+          = submit_tag 'Log out'
+        = form_tag main_view_profile_path, :method => 'post', :class => 'form form-inline' do
+          = submit_tag 'profiles'
+        = form_tag main_search_universities_path, :method => 'post', :class => 'form form-inline' do
+          = submit_tag 'Search Universities'
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
       - elsif flash[:warning]
         #warning.message= flash[:warning]
-
       = yield

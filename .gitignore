@@ -1,5 +1,6 @@
 # Editor-based Rest Client
 .idea/httpRequests
 /.ruby-version
+/db/development.sqlite3
 /tmp/
 /log/

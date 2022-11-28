@@ -1,23 +1,62 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: White;
-  color: DarkSlateGrey;
+  background: white;
+  color: Grey;
   font-family: Tahoma, Verdana, sans-serif;
-  font-size: 10pt;
+  font-size: 11pt;
 }
+/* style the page with the following css */
+#page {
+  width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background: #fff;
+}
+/* style the header with the following css */
+#header {
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+}
+/* style the footer with the following css */
+#footer {
+  padding: 20px 0;
+  border-top: 1px solid #ccc;
+}
+/* style the navigation with the following css */
+#navigation {
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+}
+/* style the content with the following css */
+#content {
+  float: left;
+  width: 580px;
+}
+/* style the sidebar with the following css */
+#sidebar {
+  float: left;
+  width: 200px;
+  margin-left: 20px;
+}
+/* style the footer with the following css */
+#footer {
+  clear: both;
+}
+
 div#main {
   margin: 0;
   padding: 0 20px 20px;
 }
 a {
   background: transparent;
-  color: maroon;
+  color: white;
   text-decoration: underline;
   font-weight: bold;
 }
 h1 {
-  color: maroon;
+  color: black;
   font-size: 150%;
   font-style: italic;
   display: block;
@@ -27,9 +66,26 @@ h1 {
 h1.title {
   margin: 0 0 1em;
   padding: 10px;
-  background-color: orange;
+  background-color: Black;
   color: white;
-  border-bottom: 4px solid gold;
+  border-bottom: 4px red;
+  font-size: 2em;
+  font-style: normal;
+}
+
+h2 {
+  color: black;
+  font-size: 150%;
+  font-style: italic;
+  display: block;
+  width: 100%;
+}
+h2.title {
+  margin: 0 0 1em;
+  padding: 10px;
+  background-color: Black;
+  color: white;
+  border-bottom: 4px red;
   font-size: 2em;
   font-style: normal;
 }
@@ -49,9 +105,9 @@ table#movies th, table#movies td {
   text-align: left;
 }
 #notice #warning {
-  background: rosybrown;
+  background: red;
   margin: 1em 0;
-  padding: 4px;
+  padding: 5px;
 }
 form label {
   display: block;
@@ -59,3 +115,28 @@ form label {
   font-weight: bold;
   color: maroon;
 }
+
+input[type=submit] {
+  border-radius: 5px;
+  border: 0;
+  height:25px;
+  font-family: Tahoma, serif;
+  background: #f4f4f4;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #f4f4f4), color-stop(100%, #ededed));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #f4f4f4 1%, #ededed 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#ededed', GradientType=0);
+  /* IE6-9 */
+}
+
+.
