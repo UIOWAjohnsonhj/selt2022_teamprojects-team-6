@@ -3,3 +3,5 @@
 log/development.log
 /.ruby-version
 /db/development.sqlite3
+/tmp/cache/
+/tmp/
