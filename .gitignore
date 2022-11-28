@@ -5,3 +5,4 @@ log/development.log
 /db/development.sqlite3
 /tmp/cache/
 /tmp/
+/db/test.sqlite3
