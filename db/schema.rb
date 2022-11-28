@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20221127200247) do
     t.string  "last_name"
     t.string  "email"
     t.string  "password_digest"
+    t.string  "focus_area"
     t.boolean "chair"
     t.string  "university"
     t.index ["department_id"], name: "index_faculty_members_on_department_id"

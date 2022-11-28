@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'view_profile', to: 'main#view_profile', as: 'view_profile'
   post 'main/view_profile'
 
+  get 'search_instructor', to: 'main#search_instructor', as: 'search_instructor'
+  post 'main/search_instructor'
   get 'profile_viewer', to: 'profiles#profile_viewer', as: 'profile_viewer'
   post 'profiles/profile_viewer'
 
