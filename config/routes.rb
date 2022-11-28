@@ -27,9 +27,6 @@ Rails.application.routes.draw do
   get 'edit_profile', to: 'main#edit_profile', as: 'edit_profile'
   post 'main/edit_profile'
 
-  get 'faculty_profile', to: 'main#faculty_profile', as: 'faculty_profile'
-  post 'main/faculty_profile'
-
   get 'intermediate_login', to: 'main#intermediate_login', as: 'intermediate_login'
   post 'main/intermediate_login'
 
@@ -61,4 +58,11 @@ Rails.application.routes.draw do
 
   get 'waitlist_application', to: 'main#waitlist_application', as: 'waitlist_application'
   post 'main/waitlist_application'
+
+  # FacultyMember Routes
+  get 'faculty_profile', to: 'faculty_members#faculty_profile', as: 'faculty_profile'
+  get 'new_faculty', to: 'faculty_members#new_faculty', as: 'new_faculty'
+  get 'faculty_evaluations', to: 'faculty_members#faculty_evaluations', as: 'faculty_evaluations'
+  get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
+
 end

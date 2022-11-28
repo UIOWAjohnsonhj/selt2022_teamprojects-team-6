@@ -27,7 +27,7 @@ And(/^the faculty radio button is clicked$/) do
 end
 
 Then (/^I should be directed to the second sign up page to enter faculty specific information$/) do
-  expect(page).to have_content("Faculty Sign Up")
+  expect(page).to have_content("FacultyMember Sign Up")
 end
 
 And(/^my credentials are filled in$/) do
@@ -39,7 +39,7 @@ When(/^I Click "([^"]*)"$/) do |arg|
 end
 
 Given(/^I am an Instructor$/) do
-  fake_instructor = double('Faculty')
+  fake_instructor = double('FacultyMember')
   allow(fake_instructor).to receive(:username).and return("instructor")
 
 end

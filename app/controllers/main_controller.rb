@@ -14,7 +14,7 @@ class MainController < ApplicationController
     super
     @student = Student
     @profiles = Profile
-    @faculty = Faculty
+    @faculty = FacultyMember
     @current_profile = nil
     @id = @@id
     @user_type = @@user_type
@@ -33,6 +33,7 @@ class MainController < ApplicationController
   def intermediate_logout
     @@id = nil
     @@page_counter=1
+    reset_session
     redirect_to root_path
   end
   def sign_up
@@ -85,7 +86,7 @@ class MainController < ApplicationController
 
     puts params[:user]
     missing=false
-    if Student.where(:email => (params[:user][:email])).exists? || Faculty.where(:email => (params[:user][:email])).exists?
+    if Student.where(:email => (params[:user][:email])).exists? || FacultyMember.where(:email => (params[:user][:email])).exists?
       puts "email"
       flash[:notice]= "Email already in use"
       missing=true
@@ -123,11 +124,12 @@ class MainController < ApplicationController
       if params[:type]=="radio_button_faculty"
         faculty={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
                  :email => params[:user][:email],:password_digest=>params[:user][:password] }
-        Faculty.create!(faculty)
+        FacultyMember.create!(faculty)
 
         # id=@profiles.where(email:params[:user][:email])
         # Commented out as we have yet to decide if we're making
-        flash[:notice]= "Faculty Account created successfully"
+        # should redirect_to 'faculty_create'
+        flash[:notice]= "FacultyMember Account created successfully"
       else
         #  create a student account
         student={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
@@ -155,12 +157,7 @@ class MainController < ApplicationController
     @current_profile = Profile.where(student_id: @@id).take
 
   end
-  def faculty_profile
-    puts "faculty"
-    puts params
-    @faculty = Faculty.where(id: @@id).take
 
-  end
   def intermediate_login
     given_email= params[:user][:email]
     given_password = params[:user][:password]
@@ -172,7 +169,7 @@ class MainController < ApplicationController
     #p 'line 135  ', @faculty
     #if (not @student.nil?) || (not @faculty.nil?)
     @student = Student.find_by(email:given_email,password_digest:given_password)
-    @faculty = Faculty.find_by(email:given_email,password_digest:given_password)
+    @faculty = FacultyMember.find_by(email:given_email,password_digest:given_password)
 
     begin
       puts 'line 139'
@@ -189,6 +186,8 @@ class MainController < ApplicationController
         puts 'line 148'
         @@id = @faculty.id
         @@user_type = :faulty
+        session[:faculty_id] = @faculty.id
+        session[:user_type] = :faculty
         redirect_to faculty_profile_path
 
       else
@@ -226,9 +225,9 @@ class MainController < ApplicationController
   def admission_decision
     puts params
     puts "Admission decision"
-    @professor = Faculty.where(id: params[:professor_id]).take
+    @professor = FacultyMember.where(id: params[:professor_id]).take
     if @professor.nil?
-      @professor = Faculty.where(id:  params[:format]).take
+      @professor = FacultyMember.where(id:  params[:format]).take
     end
     # Below will be added when application is created and we have a university id
     # @application_list = Application.where(university_id: @professor.university_id, department_id: @professor.department_id)
