@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'view_profile', to: 'main#view_profile', as: 'view_profile'
   post 'main/view_profile'
 
+  get 'search_instructor', to: 'main#search_instructor', as: 'search_instructor'
+  post 'main/search_instructor'
 
 
   get 'intermediate_sign_up', to: 'main#intermediate_sign_up', as: 'intermediate_sign_up'

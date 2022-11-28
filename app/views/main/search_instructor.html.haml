@@ -1,0 +1,26 @@
+%h1 Search Instructor
+
+= form_tag main_search_instructor_path, :method => :get, :id => 'focus_area_form' do
+  = hidden_field_tag "name_sort", true if @name_header
+  Include:
+  - @all_focus_areas.each do |efa|
+    = efa
+    = check_box_tag "focusarea[#{efa}]", 1, @selected_focus_areas.include?(efa), :id => "focus_area_#{efa}"
+  = submit_tag 'Refresh', :id => 'efa_submit'
+
+%table#instructors
+  %thead
+    %tr
+      %th{:class => @name_header}= link_to 'Instructor Name', faculty_profile_path(:sort => 'name', :ratings => @selected_focus_areas), :id => 'name_header'
+      %th Department
+      %th Focus Area
+      %th Research
+  %tbody
+    - @faculty.all.each do |instructor|
+      %trcon
+        %td= instructor[:first_name] + instructor[:last_name]
+        %td= instructor[:department]
+        %td= instructor[:focus_area]
+        %td= instructor[:research]
+
+= link_to 'Return', main_view_profile_path

@@ -1,6 +1,6 @@
-class CreateUndergraduateSchools < ActiveRecord::Migration
+class CreateUndergrad < ActiveRecord::Migration
   def change
-    create_table :undergraduate_schools do |t|
+    create_table :undergrad do |t|
       t.string :student_id, unique: true
       t.string :country
       t.string :university_name
