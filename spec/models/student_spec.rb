@@ -1,9 +1,9 @@
 describe Student do
-  describe '' do
-    context '' do
-      it '' do
-
-      end
-    end
+  describe 'associations' do
+    it { should have_secure_password }
+    it { should have_one(:profile) }
+    it { should have_many(:experiences) }
+    it { should have_many(:undergraduate_schools) }
+    it { should have_many(:applications) }
   end
 end

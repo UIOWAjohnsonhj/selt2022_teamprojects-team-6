@@ -1,5 +1,4 @@
 class FacultyMembersController < ApplicationController
-
   def show
   end
 

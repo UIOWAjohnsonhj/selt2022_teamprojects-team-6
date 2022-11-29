@@ -20,7 +20,7 @@ faculties = [{:first_name => 'Kiana-faculty', :last_name => 'Erickson', :email =
             {:first_name => 'Evan-faculty', :last_name => 'Brewer', :email => 'ebrewer_f@uiowa.edu', :password_digest=>"1234"},
             {:first_name => 'Ben-faculty', :last_name => 'Desollar', :email => 'bdesollar_f@uiowa.edu', :password_digest=>"1234"},
             {:first_name => 'Adnane-faculty', :last_name => 'Ezouhri', :email => 'aezouhri_f@uiowa.edu', :password_digest=>"1234"},
-            {:first_name => 'Christian-faculty', :last_name => 'Baseme', :email => 'cbaseme_f@uiowa.edu', :password_digest=>"1234"},
+            {:first_name => 'Christian-faculty', :last_name => 'Baseme', :email => 'cbaseme_f@uiowa.edu', :password_digest=>"1234", },
 ]
 
 profiles = [{:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Mechanical Engineering", :term => "spring", :year =>"2022" } ,

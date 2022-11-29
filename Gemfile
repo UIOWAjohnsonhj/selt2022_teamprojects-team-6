@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.6.6'
+ruby '2.7.6'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -8,7 +8,7 @@ ruby '2.6.6'
 gem 'haml'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails' #, '~> 5.1.1'
+gem 'rails' # , '4.2.10'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,7 +46,6 @@ group :development, :test do
   gem 'byebug'
   gem 'capybara'
   gem 'launchy'
-
   gem 'rspec', '~>3.5'
   gem 'rspec-rails'
   gem 'guard-rspec'
@@ -69,3 +68,4 @@ group :production do
   gem 'pg', '~> 0.20' # for Heroku deployment
   gem 'rails_12factor'
 end
+
