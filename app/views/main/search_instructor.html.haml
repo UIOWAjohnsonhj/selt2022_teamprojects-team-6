@@ -5,7 +5,7 @@
   Include:
   - @all_focus_areas.each do |efa|
     = efa
-    = check_box_tag "focusarea[#{efa}]", 1, @selected_focus_areas.include?(efa), :id => "focus_area_#{efa}"
+    = check_box_tag "focusarea[#{efa}]", checked = false, @selected_focus_areas.include?(efa), :id => "focus_area_#{efa}"
   = submit_tag 'Refresh', :id => 'efa_submit'
 
 %table#instructors
@@ -18,7 +18,7 @@
   %tbody
     - @faculty.all.each do |instructor|
       %trcon
-        %td= instructor[:first_name] + instructor[:last_name]
+        %td= instructor[:first_name] + " " + instructor[:last_name]
         %td= instructor[:department]
         %td= instructor[:focus_area]
         %td= instructor[:research]
