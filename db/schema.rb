@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221127200247) do
+ActiveRecord::Schema.define(version: 20221108040054) do
 
   create_table "applications", force: :cascade do |t|
     t.integer "student_id"
@@ -30,19 +30,6 @@ ActiveRecord::Schema.define(version: 20221127200247) do
     t.index ["university_id"], name: "index_departments_on_university_id"
   end
 
-  create_table "evaluations", force: :cascade do |t|
-    t.integer  "faculty_id"
-    t.integer  "student_id"
-    t.string   "comment"
-    t.string   "applied_term"
-    t.integer  "score"
-    t.string   "status"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["faculty_id"], name: "index_evaluations_on_faculty_id"
-    t.index ["student_id"], name: "index_evaluations_on_student_id"
-  end
-
   create_table "experiences", force: :cascade do |t|
     t.integer "student_id"
     t.string  "company_name"
@@ -53,7 +40,7 @@ ActiveRecord::Schema.define(version: 20221127200247) do
     t.index ["student_id"], name: "index_experiences_on_student_id"
   end
 
-  create_table "faculty_members", force: :cascade do |t|
+  create_table "faculties", force: :cascade do |t|
     t.integer "department_id"
     t.string  "first_name"
     t.string  "last_name"
@@ -61,7 +48,7 @@ ActiveRecord::Schema.define(version: 20221127200247) do
     t.string  "password_digest"
     t.boolean "chair"
     t.string  "university"
-    t.index ["department_id"], name: "index_faculty_members_on_department_id"
+    t.index ["department_id"], name: "index_faculties_on_department_id"
   end
 
   create_table "profiles", force: :cascade do |t|
