@@ -45,7 +45,8 @@
 }
 .profile_features2{
   float: left;
-  width: 1%;
+  width: 50%;
+  height: 100%;
 }
 
 .btn{
@@ -63,6 +64,7 @@
   border-left: 6px solid orange;
   height: 100vh;
 }
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -78,3 +80,16 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+.btn{
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50; /* Green */
+}
+.btn:hover{
+  background-color: #ff9900;
+}
+.btn:active{
+  background-color: #be5602;
+}
+

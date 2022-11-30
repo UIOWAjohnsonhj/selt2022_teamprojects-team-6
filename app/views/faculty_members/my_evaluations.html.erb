@@ -1,0 +1,28 @@
+<h1>My Evaluations</h1>
+<h2>Hi <%= @display_name %></h2>
+<form method="post" action="<%= main_index_path %>">
+  <input type="submit" value="logout">
+</form>
+<table class="evaluations_table">
+  <tr>
+    <th>Student Name</th>
+    <th>Email</th>
+    <th>Applied Term</th>
+    <th>Date of Evaluation</th>
+    <th>Score</th>
+    <th>Comment</th>
+    <th>Status</th>
+  </tr>
+
+  <tr>
+    <% evaluations.each do |eval| %>
+      <td><%= eval.name %></td>
+      <td><%= eval.email %></td>
+      <td><%= eval.applied_term %></td>
+      <td><%= eval.evaluation_date %></td>
+      <td><%= eval.score %></td>
+      <td><%= eval.comment %></td>
+      <td><%= eval.status %></td>
+    <% end %>
+  </tr>
+</table>

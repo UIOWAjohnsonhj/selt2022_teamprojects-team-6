@@ -1,0 +1,22 @@
+<h1>Faculty Evaluations</h1>
+<h2>Hi <%= @display_name %></h2>
+<form method="post" action="<%= main_index_path %>">
+  <input type="submit" value="logout">
+</form>
+<h3>Student: <%= @student_name %></h3>
+<table class="evaluations_table">
+  <tr>
+    <th>Professor Name</th>
+    <th>Date of Evaluation</th>
+    <th>Score</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <%= @evaluation.each do |eval| %>
+      <td><%= eval.professor %></td>
+      <td><%= eval.evaluation_date %></td>
+      <td><%= eval.score %></td>
+      <td><%= eval.comment %></td>
+    <%= end %>
+  </tr>
+</table>

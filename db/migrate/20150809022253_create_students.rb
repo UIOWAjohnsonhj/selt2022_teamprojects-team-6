@@ -6,7 +6,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :email, unique: true
       t.string :password_digest
       # Add fields that let Rails automatically keep track
-      # of when movies are added or modified:
+      # of when students are added or modified:
       t.timestamps
     end
   end

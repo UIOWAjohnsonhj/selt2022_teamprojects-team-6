@@ -20,7 +20,7 @@ module NavigationHelpers
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
-    #   when /^(.*)'s profile page$/i
+    #   when /^(.*)'s profiles page$/i
     #     user_profile_path(User.find_by_login($1))
     when
       begin

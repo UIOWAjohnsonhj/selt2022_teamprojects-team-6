@@ -72,6 +72,23 @@ h1.title {
   font-size: 2em;
   font-style: normal;
 }
+
+h2 {
+  color: black;
+  font-size: 150%;
+  font-style: italic;
+  display: block;
+  width: 100%;
+}
+h2.title {
+  margin: 0 0 1em;
+  padding: 10px;
+  background-color: Black;
+  color: white;
+  border-bottom: 4px red;
+  font-size: 2em;
+  font-style: normal;
+}
 table#movies {
   margin: 10px;
   border-collapse: collapse;
@@ -121,3 +138,5 @@ input[type=submit] {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#ededed', GradientType=0);
   /* IE6-9 */
 }
+
+.
