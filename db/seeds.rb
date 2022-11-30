@@ -15,9 +15,9 @@ students = [{:first_name => 'Kiana', :last_name => 'Erickson', :email => 'kberic
   	 ]
 
 #i added the faculty in front of first names to differentiate from the students names
-faculties = [{:first_name => 'Kiana-faculty', :last_name => 'Erickson', :email => 'kberickson_f@uiowa.edu', :password_digest=>"1234"},
-            {:first_name => 'Joslin-faculty', :last_name => 'Some', :email => 'jsome_f@uiowa.edu', :password_digest=>"1234"},
-            {:first_name => 'Evan-faculty', :last_name => 'Brewer', :email => 'ebrewer_f@uiowa.edu', :password_digest=>"1234"},
+faculties = [{:first_name => 'Kiana-faculty', :last_name => 'Erickson', :email => 'kberickson_f@uiowa.edu', :password_digest=>"1234", :department=>"Computer Science", :focus_area=>"Computer Hardware", :research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa"},
+            {:first_name => 'Joslin-faculty', :last_name => 'Some', :email => 'jsome_f@uiowa.edu', :password_digest=>"1234", :department=>"Engineering", :focus_area=>"Control Systems", :research_url=>"http://www.engineering.uiowa.edu", :university=>"University of Iowa"},
+            {:first_name => 'Evan-faculty', :last_name => 'Brewer', :email => 'ebrewer_f@uiowa.edu', :password_digest=>"1234", :department=>"Computer Science", :focus_area=>"Internet of Things", :research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa"},
             {:first_name => 'Ben-faculty', :last_name => 'Desollar', :email => 'bdesollar_f@uiowa.edu', :password_digest=>"1234"},
             {:first_name => 'Adnane-faculty', :last_name => 'Ezouhri', :email => 'aezouhri_f@uiowa.edu', :password_digest=>"1234"},
             {:first_name => 'Christian-faculty', :last_name => 'Baseme', :email => 'cbaseme_f@uiowa.edu', :password_digest=>"1234"},
