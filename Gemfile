@@ -31,9 +31,13 @@ gem 'unicorn'
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
 
-gem 'themoviedb'
-
 gem 'rails-controller-testing'
+
+gem 'carrierwave', '~> 1.0'
+
+gem 'fog', '~> 1.38'
+
+gem 'bootstrap-sass', '~> 2.3.2'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views

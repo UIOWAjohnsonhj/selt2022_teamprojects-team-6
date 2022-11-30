@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'resumes/index'
+
+  get 'resumes/new'
+
+  get 'resumes/create'
+
+  get 'resumes/destroy'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "main#index"
   get 'login', to: 'main#login', as: 'login'
@@ -64,5 +72,17 @@ Rails.application.routes.draw do
   get 'new_faculty', to: 'faculty_members#new_faculty', as: 'new_faculty'
   get 'faculty_evaluations', to: 'faculty_members#faculty_evaluations', as: 'faculty_evaluations'
   get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
+
+  # Resume Routes
+  get 'resumes', to: 'resumes#resume_view', as: 'resumes'
+  get 'new_resume', to: 'resumes#new', as: 'new_resume'
+  post 'resumes/new'
+  post 'resumes', to: 'resumes#create'
+  get 'resumes/:id', to: 'resumes#show', as: 'resume'
+  get 'resumes/:id/edit', to: 'resumes#edit', as: 'edit_resume'
+  patch 'resumes/:id', to: 'resumes#update'
+  delete 'resumes/:id', to: 'resumes#destroy'
+
+
 
 end

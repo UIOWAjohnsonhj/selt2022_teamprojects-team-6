@@ -61,6 +61,23 @@
 
       </div>
       <br>
+      <div class="row">
+        <label class="label">Company name</label>
+        <label class="label">Job title</label>
+        <label class="label">Description</label>
+        <label class="label">from</label>
+        <label class="label">to</label>
+      </div>
+      <br>
+      <div class="row">
+        <% if @resume != "No resume uploaded" %>
+          <label class="label"> <%= @resume.name %> </label>
+          <%= link_to "Download Resume", @resume.attachment_url %>
+        <% else %>
+          <label class="label"> <%= @resume %> </label>
+        <% end %>
+      </div>
+      <br>
       <br>
       <input type="submit" class = "btn" value="Edit profile">
 

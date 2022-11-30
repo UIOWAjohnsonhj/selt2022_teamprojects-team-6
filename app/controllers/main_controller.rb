@@ -48,6 +48,10 @@ class MainController < ApplicationController
     puts @@id,"View"
     #@experience = Experience.where(student_id: @id).take
     @student = Student.find(@@id)
+    @resume = Resume.where(student_id: @@id).take
+    if @resume.nil?
+      @resume = "No resume uploaded"
+    end
     @applied_Departments ={}
     if params.include? "gre"
       @current_profile.gre = params[:gre]
@@ -154,8 +158,12 @@ class MainController < ApplicationController
   end
 
   def edit_profile
+    @student = Student.where(id: @@id).take
+    @resume = Resume.where(student_id: @@id).take
+    if @resume.nil?
+      @resume = "No resume uploaded"
+    end
     @current_profile = Profile.where(student_id: @@id).take
-
   end
 
   def intermediate_login
