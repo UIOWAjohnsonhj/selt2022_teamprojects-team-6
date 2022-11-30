@@ -53,7 +53,8 @@ Then(/^I should view a "([^"]*)" page$/) do |arg|
 end
 
 Given(/^I am a Student$/) do
-  pending
+  fake_student = double('Student')
+  allow(fake_student).to receive(:username).and return("student")
 end
 
 Then(/^I should not view a "([^"]*)" page$/) do |arg|
@@ -65,11 +66,11 @@ Given(/^I am logged in$/) do
 end
 
 Then(/^I should view the "([^"]*)" page$/) do |arg|
-  pending
+  expect(page).to have_content(arg)
 end
 
 When(/^I click "([^"]*)"$/) do |arg|
-  pending
+  click_button(arg)
 end
 
 Then(/^my data should be updated$/) do
@@ -112,10 +113,6 @@ And(/^I upload an image of my "([^"]*)"$/) do |arg|
   pending
 end
 
-And(/^I am on the "([^"]*)" page$/) do |arg|
-  pending
-end
-
 And(/^I have previously set up a profile picture$/) do
   pending
 end
@@ -125,7 +122,7 @@ Then(/^I should the image "(.+)" as my profile picture$/) do |image|
 end
 
 Given(/^Am on the login page$/) do
-  pending
+  visit main_login_path
 end
 
 When(/^I click the forgot password link$/) do
@@ -134,4 +131,26 @@ end
 
 Then(/^I should see the reset password page$/) do
   expect(page).to have_content("Reset Password")
+end
+
+Given(/^the following account has been added to Faculties:$/) do |table|
+  # table is a table.hashes.keys # => [:first_name, :last_name, :email, :password]
+  table.hashes.each do |faculty|
+    FacultyMember.create!(faculty)
+  end
+end
+
+When(/^I click the "([^"]*)" button$/) do |arg|
+  click_button(arg)
+end
+
+And(/^I am on the "([^"]*)" page$/) do |arg|
+  expect(page).to have_content(arg)
+end
+
+Given(/^the following account has been added to Students:$/) do |table|
+  # table is a table.hashes.keys # => [:first_name, :last_name, :email, :password]
+  table.hashes.each do |student|
+    Student.create!(student)
+  end
 end
