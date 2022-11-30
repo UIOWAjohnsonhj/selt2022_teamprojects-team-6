@@ -44,12 +44,11 @@ class MainController < ApplicationController
   end
   def view_profile
     puts "View Profile"
-    puts params
-    puts params[:student_id]
+    puts session[:student_id]
     @@id = params[:student_id]
-    @student = Student.where(id: params[:student_id]).take
-    @current_profile = Profile.where(student_id: params[:student_id]).take
-    @resume = Resume.where(student_id: params[:student_id]).take
+    @student = Student.where(id: session[:student_id]).take
+    @current_profile = Profile.where(student_id: session[:student_id]).take
+    @resume = Resume.where(student_id: session[:student_id]).take
     if @resume.nil?
       @resume = "No resume uploaded"
     end
@@ -179,6 +178,8 @@ class MainController < ApplicationController
         @@user_type = :student
         @@id = @student.id
         #p @student
+        session[:student_id] = @student.id
+        session[:user_type] = :student
         redirect_to view_profile_path(@student, student_id: @student.id)
       #elsif not @faculty.nil?
       elsif not @faculty.nil?
@@ -225,7 +226,7 @@ class MainController < ApplicationController
   def admission_decision
     puts params
     puts "Admission decision"
-    @professor = FacultyMember.where(id: params[:professor_id]).take
+    @professor = FacultyMember.where(id: session[:faculty_id]).take
     if @professor.nil?
       @professor = FacultyMember.where(id:  params[:format]).take
     end
