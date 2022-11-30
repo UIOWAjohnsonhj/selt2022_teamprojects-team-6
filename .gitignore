@@ -170,7 +170,5 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+log/development.log
 /.ruby-version
-/db/development.sqlite3
-/tmp/
-/log/
