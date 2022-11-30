@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221127200247) do
+ActiveRecord::Schema.define(version: 20221129233509) do
 
   create_table "applications", force: :cascade do |t|
     t.integer "student_id"
@@ -33,14 +33,18 @@ ActiveRecord::Schema.define(version: 20221127200247) do
   create_table "evaluations", force: :cascade do |t|
     t.integer  "faculty_id"
     t.integer  "student_id"
+    t.integer  "university_id"
+    t.integer  "application_id"
     t.string   "comment"
     t.string   "applied_term"
     t.integer  "score"
     t.string   "status"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["application_id"], name: "index_evaluations_on_application_id"
     t.index ["faculty_id"], name: "index_evaluations_on_faculty_id"
     t.index ["student_id"], name: "index_evaluations_on_student_id"
+    t.index ["university_id"], name: "index_evaluations_on_university_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -74,6 +78,15 @@ ActiveRecord::Schema.define(version: 20221127200247) do
     t.string  "year"
     t.string  "college_name"
     t.index ["student_id"], name: "index_profiles_on_student_id"
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "attachment"
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_resumes_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|

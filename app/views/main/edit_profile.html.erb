@@ -17,7 +17,7 @@
       </div>
       <br>
       <div class="row">
-        <label class="label">Intrested Major</label>
+        <label class="label">Interested Major</label>
         <label class="label">Term</label>
         <label class="label">Year</label>
       </div>
@@ -66,6 +66,8 @@
         <label class="label">from</label>
         <label class="label">to</label>
       </div>
+      <div class="row">
+      </div>
       <br>
       <div class="row">
         <input class="field2" name="company">
@@ -78,7 +80,14 @@
       <br>
     </form>
     <br>
-    <button class="btn">Add Experience</button>
+    <% if @resume != "No resume uploaded" %>
+      <label class="label"> <%= @resume.name %> </label>
+      <%= link_to "Download Resume", @resume.attachment_url %>
+      <%= button_to "Delete",  @resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{@resume.name}?" %>
+      <%= button_to "New Resume", resumes_new_path(@student, student_id: @student.id) %>
+    <% else %>
+      <%= button_to "New Resume", resumes_new_path(@student, student_id: @student.id) %>
+    <% end %>
   </div>
   <div class="profile_features2">
     <div class="vl"></div>

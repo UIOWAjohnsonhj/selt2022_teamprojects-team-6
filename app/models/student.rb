@@ -5,5 +5,6 @@ class Student < ActiveRecord::Base
   has_many :experiences
   has_many :undergraduate_schools
   has_many :applications
+  has_one :resume
 
 end
