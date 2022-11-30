@@ -14,7 +14,7 @@ class MainController < ApplicationController
     super
     @student = Student
     @profiles = Profile
-    @faculty = Faculty
+    @faculty = FacultyMember
     @current_profile = nil
     @id = @@id
     @user_type = @@user_type
