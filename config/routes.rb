@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "main#index"
   get 'login', to: 'main#login', as: 'login'
@@ -37,6 +38,13 @@ Rails.application.routes.draw do
 
   get 'reset_password', to: 'main#reset_password', as: 'reset_password'
   post 'main/reset_password'
+
+  get 'reset_password_one', to: 'main#reset_password_one', as: 'reset_password_one'
+  post 'main/reset_password_one'
+
+  get 'reset_password_two', to: 'main#reset_password_two', as: 'reset_password_two'
+  post 'main/reset_password_two'
+
 
   get 'admission_decision', to: 'main#admission_decision', as: 'admission_decision'
   post 'main/admission_decision'
