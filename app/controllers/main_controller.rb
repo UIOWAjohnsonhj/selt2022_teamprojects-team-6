@@ -9,7 +9,6 @@ class MainController < ApplicationController
   @@search_type = nil
   @@page_counter = 1
 
-
   def initialize
     super
     @student = Student
@@ -37,10 +36,11 @@ class MainController < ApplicationController
     redirect_to root_path
   end
   def sign_up
-    @profiles = Profile
-    @profiles.all.each do |p|
-      puts p.id
-    end
+    session[:sign_up_type] = :student
+  end
+
+  def sign_up_faculty
+    session[:sign_up_type] = :faculty
   end
   def view_profile
     puts "View Profile"
@@ -123,12 +123,12 @@ class MainController < ApplicationController
     end
 
     puts params
-    if params[:type].present? && !missing
-      if params[:type]=="radio_button_faculty"
+    if session[:sign_up_type] == "faculty"
+      puts params
         faculty={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
-                 :email => params[:user][:email],:password_digest=>params[:user][:password] }
-        FacultyMember.create!(faculty)
-
+                 :email => params[:user][:email],:password_digest=>params[:user][:password],
+                         :university=>params[:uni], :department_id=> params[:dept]}
+      FacultyMember.create!(faculty)
         # id=@profiles.where(email:params[:user][:email])
         # Commented out as we have yet to decide if we're making
         # should redirect_to 'faculty_create'
@@ -136,7 +136,8 @@ class MainController < ApplicationController
       else
         #  create a student account
         student={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
-              :email => params[:user][:email],:password_digest=>params[:user][:password] }
+              :email => params[:user][:email],:password_digest=>params[:user][:password],
+        }
 
         Student.create!(student)
         id=@student.where(email:params[:user][:email]).take.id
@@ -148,11 +149,14 @@ class MainController < ApplicationController
         Profile.create!(student_profile)
 
         flash[:notice]= "Student Account created successfully"
-      end
 
     end
+
     redirect_to root_path
 
+
+  end
+  def general_sign_up
 
   end
 

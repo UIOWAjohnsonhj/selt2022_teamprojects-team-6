@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'main#sign_up', as: 'sign_up'
   post 'main/sign_up'
 
+  get 'general_sign_up', to: 'main#general_sign_up', as: 'general_sign_up'
+  post 'main/general_sign_up'
+
+  get 'sign_up_faculty', to: 'main#sign_up_faculty', as: 'sign_up_faculty'
+  post 'main/sign_up_faculty'
+
   get 'index', to: 'main#index', as: 'index'
   post 'main/index'
 
@@ -78,9 +84,7 @@ Rails.application.routes.draw do
 
   get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
 
-  get 'sign_up_faculty', to: 'faculty_members#sign_up_faculty', as: 'sign_up_faculty'
-  post 'faculty_members/sign_up_faculty'
-  
+
   # Resume Routes
   get 'resumes', to: 'resumes#resume_view', as: 'resumes'
   get 'new_resume', to: 'resumes#new', as: 'new_resume'
