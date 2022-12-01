@@ -28,11 +28,6 @@ profiles = [{:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Mech
             {:student_id=>2,:gre=> 33, :toefl => 109, :interested_major => "Computer Engineering", :term => "spring", :year =>"2022" },
             ]
 
-undergrad_schools = [{:student_id=>1, :country=>"United States", :university_name=>"University of Iowa", :major=>"Mechanical Engineering", :gpa => 3.53,
-                      :grading_scale=>"Letter Grading", :start_year=>2019, :expected_grad_year=>2023},
-                     {:student_id=>2, :country=>"China", :university_name=>"Peking University", :major=>"Biology", :gpa => 3.89,
-                      :grading_scale=>"Pass/Fail", :start_year=>2014, :expected_grad_year=>2018}
-                    ]
 universities = [{:name=> "University of Iowa",:rank=>12,:state=>"Iowa"},
                 {:name=> "University of Chicago",:rank=>5,:state=>"Illinois"},
                 {:name=> "Stanford University",:rank=>2,:state=>"California"},
@@ -55,9 +50,7 @@ department = [{:university_id=>1,:name=>"Electrical Engineering"},{:university_i
               {:university_id=>6,:name=>"Hardware Engineering"},{:university_id=>2,:name=>"Physics"}
 
 ]
-undergrad_schools.each do |school|
-  UndergraduateSchools.create!(school)
-end
+
 
 students.each do |student|
   Student.create!(student)
