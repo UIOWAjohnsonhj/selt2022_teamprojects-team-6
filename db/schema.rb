@@ -53,15 +53,16 @@ ActiveRecord::Schema.define(version: 20221127200247) do
   end
 
   create_table "faculty_members", force: :cascade do |t|
+    t.integer "department_id"
     t.string  "first_name"
     t.string  "last_name"
     t.string  "email"
     t.string  "password_digest"
-    t.string  "department"
     t.string  "focus_area"
     t.string   "research_url"
     t.boolean "chair"
     t.string  "university"
+    t.index ["department_id"], name: "index_faculty_members_on_department_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20221127200247) do
     t.string  "term"
     t.string  "year"
     t.string  "college_name"
+    t.index ["student_id"], name: "index_profiles_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -84,8 +86,8 @@ ActiveRecord::Schema.define(version: 20221127200247) do
     t.datetime "updated_at"
   end
 
-  create_table "undergrad", force: :cascade do |t|
-    t.string   "student_id"
+  create_table "undergraduate_schools", force: :cascade do |t|
+    t.integer  "student_id"
     t.string   "country"
     t.string   "university_name"
     t.string   "major"
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(version: 20221127200247) do
     t.integer  "expected_grad_year"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["student_id"], name: "index_undergraduate_schools_on_student_id"
   end
 
   create_table "universities", force: :cascade do |t|

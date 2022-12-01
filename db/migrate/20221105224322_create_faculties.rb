@@ -5,7 +5,7 @@ class CreateFaculties < ActiveRecord::Migration
       t.string   :first_name
       t.string   :last_name
       t.string   :email  ,unique: true
-      t.string :password_digest
+      t.string   :password_digest
       t.string   :department
       t.boolean  :chair
       t.string   :university

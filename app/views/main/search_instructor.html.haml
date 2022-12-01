@@ -18,7 +18,7 @@
     - @faculty.all.each do |instructor|
       %tr
         %td= instructor[:first_name] + " " + instructor[:last_name]
-        %td= instructor[:department]
+        %td= Department.find(instructor.department_id).name
         %td= instructor[:focus_area]
         %td= instructor[:research]
         %tr
