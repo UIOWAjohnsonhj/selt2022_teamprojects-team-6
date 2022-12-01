@@ -21,7 +21,7 @@
           = submit_tag 'Search Instructors'
     -else
       -if !@id.nil? && @user_type == :faculty
-        .row
+        .row1
           = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
             = submit_tag 'Log out'
           = form_tag faculty_profile_path, :method => 'get', :class => 'form form-inline' do
