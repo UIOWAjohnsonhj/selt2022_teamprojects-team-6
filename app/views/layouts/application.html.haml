@@ -9,8 +9,6 @@
   %body
     %h1.title Simplaply
     -if session.include? :user_type and session[:user_type] == "student"
-      -if !@id.nil? && @user_type == :student
-
       .row1
 
         = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
