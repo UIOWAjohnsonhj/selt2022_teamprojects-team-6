@@ -10,19 +10,19 @@
         <label class="label">CAPA</label>
       </div>
       <br>
-      <div class="row">
+      <div class="row marg ">
         <input value="<%= @current_profile.gre %>" class="field" name="gre">
         <input value="<%= @current_profile.toefl %>" class="field" name="toefl">
         <input value="<%= @current_profile.capa %>" class="field" name="capa">
       </div>
       <br>
       <div class="row">
-        <label class="label">Intrested Major</label>
+        <label class="label">Interested Major</label>
         <label class="label">Term</label>
         <label class="label">Year</label>
       </div>
       <br>
-      <div class="row">
+      <div class="row marg">
         <input value="<%= @current_profile.interested_major %>"  list="majors" class="field" name="major">
         <datalist id="majors">
           <option value="Mechanical Engineering">
@@ -37,7 +37,7 @@
           <option value="Spring">
           <option value="Summer">
         </datalist>
-        <input value="<%= @current_profile.year %>" list="year" class="field" name="year">
+        <input value="<%= @current_profile.year %>" list="year" class="field marg" name="year">
 
         <datalist id="year">
           <option value="2022">
@@ -53,7 +53,7 @@
       </div>
       <br>
 
-      <div class="row">
+      <div class="row marg">
         <input value="<%= @current_profile.college_name %>" class="field2" name="college_name">
       </div>
       <br>
@@ -66,8 +66,10 @@
         <label class="label">from</label>
         <label class="label">to</label>
       </div>
-      <br>
       <div class="row">
+      </div>
+      <br>
+      <div class="row marg">
         <input class="field2" name="company">
         <input class="field2" name="title">
         <input class="field2" name="description">
@@ -78,7 +80,14 @@
       <br>
     </form>
     <br>
-    <button class="btn">Add Experience</button>
+    <% if @resume != "No resume uploaded" %>
+      <label class="label"> <%= @resume.name %> </label>
+      <%= link_to "Download Resume", @resume.attachment_url %>
+      <%= button_to "Delete",  @resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{@resume.name}?" %>
+      <%= button_to "New Resume", resumes_new_path(@student, student_id: @student.id) %>
+    <% else %>
+      <%= button_to "New Resume", resumes_new_path(@student, student_id: @student.id) %>
+    <% end %>
   </div>
   <div class="profile_features2">
     <div class="vl"></div>

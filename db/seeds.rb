@@ -15,12 +15,12 @@ students = [{:first_name => 'Kiana', :last_name => 'Erickson', :email => 'kberic
   	 ]
 
 #i added the faculty in front of first names to differentiate from the students names
-faculties = [{:first_name => 'Kiana-faculty', :last_name => 'Erickson', :email => 'kberickson_f@uiowa.edu', :password_digest=>"1234"},
-            {:first_name => 'Joslin-faculty', :last_name => 'Some', :email => 'jsome_f@uiowa.edu', :password_digest=>"1234"},
-            {:first_name => 'Evan-faculty', :last_name => 'Brewer', :email => 'ebrewer_f@uiowa.edu', :password_digest=>"1234"},
-            {:first_name => 'Ben-faculty', :last_name => 'Desollar', :email => 'bdesollar_f@uiowa.edu', :password_digest=>"1234"},
-            {:first_name => 'Adnane-faculty', :last_name => 'Ezouhri', :email => 'aezouhri_f@uiowa.edu', :password_digest=>"1234"},
-            {:first_name => 'Christian-faculty', :last_name => 'Baseme', :email => 'cbaseme_f@uiowa.edu', :password_digest=>"1234"},
+faculties = [{:first_name => 'Kiana-faculty', :last_name => 'Erickson', :email => 'kberickson_f@uiowa.edu', :password_digest=>"1234",  :focus_area=>"Computer Hardware", :research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa",:department_id=> 1},
+            {:first_name => 'Joslin-faculty', :last_name => 'Some', :email => 'jsome_f@uiowa.edu', :password_digest=>"1234", :focus_area=>"Control Systems", :research_url=>"http://www.engineering.uiowa.edu", :university=>"University of Iowa", :department_id=> 1},
+            {:first_name => 'Evan-faculty', :last_name => 'Brewer', :email => 'ebrewer_f@uiowa.edu', :password_digest=>"1234", :focus_area=>"Internet of Things", :research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa", :department_id=> 2},
+            {:first_name => 'Ben-faculty', :last_name => 'Desollar', :email => 'bdesollar_f@uiowa.edu', :password_digest=>"1234", :department_id=> 3},
+            {:first_name => 'Adnane-faculty', :last_name => 'Ezouhri', :email => 'aezouhri_f@uiowa.edu', :password_digest=>"1234", :department_id=> 3},
+            {:first_name => 'Christian-faculty', :last_name => 'Baseme', :email => 'cbaseme_f@uiowa.edu', :password_digest=>"1234",:department_id=> 5 },
 ]
 
 profiles = [{:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Mechanical Engineering", :term => "spring", :year =>"2022" } ,
@@ -49,10 +49,10 @@ department = [{:university_id=>1,:name=>"Electrical Engineering"},{:university_i
               {:university_id=>3,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"},
               {:university_id=>4,:name=>"Electrical Engineering"},{:university_id=>2,:name=>"Mechanical Engineering"},
               {:university_id=>4,:name=>"Hardware Engineering"},{:university_id=>2,:name=>"Physics"},
-{:university_id=>5,:name=>"Electrical Engineering"},{:university_id=>1,:name=>"Mechanical Engineering"},
-  {:university_id=>5,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"},
-  {:university_id=>6,:name=>"Electrical Engineering"},{:university_id=>2,:name=>"Mechanical Engineering"},
-  {:university_id=>6,:name=>"Hardware Engineering"},{:university_id=>2,:name=>"Physics"}
+              {:university_id=>5,:name=>"Electrical Engineering"},{:university_id=>1,:name=>"Mechanical Engineering"},
+              {:university_id=>5,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"},
+              {:university_id=>6,:name=>"Electrical Engineering"},{:university_id=>2,:name=>"Mechanical Engineering"},
+              {:university_id=>6,:name=>"Hardware Engineering"},{:university_id=>2,:name=>"Physics"}
 
 ]
 undergrad_schools.each do |school|

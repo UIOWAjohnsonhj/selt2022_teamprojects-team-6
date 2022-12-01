@@ -12,7 +12,7 @@
         <label class="label">CAPA</label>
       </div>
       <br>
-      <div class="row">
+      <div class="row marg">
         <input value="<%= @current_profile.gre %>" class="field" name="gre" readonly >
         <input value="<%= @current_profile.toefl %>" class="field" name="toefl" readonly>
         <input value="<%= @current_profile.capa %>" class="field" name="capa" readonly>
@@ -24,7 +24,7 @@
         <label class="label">Year</label>
       </div>
       <br>
-      <div class="row">
+      <div class="row marg">
         <input value="<%= @current_profile.interested_major %>" list="majors" class="field" name="major" readonly>
         <input value="<%= @current_profile.term %>" list="term" class="field" name="term" readonly>
         <input value="<%= @current_profile.year %>" list="year" class="field" name="year" readonly>
@@ -38,7 +38,7 @@
       </div>
       <br>
 
-      <div class="row">
+      <div class="row marg">
         <input value="<%= @current_profile.college_name %>" class="field2" name="college_name" readonly>
       </div>
       <br>
@@ -52,13 +52,22 @@
         <label class="label">to</label>
       </div>
       <br>
-      <div class="row">
+      <div class="row marg">
         <input  class="field2" name="company" readonly>
         <input class="field2" name="position" readonly>
         <input class="field2" name="description" readonly>
         <input class="field2" name="from" readonly>
         <input class="field2" name="to" readonly>
 
+      </div>
+      <br>
+      <div class="row">
+        <% if @resume != "No resume uploaded" %>
+          <label class="label"> <%= @resume.name %> </label>
+          <%= link_to "Download Resume", @resume.attachment_url %>
+        <% else %>
+          <label class="label"> <%= @resume %> </label>
+        <% end %>
       </div>
       <br>
       <br>
@@ -74,7 +83,7 @@
   </div>
   <div class="profile_features">
     <h1>Universities Applied</h1>
-    <% @applied_Departments.each do |k,v| %>
+    <% @applied_departments.each do |k,v| %>
       <br>
       <h2><%=k %></h2>
       <table>

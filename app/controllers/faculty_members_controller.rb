@@ -1,5 +1,4 @@
 class FacultyMembersController < ApplicationController
-
   def show
   end
 
@@ -80,5 +79,10 @@ class FacultyMembersController < ApplicationController
     @application.update(application_status: 'Waitlisted')
     redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
   end
+
+  def sign_up_faculty
+
+  end
+
 end
 

@@ -1,0 +1,12 @@
+%h1 Sign Up Continued
+
+=form_tag main_intermediate_sign_up_path, :method=>:post do
+  =label :label, :faculty_id_number
+  =text_field :user, :faculty_id_number
+  =label :label, :research_url
+  =text_field :user, :research_url
+
+  %br/
+  %br/
+
+  = submit_tag "Create Account", :id => "create_account_button_faculty"
