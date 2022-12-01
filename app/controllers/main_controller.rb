@@ -44,8 +44,7 @@ class MainController < ApplicationController
   end
   def view_profile
     puts "View Profile"
-    puts session[:student_id]
-    @@id = params[:student_id]
+    puts session[:user_type]
     @student = Student.where(id: session[:student_id]).take
     @current_profile = Profile.where(student_id: session[:student_id]).take
     @resume = Resume.where(student_id: session[:student_id]).take
@@ -164,6 +163,12 @@ class MainController < ApplicationController
       @resume = "No resume uploaded"
     end
     @current_profile = Profile.where(student_id: @@id).take
+    puts "sadsa"
+    puts @@id
+    puts "SADSADASA"
+    Profile.all.each do |p|
+      puts p.student_id
+    end
   end
 
   def intermediate_login
@@ -284,8 +289,8 @@ class MainController < ApplicationController
       @@universities = response["records"]
       @@search_type = :name
 
+    end
     redirect_to search_universities_path
-  end
 
   end
   def change_page

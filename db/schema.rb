@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20221129233509) do
     t.string  "job_title"
     t.string  "from"
     t.string  "to"
+    t.index ["student_id"], name: "index_experiences_on_student_id"
   end
 
   create_table "faculty_members", force: :cascade do |t|
@@ -62,10 +63,11 @@ ActiveRecord::Schema.define(version: 20221129233509) do
     t.string  "last_name"
     t.string  "email"
     t.string  "password_digest"
-    t.string  "focus_area"
-    t.string   "research_url"
+    t.string  "department"
     t.boolean "chair"
     t.string  "university"
+    t.string  "focus_area"
+    t.string  "research_url"
     t.index ["department_id"], name: "index_faculty_members_on_department_id"
   end
 
