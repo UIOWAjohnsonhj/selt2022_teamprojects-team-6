@@ -38,9 +38,6 @@ Rails.application.routes.draw do
   get 'reset_password', to: 'main#reset_password', as: 'reset_password'
   post 'main/reset_password'
 
-  get 'admission_decision', to: 'main#admission_decision', as: 'admission_decision'
-  post 'main/admission_decision'
-
   get 'intermediate_search', to: 'main#intermediate_search', as: 'intermediate_search'
   post 'main/intermediate_search'
 
@@ -49,17 +46,19 @@ Rails.application.routes.draw do
 
   get 'change_page', to: 'main#change_page', as: 'change_page'
   post 'main/change_page'
-
-  get 'accept_application', to: 'main#accept_application', as: 'accept_application'
-  post 'main/accept_application'
-
-  get 'reject_application', to: 'main#reject_application', as: 'reject_application'
-  post 'main/reject_application'
-
-  get 'waitlist_application', to: 'main#waitlist_application', as: 'waitlist_application'
-  post 'main/waitlist_application'
-
   # FacultyMember Routes
+  get 'admission_decision', to: 'faculty_members#admission_decision', as: 'admission_decision'
+  post 'faculty_members/admission_decision'
+
+  get 'accept_application', to: 'faculty_members#accept_application', as: 'accept_application'
+  post 'facultys_member/accept_application'
+
+  get 'reject_application', to: 'faculty_members#reject_application', as: 'reject_application'
+  post 'faculty_members/reject_application'
+
+  get 'waitlist_application', to: 'faculty_members#waitlist_application', as: 'waitlist_application'
+  post 'faculty_members/waitlist_application'
+
   get 'faculty_profile', to: 'faculty_members#faculty_profile', as: 'faculty_profile'
   get 'new_faculty', to: 'faculty_members#new_faculty', as: 'new_faculty'
   get 'faculty_evaluations', to: 'faculty_members#faculty_evaluations', as: 'faculty_evaluations'

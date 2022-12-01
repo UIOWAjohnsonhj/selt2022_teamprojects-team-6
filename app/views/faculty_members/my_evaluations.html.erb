@@ -14,14 +14,16 @@
   </tr>
 
   <tr>
-    <% evaluations.each do |eval| %>
-      <td><%= eval.name %></td>
-      <td><%= eval.email %></td>
-      <td><%= eval.applied_term %></td>
-      <td><%= eval.evaluation_date %></td>
-      <td><%= eval.score %></td>
-      <td><%= eval.comment %></td>
-      <td><%= eval.status %></td>
+    <% if !@evaluations.nil? %>
+      <% @evaluations.each do |eval| %>
+        <td><%= eval.name %></td>
+        <td><%= eval.email %></td>
+        <td><%= eval.applied_term %></td>
+        <td><%= eval.evaluation_date %></td>
+        <td><%= eval.score %></td>
+        <td><%= eval.comment %></td>
+        <td><%= eval.status %></td>
+      <% end %>
     <% end %>
   </tr>
 </table>

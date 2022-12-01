@@ -17,6 +17,15 @@
           = submit_tag 'profiles'
         = form_tag main_search_universities_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Search Universities'
+    -else
+      -if !@id.nil? && @user_type == :faculty
+        .row
+          = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
+            = submit_tag 'Log out'
+          = form_tag faculty_profile_path, :method => 'get', :class => 'form form-inline' do
+            = submit_tag 'My Profile'
+          = form_tag my_evaluations_path, :method => 'get', :class => 'form form-inline' do
+            = submit_tag 'My Evaluations'
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
