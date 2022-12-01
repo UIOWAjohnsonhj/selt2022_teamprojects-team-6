@@ -1,21 +1,13 @@
 <h1>Profile</h1>
 <h2>Hi <%=@display_name %></h2>
 <form method="post" action="<%= main_index_path %>">
-  <input type="submit" value="logout">
 </form>
 <div class="profile">
   <div class="profile_features">
     <br>
-
-    <br>
     <div class="row">
-      <label class="label">Name</label>
-      <label class="label">Department</label>
-    </div>
-    <br>
-    <div class="row">
-      <label value=<%=@name%> class="field" name="gre" readonly/>
-      <label value=<%@department%> class="field" name="toefl" readonly/>
+      <label class="label">Name: <%=@name%></label>
+      <label class="label">Department: <%=@department%></label>
     </div>
     <br>
   </div>

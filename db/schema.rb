@@ -33,18 +33,14 @@ ActiveRecord::Schema.define(version: 20221129233509) do
   create_table "evaluations", force: :cascade do |t|
     t.integer  "faculty_id"
     t.integer  "student_id"
-    t.integer  "university_id"
-    t.integer  "application_id"
     t.string   "comment"
     t.string   "applied_term"
     t.integer  "score"
     t.string   "status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["application_id"], name: "index_evaluations_on_application_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["faculty_id"], name: "index_evaluations_on_faculty_id"
     t.index ["student_id"], name: "index_evaluations_on_student_id"
-    t.index ["university_id"], name: "index_evaluations_on_university_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -63,11 +59,8 @@ ActiveRecord::Schema.define(version: 20221129233509) do
     t.string  "last_name"
     t.string  "email"
     t.string  "password_digest"
-    t.string  "department"
     t.boolean "chair"
     t.string  "university"
-    t.string  "focus_area"
-    t.string  "research_url"
     t.index ["department_id"], name: "index_faculty_members_on_department_id"
   end
 
