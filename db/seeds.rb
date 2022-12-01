@@ -60,13 +60,14 @@ profiles.each do |profile|
   Profile.create!(profile)
 end
 
+department.each do |department|
+  Department.create!(department)
+end
 
 faculties.each do |faculty|
   FacultyMember.create!(faculty)
 end
-department.each do |department|
-  Department.create!(department)
-end
+
 universities.each do |uni|
   University.create!(uni)
 end
