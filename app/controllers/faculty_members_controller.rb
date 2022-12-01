@@ -37,5 +37,10 @@ class FacultyMembersController < ApplicationController
     @evaluations = Evaluation.where(faculty_id: faculty.id)
     @display_name = @faculty.first_name
   end
+
+  def sign_up_faculty
+
+  end
+
 end
 

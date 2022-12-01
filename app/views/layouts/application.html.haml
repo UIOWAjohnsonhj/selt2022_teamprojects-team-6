@@ -14,9 +14,11 @@
         = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Log out'
         = form_tag main_view_profile_path, :method => 'post', :class => 'form form-inline' do
-          = submit_tag 'profiles'
+          = submit_tag 'Profiles'
         = form_tag main_search_universities_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Search Universities'
+        = form_tag main_search_instructor_path, :method => 'post', :class => 'form form-inline' do
+          = submit_tag 'Search Instructors'
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]

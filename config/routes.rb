@@ -24,13 +24,14 @@ Rails.application.routes.draw do
   get 'view_profile', to: 'main#view_profile', as: 'view_profile'
   post 'main/view_profile'
 
+  get 'search_instructor', to: 'main#search_instructor', as: 'search_instructor'
+  post 'main/search_instructor'
+
   get 'profile_viewer', to: 'profiles#profile_viewer', as: 'profile_viewer'
   post 'profiles/profile_viewer'
 
-
   get 'intermediate_sign_up', to: 'main#intermediate_sign_up', as: 'intermediate_sign_up'
   post 'main/intermediate_sign_up'
-
 
   get 'edit_profile', to: 'main#edit_profile', as: 'edit_profile'
   post 'main/edit_profile'
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
 
   get 'search_universities', to: 'main#search_universities', as: 'search_universities'
   post 'main/search_universities'
+
   get 'view_university', to: 'main#view_university', as: 'view_university'
   post 'main/view_university'
 
@@ -69,10 +71,16 @@ Rails.application.routes.draw do
 
   # FacultyMember Routes
   get 'faculty_profile', to: 'faculty_members#faculty_profile', as: 'faculty_profile'
+
   get 'new_faculty', to: 'faculty_members#new_faculty', as: 'new_faculty'
+
   get 'faculty_evaluations', to: 'faculty_members#faculty_evaluations', as: 'faculty_evaluations'
+
   get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
 
+  get 'sign_up_faculty', to: 'faculty_members#sign_up_faculty', as: 'sign_up_faculty'
+  post 'faculty_members/sign_up_faculty'
+  
   # Resume Routes
   get 'resumes', to: 'resumes#resume_view', as: 'resumes'
   get 'new_resume', to: 'resumes#new', as: 'new_resume'
