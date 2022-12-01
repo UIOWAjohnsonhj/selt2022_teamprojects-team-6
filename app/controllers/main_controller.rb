@@ -43,12 +43,16 @@ class MainController < ApplicationController
     end
   end
   def view_profile
-    @current_profile = Profile.where(student_id: @@id).take
-    #@experience = Experiences.where(student_id: @id).take
-    puts @@id,"View"
-    #@experience = Experience.where(student_id: @id).take
-    @student = Student.find(@@id)
-    @applied_Departments ={}
+    puts "View Profile"
+    puts session[:student_id]
+    @@id = params[:student_id]
+    @student = Student.where(id: session[:student_id]).take
+    @current_profile = Profile.where(student_id: session[:student_id]).take
+    @resume = Resume.where(student_id: session[:student_id]).take
+    if @resume.nil?
+      @resume = "No resume uploaded"
+    end
+    @applied_departments ={}
     if params.include? "gre"
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
@@ -70,13 +74,13 @@ class MainController < ApplicationController
       current_uni= University.find(app.university_id)
       current_dep = Department.find(app.department_id)
 
-      if @applied_Departments.include? current_uni.name.to_sym
-        @applied_Departments[current_uni.name.to_sym].append([current_dep.name,app.application_status])
+      if @applied_departments.include? current_uni.name.to_sym
+        @applied_departments[current_uni.name.to_sym].append([current_dep.name, app.application_status])
       else
-        @applied_Departments[current_uni.name.to_sym] = [[current_dep.name,app.application_status]]
+        @applied_departments[current_uni.name.to_sym] = [[current_dep.name, app.application_status]]
       end
     end
-    puts @applied_Departments
+    puts @applied_departments
   end
 
 
@@ -154,32 +158,29 @@ class MainController < ApplicationController
   end
 
   def edit_profile
+    @student = Student.where(id: @@id).take
+    @resume = Resume.where(student_id: @@id).take
+    if @resume.nil?
+      @resume = "No resume uploaded"
+    end
     @current_profile = Profile.where(student_id: @@id).take
-
   end
 
   def intermediate_login
     given_email= params[:user][:email]
     given_password = params[:user][:password]
-
-    #@student = Student.where( email:given_email).take
-
-    #@faculty = Faculty.where( email: given_email).take
-    #puts 'line 134: ', @student
-    #p 'line 135  ', @faculty
-    #if (not @student.nil?) || (not @faculty.nil?)
     @student = Student.find_by(email:given_email,password_digest:given_password)
     @faculty = FacultyMember.find_by(email:given_email,password_digest:given_password)
 
     begin
-      puts 'line 139'
       if not @student.nil? #student1 && student1.authenticate(given_password)
         #&.authenticate(given_password)
-        puts 'line 141'
         @@user_type = :student
         @@id = @student.id
         #p @student
-        redirect_to view_profile_path
+        session[:student_id] = @student.id
+        session[:user_type] = :student
+        redirect_to view_profile_path(@student, student_id: @student.id)
       #elsif not @faculty.nil?
       elsif not @faculty.nil?
         #&.authenticate(given_password)
@@ -188,7 +189,7 @@ class MainController < ApplicationController
         @@user_type = :faulty
         session[:faculty_id] = @faculty.id
         session[:user_type] = :faculty
-        redirect_to faculty_profile_path
+        redirect_to faculty_profile_path(@faculty, faculty_id: @faculty.id)
 
       else
          flash[:notice]="Invalid user"
@@ -225,7 +226,7 @@ class MainController < ApplicationController
   def admission_decision
     puts params
     puts "Admission decision"
-    @professor = FacultyMember.where(id: params[:professor_id]).take
+    @professor = FacultyMember.where(id: session[:faculty_id]).take
     if @professor.nil?
       @professor = FacultyMember.where(id:  params[:format]).take
     end

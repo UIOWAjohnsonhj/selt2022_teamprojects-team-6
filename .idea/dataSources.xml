@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="development" uuid="c76f42f3-4589-4e59-8225-5b5e0f648277">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:\\wsl$\Ubuntu-20.04\home\ssome\selt2022_teamprojects-team-6\db\development.sqlite3</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
     <data-source source="LOCAL" name="test" uuid="94c423bd-6072-449e-8587-ade829772c45">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
@@ -22,7 +15,7 @@
       <jdbc-url>jdbc:sqlite:\\wsl$\Ubuntu-20.04\home\ssome\selt2022_teamprojects-team-6\db\production.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="development [2]" uuid="8d041b63-01b7-42e1-a416-390e663c85d9">
+    <data-source source="LOCAL" name="development" uuid="8d041b63-01b7-42e1-a416-390e663c85d9">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
