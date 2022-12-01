@@ -64,10 +64,10 @@ department.each do |department|
   Department.create!(department)
 end
 
-faculties.each do |faculty|
-  FacultyMember.create!(faculty)
-end
-
 universities.each do |uni|
   University.create!(uni)
+end
+
+faculties.each do |faculty|
+  FacultyMember.create!(faculty)
 end
