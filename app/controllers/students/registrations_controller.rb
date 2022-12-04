@@ -12,6 +12,12 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    student_profile={:student_id=>current_student.id,:gre=>nil, :toefl => nil,
+                     :interested_major => nil, :term => nil,
+                     :year =>nil }
+
+    Profile.create!(student_profile)
+
   end
 
   # GET /resource/edit

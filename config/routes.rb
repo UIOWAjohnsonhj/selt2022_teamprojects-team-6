@@ -22,7 +22,8 @@ Rails.application.routes.draw do
 
   get 'general_sign_up', to: 'main#general_sign_up', as: 'general_sign_up'
   post 'main/general_sign_up'
-
+  get 'general_login', to: 'main#general_login', as: 'general_login'
+  post 'main/general_login'
   get 'sign_up_faculty', to: 'main#sign_up_faculty', as: 'sign_up_faculty'
   post 'main/sign_up_faculty'
 
