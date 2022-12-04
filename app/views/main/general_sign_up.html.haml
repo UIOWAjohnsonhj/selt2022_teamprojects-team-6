@@ -1,5 +1,7 @@
 %h1 Sign up as a
 
+= form_tag root_path, :method => :get do
+  = submit_tag "Back", :id => "back_button"
 
 =form_tag main_sign_up_path, :method=>:post do
   = submit_tag "Student", :id => "create_account_button"

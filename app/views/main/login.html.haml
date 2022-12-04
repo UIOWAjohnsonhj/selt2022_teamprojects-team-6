@@ -1,5 +1,7 @@
 %h1 Log In
 
+= form_tag root_path, :method => :get do
+  = submit_tag "Back", :id => "back_button"
 
 =form_tag main_intermediate_login_path, :method=>:post do
   =label :user, :email_address

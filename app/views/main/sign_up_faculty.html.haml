@@ -1,5 +1,8 @@
 %h1 Sign Up
 
+= form_tag general_sign_up_path, :method => :get do
+  = submit_tag "Back", :id => "back_button"
+
 =form_tag main_intermediate_sign_up_path, :method=>:post do
   =label :label, :first_name
   =text_field :user, :first_name
