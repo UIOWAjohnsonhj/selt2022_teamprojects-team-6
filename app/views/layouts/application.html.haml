@@ -27,6 +27,7 @@
             = submit_tag 'My Profile'
           = form_tag my_evaluations_path, :method => 'get', :class => 'form form-inline' do
             = submit_tag 'My Evaluations'
+
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]

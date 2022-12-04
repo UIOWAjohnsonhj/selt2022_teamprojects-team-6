@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :faculty_members
+  devise_for :students
   get 'resumes/index'
 
   get 'resumes/new'
