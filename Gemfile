@@ -38,7 +38,9 @@ gem 'carrierwave', '~> 1.0'
 gem 'fog', '~> 1.38'
 
 gem 'bootstrap-sass', '~> 2.3.2'
-
+gem "devise"
+#Run next line to set up devise
+# bundle exec rails g devise:install
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'rubocop'
@@ -54,7 +56,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'simplecov', require: false
-
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '~> 1.3.6', '< 1.4'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '< 3.0.0'
 end
