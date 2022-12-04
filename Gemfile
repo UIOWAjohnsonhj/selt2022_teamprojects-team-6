@@ -39,7 +39,7 @@ gem 'fog', '~> 1.38'
 
 gem 'bootstrap-sass', '~> 2.3.2'
 gem "devise"
-#Run next line to set up devise
+#Run next line to set up devis
 # bundle exec rails g devise:install
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
