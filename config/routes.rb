@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "main#index"
   get 'login', to: 'main#login', as: 'login'
@@ -39,7 +40,21 @@ Rails.application.routes.draw do
   get 'reset_password', to: 'main#reset_password', as: 'reset_password'
   post 'main/reset_password'
 
-  get 'reset_password_one', to: 'main#reset_password_one', as: 'reset_password_one'
+  #reset password roots
+  get 'password_resets/new'
+
+  get 'password_resets/create'
+
+  get 'password_resets/edit'
+
+  get 'password_resets/update'
+
+  get '/password/reset', to: 'password_resets#new'
+  post '/password/reset', to: 'password_resets#create'
+  get '/password/reset/edit', to: 'password_resets#edit'
+  patch '/password/reset/edit', to: 'password_resets#update'
+
+  get 'reset_password_one', to: 'password_reset#reset_password_one', as: 'reset_password_one'
   post 'main/reset_password_one'
 
   get 'reset_password_two', to: 'main#reset_password_two', as: 'reset_password_two'
@@ -66,6 +81,10 @@ Rails.application.routes.draw do
 
   get 'waitlist_application', to: 'main#waitlist_application', as: 'waitlist_application'
   post 'main/waitlist_application'
+
+
+
+
 
   # FacultyMember Routes
   get 'faculty_profile', to: 'faculty_members#faculty_profile', as: 'faculty_profile'

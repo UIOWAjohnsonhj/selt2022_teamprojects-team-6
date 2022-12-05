@@ -301,10 +301,5 @@ class MainController < ApplicationController
     redirect_to search_universities_path
   end
 
-  def reset_password_one
-  end
 
-  def reset_passion_two
-
-  end
 end
