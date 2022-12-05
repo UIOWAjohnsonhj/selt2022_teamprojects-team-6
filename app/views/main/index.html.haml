@@ -1,5 +1,7 @@
 %h1 Welcome
-= form_tag main_login_path, :method => :post do
+= form_tag main_general_login_path, :method => :post do
   = submit_tag "Login", :id => "login_button"
 = form_tag main_general_sign_up_path, :method => :post do
   = submit_tag "Sign Up", :id => "sign_up_button"
+-if student_signed_in?
+  -controller.redirect_to view_profile_path
