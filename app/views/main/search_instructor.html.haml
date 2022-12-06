@@ -1,10 +1,10 @@
 %h1 Search Instructor
 
 = form_tag search_instructor_path, :method => :get, :id => 'focus_area_form' do
-  Include:
-  - @all_focus_areas.each do |efa|
-    = efa
-    = check_box_tag "focusarea[#{efa}]", 0, @selected_focus_areas.include?(efa), :id => "focus_area_#{efa}"
+
+  %select{ :name => "dept" }
+    -@all_focus_areas.each do |efa|
+      %option{:value => efa}= efa
   = submit_tag 'Refresh', :id => 'efa_submit'
 
 %table#instructors

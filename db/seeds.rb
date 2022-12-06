@@ -23,10 +23,7 @@
 #             {:first_name => 'Christian-faculty', :last_name => 'Baseme', :email => 'cbaseme_f@uiowa.edu', :password_digest=>"1234"},
 # ]
 
-profiles = [{:student_id=>1,:gre=> 33, :toefl => 109, :interested_major => "Mechanical Engineering", :term => "spring", :year =>"2022" } ,
-            {:student_id=>4,:gre=> 23, :toefl => 10, :interested_major => "Electrical Engineering", :term => "spring", :year =>"2022" },
-            {:student_id=>2,:gre=> 33, :toefl => 109, :interested_major => "Computer Engineering", :term => "spring", :year =>"2022" },
-            ]
+
 
 universities = [{:name=> "University of Iowa",:rank=>12,:state=>"Iowa"},
                 {:name=> "University of Chicago",:rank=>5,:state=>"Illinois"},
