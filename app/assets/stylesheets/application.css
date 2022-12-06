@@ -25,6 +25,9 @@
   float: left;
   margin-right: 42px;
 }
+.profile-table{
+  text-align: center;
+}
 .label{
   margin-left: 50px;
   float: left;

@@ -32,6 +32,11 @@ Rails.application.routes.draw do
 
   get 'view_profile', to: 'main#view_profile', as: 'view_profile'
   post 'main/view_profile'
+  get 'add_experience', to: 'main#add_experience', as: 'add_experience'
+  post 'main/add_experience'
+
+  get 'remove_experience', to: 'main#remove_experience', as: 'remove_experience'
+  post 'main/remove_experience'
 
   get 'search_instructor', to: 'main#search_instructor', as: 'search_instructor'
   post 'main/search_instructor'

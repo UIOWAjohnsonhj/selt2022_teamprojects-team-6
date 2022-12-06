@@ -8,7 +8,7 @@ class MainController < ApplicationController
   @@user_type = nil
   @@search_type = nil
   @@page_counter = 1
-
+  @@experience_count = 0
   def initialize
     super
     @student = Student
@@ -64,7 +64,8 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
-    puts "View Profile"
+    puts params
+
     puts session[:user_type]
     session[:logged] = ""
     @student = current_student
@@ -83,6 +84,13 @@ class MainController < ApplicationController
       @current_profile.year = params[:year]
       @current_profile.college_name = params[:college_name]
       @current_profile.save
+      params[:company].length.times do |i|
+        experience = Experiences.where(company_name: params[:company][i]).take
+        if experience.nil?
+          hash={:student=>current_student}
+          Experiences.create!(hash)
+        end
+      end
     elsif params.include? "department"
       @university= University.find(params[:university_id])
       @department = Department.find(params[:department])
@@ -105,7 +113,15 @@ class MainController < ApplicationController
     puts "ddsfddf"
   end
 
+  def add_experience
+    @@experience_count+=1
+    redirect_to edit_profile_path
+  end
 
+  def remove_experience
+    @@experience_count-=1
+    redirect_to edit_profile_path
+  end
   def general_sign_up
 
   end
@@ -116,6 +132,19 @@ class MainController < ApplicationController
   def edit_profile
     if !student_signed_in?
       redirect_to root_path and return
+    end
+    if params.include? "hidden"
+      @experience_count = Experiences.where(student: current_student).take
+      Experiences.all.each do |i|
+        puts "---------------------------------------------"
+        i.company_name
+        i.student.id
+      end
+      if @experience_count.nil?
+        @experience_count=0
+      end
+    else
+      @experience_count = @@experience_count
     end
     @student = current_student
     @resume = Resume.where(student_id: @student.id).take
