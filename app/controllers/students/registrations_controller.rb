@@ -12,7 +12,8 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    student_profile={:student_id=>current_student.id,:gre=>nil, :toefl => nil,
+    student=Student.where(email:params[:student][:email]).take
+    student_profile={:student_id=>student.id,:gre=>nil, :toefl => nil,
                      :interested_major => nil, :term => nil,
                      :year =>nil }
 

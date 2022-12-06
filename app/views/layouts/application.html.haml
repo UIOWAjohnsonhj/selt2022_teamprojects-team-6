@@ -17,7 +17,8 @@
           = submit_tag 'Profiles'
         = form_tag main_search_universities_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Search Universities'
-
+        = form_tag main_search_instructor_path, :method => 'post', :class => 'form form-inline' do
+          = submit_tag 'Search Instructors'
     -else
       -if !@id.nil? && @user_type == :faculty
         .row1

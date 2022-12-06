@@ -31,12 +31,28 @@ class MainController < ApplicationController
     @student = Student
     @profiles = Profile
   end
+
   def intermediate_logout
     @@id = nil
     @@page_counter=1
     reset_session
     redirect_to root_path
   end
+
+  def intermediate_sign_up
+
+      faculty={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
+               :email => params[:user][:email],:password=>params[:user][:password],
+               :university=>params[:uni], :department_id=> params[:dept]}
+      FacultyMember.create!(faculty)
+      # id=@profiles.where(email:params[:user][:email])
+      # Commented out as we have yet to decide if we're making
+      # should redirect_to 'faculty_create'
+      flash[:notice]= "FacultyMember Account created successfully"
+
+    redirect_to root_path
+
+    end
   def sign_up
     session[:sign_up_type] = :student
   end
@@ -113,8 +129,8 @@ class MainController < ApplicationController
 
     given_email= params[:user][:email]
     given_password = params[:user][:password]
-    @student = Student.find_by(email:given_email,password_digest:given_password)
-    @faculty = FacultyMember.find_by(email:given_email,password_digest:given_password)
+    @student = Student.find_by(email:given_email)
+    @faculty = FacultyMember.find_by(email:given_email)
 
     begin
       if not @student.nil? #student1 && student1.authenticate(given_password)
@@ -145,7 +161,6 @@ class MainController < ApplicationController
     #else
     # flash[:notice]="Invalid user 2"
     #  redirect_to login_path
-
   end
   def reset_password
     #redirect_to reset_password_path
@@ -224,7 +239,7 @@ class MainController < ApplicationController
       redirect_to root_path and return
     end
       ordering,@name_header = {:name => :asc}, 'hilite'
-      @all_focus_areas = ["Applied Physics", "Big Data/Data Mining/Machine Learning", "Bioinformatics", "Business", "Communication Systems",
+      @all_focus_areas = ["All","Applied Physics", "Big Data/Data Mining/Machine Learning", "Bioinformatics", "Business", "Communication Systems",
                           "Computer Breadth", "Computer Hardware", "Computer Networks", "Control Systems", "Electrical Breadth", "Electrical Circuits",
                           "Entrepreneurship", "Integrated Circuits", "Internet of Things", "Photonic Systems", "Power Systems", "Pre-Law",
                           "Pre-Medicine", "Quantum Computing and Devices", "RF Electronics", "Semiconductor Devices", "Signal & Imaging Processing",
