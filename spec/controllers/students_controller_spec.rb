@@ -83,5 +83,17 @@ describe MainController do
       post :search_universities
       expect(response).to redirect_to('/')
     end
+    it 'should set @universities to nil for default' do
+      allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+      allow(MainController).to receive(:search_universities)
+      post :search_universities
+      expect(@universities).to eq(nil)
+    end
+    it 'should set @all_universities to nil for default' do
+      allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+      allow(MainController).to receive(:search_universities)
+      post :search_universities
+      expect(@all_universities).to eq(nil)
+    end
   end
 end
