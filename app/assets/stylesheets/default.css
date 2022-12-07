@@ -116,6 +116,38 @@ form label {
   color: maroon;
 }
 
+.link {
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.link:hover {
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.link:active {
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.link:visited {
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.small_row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  margin-left: 2vw;
+}
+
 input[type=submit] {
   border-radius: 5px;
   border: 0;
