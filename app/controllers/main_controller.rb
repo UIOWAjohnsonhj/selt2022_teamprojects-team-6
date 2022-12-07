@@ -84,13 +84,14 @@ class MainController < ApplicationController
       @current_profile.year = params[:year]
       @current_profile.college_name = params[:college_name]
       @current_profile.save
+      Experiences.destroy_all(student: current_student)
       params[:company].length.times do |i|
-        experience = Experiences.where(company_name: params[:company][i]).take
-        if experience.nil?
-          hash={:student=>current_student}
-          Experiences.create!(hash)
-        end
+        hash = {:student=>current_student,:company_name=>params[:company][i],
+                :description=>params[:description][i],:job_title=> params[:title][i],
+                :from=>params[:from][i],:to=>params[:to][i]}
+        Experiences.create!(hash)
       end
+
     elsif params.include? "department"
       @university= University.find(params[:university_id])
       @department = Department.find(params[:department])
@@ -119,7 +120,9 @@ class MainController < ApplicationController
   end
 
   def remove_experience
-    @@experience_count-=1
+    if @@experience_count>0
+      @@experience_count-=1
+    end
     redirect_to edit_profile_path
   end
   def general_sign_up
@@ -134,15 +137,12 @@ class MainController < ApplicationController
       redirect_to root_path and return
     end
     if params.include? "hidden"
-      @experience_count = Experiences.where(student: current_student).take
+      @experience_count = Experiences.where(student: current_student).count
       Experiences.all.each do |i|
         puts "---------------------------------------------"
-        i.company_name
-        i.student.id
+        puts i,@experience_count
       end
-      if @experience_count.nil?
-        @experience_count=0
-      end
+      @@experience_count=@experience_count
     else
       @experience_count = @@experience_count
     end
