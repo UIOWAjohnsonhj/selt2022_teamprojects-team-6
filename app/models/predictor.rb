@@ -48,18 +48,32 @@ class Predictor < ActiveRecord::Base
     dec_tree = DecisionTree::ID3Tree.new(attributes, training, 1, :discrete)
     dec_tree.train
 
-    test = ['4.0', 'University of Iowa', 'Harvard', 'Computer Science']
+    test = [['4.0', 'University of Iowa', 'Harvard', 'Computer Science'],
+            ['3.0', 'University of Iowa', 'UC Berkeley', 'Computer Science'],
+            ['3.5', 'University of Iowa', 'UC Berkeley', 'Computer Science'],
+            ['3.3', 'Harvard', 'UC Berkeley', 'Computer Science'],
+            ['3.7', 'University of Arizona', 'University of California - Berkeley', 'Computer Science'],
+            ['3.6', 'University of California - Los Angeles', 'University of Colorado - Boulder', 'Biology'],
+            ['3.9', 'Stanford University', 'University of Michigan', 'Mechanical Engineering']]
 
     # new_test = [data[:gpa], data[:undergrad_school], data[:applied_school], data[:applied_major]]
-
-    decision = dec_tree.predict(test)
-    if decision == 1
-      final_decision = "Accepted"
-    else
-      final_decision = "Rejected"
+    predicted_results = []
+    actual_results = [1, 0, 1, 0, 1, 1, 1]
+    test.each do |t|
+      decision = dec_tree.predict(t)
+      if decision == 1
+        final_decision = "Accepted"
+      else
+        final_decision = "Rejected"
+      end
+      puts "Predicted: #{final_decision}"
+      puts "Predicted: #{final_decision} ... True decision: #{t.last}"
+      predicted_results.append(decision)
     end
-    puts "Predicted: #{final_decision}"
-    puts "Predicted: #{final_decision} ... True decision: #{test.last}"
+
+
+
+
 
     # decision_new = dec_tree.predict(test)
     # if decision_new == 1
@@ -74,5 +88,19 @@ class Predictor < ActiveRecord::Base
 
     # @predicted_probability = predicted_probability
     # puts @predicted_probability
+    # Define the actual results
+
+    # Calculate the accuracy of the model
+    correct = 0
+
+    actual_results.each_with_index do |result, index|
+      if result == predicted_results[index]
+        correct += 1
+      end
+    end
+
+    accuracy = (correct.to_f / actual_results.length) * 100
+
+    puts "The accuracy of the model is #{accuracy}%"
   end
 end
