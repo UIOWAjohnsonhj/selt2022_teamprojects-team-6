@@ -63,22 +63,36 @@
       <br>
       <h2>Work experience</h2>
       <br>
-      <div class="row">
-        <label class="label">Company name</label>
-        <label class="label">Job title</label>
-        <label class="label">Description</label>
-        <label class="label">from</label>
-        <label class="label">to</label>
-      </div>
-      <br>
-      <div class="row marg">
-        <input  class="field2" name="company" readonly>
-        <input class="field2" name="position" readonly>
-        <input class="field2" name="description" readonly>
-        <input class="field2" name="from" readonly>
-        <input class="field2" name="to" readonly>
+      <table>
+        <tr>
+          <th>
+            <label class="label">Company name</label>
+          </th>
+          <th>
+            <label class="label">Job title</label>
+          </th>
+          <th>
+            <label class="label">Description</label>
+          </th>
+          <th>
+            <label class="label">from</label>
+          </th>
+          <th>
+            <label class="label">to</label>
+          </th>
+        </tr>
+        <%@experiences.all.each do |e| %>
+          <tr>
+            <td><label class="field2" style="text-align: center" ><u><%= e.company_name %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.description %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.job_title %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.from %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.to %></u></label></td>
 
-      </div>
+          </tr>
+        <%end %>
+      </table>
+
       <br>
       <div class="row">
         <% if @resume != "No resume uploaded" %>
@@ -111,10 +125,10 @@
           <th>Status</th>
         </tr>
         <%v.each do |a| %>
-        <tr>
-          <td><%=a[0] %></td>
-          <td><%=a[1] %></td>
-        </tr>
+          <tr>
+            <td><%=a[0] %></td>
+            <td><%=a[1] %></td>
+          </tr>
         <%end %>
       </table>
       <br>
