@@ -44,10 +44,26 @@ describe FacultyMembersController do
     end
   end
   describe 'FacultyMember Evaluations page' do
-    it 'should show the FacultyMember Evaluations page' do
+    it 'should show the Faculty Evaluations page' do
       allow(FacultyMember).to receive(:faculty_evaluations)
       get :faculty_evaluations, faculty_id: 1, selected_student_id: 1
       expect(response).to render_template('faculty_evaluations')
     end
+    it 'should set @evaluations' do
+      allow(FacultyMember).to receive(:faculty_evaluations)
+      get :faculty_evaluations, faculty_id: 1, selected_student_id: 1
+
+    end
+    it 'should set @display_name' do
+      allow(FacultyMember).to receive(:faculty_evaluations)
+      get :faculty_evaluations, faculty_id: 1, selected_student_id: 1
+
+    end
+    it 'should set @student_name' do
+      allow(FacultyMember).to receive(:faculty_evaluations)
+      get :faculty_evaluations, faculty_id: 1, selected_student_id: 1
+
+    end
   end
+  describe 'FacultyMember '
 end
