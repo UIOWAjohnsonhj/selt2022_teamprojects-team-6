@@ -12,8 +12,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "main#index"
+
   get 'login', to: 'main#login', as: 'login'
   post 'main/login'
+
 
   get 'main/intermediate_sign_up', to: redirect('sign_up')
   # post 'sign_up'

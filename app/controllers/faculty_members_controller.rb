@@ -88,24 +88,9 @@ class FacultyMembersController < ApplicationController
 
   require 'mail'
   def email_student
-    mail = Mail.new do
-      from 'SimplApply_Selt@gmail.com'
-      to 'kiana-erickson@uiowa.edu'
-      #subject params[:subject]
-      #body params[:message]
-      subject 'Test'
-      body 'test'
-
-      if subject.blank?
-        flash[:notice]= "Empty subject"
-
-      end
-      if !mail.nil?
-        mail.delivery_method :sendmail
-        mail.deliver
-      end
-    end
-    render 'main/index'
+    @student_clicked_on = Student.where(:email => 'kianaberickson@gmail.com')
+    EmailStudentsMailer.notify_user(@student_clicked_on).deliver
+    render main_index_path
   end
 end
 

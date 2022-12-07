@@ -62,6 +62,7 @@
     <orderEntry type="library" scope="PROVIDED" name="excon (v0.94.0, rbenv: 2.7.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.8.1, rbenv: 2.7.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.15.5, rbenv: 2.7.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="figaro (v1.2.0, rbenv: 2.7.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fission (v0.5.0, rbenv: 2.7.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fog (v1.41.0, rbenv: 2.7.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fog-aliyun (v0.4.0, rbenv: 2.7.6) [gem]" level="application" />
@@ -357,10 +358,8 @@
           <RakeTaskImpl id="spec">
             <subtasks>
               <RakeTaskImpl description="Run the code examples in spec/controllers" fullCommand="spec:controllers" id="controllers" />
-              <RakeTaskImpl description="Run the code examples in spec/helpers" fullCommand="spec:helpers" id="helpers" />
+              <RakeTaskImpl description="Run the code examples in spec/mailers" fullCommand="spec:mailers" id="mailers" />
               <RakeTaskImpl description="Run the code examples in spec/models" fullCommand="spec:models" id="models" />
-              <RakeTaskImpl description="Run the code examples in spec/requests" fullCommand="spec:requests" id="requests" />
-              <RakeTaskImpl description="Run the code examples in spec/views" fullCommand="spec:views" id="views" />
               <RakeTaskImpl description="" fullCommand="spec:prepare" id="prepare" />
               <RakeTaskImpl description="" fullCommand="spec:statsetup" id="statsetup" />
             </subtasks>
