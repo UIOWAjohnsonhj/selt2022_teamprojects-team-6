@@ -1,0 +1,27 @@
+%h1 Search Instructor
+
+= form_tag search_instructor_path, :method => :get, :id => 'focus_area_form' do
+
+  %select{ :name => "dept" }
+    -@all_focus_areas.each do |efa|
+      %option{:value => efa}= efa
+  = submit_tag 'Refresh', :id => 'efa_submit'
+
+%table#instructors
+  %thead
+    %tr
+      %th Instructor Name
+      %th Department
+      %th Focus Area
+      %th Research
+  %tbody
+    - @faculty.all.each do |instructor|
+      %tr
+        %td= instructor[:first_name] + " " + instructor[:last_name]
+        %td= Department.find(instructor.department_id).name
+        %td= instructor[:focus_area]
+        %td= instructor[:research]
+        %tr
+
+
+

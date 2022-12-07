@@ -8,6 +8,10 @@ class ProfilesController < ApplicationController
     @professor = FacultyMember.find(params[:professor_id])
     @current_profile = Profile.where(student_id: params[:student_id]).take
     @application = Application.where(student_id: params[:student_id]).take
+    @resume = Resume.where(student_id: params[:student_id]).take
+    if @resume.nil?
+      @resume = "No resume uploaded"
+    end
 
   end
 end

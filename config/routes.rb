@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "main#index"
   get 'login', to: 'main#login', as: 'login'
@@ -87,9 +85,34 @@ Rails.application.routes.draw do
 
 
   # FacultyMember Routes
+  get 'admission_decision', to: 'faculty_members#admission_decision', as: 'admission_decision'
+  post 'faculty_members/admission_decision'
+
+  get 'accept_application', to: 'faculty_members#accept_application', as: 'accept_application'
+  post 'facultys_member/accept_application'
+
+  get 'reject_application', to: 'faculty_members#reject_application', as: 'reject_application'
+  post 'faculty_members/reject_application'
+
+  get 'waitlist_application', to: 'faculty_members#waitlist_application', as: 'waitlist_application'
+  post 'faculty_members/waitlist_application'
+
   get 'faculty_profile', to: 'faculty_members#faculty_profile', as: 'faculty_profile'
   get 'new_faculty', to: 'faculty_members#new_faculty', as: 'new_faculty'
   get 'faculty_evaluations', to: 'faculty_members#faculty_evaluations', as: 'faculty_evaluations'
   get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
+
+
+  # Resume Routes
+  get 'resumes', to: 'resumes#resume_view', as: 'resumes'
+  get 'new_resume', to: 'resumes#new', as: 'new_resume'
+  post 'resumes/new'
+  post 'resumes', to: 'resumes#create'
+  get 'resumes/:id', to: 'resumes#show', as: 'resume'
+  get 'resumes/:id/edit', to: 'resumes#edit', as: 'edit_resume'
+  patch 'resumes/:id', to: 'resumes#update'
+  delete 'resumes/:id', to: 'resumes#destroy'
+
+
 
 end

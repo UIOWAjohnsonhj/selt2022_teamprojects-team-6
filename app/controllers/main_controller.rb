@@ -9,7 +9,6 @@ class MainController < ApplicationController
   @@search_type = nil
   @@page_counter = 1
 
-
   def initialize
     super
     @student = Student
@@ -26,29 +25,55 @@ class MainController < ApplicationController
   def index
 
   end
+
   def login
+
     @student = Student
     @profiles = Profile
   end
+
   def intermediate_logout
     @@id = nil
     @@page_counter=1
     reset_session
     redirect_to root_path
   end
-  def sign_up
-    @profiles = Profile
-    @profiles.all.each do |p|
-      puts p.id
+
+  def intermediate_sign_up
+
+      faculty={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
+               :email => params[:user][:email],:password=>params[:user][:password],
+               :university=>params[:uni], :department_id=> params[:dept]}
+      FacultyMember.create!(faculty)
+      # id=@profiles.where(email:params[:user][:email])
+      # Commented out as we have yet to decide if we're making
+      # should redirect_to 'faculty_create'
+      flash[:notice]= "FacultyMember Account created successfully"
+
+    redirect_to root_path
+
     end
+  def sign_up
+    session[:sign_up_type] = :student
+  end
+
+  def sign_up_faculty
+    session[:sign_up_type] = :faculty
   end
   def view_profile
-    @current_profile = Profile.where(student_id: @@id).take
-    #@experience = Experiences.where(student_id: @id).take
-    puts @@id,"View"
-    #@experience = Experience.where(student_id: @id).take
-    @student = Student.find(@@id)
-    @applied_Departments ={}
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
+    puts "View Profile"
+    puts session[:user_type]
+    session[:logged] = ""
+    @student = current_student
+    @current_profile = Profile.where(student_id: @student.id).take
+    @resume = Resume.where(student_id: session[:student_id]).take
+    if @resume.nil?
+      @resume = "No resume uploaded"
+    end
+    @applied_departments ={}
     if params.include? "gre"
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
@@ -61,125 +86,61 @@ class MainController < ApplicationController
     elsif params.include? "department"
       @university= University.find(params[:university_id])
       @department = Department.find(params[:department])
-      application = {:student_id=>@@id, :university_id=> @university.id,:department_id=>@department.id,:application_status=>"pending"}
+      application = {:student_id=>current_student.id, :university_id=> @university.id,:department_id=>@department.id,:application_status=>"pending"}
       @applications.create!(application)
     end
-    @applications = Application.where(student_id: @@id)
+    @applications = Application.where(student_id: current_student.id)
 
     @applications.each do |app|
-      current_uni= University.find(app.university_id)
+      current_uni = University.find(app.university_id)
       current_dep = Department.find(app.department_id)
 
-      if @applied_Departments.include? current_uni.name.to_sym
-        @applied_Departments[current_uni.name.to_sym].append([current_dep.name,app.application_status])
+      if @applied_departments.include? current_uni.name.to_sym
+        @applied_departments[current_uni.name.to_sym].append([current_dep.name, app.application_status])
       else
-        @applied_Departments[current_uni.name.to_sym] = [[current_dep.name,app.application_status]]
+        @applied_departments[current_uni.name.to_sym] = [[current_dep.name, app.application_status]]
       end
     end
-    puts @applied_Departments
+    puts @applied_departments
+    puts "ddsfddf"
   end
 
 
-  def intermediate_sign_up
-    @student = Student
-    @profile= Profile
+  def general_sign_up
 
-    puts params[:user]
-    missing=false
-    if Student.where(:email => (params[:user][:email])).exists? || FacultyMember.where(:email => (params[:user][:email])).exists?
-      puts "email"
-      flash[:notice]= "Email already in use"
-      missing=true
-    end
-    if params[:user][:first_name].blank?
-      puts "first"
-      flash[:notice]= "Empty first name"
-      missing=true
-      # redirect_to main_intermediate_login_path
-    elsif params[:user][:last_name].blank?
-      puts "last"
-      flash[:notice]= "Empty last name"
-      missing=true
-      # redirect_to main_intermediate_login_path
-    elsif params[:user][:email].blank?
-      puts "email"
-      flash[:notice]= "Empty email"
-      missing=true
-      # redirect_to main_intermediate_login_path
-
-    elsif params[:user][:password].blank?
-      puts "pwd"
-      flash[:notice]= "Empty password"
-      missing=true
-      # redirect_to main_intermediate_login_path
-    elsif params[:type].blank?
-      puts "radio"
-      flash[:notice]= "Empty radio"
-      missing=true
-      # redirect_to main_intermediate_login_path
-    end
-
-    puts params
-    if params[:type].present? && !missing
-      if params[:type]=="radio_button_faculty"
-        faculty={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
-                 :email => params[:user][:email],:password_digest=>params[:user][:password] }
-        FacultyMember.create!(faculty)
-
-        # id=@profiles.where(email:params[:user][:email])
-        # Commented out as we have yet to decide if we're making
-        # should redirect_to 'faculty_create'
-        flash[:notice]= "FacultyMember Account created successfully"
-      else
-        #  create a student account
-        student={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
-              :email => params[:user][:email],:password_digest=>params[:user][:password] }
-
-        Student.create!(student)
-        id=@student.where(email:params[:user][:email]).take.id
-        puts id,"create"
-        student_profile={:student_id=>id,:gre=>nil, :toefl => nil,
-                         :interested_major => nil, :term => nil,
-                         :year =>nil }
-
-        Profile.create!(student_profile)
-
-        flash[:notice]= "Student Account created successfully"
-      end
-
-    end
-    redirect_to root_path
-
+  end
+  def general_login
 
   end
 
   def edit_profile
-    @current_profile = Profile.where(student_id: @@id).take
-
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
+    @student = current_student
+    @resume = Resume.where(student_id: @student.id).take
+    if @resume.nil?
+      @resume = "No resume uploaded"
+    end
+    @current_profile = Profile.where(student_id: @student.id).take
   end
 
   def intermediate_login
+
     given_email= params[:user][:email]
     given_password = params[:user][:password]
-
-    #@student = Student.where( email:given_email).take
-
-    #@faculty = Faculty.where( email: given_email).take
-    #puts 'line 134: ', @student
-    #p 'line 135  ', @faculty
-    #if (not @student.nil?) || (not @faculty.nil?)
-    @student = Student.find_by(email:given_email,password_digest:given_password)
-    @faculty = FacultyMember.find_by(email:given_email,password_digest:given_password)
+    @student = Student.find_by(email:given_email)
+    @faculty = FacultyMember.find_by(email:given_email)
 
     begin
-      puts 'line 139'
       if not @student.nil? #student1 && student1.authenticate(given_password)
         #&.authenticate(given_password)
-        puts 'line 141'
         @@user_type = :student
         @@id = @student.id
         #p @student
-        redirect_to view_profile_path
+        session[:student_id] = @student.id
+        session[:user_type] = :student
+        redirect_to view_profile_path(@student, student_id: @student.id)
       #elsif not @faculty.nil?
       elsif not @faculty.nil?
         #&.authenticate(given_password)
@@ -188,7 +149,7 @@ class MainController < ApplicationController
         @@user_type = :faulty
         session[:faculty_id] = @faculty.id
         session[:user_type] = :faculty
-        redirect_to faculty_profile_path
+        redirect_to faculty_profile_path(@faculty, faculty_id: @faculty.id)
 
       else
          flash[:notice]="Invalid user"
@@ -200,13 +161,15 @@ class MainController < ApplicationController
     #else
     # flash[:notice]="Invalid user 2"
     #  redirect_to login_path
-
   end
   def reset_password
     #redirect_to reset_password_path
 
   end
   def search_universities
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
     @universities= @@universities
     @all_universities = []
     University.all.each do |u|
@@ -215,6 +178,9 @@ class MainController < ApplicationController
     puts @all_universities
   end
   def view_university
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
     @university = University.where(name:params[:name]).take
     @departments = Department.where(university_id: @university.id)
     @departments.all.each do |d|
@@ -222,45 +188,10 @@ class MainController < ApplicationController
     end
   end
 
-  def admission_decision
-    puts params
-    puts "Admission decision"
-    @professor = FacultyMember.where(id: params[:professor_id]).take
-    if @professor.nil?
-      @professor = FacultyMember.where(id:  params[:format]).take
-    end
-    # Below will be added when application is created and we have a university id
-    # @application_list = Application.where(university_id: @professor.university_id, department_id: @professor.department_id)
-    @application_list = Application.where(department_id: @professor.department_id)
-    @student_app_dict = {}
-    @application_list.each do |app|
-      @student = Student.find(app.student_id)
-      @student_app_dict[@student] = app
-    end
-  end
-
-  def accept_application
-    puts params
-    @application = Application.where(student_id: params[:student_id]).take
-    @application.update(application_status: 'Accepted')
-    redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
-  end
-
-  def reject_application
-    puts params
-    @application = Application.where(student_id: params[:student_id]).take
-    @application.update(application_status: 'Rejected')
-    redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
-  end
-
-  def waitlist_application
-    puts params
-    @application = Application.where(student_id: params[:student_id]).take
-    @application.update(application_status: 'Waitlisted')
-    redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
-  end
-
   def intermediate_search
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
     filter = params[:filter]
     entry = params[:search]
     @@page_counter =1
@@ -283,11 +214,14 @@ class MainController < ApplicationController
       @@universities = response["records"]
       @@search_type = :name
 
+    end
     redirect_to search_universities_path
-  end
 
   end
   def change_page
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
     puts params.include? "prev"
     if params.include? "prev"
       if @@page_counter>1
@@ -300,6 +234,26 @@ class MainController < ApplicationController
     end
     redirect_to search_universities_path
   end
+  def search_instructor
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
+      ordering,@name_header = {:name => :asc}, 'hilite'
+      @all_focus_areas = ["All","Applied Physics", "Big Data/Data Mining/Machine Learning", "Bioinformatics", "Business", "Communication Systems",
+                          "Computer Breadth", "Computer Hardware", "Computer Networks", "Control Systems", "Electrical Breadth", "Electrical Circuits",
+                          "Entrepreneurship", "Integrated Circuits", "Internet of Things", "Photonic Systems", "Power Systems", "Pre-Law",
+                          "Pre-Medicine", "Quantum Computing and Devices", "RF Electronics", "Semiconductor Devices", "Signal & Imaging Processing",
+                          "Software Engineering", "Sustainability"]
+      @selected_focus_areas = params[:focus_areas] || session[:focus_areas] || {}
 
+      if @selected_focus_areas == {}
+        @selected_focus_areas = Hash[@all_focus_areas.map {|focus_area| [focus_area, focus_area]}]
+      end
 
+      if params[:focus_areas] != session[:focus_areas]
+        session[:focus_areas] = @selected_focus_areas
+        redirect_to :sort => sort, :focus_areas => @selected_focus_areas and return
+      end
+      @faculties = FacultyMember.all.where(focus_area: @selected_focus_areas.keys).order(ordering)
+  end
 end

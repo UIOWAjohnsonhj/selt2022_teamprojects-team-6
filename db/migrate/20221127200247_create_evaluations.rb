@@ -3,6 +3,8 @@ class CreateEvaluations < ActiveRecord::Migration[5.0]
     create_table :evaluations do |t|
       t.references 'faculty'
       t.references 'student'
+      t.references 'university'
+      t.references 'application'
       t.string 'comment'
       t.string 'applied_term'
       t.integer 'score'
