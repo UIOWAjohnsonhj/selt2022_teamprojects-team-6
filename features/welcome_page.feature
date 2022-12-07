@@ -8,3 +8,9 @@ Feature: Visit the welcome page
     Given I enter the application's URL
     When I enter "URL"
     Then I should see a welcome page
+
+  Scenario:
+    Given I am on the Welcome page
+    When I click the "login" link
+    Then I should be on the "login" page
+
