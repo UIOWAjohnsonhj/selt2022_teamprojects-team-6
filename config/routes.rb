@@ -93,6 +93,11 @@ Rails.application.routes.draw do
 
   get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
 
+  get 'create_email', to: 'faculty_members#create_email', as: 'create_email'
+  post 'faculty_members/create_email'
+
+  get 'email_student', to: 'faculty_members#email_student', as: 'email_student'
+  post 'faculty_members/email_student'
 
   # Resume Routes
   get 'resumes', to: 'resumes#resume_view', as: 'resumes'

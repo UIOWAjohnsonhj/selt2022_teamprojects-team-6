@@ -82,5 +82,30 @@ class FacultyMembersController < ApplicationController
 
   end
 
+  def create_email
+    render 'email_applicant'
+  end
+
+  require 'mail'
+  def email_student
+    mail = Mail.new do
+      from 'SimplApply_Selt@gmail.com'
+      to 'kiana-erickson@uiowa.edu'
+      #subject params[:subject]
+      #body params[:message]
+      subject 'Test'
+      body 'test'
+
+      if subject.blank?
+        flash[:notice]= "Empty subject"
+
+      end
+      if !mail.nil?
+        mail.delivery_method :sendmail
+        mail.deliver
+      end
+    end
+    render 'main/index'
+  end
 end
 

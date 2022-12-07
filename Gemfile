@@ -7,6 +7,7 @@ ruby '2.7.6'
 # Use Haml as the templating library
 gem 'haml'
 
+gem 'actionmailer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails' # , '4.2.10'
 # Use SCSS for stylesheets

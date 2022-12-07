@@ -196,7 +196,6 @@
     <orderEntry type="library" scope="PROVIDED" name="unicorn (v6.1.0, rbenv: 2.7.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.9, rbenv: 2.7.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v3.7.0, rbenv: 2.7.6) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="webrick (v1.7.0, rbenv: 2.7.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.6.5, rbenv: 2.7.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.5, rbenv: 2.7.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="xml-simple (v1.1.9, rbenv: 2.7.6) [gem]" level="application" />
@@ -456,3 +455,4 @@
     </option>
   </component>
 </module>
+

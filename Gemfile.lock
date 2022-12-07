@@ -518,6 +518,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actionmailer
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 2.3.2)
   byebug
