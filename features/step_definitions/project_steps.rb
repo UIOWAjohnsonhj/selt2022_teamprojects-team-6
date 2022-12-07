@@ -154,3 +154,15 @@ Given(/^the following account has been added to Students:$/) do |table|
     Student.create!(student)
   end
 end
+
+Given(/^I am on the Welcome page$/) do |arg|
+  expect(page).to have_content(arg)
+end
+
+When(/^I click the "([^"]*)" link$/) do |arg|
+  click_link(arg)
+end
+
+Then(/^I should be on the "([^"]*)" page$/) do |arg|
+  expect(page).to have_content(arg)
+end
