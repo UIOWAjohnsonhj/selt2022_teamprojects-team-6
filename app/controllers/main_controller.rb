@@ -69,7 +69,7 @@ class MainController < ApplicationController
     session[:logged] = ""
     @student = current_student
     @current_profile = Profile.where(student_id: @student.id).take
-    @resume = Resume.where(student_id: session[:student_id]).take
+    @resume = Resume.where(student_id: @student).take
     if @resume.nil?
       @resume = "No resume uploaded"
     end
