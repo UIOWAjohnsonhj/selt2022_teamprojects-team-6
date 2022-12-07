@@ -148,6 +148,13 @@ form label {
   margin-left: 2vw;
 }
 
+.ml_model {
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 2vw;
+}
+
 input[type=submit] {
   border-radius: 5px;
   border: 0;

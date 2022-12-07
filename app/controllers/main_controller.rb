@@ -65,7 +65,6 @@ class MainController < ApplicationController
       redirect_to root_path and return
     end
     puts "View Profile"
-    puts session[:user_type]
     session[:logged] = ""
     @student = current_student
     @current_profile = Profile.where(student_id: @student.id).take

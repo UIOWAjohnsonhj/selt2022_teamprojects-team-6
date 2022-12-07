@@ -33,7 +33,14 @@ gem 'rails-controller-testing'
 gem 'carrierwave', '~> 1.0'
 
 gem 'fog', '~> 1.38'
+
 gem "devise"
+
+gem 'decisiontree'
+
+gem 'graphviz'
+
+gem 'graphr'
 #run following line to install devise
 #bundle exec rails g devise:install
 gem 'bootstrap-sass', '~> 2.3.2'

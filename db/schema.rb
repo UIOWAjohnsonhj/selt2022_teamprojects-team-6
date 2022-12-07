@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20221204071705) do
     t.string  "term"
     t.string  "year"
     t.string  "college_name"
+    t.float   "gpa"
     t.index ["student_id"], name: "index_profiles_on_student_id"
   end
 
