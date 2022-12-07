@@ -5,3 +5,5 @@
   = submit_tag "Sign Up", :id => "sign_up_button"
 -if student_signed_in?
   -controller.redirect_to view_profile_path
+-if faculty_member_signed_in?
+  -controller.redirect_to faculty_profile_path

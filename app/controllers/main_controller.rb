@@ -166,6 +166,7 @@ class MainController < ApplicationController
   end
 
   def intermediate_login
+    redirect_to login_path and return
 
     given_email= params[:user][:email]
     given_password = params[:user][:password]

@@ -20,7 +20,7 @@
         = form_tag main_search_instructor_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Search Instructors'
     -else
-      -if !@id.nil? && @user_type == :faculty
+      -if !@id.nil? && @user_type == :faculty or faculty_member_signed_in?
         .row1
           = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
             = submit_tag 'Log out'

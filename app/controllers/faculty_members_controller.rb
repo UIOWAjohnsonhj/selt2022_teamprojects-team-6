@@ -1,4 +1,5 @@
 class FacultyMembersController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   def show
   end
 
@@ -15,7 +16,7 @@ class FacultyMembersController < ApplicationController
 
   def faculty_profile
     @faculty = FacultyMember.find_by(id: session[:faculty_id])
-    if @faculty.nil?
+    if @faculty.nil or !faculty_member_signed_in?
       flash[:notice] = "Faculty Account not Found"
       redirect_to controller: "main", action: 'index' and return
     end

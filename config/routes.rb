@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :faculty_members
   devise_for :students, :controllers => { registrations: 'students/registrations' }
+  devise_for :faculty_members, :controllers => { registrations: 'faculty_members/registrations' }
+
   get 'resumes/index'
 
   get 'resumes/new'
@@ -84,6 +85,7 @@ Rails.application.routes.draw do
   post 'faculty_members/waitlist_application'
 
   get 'faculty_profile', to: 'faculty_members#faculty_profile', as: 'faculty_profile'
+  post 'faculty_members/faculty_profile'
 
   get 'new_faculty', to: 'faculty_members#new_faculty', as: 'new_faculty'
 
