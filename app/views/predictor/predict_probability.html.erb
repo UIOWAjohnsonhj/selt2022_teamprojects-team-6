@@ -1,0 +1,13 @@
+<h1>Predictor for Student Getting into a School</h1>
+
+<p> Please pick school and major. </p>
+
+<form method="post" action="<%= predictor_predict_probability_path %>">
+  <input name="search" class="field2"/>
+  <input  list="filters" class="field2" name="filter">
+  <datalist id="filters">
+    <option value="university name">
+  </datalist>
+  <input type="submit" value="search" class="btn">
+
+</form>
