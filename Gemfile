@@ -38,8 +38,6 @@ gem "devise"
 #bundle exec rails g devise:install
 gem 'bootstrap-sass', '~> 2.3.2'
 
-gem 'sqlite3', '~> 1.3.6'
-
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'rubocop'
