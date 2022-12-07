@@ -1,8 +1,8 @@
 require 'decisiontree'
 require 'rubygems'
-
 class Predictor < ActiveRecord::Base
-  def self.predict(data)
+
+  def self.predict(profile, searched_school)
     # Create a new Decision Tree classifier
     attributes = ['GPA', 'Undergraduate School', 'Applied School', 'Applied Major']
     training = [
@@ -56,7 +56,6 @@ class Predictor < ActiveRecord::Base
             ['3.6', 'University of California - Los Angeles', 'University of Colorado - Boulder', 'Biology'],
             ['3.9', 'Stanford University', 'University of Michigan', 'Mechanical Engineering']]
 
-    # new_test = [data[:gpa], data[:undergrad_school], data[:applied_school], data[:applied_major]]
     predicted_results = []
     actual_results = [1, 0, 1, 0, 1, 1, 1]
     test.each do |t|
@@ -66,31 +65,25 @@ class Predictor < ActiveRecord::Base
       else
         final_decision = "Rejected"
       end
-      puts "Predicted: #{final_decision}"
-      puts "Predicted: #{final_decision} ... True decision: #{t.last}"
+      # puts "Predicted: #{final_decision}"
+      # puts "Predicted: #{final_decision} ... True decision: #{t.last}"
       predicted_results.append(decision)
     end
 
 
 
 
+    new_test = ['4.0', profile.college_name, searched_school, profile.interested_major]
+    puts new_test
+    decision_new = dec_tree.predict(new_test)
+    if decision_new == 1
+      final_decision = "Accepted"
+    else
+      final_decision = "Rejected"
+    end
+    puts "Predicted: #{final_decision}"
 
-    # decision_new = dec_tree.predict(test)
-    # if decision_new == 1
-    #   final_decision = "Accepted"
-    # else
-    #   final_decision = "Rejected"
-    # end
-    # puts "Predicted: #{final_decision}"
-    # puts "Predicted: #{final_decision} ... True decision: #{new_test.last}"
 
-    # Return the accuracy of the model
-
-    # @predicted_probability = predicted_probability
-    # puts @predicted_probability
-    # Define the actual results
-
-    # Calculate the accuracy of the model
     correct = 0
 
     actual_results.each_with_index do |result, index|
@@ -100,7 +93,8 @@ class Predictor < ActiveRecord::Base
     end
 
     accuracy = (correct.to_f / actual_results.length) * 100
-
+    accuracy = accuracy.round(2)
     puts "The accuracy of the model is #{accuracy}%"
+    return {"decision" =>final_decision,"accuracy" => accuracy}
   end
 end

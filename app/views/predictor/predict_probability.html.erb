@@ -1,13 +1,19 @@
 <h1>Predictor for Student Getting into a School</h1>
 
-<p> Please pick school and major. </p>
+<p> Please pick school you are going to apply to below. </p>
 
-<form method="post" action="<%= predictor_predict_probability_path %>">
-  <input name="search" class="field2"/>
-  <input  list="filters" class="field2" name="filter">
-  <datalist id="filters">
-    <option value="university name">
-  </datalist>
-  <input type="submit" value="search" class="btn">
-
-</form>
+<div class="form-group">
+  <form method="post" action="<%= predictor_predict_probability_path %>">
+    <input name="search" class="field2"/>
+    <input type="submit" value="search" class="btn">
+  </form>
+</div>
+<br>
+<div class="ml_model">
+  <% if @student != "None" %>
+    <h3> Probability of Getting into <%= @searched_school %>"</h3>
+    <label class="label">Predicted Decision: <%= @predicted_decision %></label>
+    <br>
+    <label class="label"> Machine Learning Model Accuracy: <%= @accuracy %>%</label>
+  <% end %>
+</div>
