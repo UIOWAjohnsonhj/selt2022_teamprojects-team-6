@@ -58,10 +58,10 @@ ActiveRecord::Schema.define(version: 20221204071705) do
   end
 
   create_table "faculty_members", force: :cascade do |t|
-    t.integer  "department_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "department"
+    t.integer  "department_id"
     t.boolean  "chair"
     t.string   "university"
     t.string   "focus_area"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 20221204071705) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.index ["department_id"], name: "index_faculty_members_on_department_id"
     t.index ["email"], name: "index_faculty_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_faculty_members_on_reset_password_token", unique: true
   end

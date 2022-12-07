@@ -4,16 +4,17 @@ class AddDeviseToFacultyMembers < ActiveRecord::Migration[5.0]
   def self.up
     create_table :faculty_members do |t|
       ## Database authenticatable
-      t.references :department, index: true, foreign_key: true
       t.string   :first_name
       t.string   :last_name
       t.string   :department
+      t.integer  :department_id
       t.boolean  :chair
       t.string   :university
       t.string   :focus_area
       t.string   :research_url
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      # t.references :department, index: true, foreign_key: true
 
       ## Recoverable
       t.string   :reset_password_token

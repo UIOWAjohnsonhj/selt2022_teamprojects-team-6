@@ -5,14 +5,13 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource
   def create
     super
-    puts params
   end
 
   # GET /resource/edit
@@ -46,6 +45,7 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:university])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:department_id])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
