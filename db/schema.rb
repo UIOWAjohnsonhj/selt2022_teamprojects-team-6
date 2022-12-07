@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221129233509) do
+ActiveRecord::Schema.define(version: 20221204071705) do
 
   create_table "applications", force: :cascade do |t|
     t.integer "student_id"
@@ -58,14 +58,22 @@ ActiveRecord::Schema.define(version: 20221129233509) do
   end
 
   create_table "faculty_members", force: :cascade do |t|
-    t.integer "department_id"
-    t.string  "first_name"
-    t.string  "last_name"
-    t.string  "email"
-    t.string  "password_digest"
-    t.boolean "chair"
-    t.string  "university"
+    t.integer  "department_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "department"
+    t.boolean  "chair"
+    t.string   "university"
+    t.string   "focus_area"
+    t.string   "research_url"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.index ["department_id"], name: "index_faculty_members_on_department_id"
+    t.index ["email"], name: "index_faculty_members_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_faculty_members_on_reset_password_token", unique: true
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -92,10 +100,13 @@ ActiveRecord::Schema.define(version: 20221129233509) do
   create_table "students", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_students_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
 
   create_table "undergraduate_schools", force: :cascade do |t|

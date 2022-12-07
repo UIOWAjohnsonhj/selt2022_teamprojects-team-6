@@ -8,7 +8,7 @@
 
   %body
     %h1.title Simplaply
-    -if session.include? :user_type and session[:user_type] == "student"
+    -if student_signed_in?
       .row1
 
         = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
@@ -17,7 +17,8 @@
           = submit_tag 'Profiles'
         = form_tag main_search_universities_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Search Universities'
-
+        = form_tag main_search_instructor_path, :method => 'post', :class => 'form form-inline' do
+          = submit_tag 'Search Instructors'
     -else
       -if !@id.nil? && @user_type == :faculty
         .row1
@@ -27,6 +28,7 @@
             = submit_tag 'My Profile'
           = form_tag my_evaluations_path, :method => 'get', :class => 'form form-inline' do
             = submit_tag 'My Evaluations'
+
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
