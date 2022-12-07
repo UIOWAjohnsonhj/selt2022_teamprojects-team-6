@@ -30,9 +30,6 @@ Rails.application.routes.draw do
   get 'view_profile', to: 'main#view_profile', as: 'view_profile'
   post 'main/view_profile'
 
-  get 'search_instructor', to: 'main#search_instructor', as: 'search_instructor'
-  post 'main/search_instructor'
-
   get 'profile_viewer', to: 'profiles#profile_viewer', as: 'profile_viewer'
   post 'profiles/profile_viewer'
 
@@ -62,6 +59,10 @@ Rails.application.routes.draw do
 
   get 'change_page', to: 'main#change_page', as: 'change_page'
   post 'main/change_page'
+
+  get 'search_instructor', to: 'main#search_instructor', as: 'search_instructor'
+  post 'main/search_instructor'
+
   # FacultyMember Routes
   get 'admission_decision', to: 'faculty_members#admission_decision', as: 'admission_decision'
   post 'faculty_members/admission_decision'
@@ -83,6 +84,11 @@ Rails.application.routes.draw do
 
   get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
 
+  get 'create_email', to: 'faculty_members#create_email', as: 'create_email'
+  post 'faculty_members/create_email'
+
+  get 'email_student', to: 'faculty_members#email_student', as: 'email_student'
+  post 'faculty_members/email_student'
 
   # Resume Routes
   get 'resumes', to: 'resumes#resume_view', as: 'resumes'
@@ -94,6 +100,8 @@ Rails.application.routes.draw do
   patch 'resumes/:id', to: 'resumes#update'
   delete 'resumes/:id', to: 'resumes#destroy'
 
-
+  #email routes
+  get 'email_applicant', to: 'emails#email_applicant', as: 'email_applicant'
+  post 'emails/email_applicant'
 
 end

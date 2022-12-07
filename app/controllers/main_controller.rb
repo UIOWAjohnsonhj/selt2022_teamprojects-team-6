@@ -91,7 +91,7 @@ class MainController < ApplicationController
     missing=false
     if Student.where(:email => (params[:user][:email])).exists? || FacultyMember.where(:email => (params[:user][:email])).exists?
       puts "email"
-      flash[:notice]= "Email already in use"
+      flash[:notice]= "EmailsController already in use"
       missing=true
     end
     if params[:user][:first_name].blank?
@@ -115,12 +115,10 @@ class MainController < ApplicationController
       flash[:notice]= "Empty password"
       missing=true
       # redirect_to main_intermediate_login_path
-    elsif params[:type].blank?
-      puts "radio"
-      flash[:notice]= "Empty radio"
-      missing=true
-      # redirect_to main_intermediate_login_path
     end
+    if missing
+      redirect_to 'main/index'
+    else
 
     puts params
     if session[:sign_up_type] == "faculty"
@@ -149,12 +147,9 @@ class MainController < ApplicationController
         Profile.create!(student_profile)
 
         flash[:notice]= "Student Account created successfully"
-
     end
-
     redirect_to root_path
-
-
+    end
   end
   def general_sign_up
 
