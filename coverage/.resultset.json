@@ -67,16 +67,16 @@
           1,
           null,
           1,
-          14,
-          14,
-          14,
-          14,
-          14,
-          14,
-          14,
-          14,
-          14,
-          14,
+          19,
+          19,
+          19,
+          19,
+          19,
+          19,
+          19,
+          19,
+          19,
+          19,
           null,
           null,
           1,
@@ -235,31 +235,31 @@
           3,
           null,
           1,
-          0,
-          0,
+          4,
+          1,
           null,
-          0,
-          0,
-          0,
-          0,
+          3,
+          3,
+          3,
+          24,
           null,
           null,
           null,
           1,
+          3,
+          1,
+          null,
           2,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
+          2,
+          2,
+          2,
           0,
-          1,
+          2,
           0,
           0,
-          1,
-          1,
-          1,
+          2,
+          2,
+          2,
           0,
           0,
           0,
@@ -272,7 +272,7 @@
           0,
           null,
           null,
-          1,
+          2,
           null,
           null,
           1,
@@ -356,6 +356,17 @@
       "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/university.rb": {
         "lines": [
           1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/department.rb": {
+        "lines": [
+          1,
+          null,
           1,
           1,
           1,
@@ -673,19 +684,6 @@
         "branches": {
         }
       },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/department.rb": {
-        "lines": [
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null
-        ],
-        "branches": {
-        }
-      },
       "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/evaluation.rb": {
         "lines": [
           0,
@@ -718,6 +716,6 @@
         }
       }
     },
-    "timestamp": 1670455289
+    "timestamp": 1670456381
   }
 }
