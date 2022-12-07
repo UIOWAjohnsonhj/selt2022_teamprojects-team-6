@@ -64,8 +64,6 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
-    puts "View Profile"
-    puts session[:user_type]
     session[:logged] = ""
     @student = current_student
     @current_profile = Profile.where(student_id: @student.id).take
@@ -101,8 +99,6 @@ class MainController < ApplicationController
         @applied_departments[current_uni.name.to_sym] = [[current_dep.name, app.application_status]]
       end
     end
-    puts @applied_departments
-    puts "ddsfddf"
   end
 
 
@@ -144,7 +140,6 @@ class MainController < ApplicationController
       #elsif not @faculty.nil?
       elsif not @faculty.nil?
         #&.authenticate(given_password)
-        puts 'line 148'
         @@id = @faculty.id
         @@user_type = :faulty
         session[:faculty_id] = @faculty.id
@@ -175,7 +170,6 @@ class MainController < ApplicationController
     University.all.each do |u|
       @all_universities.append(u.name.downcase)
     end
-    puts @all_universities
   end
   def view_university
     if !student_signed_in?
@@ -183,9 +177,6 @@ class MainController < ApplicationController
     end
     @university = University.where(name:params[:name]).take
     @departments = Department.where(university_id: @university.id)
-    @departments.all.each do |d|
-      puts d.name
-    end
   end
 
   def intermediate_search
@@ -222,7 +213,6 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
-    puts params.include? "prev"
     if params.include? "prev"
       if @@page_counter>1
         @@page_counter-=1
