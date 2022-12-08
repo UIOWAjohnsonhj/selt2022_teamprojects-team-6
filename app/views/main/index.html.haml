@@ -3,8 +3,6 @@
   = submit_tag "Login", :id => "login_button"
 = form_tag main_general_sign_up_path, :method => :post do
   = submit_tag "Sign Up", :id => "sign_up_button"
-= form_tag faculty_members_create_email_path, :method => :post do
-  = submit_tag "Email", :id => "email_applicant_button"
 -if student_signed_in?
   -controller.redirect_to view_profile_path
 -if faculty_member_signed_in?
