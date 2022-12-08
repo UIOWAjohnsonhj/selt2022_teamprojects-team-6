@@ -1,7 +1,7 @@
 class PasswordResetsController < ApplicationController
 
   def create
-    PasswordResetMailer.reset.deliver_now
+    # PasswordResetMailer.reset.deliver_now
   end
   def edit
 
