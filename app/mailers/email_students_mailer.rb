@@ -10,11 +10,13 @@ class EmailStudentsMailer < ApplicationMailer
     mail(to: student_email, subject: 'Admission Decision')
   end
 
-  def user_denied(student_email)
+  def user_denied(student_email, application)
+    @application = application
     mail(to: student_email, subject: 'Admission Decision')
   end
 
-  def user_waitlisted(student_email)
+  def user_waitlisted(student_email, application)
+    @application = application
     mail(to: student_email, subject: 'Admission Decision')
   end
 
