@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
 
-ruby '2.7.6'
+ruby '2.6.6'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Use Haml as the templating library
 gem 'haml'
+gem 'mail'
+gem 'actionmailer'
+gem 'devise'
 
 gem 'actionmailer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -66,7 +69,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'simplecov', require: false
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.3.6'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '< 3.0.0'
 end

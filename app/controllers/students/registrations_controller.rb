@@ -17,7 +17,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
     #   redirect_to new_student_registration_path and return
     # end
     student=Student.where(email:params[:student][:email]).take
-    student_profile={:student_id=>student.id,:gre=>nil, :toefl => nil,
+    student_profile={:student_id=>student.id,:gpa=>nil,:gre=>nil, :toefl => nil,
                      :interested_major => nil, :term => nil,
                      :year =>nil }
 
