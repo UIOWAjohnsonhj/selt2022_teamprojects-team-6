@@ -4,4 +4,8 @@ class EmailStudentsMailer < ApplicationMailer
     # @user = user
     mail(to: user, subject: 'Test Email')
   end
+
+  def user_accepted(student_email)
+    mail(to: student_email, subject: 'Congratulations!')
+  end
 end
