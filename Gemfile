@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.6.6'
+ruby '2.7.6'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -28,18 +28,24 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-gem 'capistrano-rails', group: :development
-
 gem 'rails-controller-testing'
 
 gem 'carrierwave', '~> 1.0'
 
 gem 'fog', '~> 1.38'
+
 gem "devise"
+
+gem 'decisiontree'
+
+gem 'graphviz'
+
+gem 'graphr'
 #run following line to install devise
 #bundle exec rails g devise:install
 gem 'bootstrap-sass', '~> 2.3.2'
+
+gem 'sqlite3', '~> 1.3.6'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views

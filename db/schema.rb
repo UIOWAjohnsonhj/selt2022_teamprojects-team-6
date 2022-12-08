@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20221204071705) do
     t.string  "term"
     t.string  "year"
     t.string  "college_name"
+    t.float   "gpa"
     t.index ["student_id"], name: "index_profiles_on_student_id"
   end
 
@@ -106,6 +107,20 @@ ActiveRecord::Schema.define(version: 20221204071705) do
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
+  end
+
+  create_table "undergraduate_schools", force: :cascade do |t|
+    t.integer  "student_id"
+    t.string   "country"
+    t.string   "university_name"
+    t.string   "major"
+    t.float    "gpa"
+    t.string   "grading_scale"
+    t.integer  "start_year"
+    t.integer  "expected_grad_year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["student_id"], name: "index_undergraduate_schools_on_student_id"
   end
 
   create_table "universities", force: :cascade do |t|

@@ -11,6 +11,7 @@ class ResumesController < ApplicationController
   def create
     @resume = Resume.new(resume_params)
     @student = Student.find_by(id: current_student.id)
+    Resume.destroy_old_resume(@student.id)
     if @resume.save
       redirect_to view_profile_path(@student, student_id: @student.id), notice: "The resume #{@resume.name} has been uploaded."
     else
@@ -20,7 +21,8 @@ class ResumesController < ApplicationController
   end
 
   def destroy
-    @resume = Resume.find(params[:id])
+    @resume = Resume.find(session[:student_id])
+    @student = Student.find_by(id: session[:student_id])
     @resume.destroy
     redirect_to resumes_path(@student, student_id: @student.id), notice:  "The resume #{@resume.name} has been deleted."
   end

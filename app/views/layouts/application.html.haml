@@ -19,6 +19,8 @@
           = submit_tag 'Search Universities'
         = form_tag main_search_instructor_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Search Instructors'
+        = form_tag predictor_predict_probability_path, :method => 'post', :class => 'form form-inline' do
+          = submit_tag 'Predictor'
     -else
       -if faculty_member_signed_in?
         .row1

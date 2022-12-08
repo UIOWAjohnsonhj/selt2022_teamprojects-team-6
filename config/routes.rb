@@ -104,6 +104,11 @@ Rails.application.routes.draw do
   patch 'resumes/:id', to: 'resumes#update'
   delete 'resumes/:id', to: 'resumes#destroy'
 
+  # Predictor Routes
+  get 'predict_probability', to: 'predictor#predict_probability', as: 'predict_probability'
+  post 'predictor/predict_probability'
+
+
 
 
 end
