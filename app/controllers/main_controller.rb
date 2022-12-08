@@ -285,8 +285,14 @@ class MainController < ApplicationController
 
     if params[:focus_areas] != session[:focus_areas]
       session[:focus_areas] = @selected_focus_areas
-      redirect_to :sort => sort, :focus_areas => @selected_focus_areas and return
+      redirect_to :focus_areas => @selected_focus_areas and return
     end
-    @faculties = FacultyMember.all.where(focus_area: @selected_focus_areas.keys).order(ordering)
+    if @selected_focus_areas == "All"
+      @faculties = FacultyMember
+    else
+      @faculties = FacultyMember.where(focus_area: @selected_focus_areas)
+    end
+    session[:focus_areas] = @selected_focus_areas
+    puts session[:focus_areas]
   end
 end
