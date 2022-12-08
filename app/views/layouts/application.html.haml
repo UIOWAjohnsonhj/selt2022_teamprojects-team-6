@@ -11,13 +11,13 @@
     -if student_signed_in?
       .row1
 
-        = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
+        = form_tag intermediate_logout_path, :method => 'get', :class => 'form form-inline' do
           = submit_tag 'Log out'
-        = form_tag main_view_profile_path, :method => 'post', :class => 'form form-inline' do
+        = form_tag view_profile_path, :method => 'get', :class => 'form form-inline' do
           = submit_tag 'Profiles'
-        = form_tag main_search_universities_path, :method => 'post', :class => 'form form-inline' do
+        = form_tag search_universities_path, :method => 'get', :class => 'form form-inline' do
           = submit_tag 'Search Universities'
-        = form_tag main_search_instructor_path, :method => 'post', :class => 'form form-inline' do
+        = form_tag search_instructor_path, :method => 'get', :class => 'form form-inline' do
           = submit_tag 'Search Instructors'
     -else
       -if !@id.nil? && @user_type == :faculty

@@ -1,20 +1,6 @@
 require 'spec_helper'
 require 'rails_helper'
 
-if RUBY_VERSION >= '2.6.0'
-  if Rails.version < '5'
-    class ActionController::TestResponse < ActionDispatch::TestResponse
-      def recycle!
-        # hack to avoid MonitorMixin double-initialize error:
-        @mon_mutex_owner_object_id = nil
-        @mon_mutex = nil
-        initialize
-      end
-    end
-  else
-    puts "Monkeypatch for ActionController::TestResponse no longer needed"
-  end
-end
 
 describe MainController do
   # Home Page
@@ -104,6 +90,20 @@ describe MainController do
       get :view_university, params: { name: 'University of Iowa' }
       departments = assigns(:departments)
       expect(departments).not_to eq(nil)
+    end
+  end
+  # Search Instructor Page
+  describe 'Search Instructor' do
+    it 'should redirect to the home page if student not logged in' do
+      allow(MainController).to receive(:search_instructor)
+      get :search_instructor
+      expect(response).to redirect_to('/')
+    end
+    it 'should render the search_instructor page when student logged in' do
+      allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+      allow(MainController).to receive(:search_instructor)
+      get :search_instructor
+      expect(response).to render_template('search_instructor')
     end
   end
 end
