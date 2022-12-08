@@ -84,10 +84,6 @@ Rails.application.routes.draw do
   get 'reset_password_two', to: 'main#reset_password_two', as: 'reset_password_two'
   post 'main/reset_password_two'
 
-
-  get 'admission_decision', to: 'main#admission_decision', as: 'admission_decision'
-  post 'main/admission_decision'
-
   get 'intermediate_search', to: 'main#intermediate_search', as: 'intermediate_search'
   post 'main/intermediate_search'
 
