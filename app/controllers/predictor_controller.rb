@@ -2,6 +2,9 @@ class PredictorController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def predict_probability
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
     @student = "None"
     if params[:search] != ""
       @student = Student.find_by(id: current_student.id)

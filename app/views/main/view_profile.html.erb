@@ -7,19 +7,19 @@
       <br>
       <table>
         <tr>
+          <th><label class="label">GPA</label></th>
           <th><label class="label">GRE</label></th>
           <th><label class="label">TOEFL</label></th>
-          <th><label class="label">CAPA</label></th>
         </tr>
         <tr>
           <td>
-            <label class="field" name="gre" style="text-align: center"><u><%= @current_profile.gre %></u></label>
+            <label class="field" name="gre" style="text-align: center"><u><%= @current_profile.gpa %></u></label>
           </td>
           <td>
-            <label class="field" name="toefl" style="text-align: center" ><u><%= @current_profile.toefl %></u></label>
+            <label class="field" name="toefl" style="text-align: center" ><u><%= @current_profile.gre %></u></label>
           </td>
           <td>
-            <label class="field" name="capa" style="text-align: center"><u><%= @current_profile.capa %></u></label>
+            <label class="field" name="capa" style="text-align: center"><u><%= @current_profile.toefl %></u></label>
 
           </td>
         </tr>
@@ -27,19 +27,19 @@
       <br>
       <table>
         <tr>
+          <th><label class="label">CAPA</label></th>
           <th><label class="label">Intrested Major</label></th>
           <th><label class="label">Term</label></th>
-          <th><label class="label">Year</label></th>
         </tr>
         <tr>
           <td>
-            <label list="majors" class="field" name="major" style="text-align: center"><u><%= @current_profile.interested_major %></u></label>
+            <label list="majors" class="field" name="major" style="text-align: center"><u><%= @current_profile.capa %></u></label>
           </td>
           <td>
-            <label list="term" class="field" name="term" style="text-align: center"><u><%= @current_profile.term %></u></label>
+            <label list="term" class="field" name="term" style="text-align: center"><u><%= @current_profile.interested_major %></u></label>
           </td>
           <td>
-            <label list="year" class="field" name="year" style="text-align: center"><u><%= @current_profile.year %></u></label>
+            <label list="year" class="field" name="year" style="text-align: center"><u><%= @current_profile.term %></u></label>
           </td>
         </tr>
       </table>
@@ -47,16 +47,13 @@
       <br>
       <table class="profile-table">
         <tr>
+          <th><label class="label">Year</label></th>
           <th><label class="label">Undergrad college</label></th>
           <th><label class="label">Undergrad GPA</label></th>
         </tr>
         <tr>
-          <td>
-            <label class="field2" name="college_name"style="text-align: center" ><u><%= @current_profile.college_name %></u></label>
-          </td>
-          <td>
-            <label class="field2" name="gpa" style="text-align: center"><u><%= @current_profile.gpa %></u></label>
-          </td>
+          <td><label class="field2" name="college_name"style="text-align: center" ><u><%= @current_profile.year %></u></label></td>
+          <td><label class="field2" name="college_name"style="text-align: center" ><u><%= @current_profile.college_name %></u></label></td>
         </tr>
       </table>
       <br>
