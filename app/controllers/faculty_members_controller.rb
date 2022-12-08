@@ -62,7 +62,7 @@ class FacultyMembersController < ApplicationController
     @application = Application.where(student_id: params[:student_id]).take
     @application.update(application_status: 'Accepted')
     student_email = Student.find(params[:student_id]).email
-    EmailStudentsMailer.user_accepted(student_email).deliver_now
+    EmailStudentsMailer.user_accepted(student_email, @application).deliver_now
     redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
   end
 
