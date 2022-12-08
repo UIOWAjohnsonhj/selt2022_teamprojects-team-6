@@ -321,8 +321,11 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.2.8)
-    mail (2.7.1)
+    mail (2.8.0)
       mini_mime (>= 0.1.1)
+      net-imap
+      net-pop
+      net-smtp
     matrix (0.4.2)
     method_source (1.0.0)
     mime-types (3.4.1)
@@ -333,6 +336,14 @@ GEM
     multi_json (1.15.0)
     multi_test (1.1.0)
     nenv (0.3.0)
+    net-imap (0.3.1)
+      net-protocol
+    net-pop (0.1.2)
+      net-protocol
+    net-protocol (0.2.0)
+      timeout
+    net-smtp (0.3.3)
+      net-protocol
     netrc (0.11.0)
     nio4r (2.5.8)
     nokogiri (1.13.10-arm64-darwin)
@@ -357,8 +368,8 @@ GEM
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (5.0.0)
-    racc (1.6.0)
+    public_suffix (5.0.1)
+    racc (1.6.1)
     rack (2.2.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -484,6 +495,7 @@ GEM
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.11)
+    timeout (0.3.1)
     tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
@@ -518,6 +530,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actionmailer
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 2.3.2)
   byebug
@@ -536,6 +549,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  mail
   pg (~> 0.20)
   rails
   rails-controller-testing
@@ -558,4 +572,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.3.24
+   2.3.25

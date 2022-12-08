@@ -6,6 +6,9 @@ ruby '2.6.6'
 # gem 'therubyracer', platforms: :ruby
 # Use Haml as the templating library
 gem 'haml'
+gem 'mail'
+gem 'actionmailer'
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails' # , '4.2.10'

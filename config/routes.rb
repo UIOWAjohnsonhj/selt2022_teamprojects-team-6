@@ -45,8 +45,10 @@ Rails.application.routes.draw do
   get 'profile_viewer', to: 'profiles#profile_viewer', as: 'profile_viewer'
   post 'profiles/profile_viewer'
 
+
   get 'intermediate_sign_up', to: 'main#intermediate_sign_up', as: 'intermediate_sign_up'
   post 'main/intermediate_sign_up'
+
 
   get 'edit_profile', to: 'main#edit_profile', as: 'edit_profile'
   post 'main/edit_profile'
@@ -56,12 +58,35 @@ Rails.application.routes.draw do
 
   get 'search_universities', to: 'main#search_universities', as: 'search_universities'
   post 'main/search_universities'
-
   get 'view_university', to: 'main#view_university', as: 'view_university'
   post 'main/view_university'
 
   get 'reset_password', to: 'main#reset_password', as: 'reset_password'
   post 'main/reset_password'
+
+  #reset password roots
+  get 'password_resets/new'
+
+  get 'password_resets/create'
+
+  get 'password_resets/edit'
+
+  get 'password_resets/update'
+
+  get '/password/reset', to: 'password_resets#new'
+  post '/password/reset', to: 'password_resets#create'
+  get '/password/reset/edit', to: 'password_resets#edit'
+  patch '/password/reset/edit', to: 'password_resets#update'
+
+  get 'reset_password_one', to: 'password_reset#reset_password_one', as: 'reset_password_one'
+  post 'main/reset_password_one'
+
+  get 'reset_password_two', to: 'main#reset_password_two', as: 'reset_password_two'
+  post 'main/reset_password_two'
+
+
+  get 'admission_decision', to: 'main#admission_decision', as: 'admission_decision'
+  post 'main/admission_decision'
 
   get 'intermediate_search', to: 'main#intermediate_search', as: 'intermediate_search'
   post 'main/intermediate_search'
@@ -88,9 +113,7 @@ Rails.application.routes.draw do
   post 'faculty_members/faculty_profile'
 
   get 'new_faculty', to: 'faculty_members#new_faculty', as: 'new_faculty'
-
   get 'faculty_evaluations', to: 'faculty_members#faculty_evaluations', as: 'faculty_evaluations'
-
   get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
 
 
