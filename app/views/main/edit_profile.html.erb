@@ -57,8 +57,12 @@
         <input value="<%= @current_profile.college_name %>" class="field2" name="college_name">
       </div>
       <br>
-      <h2>Work experience</h2>
-      <br>
+      <div class="row">
+        <h2>Work experience</h2>
+        <input type="submit" input value="Add row" type="submit" formmethod="post" formaction="<%= main_add_experience_path %>" >
+        <input type="submit"input value="remove row" type="submit" formmethod="post" formaction="<%= main_remove_experience_path %>" >
+
+      </div>      <br>
       <div class="row">
         <label class="label">Company name</label>
         <label class="label">Job title</label>
@@ -69,13 +73,30 @@
       <div class="row">
       </div>
       <br>
-      <div class="row marg">
-        <input class="field2" name="company">
-        <input class="field2" name="title">
-        <input class="field2" name="description">
-        <input class="field2" name="from">
-        <input class="field2" name="to">
-      </div>
+      <%(@experience_count+1).times do |i|%>
+          <%if i<@exp_list.length %>
+            <%exp = @exp_list[i] %>
+          <div class="row marg">
+
+          <input class="field2" name="company[]" value="<%= exp.company_name %>">
+            <input class="field2" name="title[]" value="<%= exp.job_title %>">
+            <input class="field2" name="description[]"  value="<%= exp.description %>">
+            <input class="field2" name="from[]" type="date" value="<%= exp.from %>" >
+            <input class="field2" name="to[]" type="date"  value="<%= exp.to %>">
+            </div>
+            <%else %>
+          <div class="row marg">
+
+          <input class="field2" name="company[]">
+            <input class="field2" name="title[]">
+            <input class="field2" name="description[]">
+            <input class="field2" name="from[]" type="date">
+            <input class="field2" name="to[]" type="date">
+          </div>
+            <%end %>
+
+        <br>
+      <%end %>
       <input type="submit" class = "btn" value="save">
       <br>
     </form>

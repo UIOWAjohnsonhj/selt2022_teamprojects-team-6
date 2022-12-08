@@ -22,7 +22,7 @@
         = form_tag predictor_predict_probability_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Predictor'
     -else
-      -if !@id.nil? && @user_type == :faculty
+      -if faculty_member_signed_in?
         .row1
           = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
             = submit_tag 'Log out'
@@ -30,6 +30,8 @@
             = submit_tag 'My Profile'
           = form_tag my_evaluations_path, :method => 'get', :class => 'form form-inline' do
             = submit_tag 'My Evaluations'
+          = form_tag admission_decision_path, :method => 'get', :class => 'form form-inline' do
+            = submit_tag 'Admission Review'
 
     #main
       - if flash[:notice]

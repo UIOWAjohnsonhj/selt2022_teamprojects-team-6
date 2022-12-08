@@ -1,4 +1,4 @@
-class Experiences < ActiveRecord::Base
+ class Experiences < ActiveRecord::Base
 
   belongs_to :student
 

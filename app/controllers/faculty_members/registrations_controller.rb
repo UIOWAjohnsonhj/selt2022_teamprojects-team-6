@@ -1,28 +1,17 @@
 # frozen_string_literal: true
 
-class Students::RegistrationsController < Devise::RegistrationsController
-   before_action :configure_sign_up_params, only: [:create]
+class FacultyMembers::RegistrationsController < Devise::RegistrationsController
+  before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource
   def create
     super
-    # if params[:student][:email].blank? or params[:student][:first_name].blank? or params[:student][:last_name].blank?
-    #   flash[:notice] = "Please fill out all fields"
-    #   redirect_to new_student_registration_path and return
-    # end
-    student=Student.where(email:params[:student][:email]).take
-    student_profile={:student_id=>student.id,:gre=>nil, :toefl => nil,
-                     :interested_major => nil, :term => nil,
-                     :year =>nil }
-
-    Profile.create!(student_profile)
-
   end
 
   # GET /resource/edit
@@ -53,8 +42,13 @@ class Students::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-       devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name])
-       devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:university])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:department_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:focus_area])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:research_url])
+
 
   end
 

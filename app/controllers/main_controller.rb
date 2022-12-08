@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'json'
+
 class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
@@ -8,7 +9,7 @@ class MainController < ApplicationController
   @@user_type = nil
   @@search_type = nil
   @@page_counter = 1
-
+  @@experience_count = 1
   def initialize
     super
     @student = Student
@@ -41,18 +42,18 @@ class MainController < ApplicationController
 
   def intermediate_sign_up
 
-      faculty={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
-               :email => params[:user][:email],:password=>params[:user][:password],
-               :university=>params[:uni], :department_id=> params[:dept]}
-      FacultyMember.create!(faculty)
-      # id=@profiles.where(email:params[:user][:email])
-      # Commented out as we have yet to decide if we're making
-      # should redirect_to 'faculty_create'
-      flash[:notice]= "FacultyMember Account created successfully"
+    faculty={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
+             :email => params[:user][:email],:password=>params[:user][:password],
+             :university=>params[:uni], :department_id=> params[:dept]}
+    FacultyMember.create!(faculty)
+    # id=@profiles.where(email:params[:user][:email])
+    # Commented out as we have yet to decide if we're making
+    # should redirect_to 'faculty_create'
+    flash[:notice]= "FacultyMember Account created successfully"
 
     redirect_to root_path
 
-    end
+  end
   def sign_up
     session[:sign_up_type] = :student
   end
@@ -64,7 +65,7 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
-    puts "View Profile"
+
     session[:logged] = ""
     @student = current_student
     @current_profile = Profile.where(student_id: @student.id).take
@@ -74,6 +75,10 @@ class MainController < ApplicationController
     end
     @applied_departments ={}
     if params.include? "gre"
+      if (params[:company].include? "" or params[:title].include? "" or params[:description].include? "" or params[:from].include? "" or params[:to].include? "")
+        flash[:notice] = "Please fill out all fields"
+        redirect_to edit_profile_path and return
+      end
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
       @current_profile.capa = params[:capa]
@@ -82,12 +87,21 @@ class MainController < ApplicationController
       @current_profile.year = params[:year]
       @current_profile.college_name = params[:college_name]
       @current_profile.save
+      Experiences.destroy_all(student: current_student)
+      params[:company].length.times do |i|
+        hash = {:student=>current_student,:company_name=>params[:company][i],
+                :description=>params[:description][i],:job_title=> params[:title][i],
+                :from=>params[:from][i],:to=>params[:to][i]}
+        Experiences.create!(hash)
+      end
+
     elsif params.include? "department"
       @university= University.find(params[:university_id])
       @department = Department.find(params[:department])
       application = {:student_id=>current_student.id, :university_id=> @university.id,:department_id=>@department.id,:application_status=>"pending"}
       @applications.create!(application)
     end
+    @experiences = Experiences.where(student: current_student)
     @applications = Application.where(student_id: current_student.id)
 
     @applications.each do |app|
@@ -104,7 +118,21 @@ class MainController < ApplicationController
     puts "ddsfddf"
   end
 
+  def add_experience
+    if (params[:company].include? "" or params[:title].include? "" or params[:description].include? "" or params[:from].include? "" or params[:to].include? "")
+      flash[:notice] = "Please fill out all fields"
+      redirect_to edit_profile_path and return
+    end
+    @@experience_count+=1
+    redirect_to edit_profile_path
+  end
 
+  def remove_experience
+    if @@experience_count>1
+      @@experience_count-=1
+    end
+    redirect_to edit_profile_path
+  end
   def general_sign_up
 
   end
@@ -116,6 +144,16 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
+    @exp_list=[]
+    Experiences.where(student: current_student).all.each do |i|
+      @exp_list.append(i)
+    end
+    if params.include? "hidden"
+      @experience_count = Experiences.where(student: current_student).count
+      @@experience_count=@experience_count
+    else
+      @experience_count = @@experience_count
+    end
     @student = current_student
     @resume = Resume.where(student_id: @student.id).take
     if @resume.nil?
@@ -125,6 +163,7 @@ class MainController < ApplicationController
   end
 
   def intermediate_login
+    redirect_to login_path and return
 
     given_email= params[:user][:email]
     given_password = params[:user][:password]
@@ -140,7 +179,7 @@ class MainController < ApplicationController
         session[:student_id] = @student.id
         session[:user_type] = :student
         redirect_to view_profile_path(@student, student_id: @student.id)
-      #elsif not @faculty.nil?
+        #elsif not @faculty.nil?
       elsif not @faculty.nil?
         #&.authenticate(given_password)
         puts 'line 148'
@@ -151,8 +190,8 @@ class MainController < ApplicationController
         redirect_to faculty_profile_path(@faculty, faculty_id: @faculty.id)
 
       else
-         flash[:notice]="Invalid user"
-         redirect_to login_path
+        flash[:notice]="Invalid user"
+        redirect_to login_path
       end
     rescue BCrypt::Errors::InvalidHash
       flash[:error] = 'We recently adjusted the way our passwords are store. Please Reset your password '
@@ -237,22 +276,22 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
-      ordering,@name_header = {:name => :asc}, 'hilite'
-      @all_focus_areas = ["All","Applied Physics", "Big Data/Data Mining/Machine Learning", "Bioinformatics", "Business", "Communication Systems",
-                          "Computer Breadth", "Computer Hardware", "Computer Networks", "Control Systems", "Electrical Breadth", "Electrical Circuits",
-                          "Entrepreneurship", "Integrated Circuits", "Internet of Things", "Photonic Systems", "Power Systems", "Pre-Law",
-                          "Pre-Medicine", "Quantum Computing and Devices", "RF Electronics", "Semiconductor Devices", "Signal & Imaging Processing",
-                          "Software Engineering", "Sustainability"]
-      @selected_focus_areas = params[:focus_areas] || session[:focus_areas] || {}
+    ordering,@name_header = {:name => :asc}, 'hilite'
+    @all_focus_areas = ["All","Applied Physics", "Big Data/Data Mining/Machine Learning", "Bioinformatics", "Business", "Communication Systems",
+                        "Computer Breadth", "Computer Hardware", "Computer Networks", "Control Systems", "Electrical Breadth", "Electrical Circuits",
+                        "Entrepreneurship", "Integrated Circuits", "Internet of Things", "Photonic Systems", "Power Systems", "Pre-Law",
+                        "Pre-Medicine", "Quantum Computing and Devices", "RF Electronics", "Semiconductor Devices", "Signal & Imaging Processing",
+                        "Software Engineering", "Sustainability"]
+    @selected_focus_areas = params[:focus_areas] || session[:focus_areas] || {}
 
-      if @selected_focus_areas == {}
-        @selected_focus_areas = Hash[@all_focus_areas.map {|focus_area| [focus_area, focus_area]}]
-      end
+    if @selected_focus_areas == {}
+      @selected_focus_areas = Hash[@all_focus_areas.map {|focus_area| [focus_area, focus_area]}]
+    end
 
-      if params[:focus_areas] != session[:focus_areas]
-        session[:focus_areas] = @selected_focus_areas
-        redirect_to :sort => sort, :focus_areas => @selected_focus_areas and return
-      end
-      @faculties = FacultyMember.all.where(focus_area: @selected_focus_areas.keys).order(ordering)
+    if params[:focus_areas] != session[:focus_areas]
+      session[:focus_areas] = @selected_focus_areas
+      redirect_to :sort => sort, :focus_areas => @selected_focus_areas and return
+    end
+    @faculties = FacultyMember.all.where(focus_area: @selected_focus_areas.keys).order(ordering)
   end
 end

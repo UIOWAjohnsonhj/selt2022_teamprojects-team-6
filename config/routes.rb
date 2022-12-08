@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :faculty_members
   devise_for :students, :controllers => { registrations: 'students/registrations' }
+  devise_for :faculty_members, :controllers => { registrations: 'faculty_members/registrations' }
+
   get 'resumes/index'
 
   get 'resumes/new'
@@ -32,6 +33,11 @@ Rails.application.routes.draw do
 
   get 'view_profile', to: 'main#view_profile', as: 'view_profile'
   post 'main/view_profile'
+  get 'add_experience', to: 'main#add_experience', as: 'add_experience'
+  post 'main/add_experience'
+
+  get 'remove_experience', to: 'main#remove_experience', as: 'remove_experience'
+  post 'main/remove_experience'
 
   get 'search_instructor', to: 'main#search_instructor', as: 'search_instructor'
   post 'main/search_instructor'
@@ -79,6 +85,7 @@ Rails.application.routes.draw do
   post 'faculty_members/waitlist_application'
 
   get 'faculty_profile', to: 'faculty_members#faculty_profile', as: 'faculty_profile'
+  post 'faculty_members/faculty_profile'
 
   get 'new_faculty', to: 'faculty_members#new_faculty', as: 'new_faculty'
 

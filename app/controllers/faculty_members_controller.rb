@@ -1,4 +1,5 @@
 class FacultyMembersController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   def show
   end
 
@@ -14,13 +15,14 @@ class FacultyMembersController < ApplicationController
   end
 
   def faculty_profile
-    @faculty = FacultyMember.find_by(id: session[:faculty_id])
-    if @faculty.nil?
+    @faculty = current_faculty_member
+    puts "s-------------------------------------------ddddddd",faculty_member_signed_in?
+    if !faculty_member_signed_in?
       flash[:notice] = "Faculty Account not Found"
       redirect_to controller: "main", action: 'index' and return
     end
-    @user_type = session[:user_type].to_sym # need to remove this and put it in a before_filter with authentication
-    @id = session[:faculty_id] # need to remove this and put it in a before_filter with authentication
+
+    @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
     @display_name = @faculty.first_name
     @name = "#{@faculty.first_name} #{@faculty.last_name}"
     @department = @faculty.department
@@ -37,21 +39,17 @@ class FacultyMembersController < ApplicationController
   end
 
   def my_evaluations
-    @user_type = session[:user_type].to_sym # need to remove this and put it in a before_filter with authentication
-    @id = session[:faculty_id] # need to remove this and put it in a before_filter with authentication
-    @faculty = FacultyMember.find_by(id: session[:faculty_id])
+    @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
+    @faculty = FacultyMember.find_by(id: @id)
     @evaluations = Evaluation.where(faculty_id: @faculty.id)
     @display_name = @faculty.first_name
   end
 
   def admission_decision
-    @user_type = session[:user_type].to_sym # need to remove this and put it in a before_filter with authentication
-    @id = session[:faculty_id] # need to remove this and put it in a before_filter with authentication
-    puts params
-    puts "Admission decision"
+    @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
     # Below will be added when application is created and we have a university id
     # @application_list = Application.where(university_id: @faculty.university_id, department_id: @faculty.department_id)
-    @faculty = FacultyMember.find_by(id: session[:faculty_id])
+    @faculty = FacultyMember.find_by(id: @id)
     @application_list = Application.where(department_id: @faculty.department_id)
     @student_app_dict = {}
     @application_list.each do |app|

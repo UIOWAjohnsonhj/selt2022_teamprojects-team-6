@@ -10,7 +10,6 @@ class ResumesController < ApplicationController
 
   def create
     @resume = Resume.new(resume_params)
-    puts session
     @student = Student.find_by(id: current_student.id)
     Resume.destroy_old_resume(@student.id)
     if @resume.save

@@ -53,9 +53,7 @@ department = [{:university_id=>1,:name=>"Electrical Engineering"},{:university_i
 #   Student.create!(student)
 # end
 
-# profiles.each do |profile|
-#   Profile.create!(profile)
-# end
+
 universities.each do |uni|
   University.create!(uni)
 end
