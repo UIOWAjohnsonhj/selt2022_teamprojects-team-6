@@ -59,9 +59,11 @@ h1 {
   color: black;
   font-size: 150%;
   font-style: italic;
+  text-align: left;
   display: block;
   width: 100%;
   border-bottom: 1px solid DarkSlateGrey;
+
 }
 h1.title {
   margin: 0 0 1em;
