@@ -104,7 +104,7 @@
       </div>
       <% if @resume != "No resume uploaded" %>
         <div class="small_row">
-          <%= link_to "Download Resume", @resume.attachment_url, class: "link" %> <br>
+          <%= link_to "Download Resume", @resume.attachment_url, class: "link", target: :_blank %> <br>
         </div>
       <% end %>
       <br>
