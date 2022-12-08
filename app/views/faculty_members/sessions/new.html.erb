@@ -1,19 +1,40 @@
-<h2>Log in</h2>
+<div class="login-box">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="user-box">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="user-box">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <%= render "faculty_members/shared/links" %>
 
-  <div class="field">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "faculty_members/shared/links" %>
+    <a>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <%= f.submit "Login" %>
+    </a>
+  <% end %>
+</div>
+<!--<h2>Login</h2>-->
+<!--<form>-->
+<!--  <div class="user-box">-->
+<!--    <input type="text" name="" required="">-->
+<!--    <label>Username</label>-->
+<!--  </div>-->
+<!--  <div class="user-box">-->
+<!--    <input type="password" name="" required="">-->
+<!--    <label>Password</label>-->
+<!--  </div>-->
+<!--  <a href="#">-->
+<!--    <span></span>-->
+<!--    <span></span>-->
+<!--    <span></span>-->
+<!--    <span></span>-->
+<!--    Submit-->
+<!--  </a>-->
