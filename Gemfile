@@ -8,6 +8,7 @@ ruby '2.6.6'
 gem 'haml'
 gem 'mail'
 gem 'actionmailer'
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails' #, '~> 5.1.1'
