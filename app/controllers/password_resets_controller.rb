@@ -1,8 +1,22 @@
-class PasswordResetsController
+class PasswordResetsController < ApplicationController
 
+  def create
+    PasswordResetMailer.reset.deliver_now
+  end
+  def edit
 
-  def send_password_reset
-    PasswordMailer.password_reset("ezouhriadnane@gmail.com").deliver_now
+  end
+
+  def update
+    puts " non"
+  end
+
+  def new
+    puts "New Email sent here: "
+    PasswordResetMailer.password_reset.deliver_now
   end
 
 end
+
+
+
