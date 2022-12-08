@@ -41,6 +41,8 @@ gem 'decisiontree'
 gem 'graphviz'
 
 gem 'graphr'
+
+gem 'sprockets-rails',  '>= 3.2.0'
 #run following line to install devise
 #bundle exec rails g devise:install
 gem 'bootstrap-sass', '~> 2.3.2'
