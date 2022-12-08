@@ -4,23 +4,13 @@ require 'json'
 class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
-  @@id = nil
-  @@universities=nil
-  @@user_type = nil
-  @@search_type = nil
-  @@page_counter = 1
-  @@experience_count = 1
   def initialize
     super
     @student = Student
     @profiles = Profile
     @faculty = FacultyMember
     @current_profile = nil
-    @id = @@id
-    @user_type = @@user_type
-    @search_type = @@search_type
     @applications= Application
-    @page_counter =@@page_counter
 
   end
   def index
@@ -34,8 +24,6 @@ class MainController < ApplicationController
   end
 
   def intermediate_logout
-    @@id = nil
-    @@page_counter=1
     reset_session
     redirect_to root_path
   end
@@ -123,13 +111,13 @@ class MainController < ApplicationController
       flash[:notice] = "Please fill out all fields"
       redirect_to edit_profile_path and return
     end
-    @@experience_count+=1
+    session[:experience_count]+=1
     redirect_to edit_profile_path
   end
 
   def remove_experience
-    if @@experience_count>1
-      @@experience_count-=1
+    if session[:experience_count]>1
+      session[:experience_count]-=1
     end
     redirect_to edit_profile_path
   end
@@ -150,9 +138,9 @@ class MainController < ApplicationController
     end
     if params.include? "hidden"
       @experience_count = Experiences.where(student: current_student).count
-      @@experience_count=@experience_count
+      session[:experience_count]=@experience_count
     else
-      @experience_count = @@experience_count
+      @experience_count = session[:experience_count]
     end
     @student = current_student
     @resume = Resume.where(student_id: @student.id).take
@@ -173,8 +161,6 @@ class MainController < ApplicationController
     begin
       if not @student.nil? #student1 && student1.authenticate(given_password)
         #&.authenticate(given_password)
-        @@user_type = :student
-        @@id = @student.id
         #p @student
         session[:student_id] = @student.id
         session[:user_type] = :student
@@ -183,8 +169,6 @@ class MainController < ApplicationController
       elsif not @faculty.nil?
         #&.authenticate(given_password)
         puts 'line 148'
-        @@id = @faculty.id
-        @@user_type = :faulty
         session[:faculty_id] = @faculty.id
         session[:user_type] = :faculty
         redirect_to faculty_profile_path(@faculty, faculty_id: @faculty.id)
@@ -208,12 +192,25 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
-    @universities= @@universities
+
+    if session[:search_type]=="supported"
+      @universities=University
+      @search_type = session[:search_type]
+      session[:university_count] = @universities.count
+    elsif session[:search_type]=="location"
+      @search_type = session[:search_type]
+    elsif session[:search_type]=="country" or session[:search_type]=="name"
+      response = data = JSON.parse(open(session[:url]).read)
+      @universities = response["records"]
+      @search_type = session[:search_type]
+      session[:university_count] = @universities.count
+    end
+    @page_counter = session[:page_counter]
+    puts @page_counter,"PAAAGE"
     @all_universities = []
     University.all.each do |u|
       @all_universities.append(u.name.downcase)
     end
-    puts @all_universities
   end
   def view_university
     if !student_signed_in?
@@ -232,26 +229,22 @@ class MainController < ApplicationController
     end
     filter = params[:filter]
     entry = params[:search]
-    @@page_counter =1
+    session[:page_counter] =1
     if filter == "Location"
-      @@search_type = :location
+      session[:search_type]=:location
     elsif filter == "Supported"
-      @@search_type = :supported
-      @@universities = University
+      session[:search_type]=:supported
     elsif filter.blank? or entry.blank?
       flash[:notice] = "Please fill out all fields"
-      @@search_type = nil
+      session[:search_type] = nil
     elsif filter == "Country"
       url = 'https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=100&sort=world_rank&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.country='+entry+'&refine.year=2018'
-      response = data = JSON.parse(open(url).read)
-      @@universities = response["records"]
-      @@search_type = :country
+      session[:url]=url
+      session[:search_type]=:country
     elsif filter == "university name"
       url = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=shanghai-world-university-ranking&q=&rows=1&sort=world_rank&facet=university_name&facet=world_rank&facet=national_rank&facet=year&facet=country&refine.university_name="+entry+"&refine.year=2018"
-      response = data = JSON.parse(open(url).read)
-      @@universities = response["records"]
-      @@search_type = :name
-
+      session[:search_type]=:name
+      session[:url]=url
     end
     redirect_to search_universities_path
 
@@ -260,14 +253,13 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
-    puts params.include? "prev"
     if params.include? "prev"
-      if @@page_counter>1
-        @@page_counter-=1
+      if session[:page_counter]>1
+        session[:page_counter]-=1
       end
     else
-      if @@page_counter< @@universities.length/10
-        @@page_counter+=1
+      if session[:page_counter]< session[:university_count]/10
+        session[:page_counter]+=1
       end
     end
     redirect_to search_universities_path
