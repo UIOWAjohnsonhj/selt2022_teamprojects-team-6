@@ -45,8 +45,8 @@
 
       <div class="row">
         <label class="label">Undergrad college</label>
-
         <label class="label">Year</label>
+        <label class="label">Undergrad GPA</label>
       </div>
       <br>
 
@@ -59,6 +59,7 @@
           <option value="2023">
           <option value="2024">
         </datalist>
+        <input value="<%= @current_profile.gpa %>" class="field" name="undergrad_gpa">
       </div>
       <br>
       <div class="row">
@@ -105,14 +106,32 @@
       <br>
     </form>
     <br>
+    <div class="row">
+      <% if @resume != "No resume uploaded" %>
+        <label class="label"> <%= @resume.name %> </label>
+      <% else %>
+        <label class="label"> <%= @resume %> </label>
+        <br>
+      <% end %>
+    </div>
     <% if @resume != "No resume uploaded" %>
-      <label class="label"> <%= @resume.name %> </label>
-      <%= link_to "Download Resume", @resume.attachment_url %>
-      <%= button_to "Delete",  @resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{@resume.name}?" %>
-      <%= button_to "New Resume", resumes_new_path(@student, student_id: @student.id) %>
+      <div>
+        <%= link_to "Download Resume", @resume.attachment_url, class: "link", target: :_blank %> <br>
+      </div>
+      <div class="">
+        <%= link_to "New Resume", resumes_new_path, class: "link" %> <br>
+      </div>
+      <div class="">
+        <%= button_to "Delete",  @resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{@resume.name}?" %>
+      </div>
+      <br>
     <% else %>
-      <%= button_to "New Resume", resumes_new_path(@student, student_id: @student.id) %>
+      <div class="">
+        <%= link_to "Upload Resume", resumes_new_path, class: "link" %> <br>
+      </div>
+      <br>
     <% end %>
+    <br>
   </div>
   <div class="profile_features2">
     <div class="vl"></div>

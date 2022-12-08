@@ -41,6 +41,8 @@ gem 'decisiontree'
 gem 'graphviz'
 
 gem 'graphr'
+
+gem 'sprockets-rails',  '>= 3.2.0'
 #run following line to install devise
 #bundle exec rails g devise:install
 gem 'bootstrap-sass', '~> 2.3.2'
@@ -63,6 +65,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'simplecov', require: false
   # Use sqlite3 as the database for Active Record
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '< 3.0.0'
 end

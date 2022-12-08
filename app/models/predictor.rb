@@ -8,6 +8,19 @@ class Predictor < ActiveRecord::Base
     training = [
       ['3.0', 'UC Berkeley', 'UC Berkeley', 'Computer Science', 1],
       ['4.0', 'University of Iowa', 'Harvard', 'Mechanical Engineering', 1],
+      ['3.7', 'University of Iowa', 'Harvard', 'Computer Science', 1],
+      ['3.5', 'University of Iowa', 'Harvard', 'Computer Science', 0],
+      ['3.4', 'University of Iowa', 'Harvard', 'Computer Science', 0],
+      ['3.6', 'University of Iowa', 'Harvard', 'Computer Science', 0],
+      ['3.2', 'University of Iowa', 'University of Iowa', 'Mechanical Engineering', 0],
+      ['3.5', 'University of Iowa', 'University of Iowa', 'Mechanical Engineering', 1],
+      ['3.5', 'University of Iowa', 'University of Iowa', 'Computer Science', 1],
+      ['3.7', 'University of Iowa', 'University of Iowa', 'Computer Science', 1],
+      ['3.2', 'University of Iowa', 'University of Iowa', 'Computer Science', 0],
+      ['3.6', 'University of Iowa', 'University of Iowa', 'Electrical Engineering', 1],
+      ['3.0', 'University of Iowa', 'University of Iowa', 'Electrical Engineering', 0],
+      ['3.4', 'University of Iowa', 'University of Iowa', 'Computer Science and Engineering', 1],
+      ['3.0', 'University of Iowa', 'University of Iowa', 'Computer Science and Engineering', 0],
       ['3.5', 'University of Iowa', 'UC Berkeley', 'Computer Science', 1],
       ['3.0', 'University of Iowa', 'UC Berkeley', 'Mechanical Engineering', 0],
       ['3.25', 'Harvard', 'UC Berkeley', 'Computer Science', 1],
@@ -39,8 +52,65 @@ class Predictor < ActiveRecord::Base
       ["3.7", "University of Alabama", "University of California - San Diego", "Finance", 1],
       ["3.4", "University of Tennessee", "University of California - Santa Barbara", "Marketing", 0],
       ["3.9", "University of Louisiana", "University of California - Irvine", "Accounting", 1],
-      ["3.2", "University of South Carolina", "University of California - Santa Cruz", "Management", 0],
+      ["3.2", "University of South Carolina", "University of California - Santa Cruz", "Management", 1],
       ["3.3", "University of Iowa", "Harvard", "Computer Science", 0],
+      ["3.6", "University of California - Los Angeles", "University of Colorado - Boulder", "Computer Science", 1],
+      ["3.9", "Stanford University", "University of Michigan", "Computer Science", 1],
+      ["3.2", "University of Texas - Austin", "University of California - Santa Barbara", "Computer Science", 0],
+      ["3.8", "University of Florida", "University of Washington", "Computer Science", 1],
+      ["3.1", "University of Missouri", "University of Illinois - Urbana Champaign", "Computer Science", 0],
+      ["3.5", "University of Wisconsin - Madison", "University of California - Davis", "Computer Science", 1],
+      ["3.4", "University of Southern California", "University of California - San Diego", "Computer Science", 1],
+      ["3.7", "University of Minnesota", "University of Massachusetts - Amherst", "Computer Science", 1],
+      ["3.3", "University of Kansas", "University of Oregon", "Computer Science", 0],
+      ["3.6", "University of California - Berkeley", "University of California - Berkeley", "Computer Science", 1],
+      ["3.9", "University of New Mexico", "University of Pennsylvania", "Computer Science", 1],
+      ["3.2", "University of Iowa", "Northwestern University", "Computer Science", 0],
+      ["3.8", "University of Georgia", "Yale University", "Computer Science", 1],
+      ["3.5", "University of Vermont", "University of Virginia", "Computer Science", 1],
+      ["3.6", "University of Delaware", "Cornell University", "Computer Science", 1],
+      ["3.1", "University of Arkansas", "University of Pittsburgh", "Computer Science", 0],
+      ["3.7", "University of Nebraska", "Rice University", "Computer Science", 1],
+      ["3.4", "University of Oklahoma", "Princeton University", "Computer Science", 1],
+      ["3.9", "University of Montana", "Georgetown University", "Computer Science", 1],
+      ["3.3", "University of South Dakota", "Emory University", "Computer Science", 0],
+      ["3.8", "University of North Dakota", "Duke University", "Computer Science", 1],
+      ["3.5", "University of Wyoming", "University of Chicago", "Computer Science", 1],
+      ["3.6", "University of Idaho", "University of Notre Dame", "Computer Science", 0],
+      ["3.1", "University of Mississippi", "University of California - Los Angeles", "Computer Science", 0],
+      ["3.7", "University of Alabama", "University of California - San Diego", "Computer Science", 1],
+      ["3.4", "University of Tennessee", "University of California - Santa Barbara", "Computer Science", 1],
+      ["3.9", "University of Louisiana", "University of California - Irvine", "Computer Science", 1],
+      ["3.2", "University of South Carolina", "University of California - Santa Cruz", "Computer Science", 1],
+      ["3.3", "University of Iowa", "Harvard", "Computer Science", 0],
+      ["3.6", "University of California - Los Angeles", "University of Colorado - Boulder", "Computer Science", 1],
+      ["3.9", "Stanford University", "University of Michigan", "Computer Science", 1],
+      ["3.2", "University of Texas - Austin", "University of California - Santa Barbara", "Computer Science", 0],
+      ["3.8", "University of Florida", "University of Washington", "Computer Science", 1],
+      ["3.1", "University of Missouri", "University of Illinois - Urbana Champaign", "Computer Science", 0],
+      ["3.5", "University of Wisconsin - Madison", "University of California - Davis", "Computer Science", 0],
+      ["3.4", "University of Southern California", "University of California - San Diego", "Computer Science", 1],
+      ["3.7", "University of Minnesota", "University of Massachusetts - Amherst", "Computer Science", 1],
+      ["3.3", "University of Kansas", "University of Oregon", "Computer Science", 0],
+      ["3.6", "University of California - Berkeley", "University of California - Berkeley", "Computer Science", 1],
+      ["3.9", "University of New Mexico", "University of Pennsylvania", "Computer Science", 1],
+      ["3.2", "University of Iowa", "Northwestern University", "Computer Science", 0],
+      ["3.8", "University of Georgia", "Yale University", "Computer Science", 1],
+      ["3.5", "University of Vermont", "University of Virginia", "Computer Science", 1],
+      ["3.6", "University of Delaware", "Cornell University", "Computer Science", 1],
+      ["3.1", "University of Arkansas", "University of Pittsburgh", "Computer Science", 0],
+      ["3.7", "University of Nebraska", "Rice University", "Computer Science", 1],
+      ["3.4", "University of Oklahoma", "Princeton University", "Computer Science", 1],
+      ["3.9", "University of Montana", "Georgetown University", "Computer Science", 1],
+      ["3.3", "University of South Dakota", "Emory University", "Computer Science", 0],
+      ["3.8", "University of North Dakota", "Duke University", "Computer Science", 1],
+      ["3.5", "University of Wyoming", "University of Chicago", "Computer Science", 1],
+      ["3.6", "University of Idaho", "University of Notre Dame", "Computer Science", 0],
+      ["3.1", "University of Mississippi", "University of California - Los Angeles", "Computer Science", 0],
+      ["3.7", "University of Alabama", "University of California - San Diego", "Computer Science", 1],
+      ["3.4", "University of Tennessee", "University of California - Santa Barbara", "Computer Science", 1],
+      ["3.9", "University of Louisiana", "University of California - Irvine", "Computer Science", 1],
+      ["3.2", "University of South Carolina", "University of California - Santa Cruz", "Computer Science", 0]
     # ... more training examples
     ]
 
@@ -70,10 +140,7 @@ class Predictor < ActiveRecord::Base
       predicted_results.append(decision)
     end
 
-
-
-
-    new_test = ['4.0', profile.college_name, searched_school, profile.interested_major]
+    new_test = [(profile.gpa).to_s, profile.college_name, searched_school, profile.interested_major]
     puts new_test
     decision_new = dec_tree.predict(new_test)
     if decision_new == 1

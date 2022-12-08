@@ -76,7 +76,7 @@ Rails.application.routes.draw do
   post 'faculty_members/admission_decision'
 
   get 'accept_application', to: 'faculty_members#accept_application', as: 'accept_application'
-  post 'facultys_member/accept_application'
+  post 'faculty_members/accept_application'
 
   get 'reject_application', to: 'faculty_members#reject_application', as: 'reject_application'
   post 'faculty_members/reject_application'
