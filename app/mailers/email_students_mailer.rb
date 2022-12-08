@@ -6,6 +6,11 @@ class EmailStudentsMailer < ApplicationMailer
   end
 
   def user_accepted(student_email)
-    mail(to: student_email, subject: 'Congratulations!')
+    mail(to: student_email, subject: 'Admission Decision')
   end
+
+  def user_denied(student_email)
+    mail(to: student_email, subject: 'Admission Decision')
+  end
+
 end
