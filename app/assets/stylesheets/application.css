@@ -98,15 +98,3 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
-
-.btn{
-  background-color: white;
-  color: black;
-  border: 2px solid #4CAF50; /* Green */
-}
-.btn:hover{
-  background-color: #ff9900;
-}
-.btn:active{
-  background-color: #be5602;
-}
