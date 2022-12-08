@@ -63,10 +63,11 @@ class MainController < ApplicationController
     end
     @applied_departments ={}
     if params.include? "gre"
-      if (params[:company].include? "" or params[:title].include? "" or params[:description].include? "" or params[:from].include? "" or params[:to].include? "")
+      if params.include? "company" and (params[:company].include? "" or params[:title].include? "" or params[:description].include? "" or params[:from].include? "" or params[:to].include? "")
         flash[:notice] = "Please fill out all fields"
         redirect_to edit_profile_path and return
       end
+      @current_profile.gpa = params[:gpa]
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
       @current_profile.capa = params[:capa]
@@ -76,11 +77,13 @@ class MainController < ApplicationController
       @current_profile.college_name = params[:college_name]
       @current_profile.save
       Experiences.destroy_all(student: current_student)
-      params[:company].length.times do |i|
-        hash = {:student=>current_student,:company_name=>params[:company][i],
-                :description=>params[:description][i],:job_title=> params[:title][i],
-                :from=>params[:from][i],:to=>params[:to][i]}
-        Experiences.create!(hash)
+      if params.include? "company"
+        params[:company].length.times do |i|
+          hash = {:student=>current_student,:company_name=>params[:company][i],
+                  :description=>params[:description][i],:job_title=> params[:title][i],
+                  :from=>params[:from][i],:to=>params[:to][i]}
+          Experiences.create!(hash)
+          end
       end
 
     elsif params.include? "department"
@@ -107,7 +110,7 @@ class MainController < ApplicationController
   end
 
   def add_experience
-    if (params[:company].include? "" or params[:title].include? "" or params[:description].include? "" or params[:from].include? "" or params[:to].include? "")
+    if params.include? "company" and (params[:company].include? "" or params[:title].include? "" or params[:description].include? "" or params[:from].include? "" or params[:to].include? "")
       flash[:notice] = "Please fill out all fields"
       redirect_to edit_profile_path and return
     end
@@ -116,7 +119,7 @@ class MainController < ApplicationController
   end
 
   def remove_experience
-    if session[:experience_count]>1
+    if session[:experience_count]>0
       session[:experience_count]-=1
     end
     redirect_to edit_profile_path
@@ -206,7 +209,6 @@ class MainController < ApplicationController
       session[:university_count] = @universities.count
     end
     @page_counter = session[:page_counter]
-    puts @page_counter,"PAAAGE"
     @all_universities = []
     University.all.each do |u|
       @all_universities.append(u.name.downcase)

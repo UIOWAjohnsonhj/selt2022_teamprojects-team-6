@@ -5,24 +5,26 @@
     <form method="post" action="<%= main_view_profile_path %>">
       <br>
       <div class="row">
-        <label class="label">GRE</label>
-        <label class="label">TOEFL</label>
-        <label class="label">CAPA</label>
+        <th><label class="label">GPA</label></th>
+        <th><label class="label">GRE</label></th>
+        <th><label class="label">TOEFL</label></th>
       </div>
       <br>
       <div class="row marg ">
+        <input value="<%= @current_profile.gpa %>" class="field" name="gpa">
         <input value="<%= @current_profile.gre %>" class="field" name="gre">
         <input value="<%= @current_profile.toefl %>" class="field" name="toefl">
-        <input value="<%= @current_profile.capa %>" class="field" name="capa">
       </div>
       <br>
       <div class="row">
-        <label class="label">Interested Major</label>
-        <label class="label">Term</label>
-        <label class="label">Year</label>
+        <th><label class="label">CAPA</label></th>
+        <th><label class="label">Intrested Major</label></th>
+        <th><label class="label">Term</label></th>
       </div>
       <br>
       <div class="row marg">
+        <input value="<%= @current_profile.capa %>" class="field" name="capa">
+
         <input value="<%= @current_profile.interested_major %>"  list="majors" class="field" name="major">
         <datalist id="majors">
           <option value="Mechanical Engineering">
@@ -37,24 +39,26 @@
           <option value="Spring">
           <option value="Summer">
         </datalist>
-        <input value="<%= @current_profile.year %>" list="year" class="field marg" name="year">
-
-        <datalist id="year">
-          <option value="2022">
-          <option value="2023">
-          <option value="2024">
-        </datalist>
         <br>
       </div>
       <br>
 
       <div class="row">
         <label class="label">Undergrad college</label>
+
+        <label class="label">Year</label>
       </div>
       <br>
 
       <div class="row marg">
         <input value="<%= @current_profile.college_name %>" class="field2" name="college_name">
+        <input value="<%= @current_profile.year %>" list="year" class="field2 " name="year">
+
+        <datalist id="year">
+          <option value="2022">
+          <option value="2023">
+          <option value="2024">
+        </datalist>
       </div>
       <br>
       <div class="row">
