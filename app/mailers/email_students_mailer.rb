@@ -13,4 +13,8 @@ class EmailStudentsMailer < ApplicationMailer
     mail(to: student_email, subject: 'Admission Decision')
   end
 
+  def user_waitlisted(student_email)
+    mail(to: student_email, subject: 'Admission Decision')
+  end
+
 end
