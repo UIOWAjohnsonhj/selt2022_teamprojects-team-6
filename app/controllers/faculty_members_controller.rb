@@ -89,7 +89,7 @@ class FacultyMembersController < ApplicationController
   require 'mail'
   def email_student
     @student_clicked_on = Student.where(:email => 'kianaberickson@gmail.com')
-    EmailStudentsMailer.notify_user(@student_clicked_on).deliver
+    EmailStudentsMailer.notify_user(@student_clicked_on).deliver_now
     render main_index_path
   end
 end
