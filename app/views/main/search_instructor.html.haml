@@ -11,6 +11,7 @@
   %thead
     %tr
       %th Instructor Name
+      %th University
       %th Department
       %th Focus Area
       %th Research
@@ -18,9 +19,10 @@
     - @faculty.all.each do |instructor|
       %tr
         %td= instructor[:first_name] + " " + instructor[:last_name]
+        %td= University.find(instructor[:university]).name
         %td= Department.find(instructor.department_id).name
         %td= instructor[:focus_area]
-        %td= instructor[:research]
+        %td= instructor[:research_url]
         %tr
 
 

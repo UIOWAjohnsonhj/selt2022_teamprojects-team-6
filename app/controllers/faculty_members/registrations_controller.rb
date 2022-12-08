@@ -46,6 +46,10 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:university])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:department_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:focus_area])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:research_url])
+
+
   end
 
   # If you have extra params to permit, append them to the sanitizer.
