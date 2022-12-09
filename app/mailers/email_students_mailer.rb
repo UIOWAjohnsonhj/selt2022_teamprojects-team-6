@@ -1,8 +1,8 @@
 class EmailStudentsMailer < ApplicationMailer
   default from: 'SimplApplySELT@gmail.com'
-  def notify_user(user)
-    # @user = user
-    mail(to: user, subject: 'Test Email')
+  def notify_user(student_email, subject, message)
+    @message = message
+    mail(to: student_email, subject: subject)
   end
 
   def user_accepted(student_email, application)

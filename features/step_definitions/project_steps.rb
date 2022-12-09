@@ -39,8 +39,7 @@ When(/^I Click "([^"]*)"$/) do |arg|
 end
 
 Given(/^I am an Instructor$/) do
-  fake_instructor = double('FacultyMember')
-  allow(fake_instructor).to receive(:username).and return("instructor")
+  pending
 
 end
 
@@ -53,8 +52,7 @@ Then(/^I should view a "([^"]*)" page$/) do |arg|
 end
 
 Given(/^I am a Student$/) do
-  fake_student = double('Student')
-  allow(fake_student).to receive(:username).and return("student")
+  pending
 end
 
 Then(/^I should not view a "([^"]*)" page$/) do |arg|
@@ -165,4 +163,36 @@ end
 
 Then(/^I should be on the "([^"]*)" page$/) do |arg|
   expect(page).to have_content(arg)
+end
+
+Given(/^I am on the admissions decision page of a student$/) do
+
+  visit profile_viewer_path
+end
+
+Then(/^A\(n\) "([^"]*)" email should be sent$/) do |arg|
+  @email = ActionMailer::Base.deliveries.first
+  @email.from.should == "simplapplyselt@gmail.com"
+  @email.body.should include(arg)
+end
+
+When(/^I click the Accept button$/) do
+  ActionMailer::Base.delivery_method = :test
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.deliveries.clear
+  click_button 'Accept'
+end
+
+When(/^I click the Reject button$/) do
+  ActionMailer::Base.delivery_method = :test
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.deliveries.clear
+  click_button 'Reject'
+end
+
+When(/^I click the Waitlist button$/) do
+  ActionMailer::Base.delivery_method = :test
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.deliveries.clear
+  click_button 'Waitlist'
 end
