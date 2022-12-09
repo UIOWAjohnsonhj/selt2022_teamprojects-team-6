@@ -18,13 +18,13 @@
 
 <form method="post" action="<%= main_intermediate_search_path %>">
   <input name="search" class="field2"/>
-  <input  list="filters" class="field2" name="filter">
-  <datalist id="filters">
-    <option value="Location">
-    <option value="university name">
-    <option value="Country">
-    <option value="Supported">
-  </datalist>
+  <select id="filters" class="field2" name="filter">
+    <option value="<%session[:search_type] %>"><%=session[:search_type] %></option>
+    <option value="Location">Location</option>
+    <option value="university name">University name</option>
+    <option value="Country">Country</option>
+    <option value="Supported">Supported</option>
+  </select>
   <input type="submit" value="search" class="btn">
 
 </form>

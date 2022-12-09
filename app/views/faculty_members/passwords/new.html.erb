@@ -8,9 +8,11 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="actions">
+  <div class="field">
     <%= f.submit "Send me reset password instructions" %>
+    <br/>
+    <%= render "faculty_members/shared/links" %>
+
   </div>
 <% end %>
 
-<%= render "faculty_members/shared/links" %>

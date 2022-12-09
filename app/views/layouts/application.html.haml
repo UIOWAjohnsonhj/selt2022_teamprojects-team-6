@@ -21,6 +21,8 @@
           = submit_tag 'Search Instructors'
         = form_tag predictor_predict_probability_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Predictor'
+        = form_tag edit_student_registration_path, :method => 'get', :class => 'form form-inline' do
+          = submit_tag 'Edit Account'
     -else
       -if faculty_member_signed_in?
         .row1
@@ -32,7 +34,8 @@
             = submit_tag 'My Evaluations'
           = form_tag admission_decision_path, :method => 'get', :class => 'form form-inline' do
             = submit_tag 'Admission Review'
-
+          = form_tag edit_faculty_member_registration_path, :method => 'get', :class => 'form form-inline' do
+            = submit_tag 'Edit Account'
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
