@@ -1,7 +1,26 @@
 class PasswordResetsController < ApplicationController
 
 
+  require 'net/smtp'
+  FROM_EMAIL = "my-email-id@gmail.com"
+  PASSWORD = "my-email-password"
+  TO_EMAIL = "receivers-email@gmail.com"
 
+  smtp = Net::SMTP.new 'smtp.gmail.com', 587
+  smtp.enable_starttls
+
+  message = <<END_OF_MESSAGE
+From: SomeName <my-email-id@gmail.com>
+To: ToName <receivers-email@gmail.com>
+Subject: Mail From Ruby
+
+Hello there!!
+This is a message from Ruby.
+END_OF_MESSAGE
+
+  smtp.start('received-from-goes-here', FROM_EMAIL, PASSWORD, :plain)
+  smtp.send_message(message, FROM_EMAIL, TO_EMAIL)
+  smtp.finish()
 
 
 
