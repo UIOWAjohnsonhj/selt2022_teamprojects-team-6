@@ -44,14 +44,13 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = {
-    :host => 'https://still-waters-25668.herokuapp.com'
-  }
+
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.smtp_settings = {
     :address              =>'smtp.gmail.com',
     :port                 => 587,
+    :domain               => 'https://still-waters-25668.herokuapp.com',
     :user_name            => 'SimplApplySELT@gmail.com',
     :password             => 'IloveSELT!',
     :authentication       => 'plain',

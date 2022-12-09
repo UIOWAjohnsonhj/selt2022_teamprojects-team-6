@@ -53,6 +53,7 @@ Rails.application.configure do
     :address              =>'smtp.gmail.com',
     :port                 => 587,
     :user_name            => 'SimplApplySELT@gmail.com',
+    :domain               => 'https://still-waters-25668.herokuapp.com',
     :password             => 'IloveSELT!',
     :authentication       => 'plain',
     :enable_starttls_auto => true
