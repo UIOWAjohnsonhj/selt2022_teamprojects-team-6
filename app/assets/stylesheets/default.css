@@ -553,12 +553,14 @@ input[type=submit]:hover {
 .loader_body {
   box-sizing: border-box;
   overflow: hidden;
+  margin-top: 220px;
 }
 
 .loader {
   position: relative;
-  margin: 0 auto;
-  width: 350px;
+  overflow: hidden;
+  margin: auto;
+  width: 364px;
   color: white;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 250%;

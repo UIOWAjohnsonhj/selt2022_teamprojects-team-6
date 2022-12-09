@@ -5,7 +5,24 @@ class PredictorController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
+    # @student = "None"
+    # if params[:search] != ""
+    #   @student = Student.find_by(id: current_student.id)
+    #   @profile = Profile.find_by(student_id: current_student.id)
+    #   @searched_school = params[:search]
+    #   predicted_probability = Predictor.predict(@profile, @searched_school)
+    #   @predicted_decision = predicted_probability["decision"]
+    #   @accuracy = (predicted_probability["accuracy"]).to_s
+    # end
+  end
+
+  def predictor_result
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
     @student = "None"
+    puts params
+    puts "params HEREEEE"
     if params[:search] != ""
       @student = Student.find_by(id: current_student.id)
       @profile = Profile.find_by(student_id: current_student.id)
@@ -14,5 +31,13 @@ class PredictorController < ApplicationController
       @predicted_decision = predicted_probability["decision"]
       @accuracy = (predicted_probability["accuracy"]).to_s
     end
+  end
+
+  def loading
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
+    puts params
+    @search = params[:search]
   end
 end
