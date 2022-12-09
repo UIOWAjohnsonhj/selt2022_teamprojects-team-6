@@ -97,7 +97,9 @@ class FacultyMembersController < ApplicationController
     @profile = Profile.find_by(student_id: @student.id)
     @application = Application.where(student_id: @student.id, department_id: @faculty.department_id).take
     @evaluation = Evaluation.where(student_id: @student.id, faculty_id: @faculty.id).take
+    puts params
     if @evaluation.nil?
+      puts "evaluation is nil"
       @evaluation = Evaluation.new
       @evaluation.student_id = @student.id
       @evaluation.faculty_id = @faculty.id
@@ -105,10 +107,12 @@ class FacultyMembersController < ApplicationController
       @evaluation.university_id = @faculty.university
       @evaluation.applied_term = @profile.term
       @evaluation.status = params[:decision]
+      @evaluation.score = params[:score]
       @evaluation.application_id = @application.id
       @evaluation.save
     else
-      @evaluation.update(comment: params[:comment], status: params[:decision])
+      puts "evaluation already exists"
+      @evaluation.update(comment: params[:comment], status: params[:decision], score: params[:score])
     end
     redirect_to my_evaluations_path
   end
