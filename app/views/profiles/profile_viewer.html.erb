@@ -106,18 +106,31 @@
     <br>
   </div>
   <br>
-
-  <div class="profile_features2">
-    <div class="row">
-      <h1> Application Decision</h1>
-      <br>
-    </div>
-    <div class="row">
-      <%= button_to "Accept", faculty_members_accept_application_path(@student, student_id: @student.id, professor_id: @professor.id) %>
-      <%= button_to "Reject", faculty_members_reject_application_path(@student, student_id: @student.id, professor_id: @professor.id) %>
-      <%= button_to "Waitlist", faculty_members_waitlist_application_path(@student, student_id: @student.id, professor_id: @professor.id) %>
-      <br>
-    </div>
+  <br>
+  <div class="application_view">
+    <span></span>
+    <form method="get" action="<%= evaluate_student_path %>">
+      <h3>Comment</h3>
+      <input hidden type="hidden" id="student_id" name="student_id" value="<%= @student.id %>">
+      <% if @evaluation %>
+        <input type="text" id="comment" name="comment" value="<% @evaluation.comment %>" style="height:120px; width:200px;">
+        <label for="score">Score: </label><input type="text" id="score" name="score" value="<% @evaluation.score %>">
+        <br>
+      <% else %>
+        <input type="text" id="comment" name="comment" value="" style="height:120px; width:200px;">
+        <label for="score">Score: </label><input type="text" id="score" name="score" value="">
+        <br>
+      <% end %>
+        <label>
+          <select name="decision">
+            <option value="Waitlist">Waitlist</option>
+            <option value="Accept">Accept</option>
+            <option value="Reject">Reject</option>
+          </select>
+        </label>
+        <br>
+      <input type="submit" value="Submit">
+    </form>
   </div>
 </div>
 
