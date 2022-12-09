@@ -50,14 +50,14 @@ department = [{:university_id=>1,:name=>"Electrical Engineering"},{:university_i
 # end
 
 
-# universities.each do |uni|
-#   University.create!(uni)
-# end
-#
-# department.each do |department|
-#   Department.create!(department)
-# end
-
-faculties.each do |faculty|
-  FacultyMember.create!(faculty)
+universities.each do |uni|
+  University.create!(uni)
 end
+
+department.each do |department|
+  Department.create!(department)
+end
+
+# faculties.each do |faculty|
+#   FacultyMember.create!(faculty)
+# end
