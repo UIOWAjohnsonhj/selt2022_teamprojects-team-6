@@ -25,7 +25,7 @@ class FacultyMembersController < ApplicationController
     @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
     @display_name = @faculty.first_name
     @name = "#{@faculty.first_name} #{@faculty.last_name}"
-    @department = @faculty.department
+    @department = @faculty.department || Department.find(@faculty.department_id)
   end
 
   def faculty_evaluations
