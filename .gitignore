@@ -12,7 +12,7 @@ u# FROM https://raw.githubusercontent.com/github/gitignore/master/Ruby.gitignore
 /test/version_tmp/
 /tmp/
 coverage
-
+/config/application.yml
 # Used by dotenv library to load environment variables.
 # .env
 

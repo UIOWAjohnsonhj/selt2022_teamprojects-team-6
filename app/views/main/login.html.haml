@@ -14,4 +14,9 @@
 
   %br/
   %br/
-= link_to 'Forgot Password', reset_password_path
+
+=form_tag password_resets_new_path ,:method=>:get do
+  = submit_tag 'Forgot Password', :id => 'Forgot Password Button'
+= form_tag main_index_path, :method => :post do
+  = submit_tag "Return", :id => "return_to_welcome"
+

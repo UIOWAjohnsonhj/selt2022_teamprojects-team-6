@@ -5,24 +5,26 @@
     <form method="post" action="<%= main_view_profile_path %>">
       <br>
       <div class="row">
-        <label class="label">GRE</label>
-        <label class="label">TOEFL</label>
-        <label class="label">CAPA</label>
+        <th><label class="label">GPA</label></th>
+        <th><label class="label">GRE</label></th>
+        <th><label class="label">TOEFL</label></th>
       </div>
       <br>
       <div class="row marg ">
+        <input value="<%= @current_profile.gpa %>" class="field" name="gpa">
         <input value="<%= @current_profile.gre %>" class="field" name="gre">
         <input value="<%= @current_profile.toefl %>" class="field" name="toefl">
-        <input value="<%= @current_profile.capa %>" class="field" name="capa">
       </div>
       <br>
       <div class="row">
-        <label class="label">Interested Major</label>
-        <label class="label">Term</label>
-        <label class="label">Year</label>
+        <th><label class="label">CAPA</label></th>
+        <th><label class="label">Intrested Major</label></th>
+        <th><label class="label">Term</label></th>
       </div>
       <br>
       <div class="row marg">
+        <input value="<%= @current_profile.capa %>" class="field" name="capa">
+
         <input value="<%= @current_profile.interested_major %>"  list="majors" class="field" name="major">
         <datalist id="majors">
           <option value="Mechanical Engineering">
@@ -37,28 +39,33 @@
           <option value="Spring">
           <option value="Summer">
         </datalist>
-        <input value="<%= @current_profile.year %>" list="year" class="field marg" name="year">
-
-        <datalist id="year">
-          <option value="2022">
-          <option value="2023">
-          <option value="2024">
-        </datalist>
         <br>
       </div>
       <br>
 
       <div class="row">
         <label class="label">Undergrad college</label>
+        <label class="label">Year</label>
       </div>
       <br>
 
       <div class="row marg">
         <input value="<%= @current_profile.college_name %>" class="field2" name="college_name">
+        <input value="<%= @current_profile.year %>" list="year" class="field2 " name="year">
+
+        <datalist id="year">
+          <option value="2022">
+          <option value="2023">
+          <option value="2024">
+        </datalist>
       </div>
       <br>
-      <h2>Work experience</h2>
-      <br>
+      <div class="row">
+        <h2>Work experience</h2>
+        <input type="submit" input value="Add row" type="submit" formmethod="post" formaction="<%= main_add_experience_path %>" >
+        <input type="submit"input value="remove row" type="submit" formmethod="post" formaction="<%= main_remove_experience_path %>" >
+
+      </div>      <br>
       <div class="row">
         <label class="label">Company name</label>
         <label class="label">Job title</label>
@@ -69,25 +76,60 @@
       <div class="row">
       </div>
       <br>
-      <div class="row marg">
-        <input class="field2" name="company">
-        <input class="field2" name="title">
-        <input class="field2" name="description">
-        <input class="field2" name="from">
-        <input class="field2" name="to">
-      </div>
+      <%(@experience_count).times do |i|%>
+          <%if i<@exp_list.length %>
+            <%exp = @exp_list[i] %>
+          <div class="row marg">
+
+          <input class="field2" name="company[]" value="<%= exp.company_name %>">
+            <input class="field2" name="title[]" value="<%= exp.job_title %>">
+            <input class="field2" name="description[]"  value="<%= exp.description %>">
+            <input class="field2" name="from[]" type="date" value="<%= exp.from %>" >
+            <input class="field2" name="to[]" type="date"  value="<%= exp.to %>">
+            </div>
+            <%else %>
+          <div class="row marg">
+
+          <input class="field2" name="company[]">
+            <input class="field2" name="title[]">
+            <input class="field2" name="description[]">
+            <input class="field2" name="from[]" type="date">
+            <input class="field2" name="to[]" type="date">
+          </div>
+            <%end %>
+
+        <br>
+      <%end %>
       <input type="submit" class = "btn" value="save">
       <br>
     </form>
     <br>
+    <div class="row">
+      <% if @resume != "No resume uploaded" %>
+        <label class="label"> <%= @resume.name %> </label>
+      <% else %>
+        <label class="label"> <%= @resume %> </label>
+        <br>
+      <% end %>
+    </div>
     <% if @resume != "No resume uploaded" %>
-      <label class="label"> <%= @resume.name %> </label>
-      <%= link_to "Download Resume", @resume.attachment_url %>
-      <%= button_to "Delete",  @resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{@resume.name}?" %>
-      <%= button_to "New Resume", resumes_new_path(@student, student_id: @student.id) %>
+      <div>
+        <%= link_to "Download Resume", @resume.attachment_url, class: "link", target: :_blank %> <br>
+      </div>
+      <div class="">
+        <%= link_to "New Resume", resumes_new_path, class: "link" %> <br>
+      </div>
+      <div class="">
+        <%= button_to "Delete",  @resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{@resume.name}?" %>
+      </div>
+      <br>
     <% else %>
-      <%= button_to "New Resume", resumes_new_path(@student, student_id: @student.id) %>
+      <div class="">
+        <%= link_to "Upload Resume", resumes_new_path, class: "link" %> <br>
+      </div>
+      <br>
     <% end %>
+    <br>
   </div>
   <div class="profile_features2">
     <div class="vl"></div>

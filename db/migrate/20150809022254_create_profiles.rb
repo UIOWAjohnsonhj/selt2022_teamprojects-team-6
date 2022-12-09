@@ -9,6 +9,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :term
       t.string :year
       t.string :college_name
+      t.float :gpa
     end
   end
 end

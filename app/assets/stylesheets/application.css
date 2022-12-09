@@ -25,6 +25,9 @@
   float: left;
   margin-right: 42px;
 }
+.profile-table{
+  text-align: center;
+}
 .label{
   margin-left: 50px;
   float: left;
@@ -53,10 +56,24 @@
   float: left;
   width: 1%;
 }
-
+#notice {
+  color: red;
+}
+.flash{
+  color: red;
+}
 .btn{
   border-radius: 30px;
   width: 100px;
+  float: left;
+  margin-left: 8px;
+  background-color: orange;}
+
+
+.btn2{
+  border-radius: 30px;
+  width: 100px;
+  height: 200px;
   float: left;
   margin-left: 8px;
   background-color: orange;

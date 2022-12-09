@@ -1,5 +1,7 @@
 require File.expand_path('../boot', __FILE__)
-
+# require File.expand_path(File.dirname(__FILE__) + "/environment")
+# set :environment, Rails.env
+# set :output, Rails.root.join('log','cron.log')
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems

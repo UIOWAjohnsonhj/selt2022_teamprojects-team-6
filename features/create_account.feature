@@ -1,4 +1,4 @@
-Feature: Allow users to creat an account
+Feature: Allow users to create an account
 
     As a user
     I want to create an account

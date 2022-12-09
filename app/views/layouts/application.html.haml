@@ -1,13 +1,13 @@
 !!!
 %html
   %head
-    %title Simplaply
-    = stylesheet_link_tag 'application', 'media' => 'all', "data-turbolinks-track" => true
-    = javascript_include_tag 'application', "data-turbolinks-track" => true
+    %title ApplicationHub
+    = stylesheet_link_tag 'application', 'media' => 'all'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
 
   %body
-    %h1.title Simplaply
+    %h1.title ApplicationHub
     -if student_signed_in?
       .row1
 
@@ -19,8 +19,12 @@
           = submit_tag 'Search Universities'
         = form_tag search_instructor_path, :method => 'get', :class => 'form form-inline' do
           = submit_tag 'Search Instructors'
+        = form_tag predictor_predict_probability_path, :method => 'post', :class => 'form form-inline' do
+          = submit_tag 'Predictor'
+        = form_tag edit_student_registration_path, :method => 'get', :class => 'form form-inline' do
+          = submit_tag 'Edit Account'
     -else
-      -if !@id.nil? && @user_type == :faculty
+      -if faculty_member_signed_in?
         .row1
           = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
             = submit_tag 'Log out'
@@ -28,7 +32,13 @@
             = submit_tag 'My Profile'
           = form_tag my_evaluations_path, :method => 'get', :class => 'form form-inline' do
             = submit_tag 'My Evaluations'
-
+          = form_tag admission_decision_path, :method => 'get', :class => 'form form-inline' do
+            = submit_tag 'Admission Review'
+          = form_tag edit_faculty_member_registration_path, :method => 'get', :class => 'form form-inline' do
+            = submit_tag 'Edit Account'
+          -if current_faculty_member.chair?
+            = form_tag new_faculty_member_registration_path, :method => 'get', :class => 'form form-inline' do
+              = submit_tag 'Add Faculty'
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]

@@ -15,12 +15,8 @@ students = [{:first_name => 'Kiana', :last_name => 'Erickson', :email => 'kberic
   	 ]
 
 #i added the faculty in front of first names to differentiate from the students names
-faculties = [{:first_name => 'Kiana-faculty', :last_name => 'Erickson', :email => 'kberickson_f@uiowa.edu', :focus_area=>"Computer Hardware", :research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa"},
-            {:first_name => 'Joslin-faculty', :last_name => 'Some', :email => 'jsome_f@uiowa.edu', :focus_area=>"Control Systems", :research_url=>"http://www.engineering.uiowa.edu", :university=>"University of Iowa"},
-            {:first_name => 'Evan-faculty', :last_name => 'Brewer', :email => 'ebrewer_f@uiowa.edu', :focus_area=>"Internet of Things", :research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa"},
-            {:first_name => 'Ben-faculty', :last_name => 'Desollar', :email => 'bdesollar_f@uiowa.edu', :focus_area=>"Computer Hardware", :research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa"},
-            {:first_name => 'Adnane-faculty', :last_name => 'Ezouhri', :email => 'aezouhri_f@uiowa.edu', :focus_area=>"Virtual Reality", :research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa"},
-            {:first_name => 'Christian-faculty', :last_name => 'Baseme', :email => 'cbaseme_f@uiowa.edu', :focus_area=>"Computer Science", :research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa"},
+faculties = [{:first_name => 'Kian', :last_name => 'Weimer', :email => 'kianW@uiowa.edu', :focus_area=>"Computer Hardware", :password=>"123456",:chair=>true,:research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa",:department_id=>1},
+            {:first_name => 'Evan', :last_name => 'Bradley', :email => 'evanB@uiowa.edu', :focus_area=>"Control Systems", :password=>"123456",:chair=>true,:research_url=>"http://www.engineering.uiowa.edu", :university=>"University of Iowa",:department_id=>3},
 ]
 
 
@@ -53,17 +49,15 @@ department = [{:university_id=>1,:name=>"Electrical Engineering"},{:university_i
 #   Student.create!(student)
 # end
 
-# profiles.each do |profile|
-#   Profile.create!(profile)
-# end
-universities.each do |uni|
-  University.create!(uni)
-end
 
-department.each do |department|
-  Department.create!(department)
-end
-
-# faculties.each do |faculty|
-#   FacultyMember.create!(faculty)
+# universities.each do |uni|
+#   University.create!(uni)
 # end
+#
+# department.each do |department|
+#   Department.create!(department)
+# end
+
+faculties.each do |faculty|
+  FacultyMember.create!(faculty)
+end
