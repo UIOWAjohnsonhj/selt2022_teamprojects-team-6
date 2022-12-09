@@ -1,0 +1,12 @@
+%h1 Contact Applicant
+
+= form_tag faculty_members_email_student_path, :method => :post do
+  = label :label, :subject
+  = text_field :email, :subject
+  = label :label, :message
+  = text_area :email, :message
+  = submit_tag "Send", :id => "send_email_button"
+
+= form_tag main_index_path, :method => :post do
+  = submit_tag "Back", :id => "back_to_sign_up"
+
