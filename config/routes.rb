@@ -25,8 +25,10 @@ Rails.application.routes.draw do
 
   get 'general_sign_up', to: 'main#general_sign_up', as: 'general_sign_up'
   post 'main/general_sign_up'
+
   get 'general_login', to: 'main#general_login', as: 'general_login'
   post 'main/general_login'
+
   get 'sign_up_faculty', to: 'main#sign_up_faculty', as: 'sign_up_faculty'
   post 'main/sign_up_faculty'
 
@@ -35,6 +37,7 @@ Rails.application.routes.draw do
 
   get 'view_profile', to: 'main#view_profile', as: 'view_profile'
   post 'main/view_profile'
+
   get 'add_experience', to: 'main#add_experience', as: 'add_experience'
   post 'main/add_experience'
 
@@ -47,10 +50,8 @@ Rails.application.routes.draw do
   get 'profile_viewer', to: 'profiles#profile_viewer', as: 'profile_viewer'
   post 'profiles/profile_viewer'
 
-
   get 'intermediate_sign_up', to: 'main#intermediate_sign_up', as: 'intermediate_sign_up'
   post 'main/intermediate_sign_up'
-
 
   get 'edit_profile', to: 'main#edit_profile', as: 'edit_profile'
   post 'main/edit_profile'
@@ -60,6 +61,7 @@ Rails.application.routes.draw do
 
   get 'search_universities', to: 'main#search_universities', as: 'search_universities'
   post 'main/search_universities'
+
   get 'view_university', to: 'main#view_university', as: 'view_university'
   post 'main/view_university'
 
@@ -77,6 +79,7 @@ Rails.application.routes.draw do
 
   get '/password/reset', to: 'password_resets#new'
   post '/password/reset', to: 'password_resets#create'
+
   get '/password/reset/edit', to: 'password_resets#edit'
   patch '/password/reset/edit', to: 'password_resets#update'
 
@@ -94,6 +97,7 @@ Rails.application.routes.draw do
 
   get 'change_page', to: 'main#change_page', as: 'change_page'
   post 'main/change_page'
+
   # FacultyMember Routes
   get 'admission_decision', to: 'faculty_members#admission_decision', as: 'admission_decision'
   post 'faculty_members/admission_decision'
@@ -123,12 +127,18 @@ Rails.application.routes.draw do
 
   # Resume Routes
   get 'resumes', to: 'resumes#resume_view', as: 'resumes'
+
   get 'new_resume', to: 'resumes#new', as: 'new_resume'
   post 'resumes/new'
+
   post 'resumes', to: 'resumes#create'
+
   get 'resumes/:id', to: 'resumes#show', as: 'resume'
+
   get 'resumes/:id/edit', to: 'resumes#edit', as: 'edit_resume'
+
   patch 'resumes/:id', to: 'resumes#update'
+
   delete 'resumes/:id', to: 'resumes#destroy'
 
   # Predictor Routes
