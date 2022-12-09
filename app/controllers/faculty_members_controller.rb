@@ -42,6 +42,13 @@ class FacultyMembersController < ApplicationController
     @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
     @faculty = FacultyMember.find_by(id: @id)
     @evaluations = Evaluation.where(faculty_id: @faculty.id)
+    @student_eval_dict = {}
+    @evaluations.each do |eval|
+      puts eval.student_id
+      puts eval.faculty_id
+      @student = Student.find(eval.student_id)
+      @student_eval_dict[@student] = eval
+    end
     @display_name = @faculty.first_name
   end
 
@@ -82,6 +89,32 @@ class FacultyMembersController < ApplicationController
     student_email = Student.find(params[:student_id]).email
     EmailStudentsMailer.user_waitlisted(student_email, @application).deliver_now
     redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
+  end
+
+  def evaluate_student
+    @student = Student.find_by(id: params[:student_id])
+    @faculty = FacultyMember.find_by(id: current_faculty_member.id)
+    @profile = Profile.find_by(student_id: @student.id)
+    @application = Application.where(student_id: @student.id, department_id: @faculty.department_id).take
+    @evaluation = Evaluation.where(student_id: @student.id, faculty_id: @faculty.id).take
+    puts params
+    if @evaluation.nil?
+      puts "evaluation is nil"
+      @evaluation = Evaluation.new
+      @evaluation.student_id = @student.id
+      @evaluation.faculty_id = @faculty.id
+      @evaluation.comment = params[:comment]
+      @evaluation.university_id = @faculty.university
+      @evaluation.applied_term = @profile.term
+      @evaluation.status = params[:decision]
+      @evaluation.score = params[:score]
+      @evaluation.application_id = @application.id
+      @evaluation.save
+    else
+      puts "evaluation already exists"
+      @evaluation.update(comment: params[:comment], status: params[:decision], score: params[:score])
+    end
+    redirect_to my_evaluations_path
   end
 
   def sign_up_faculty

@@ -113,6 +113,7 @@ Rails.application.routes.draw do
   get 'new_faculty', to: 'faculty_members#new_faculty', as: 'new_faculty'
   get 'faculty_evaluations', to: 'faculty_members#faculty_evaluations', as: 'faculty_evaluations'
   get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
+  get 'evaluate_student', to: 'faculty_members#evaluate_student', as: 'evaluate_student'
 
   get 'create_email', to: 'faculty_members#create_email', as: 'create_email'
   post 'faculty_members/create_email'
