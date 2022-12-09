@@ -368,3 +368,32 @@ input[type=submit] {
     bottom: 100%;
   }
 }
+
+.application_view {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-right: 300px;
+  padding: 10px;
+  width: auto;
+  height: auto;
+
+
+}
+
+.application_view label {
+  display: flow;
+  color: gold;
+}
+
+.application_view h3 {
+  color: black;
+}
+
+.application_view input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+}

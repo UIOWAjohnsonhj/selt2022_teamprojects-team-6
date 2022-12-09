@@ -39,6 +39,7 @@ class FacultyMembersController < ApplicationController
   end
 
   def my_evaluations
+    puts params
     @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
     @faculty = FacultyMember.find_by(id: @id)
     @evaluations = Evaluation.where(faculty_id: @faculty.id)
@@ -82,6 +83,18 @@ class FacultyMembersController < ApplicationController
     student_email = Student.find(params[:student_id]).email
     EmailStudentsMailer.user_waitlisted(student_email, @application).deliver_now
     redirect_to admission_decision_path(student_id: params[:student_id], professor_id: params[:professor_id])
+  end
+
+  def evaluate_student
+    @student = Student.find_by(id: params[:student_id])
+    @faculty = FacultyMember.find_by(id: params[:faculty_id])
+    @evaluation = Evaluation.new
+    @evaluation.student_id = @student.id
+    @evaluation.faculty_id = @faculty.id
+    @evaluation.comment =
+    @evaluation.save
+    @evaluation_id = @evaluation.id
+    redirect_to my_evaluations_path
   end
 
   def sign_up_faculty
