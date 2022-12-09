@@ -81,6 +81,10 @@ h1.title {
   font-style: oblique;
 }
 
+.login-padding {
+  margin: 5px;
+}
+
 h2 {
   color: black;
   font-size: 150%;
@@ -117,11 +121,12 @@ table#movies th, table#movies td {
   margin: 1em 0;
   padding: 5px;
 }
+
 form label {
   display: block;
   line-height: 25px;
   font-weight: bold;
-  color: maroon;
+  color: black;
 }
 
 .link {
@@ -165,7 +170,7 @@ form label {
 
 input[type=submit] {
   margin: auto;
-  width: 170px;
+  width: auto;
   height: 40px;
   font-family: 'Roboto', sans-serif;
   font-size: 11px;
@@ -298,7 +303,7 @@ input[type=submit]:hover {
 .login-box form a {
   position: relative;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 10px;
   color: gold;
   font-size: 16px;
   font-weight: bold;
@@ -306,8 +311,8 @@ input[type=submit]:hover {
   text-transform: uppercase;
   overflow: hidden;
   transition: .5s;
-  margin-top: 40px;
-  letter-spacing: 4px
+  letter-spacing: 4px;
+  margin-left: 10px;
 }
 
 .login-box a:hover {
