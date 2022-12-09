@@ -109,8 +109,9 @@
   <br>
   <div class="application_view">
     <span></span>
-    <form method="get" action="<%= my_evaluations_path %>">
+    <form method="get" action="<%= evaluate_student_path %>">
       <h3>Comment</h3>
+      <input hidden type="hidden" id="student_id" name="student_id" value="<%= @student.id %>">
       <input type="text" id="name" name="comment" value="" style="height:120px; width:200px;">
       <br>
       <label>
