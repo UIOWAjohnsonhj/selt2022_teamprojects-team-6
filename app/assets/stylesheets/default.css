@@ -419,7 +419,7 @@ input[type=submit] {
 
 .rwd-table tr:first-child {
   border-top: none;
-  background: #428bca;
+  background: gold;
   color: #fff;
 }
 
