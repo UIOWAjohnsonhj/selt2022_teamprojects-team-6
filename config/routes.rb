@@ -12,8 +12,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "main#index"
+
   get 'login', to: 'main#login', as: 'login'
   post 'main/login'
+
 
   get 'main/intermediate_sign_up', to: redirect('sign_up')
   # post 'sign_up'
@@ -112,6 +114,11 @@ Rails.application.routes.draw do
   get 'faculty_evaluations', to: 'faculty_members#faculty_evaluations', as: 'faculty_evaluations'
   get 'my_evaluations', to: 'faculty_members#my_evaluations', as: 'my_evaluations'
 
+  get 'create_email', to: 'faculty_members#create_email', as: 'create_email'
+  post 'faculty_members/create_email'
+
+  get 'email_student', to: 'faculty_members#email_student', as: 'email_student'
+  post 'faculty_members/email_student'
 
   # Resume Routes
   get 'resumes', to: 'resumes#resume_view', as: 'resumes'

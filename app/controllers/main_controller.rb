@@ -37,6 +37,7 @@ class MainController < ApplicationController
     # id=@profiles.where(email:params[:user][:email])
     # Commented out as we have yet to decide if we're making
     # should redirect_to 'faculty_create'
+
     flash[:notice]= "FacultyMember Account created successfully"
 
     redirect_to root_path

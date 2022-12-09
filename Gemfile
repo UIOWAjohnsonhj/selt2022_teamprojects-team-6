@@ -10,6 +10,7 @@ gem 'mail'
 gem 'actionmailer'
 gem 'devise'
 
+gem 'actionmailer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails' # , '4.2.10'
 # Use SCSS for stylesheets

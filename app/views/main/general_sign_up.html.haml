@@ -1,4 +1,4 @@
-%h1 Sign up as a
+%h1 Sign Up As A...
 
 
 =form_tag new_student_registration_path, :method=>:get do
@@ -7,3 +7,7 @@
   = submit_tag "Faculty", :id => "create_account_button"
 -if student_signed_in?
   -redirect_to view_profile_path
+%br/
+%br/
+= form_tag main_index_path, :method => :post do
+  = submit_tag "Return", :id => "return_to_welcome"
