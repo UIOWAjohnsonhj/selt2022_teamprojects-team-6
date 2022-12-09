@@ -90,21 +90,14 @@
         <%end %>
       </table>
 
-
       <br>
       <div class="row">
         <% if @resume != "No resume uploaded" %>
-          <label class="label"> <%= @resume.name %> </label>
-      <% else %>
-          <label class="label"> <%= @resume %> </label>
-          <br>
+          <div>
+            <%= link_to "Download Resume", @resume.attachment_url, class: "link1", target: :_blank %>
+          </div>
         <% end %>
       </div>
-      <% if @resume != "No resume uploaded" %>
-        <div class="small_row">
-          <%= link_to "Download Resume", @resume.attachment_url, class: "link", target: :_blank %> <br>
-        </div>
-      <% end %>
       <br>
       <br>
       <input type="submit" class = "btn2" value="Edit profile">

@@ -129,28 +129,31 @@ form label {
   color: black;
 }
 
-.link {
-  color: black;
-  text-decoration: underline;
-  font-weight: bold;
+.link1 {
+  padding: 10px;
+  margin: auto;
+  width: 160px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: gold;
+  background-color: black;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
 }
 
-.link:hover {
+.link1:hover {
+  background-color: gold;
+  box-shadow: 0px 15px 20px gold;
   color: black;
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-.link:active {
-  color: black;
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-.link:visited {
-  color: black;
-  text-decoration: underline;
-  font-weight: bold;
+  transform: translateY(-3px);
 }
 
 .small_row {

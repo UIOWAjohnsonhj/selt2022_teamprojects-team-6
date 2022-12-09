@@ -113,14 +113,20 @@
       <h3>Comment</h3>
       <input hidden type="hidden" id="student_id" name="student_id" value="<%= @student.id %>">
       <% if @evaluation %>
-        <input type="text" id="comment" name="comment" value="<% @evaluation.comment %>" style="height:120px; width:200px;">
-        <label for="score">Score: </label><input type="text" id="score" name="score" value="<% @evaluation.score %>">
+        <input type="text" id="comment" name="comment" value="<%= @evaluation.comment %>" style="height:120px; width:200px;">
+        <label for="score">Score: </label><input type="text" id="score" name="score" value="<%= @evaluation.score %>">
         <br>
+        <label>
+          <select name="decision">
+            <option value="<%= @evaluation.status %>">Waitlist</option>
+            <option value="<%= @evaluation.status %>">Accept</option>
+            <option value="<%= @evaluation.status %>">Reject</option>
+          </select>
+        </label>
       <% else %>
         <input type="text" id="comment" name="comment" value="" style="height:120px; width:200px;">
         <label for="score">Score: </label><input type="text" id="score" name="score" value="">
         <br>
-      <% end %>
         <label>
           <select name="decision">
             <option value="Waitlist">Waitlist</option>
@@ -128,6 +134,8 @@
             <option value="Reject">Reject</option>
           </select>
         </label>
+      <% end %>
+
         <br>
       <input type="submit" value="Submit">
     </form>
