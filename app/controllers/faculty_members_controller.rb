@@ -16,10 +16,11 @@ class FacultyMembersController < ApplicationController
 
   def faculty_profile
     @faculty = current_faculty_member
-    puts "s-------------------------------------------ddddddd",faculty_member_signed_in?
     if !faculty_member_signed_in?
       flash[:notice] = "Faculty Account not Found"
       redirect_to controller: "main", action: 'index' and return
+    else
+      redirect_to controller: "faculty_members", action: 'my_evaluations' and return
     end
 
     @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
