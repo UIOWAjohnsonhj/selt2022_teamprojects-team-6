@@ -4,17 +4,17 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1><%= @application.student.name %> 's Application Decision</h1>
+<h1><%= @application.student.first_name %> 's Application Decision</h1>
 <p>
-  Dear <%= @application.student.name %>,
+  Dear <%= @application.student.first_name %> <%= @application.student.last_name %>,
   <br>
-  Thank you for your application to <%= @application.university.name %>'s <%= @application.department.name %> program.
+  Thank you for your application to <%= @application.university %>'s <%= @application.department %> program.
   We regret to inform you that we are unable to offer you a spot in our program. We wish you the best of luck
   in your future endeavors.
   <br>
 </p>
 <p>
   Sincerely,<br>
-  The admissions department at <%= @application.university.name %></p>
+  The admissions department at <%= @application.university %></p>
 </body>
 </html>
