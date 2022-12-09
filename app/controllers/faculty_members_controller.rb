@@ -122,17 +122,16 @@ class FacultyMembersController < ApplicationController
   end
 
   def create_email
+    @student = Student.find(params[:student_id])
     render 'email_applicant'
   end
 
   require 'mail'
   def email_student
-    @student_clicked_on = Student.where(:first_name => 'Kiana')
-    puts @student_clicked_on.first.email
-    email= @student_clicked_on.first.email
-    puts email
-    EmailStudentsMailer.notify_user(email).deliver_now
-    render main_index_path
+    @student = Student.find(params[:email][:student_id])
+    email= @student.email
+    EmailStudentsMailer.notify_user(email, params[:email][:subject], params[:email][:message]).deliver_now
+    render 'my_evaluations'
   end
 end
 
