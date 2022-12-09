@@ -23,8 +23,8 @@ class Students::RegistrationsController < Devise::RegistrationsController
 
     Profile.create!(student_profile)
 
-    student_email = params[:student][:email]
-    EmailStudentsMailer.create_account(student_email).deliver_now
+    #student_email = params[:student][:email]
+    #EmailStudentsMailer.create_account(student_email).deliver_now
   end
 
   # GET /resource/edit
