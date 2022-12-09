@@ -128,7 +128,8 @@ class FacultyMembersController < ApplicationController
 
   require 'mail'
   def email_student
-    email= 'kianaberickson@gmail.com'
+    @student = Student.find(params[:email][:student_id])
+    email= @student.email
     EmailStudentsMailer.notify_user(email, params[:email][:subject], params[:email][:message]).deliver_now
     render 'my_evaluations'
   end

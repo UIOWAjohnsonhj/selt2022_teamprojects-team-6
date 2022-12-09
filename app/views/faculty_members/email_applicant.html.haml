@@ -5,6 +5,7 @@
   = text_field :email, :subject
   = label :label, :message
   = text_area :email, :message, "rows" => 10, "cols" => 50
+  = hidden_field :email, :student_id, :value => @student.id
   = submit_tag "Send", :id => "send_email_button"
 
 = form_tag main_index_path, :method => :post do

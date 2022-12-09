@@ -23,7 +23,6 @@
           <td><%= student.email %></td>
           <td><%= app.application_status %></td>
           <td><%= link_to "Review", profile_viewer_path(app, student_id: student.id, professor_id: @faculty.id) %></td>
-          <td><%= link_to "Review", profile_viewer_path(app, student_id: student.id) %></td>
           <% if @faculty.chair %>
             <td>
                 <%= button_to "Accept", faculty_members_accept_application_path(student, student_id: student.id), class: "btn btn-danger", confirm: "Are you sure that you wish to accept #{student.first_name} #{student.last_name}?" %>
