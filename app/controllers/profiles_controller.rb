@@ -8,14 +8,8 @@ class ProfilesController < ApplicationController
     @experiences = Experiences.where(student_id: params[:student_id])
     @resume = Resume.where(student_id: params[:student_id]).take
     @evaluations = Evaluation.where(student_id: params[:student_id])
-    if @evaluation != nil
-      @evaluation = Evaluation.where(student_id: params[:student_id]).take
-
-
-    end
     if @resume.nil?
       @resume = "No resume uploaded"
     end
-
   end
 end
