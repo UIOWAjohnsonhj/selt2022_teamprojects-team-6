@@ -76,7 +76,7 @@ class MainController < ApplicationController
       @current_profile.term = params[:term]
       @current_profile.year = params[:year]
       @current_profile.college_name = params[:college_name]
-      @current_profile.gpa = params[:undergrad_gpa]
+      @current_profile.gpa = params[:gpa]
       @current_profile.save
       Experiences.destroy_all(student: current_student)
       if params.include? "company"
