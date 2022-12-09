@@ -164,26 +164,56 @@ form label {
 }
 
 input[type=submit] {
-  border-radius: 5px;
-  border: 0;
-  height:25px;
-  font-family: Tahoma, serif;
-  background: #f4f4f4;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #f4f4f4), color-stop(100%, #ededed));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #f4f4f4 1%, #ededed 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#ededed', GradientType=0);
-  /* IE6-9 */
+  margin: auto;
+  width: 170px;
+  height: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: gold;
+  background-color: black;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 8px 15px black;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type=submit]:hover {
+  background-color: gold;
+  box-shadow: 0px 15px 20px gold;
+  color: black;
+  transform: translateY(-3px);
+}
+
+.button {
+  padding: 10px;
+  margin: auto;
+  width: 160px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: black;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  background-color: gold;
+  box-shadow: 0px 15px 20px gold;
+  color: black;
+  transform: translateY(-3px);
 }
 
 
@@ -515,76 +545,64 @@ input[type=submit] {
   100%  { transform: translateX(0)}
 }
 
+.loader_body {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 .loader {
-  width: 150px;
-  margin: 150px auto 70px;
   position: relative;
+  margin: 0 auto;
+  width: 350px;
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 250%;
+  background: linear-gradient(180deg, #222 0, #444 100%);
+  box-shadow: inset 0 5px 20px black;
+  text-shadow: 5px 5px 5px rgba(0,0,0,0.3);
 }
 
-.loader .loading_1 {
-  position: relative;
-  width: 100%;
-  height: 10px;
-  border: 1px solid yellowgreen;
-  border-radius: 10px;
-  animation: turn 4s linear 1.75s infinite;
-}
-
-.loader .loading_1:before {
+.loader:after {
   content: "";
-  display: block;
+  display: table;
+  clear: both;
+}
+
+span {
+  float: left;
+  height: 100px;
+  line-height: 120px;
+  width: 50px;
+}
+
+.loader > span {
+  border-left: 1px solid #444;
+  border-right: 1px solid #222;
+}
+
+.covers {
   position: absolute;
-  width: 0;
   height: 100%;
-  background-color: yellowgreen;
-  box-shadow: 10px 0px 15px 0px yellowgreen;
-  animation: load 2s linear infinite;
-}
-
-.loader .loading_2 {
-  position: absolute;
   width: 100%;
-  top: 10px;
-  color: green;
-  font-size: 22px;
-  text-align: center;
-  animation: bounce 2s linear infinite;
 }
 
-@keyframes load {
-  0% {
-    width: 0%;
-  }
-
-  87.5% {
-    width: 100%;
-  }
+.covers span {
+  background: linear-gradient(180deg, white 0, #ddd 100%);
+  animation: up 2s infinite;
 }
 
-@keyframes turn {
-  0% {
-    transform: rotateY(0deg);
-  }
-
-  6.25%,
-  50% {
-    transform: rotateY(180deg);
-  }
-
-  56.25%,
-  100% {
-    transform: rotateY(360deg);
-  }
+@keyframes up {
+  0%   { margin-bottom: 0; }
+  16%  { margin-bottom: 100%; height: 20px; }
+  50% { margin-bottom: 0; }
+  100% { margin-bottom: 0; }
 }
 
-@keyframes bounce {
+.covers span:nth-child(2) { animation-delay: .142857s; }
+.covers span:nth-child(3) { animation-delay: .285714s; }
+.covers span:nth-child(4) { animation-delay: .428571s; }
+.covers span:nth-child(5) { animation-delay: .571428s; }
+.covers span:nth-child(6) { animation-delay: .714285s; }
+.covers span:nth-child(7) { animation-delay: .857142s; }
 
-  0%,
-  100% {
-    top: 10px;
-  }
 
-  12.5% {
-    top: 30px;
-  }
-}

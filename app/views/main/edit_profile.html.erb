@@ -102,37 +102,39 @@
 
         <br>
       <%end %>
-      <input type="submit" class = "btn" value="save">
-      <br>
-    </form>
     <br>
     <div class="row">
-      <% if @resume != "No resume uploaded" %>
-        <label class="label"> <%= @resume.name %> </label>
-      <% else %>
-        <label class="label"> <%= @resume %> </label>
-        <br>
-      <% end %>
-    </div>
+      <%# if @resume != "No resume uploaded" %>
+<!--        <label class="label"> <%#= @resume.name %> </label>-->
+      <%# else %>
+<!--        <label class="label"> <%#= @resume %> </label>-->
+<!--        <br>-->
+      <%# end %>
+    <div class="row">
     <% if @resume != "No resume uploaded" %>
       <div>
-        <%= link_to "Download Resume", @resume.attachment_url, class: "link", target: :_blank %> <br>
+        <%= button_to "Download Resume", @resume.attachment_url, class: "button", target: :_blank %> <br>
       </div>
-      <div class="">
-        <%= link_to "New Resume", resumes_new_path, class: "link" %> <br>
+      <div>
+        <%= button_to "New Resume", resumes_new_path, class: "button" %> <br>
       </div>
-      <div class="">
-        <%= button_to "Delete",  @resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{@resume.name}?" %>
+      <div>
+        <%= button_to "Delete",  @resume, method: :delete, class: "button", confirm: "Are you sure that you wish to delete #{@resume.name}?" %>
       </div>
       <br>
     <% else %>
       <div class="">
-        <%= link_to "Upload Resume", resumes_new_path, class: "link" %> <br>
+        <%= button_to "Upload Resume", resumes_new_path, class: "button" %> <br>
       </div>
       <br>
     <% end %>
+    </div>
     <br>
-  </div>
+    </div>
+    <input type="submit" class = "btn" value="save">
+    <br>
+  </form>
+</div>
   <div class="profile_features2">
     <div class="vl"></div>
   </div>
