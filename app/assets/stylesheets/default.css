@@ -397,3 +397,11 @@ input[type=submit] {
   margin: 5px;
   padding: 5px;
 }
+
+.evaluations_table {
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+  color: black;
+}
