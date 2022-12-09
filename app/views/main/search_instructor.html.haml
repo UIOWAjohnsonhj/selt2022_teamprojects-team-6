@@ -2,7 +2,9 @@
 
 = form_tag search_instructor_path, :method => :get, :id => 'focus_area_form' do
 
-  %select{ :name => "dept" }
+  %select{ :name => "focus_areas"}
+    %option{value: session[:focus_areas]}= session[:focus_areas]
+
     -@all_focus_areas.each do |efa|
       %option{:value => efa}= efa
   = submit_tag 'Refresh', :id => 'efa_submit'
@@ -16,14 +18,18 @@
       %th Focus Area
       %th Research
   %tbody
-    - @faculty.all.each do |instructor|
+    - @faculties.all.each do |instructor|
       %tr
         %td= instructor[:first_name] + " " + instructor[:last_name]
         %td= University.find(instructor[:university]).name
         %td= Department.find(instructor.department_id).name
         %td= instructor[:focus_area]
-        %td= instructor[:research_url]
-        %tr
+        %td
+          -if !instructor[:research_url].blank?
+            %a{:href => instructor[:research_url]}
+              %h3 View research
+          -else
+            %h3 No research link
 
 
 

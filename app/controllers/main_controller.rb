@@ -272,22 +272,22 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
+    @faculties = FacultyMember
+    puts "SAANBE---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------s"
     ordering,@name_header = {:name => :asc}, 'hilite'
     @all_focus_areas = ["All","Applied Physics", "Big Data/Data Mining/Machine Learning", "Bioinformatics", "Business", "Communication Systems",
                         "Computer Breadth", "Computer Hardware", "Computer Networks", "Control Systems", "Electrical Breadth", "Electrical Circuits",
                         "Entrepreneurship", "Integrated Circuits", "Internet of Things", "Photonic Systems", "Power Systems", "Pre-Law",
                         "Pre-Medicine", "Quantum Computing and Devices", "RF Electronics", "Semiconductor Devices", "Signal & Imaging Processing",
                         "Software Engineering", "Sustainability"]
-    @selected_focus_areas = params[:focus_areas] || session[:focus_areas] || {}
+    @selected_focus_areas = params[:focus_areas] || "All"
 
-    if @selected_focus_areas == {}
-      @selected_focus_areas = Hash[@all_focus_areas.map {|focus_area| [focus_area, focus_area]}]
+    if @selected_focus_areas == "All"
+      @faculties = FacultyMember
+    else
+      @faculties = FacultyMember.where(focus_area: @selected_focus_areas)
     end
-
-    if params[:focus_areas] != session[:focus_areas]
-      session[:focus_areas] = @selected_focus_areas
-      redirect_to :sort => sort, :focus_areas => @selected_focus_areas and return
-    end
-    @faculties = FacultyMember.all.where(focus_area: @selected_focus_areas.keys).order(ordering)
+    session[:focus_areas] = @selected_focus_areas
+    puts session[:focus_areas]
   end
 end
