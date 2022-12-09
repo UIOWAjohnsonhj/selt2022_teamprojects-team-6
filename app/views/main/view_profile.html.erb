@@ -3,76 +3,112 @@
 
 <div class="profile">
   <div class="profile_features">
-    <br>
     <form method="post" action="<%= main_edit_profile_path %>">
       <br>
-      <div class="row">
-        <label class="label">GRE</label>
-        <label class="label">TOEFL</label>
-        <label class="label">CAPA</label>
-      </div>
-      <br>
-      <div class="row marg">
-        <input value="<%= @current_profile.gre %>" class="field" name="gre" readonly >
-        <input value="<%= @current_profile.toefl %>" class="field" name="toefl" readonly>
-        <input value="<%= @current_profile.capa %>" class="field" name="capa" readonly>
-      </div>
-      <br>
-      <div class="row">
-        <label class="label">Intrested Major</label>
-        <label class="label">Term</label>
-        <label class="label">Year</label>
-      </div>
-      <br>
-      <div class="row marg">
-        <input value="<%= @current_profile.interested_major %>" list="majors" class="field" name="major" readonly>
-        <input value="<%= @current_profile.term %>" list="term" class="field" name="term" readonly>
-        <input value="<%= @current_profile.year %>" list="year" class="field" name="year" readonly>
+      <table>
+        <tr>
+          <th><label class="label">GPA</label></th>
+          <th><label class="label">GRE</label></th>
+          <th><label class="label">TOEFL</label></th>
+        </tr>
+        <tr>
+          <td>
+            <label class="field" name="gre" style="text-align: center"><u><%= @current_profile.gpa %></u></label>
+          </td>
+          <td>
+            <label class="field" name="toefl" style="text-align: center" ><u><%= @current_profile.gre %></u></label>
+          </td>
+          <td>
+            <label class="field" name="capa" style="text-align: center"><u><%= @current_profile.toefl %></u></label>
 
-        <br>
-      </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table>
+        <tr>
+          <th><label class="label">CAPA</label></th>
+          <th><label class="label">Intrested Major</label></th>
+          <th><label class="label">Term</label></th>
+        </tr>
+        <tr>
+          <td>
+            <label list="majors" class="field" name="major" style="text-align: center"><u><%= @current_profile.capa %></u></label>
+          </td>
+          <td>
+            <label list="term" class="field" name="term" style="text-align: center"><u><%= @current_profile.interested_major %></u></label>
+          </td>
+          <td>
+            <label list="year" class="field" name="year" style="text-align: center"><u><%= @current_profile.term %></u></label>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      <table class="profile-table">
+        <tr>
+          <th><label class="label">Year</label></th>
+          <th><label class="label">Undergrad college</label></th>
+        </tr>
+        <tr>
+          <td><label class="field2" name="college_name"style="text-align: center" ><u><%= @current_profile.year %></u></label></td>
+          <td><label class="field2" name="college_name"style="text-align: center" ><u><%= @current_profile.college_name %></u></label></td>
+        </tr>
+      </table>
       <br>
 
-      <div class="row">
-        <label class="label">Undergrad college</label>
-      </div>
-      <br>
-
-      <div class="row marg">
-        <input value="<%= @current_profile.college_name %>" class="field2" name="college_name" readonly>
-      </div>
       <br>
       <h2>Work experience</h2>
       <br>
-      <div class="row">
-        <label class="label">Company name</label>
-        <label class="label">Job title</label>
-        <label class="label">Description</label>
-        <label class="label">from</label>
-        <label class="label">to</label>
-      </div>
-      <br>
-      <div class="row marg">
-        <input  class="field2" name="company" readonly>
-        <input class="field2" name="position" readonly>
-        <input class="field2" name="description" readonly>
-        <input class="field2" name="from" readonly>
-        <input class="field2" name="to" readonly>
+      <table>
+        <tr>
+          <th>
+            <label class="label">Company name</label>
+          </th>
+          <th>
+            <label class="label">Job title</label>
+          </th>
+          <th>
+            <label class="label">Description</label>
+          </th>
+          <th>
+            <label class="label">from</label>
+          </th>
+          <th>
+            <label class="label">to</label>
+          </th>
+        </tr>
+        <%@experiences.all.each do |e| %>
+          <tr>
+            <td><label class="field2" style="text-align: center" ><u><%= e.company_name %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.description %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.job_title %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.from %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.to %></u></label></td>
 
-      </div>
+          </tr>
+        <%end %>
+      </table>
+
+
       <br>
       <div class="row">
         <% if @resume != "No resume uploaded" %>
           <label class="label"> <%= @resume.name %> </label>
-          <%= link_to "Download Resume", @resume.attachment_url %>
-        <% else %>
+      <% else %>
           <label class="label"> <%= @resume %> </label>
+          <br>
         <% end %>
       </div>
+      <% if @resume != "No resume uploaded" %>
+        <div class="small_row">
+          <%= link_to "Download Resume", @resume.attachment_url, class: "link", target: :_blank %> <br>
+        </div>
+      <% end %>
       <br>
       <br>
-      <input type="submit" class = "btn" value="Edit profile">
-
+      <input type="submit" class = "btn2" value="Edit profile">
+      <input type="hidden" name="hidden">
       <br>
     </form>
     <br>
@@ -92,10 +128,10 @@
           <th>Status</th>
         </tr>
         <%v.each do |a| %>
-        <tr>
-          <td><%=a[0] %></td>
-          <td><%=a[1] %></td>
-        </tr>
+          <tr>
+            <td><%=a[0] %></td>
+            <td><%=a[1] %></td>
+          </tr>
         <%end %>
       </table>
       <br>

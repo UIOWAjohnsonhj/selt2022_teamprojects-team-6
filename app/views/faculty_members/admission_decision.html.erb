@@ -9,6 +9,12 @@
         <th>Email</th>
         <th>Current Decision</th>
         <th>Review Profile</th>
+        <% if @faculty.chair %>
+          <th>Accept</th>
+          <th>Reject</th>
+          <th>Waitlist</th>
+        <% end %>
+        <th>Contact</th>
       </tr>
       <% @student_app_dict.each do |student, app| %>
         <tr>
@@ -17,6 +23,22 @@
           <td><%= student.email %></td>
           <td><%= app.application_status %></td>
           <td><%= link_to "Review", profile_viewer_path(app, student_id: student.id, professor_id: @faculty.id) %></td>
+          <% if @faculty.chair %>
+            <td>
+                <%= button_to "Accept", faculty_members_accept_application_path(student, student_id: student.id), class: "btn btn-danger", confirm: "Are you sure that you wish to accept #{student.first_name} #{student.last_name}?" %>
+            </td>
+          <% end %>
+          <% if @faculty.chair %>
+            <td>
+                <%= button_to "Reject", faculty_members_reject_application_path(student, student_id: student.id), class: "btn btn-danger", confirm: "Are you sure that you wish to reject #{student.first_name} #{student.last_name}?" %>
+            </td>
+          <% end %>
+          <% if @faculty.chair %>
+            <td>
+                <%= button_to "Waitlist", faculty_members_waitlist_application_path(student, student_id: student.id), class: "btn btn-danger", confirm: "Are you sure that you wish to waitlist #{student.first_name} #{student.last_name}?" %>
+            </td>
+          <% end %>
+          <td><%= link_to "Email", create_email_path(student_id: student.id) %></td>
         </tr>
       <% end %>
     </table>

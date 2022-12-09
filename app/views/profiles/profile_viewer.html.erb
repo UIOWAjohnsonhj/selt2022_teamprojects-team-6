@@ -1,59 +1,99 @@
-<h1>Profile</h1>
-<h2>Hi <%= @student.first_name %></h2>
-
+<h1>Profile of <%= @student.first_name %> for Review</h1>
+<br>
 <div class="profile">
   <div class="profile_features">
       <br>
-      <div class="row">
-        <label class="label">GRE</label>
-        <label class="label">TOEFL</label>
-        <label class="label">CAPA</label>
-      </div>
+      <table>
+        <tr>
+          <th><label class="label">GRE</label></th>
+          <th><label class="label">TOEFL</label></th>
+          <th><label class="label">CAPA</label></th>
+        </tr>
+        <tr>
+          <td>
+            <label class="field" name="gre" style="text-align: center"><u><%= @current_profile.gre %></u></label>
+          </td>
+          <td>
+            <label class="field" name="toefl" style="text-align: center" ><u><%= @current_profile.toefl %></u></label>
+          </td>
+          <td>
+            <label class="field" name="capa" style="text-align: center"><u><%= @current_profile.capa %></u></label>
+
+          </td>
+        </tr>
+      </table>
       <br>
-      <div class="row">
-        <label class="label">"<%= @current_profile.gre %>"</label>
-        <label class="label">"<%= @current_profile.toefl %>"</label>
-        <label class="label">"<%= @current_profile.capa %>"</label>
-      </div>
+      <table>
+        <tr>
+          <th><label class="label">Intrested Major</label></th>
+          <th><label class="label">Term</label></th>
+          <th><label class="label">Year</label></th>
+        </tr>
+        <tr>
+          <td>
+            <label list="majors" class="field" name="major" style="text-align: center"><u><%= @current_profile.interested_major %></u></label>
+          </td>
+          <td>
+            <label list="term" class="field" name="term" style="text-align: center"><u><%= @current_profile.term %></u></label>
+          </td>
+          <td>
+            <label list="year" class="field" name="year" style="text-align: center"><u><%= @current_profile.year %></u></label>
+          </td>
+        </tr>
+      </table>
       <br>
-      <div class="row">
-        <label class="label">Interested Major</label>
-        <label class="label">Term</label>
-        <label class="label">Year</label>
-      </div>
       <br>
-      <div class="row">
-        <label class="label"> <%= @current_profile.interested_major %>" </label>
-        <label class="label"> <%= @current_profile.term %>" </label>
-        <label class="label"> <%= @current_profile.year %>" </label>
-        <br>
-      </div>
+      <table class="profile-table">
+        <tr>
+          <th><label class="label">Undergrad college</label></th>
+          <th><label class="label">Undergrad GPA</label></th>
+        </tr>
+        <tr>
+          <td>
+            <label class="field2" name="college_name"style="text-align: center" ><u><%= @current_profile.college_name %></u></label>
+          </td>
+          <td>
+            <label class="field2" name="gpa" style="text-align: center"><u><%= @current_profile.gpa %></u></label>
+          </td>
+        </tr>
+      </table>
       <br>
-      <div class="row">
-        <label class="label">Undergrad college</label>
-      </div>
-      <br>
-      <div class="row">
-        <label class="label"> <%= @current_profile.college_name %>" </label>
-      </div>
+
       <br>
       <h2>Work experience</h2>
       <br>
-      <div class="row">
-        <label class="label">Company name</label>
-        <label class="label">Job title</label>
-        <label class="label">Description</label>
-        <label class="label">from</label>
-        <label class="label">to</label>
-      </div>
+      <table>
+        <tr>
+          <th>
+            <label class="label">Company name</label>
+          </th>
+          <th>
+            <label class="label">Job title</label>
+          </th>
+          <th>
+            <label class="label">Description</label>
+          </th>
+          <th>
+            <label class="label">from</label>
+          </th>
+          <th>
+            <label class="label">to</label>
+          </th>
+        </tr>
+        <%@experiences.all.each do |e| %>
+          <tr>
+            <td><label class="field2" style="text-align: center" ><u><%= e.company_name %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.description %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.job_title %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.from %></u></label></td>
+            <td><label class="field2" style="text-align: center" ><u><%= e.to %></u></label></td>
+
+          </tr>
+        <%end %>
+      </table>
+
+
       <br>
-      <div class="row">
-        <label class="label"> <%= @current_profile.company_name %>" </label>
-        <label class="label"> <%= @current_profile.job_title %>" </label>
-        <label class="label"> <%= @current_profile.description %>" </label>
-        <label class="label"> <%= @current_profile.from %>" </label>
-        <label class="label"> <%= @current_profile.to %>" </label>
-      </div>
       <div>
         <% if @resume != "No resume uploaded" %>
           <label class="label"> <%= @resume.name %> </label>
@@ -66,18 +106,31 @@
     <br>
   </div>
   <br>
-
-  <div class="profile_features2">
-    <div class="row">
-      <h1> Application Decision</h1>
-      <br>
-    </div>
-    <div class="row">
-      <%= button_to "Accept", main_accept_application_path(@student, student_id: @student.id, professor_id: @professor.id) %>
-      <%= button_to "Reject", main_reject_application_path(@student, student_id: @student.id, professor_id: @professor.id) %>
-      <%= button_to "Waitlist", main_waitlist_application_path(@student, student_id: @student.id, professor_id: @professor.id) %>
-      <br>
-    </div>
+  <br>
+  <div class="application_view">
+    <span></span>
+    <form method="get" action="<%= evaluate_student_path %>">
+      <h3>Comment</h3>
+      <input hidden type="hidden" id="student_id" name="student_id" value="<%= @student.id %>">
+      <% if @evaluation %>
+        <input type="text" id="comment" name="comment" value="<% @evaluation.comment %>" style="height:120px; width:200px;">
+        <label for="score">Score: </label><input type="text" id="score" name="score" value="<% @evaluation.score %>">
+        <br>
+      <% else %>
+        <input type="text" id="comment" name="comment" value="" style="height:120px; width:200px;">
+        <label for="score">Score: </label><input type="text" id="score" name="score" value="">
+        <br>
+      <% end %>
+        <label>
+          <select name="decision">
+            <option value="Waitlist">Waitlist</option>
+            <option value="Accept">Accept</option>
+            <option value="Reject">Reject</option>
+          </select>
+        </label>
+        <br>
+      <input type="submit" value="Submit">
+    </form>
   </div>
 </div>
 

@@ -41,8 +41,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
-    airbrussh (1.4.1)
-      sshkit (>= 1.6.1, != 1.7.0)
     aliyun-sdk (0.8.0)
       nokogiri (~> 1.6)
       rest-client (~> 2.0)
@@ -55,16 +53,6 @@ GEM
       sass (~> 3.2)
     builder (3.2.4)
     byebug (11.1.3)
-    capistrano (3.17.1)
-      airbrussh (>= 1.0.0)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (>= 1.9.0)
-    capistrano-bundler (2.1.0)
-      capistrano (~> 3.1)
-    capistrano-rails (1.6.2)
-      capistrano (~> 3.1)
-      capistrano-bundler (>= 1.1, < 3)
     capybara (3.36.0)
       addressable
       matrix
@@ -117,6 +105,7 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
+    decisiontree (0.5.0)
     devise (4.8.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -287,6 +276,9 @@ GEM
     gherkin (5.1.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    graphr (0.2.1)
+    graphviz (1.2.1)
+      process-pipeline
     guard (2.18.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -329,8 +321,11 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.2.8)
-    mail (2.7.1)
+    mail (2.8.0)
       mini_mime (>= 0.1.1)
+      net-imap
+      net-pop
+      net-smtp
     matrix (0.4.2)
     method_source (1.0.0)
     mime-types (3.4.1)
@@ -341,12 +336,21 @@ GEM
     multi_json (1.15.0)
     multi_test (1.1.0)
     nenv (0.3.0)
-    net-scp (4.0.0)
-      net-ssh (>= 2.6.5, < 8.0.0)
-    net-ssh (7.0.1)
+    net-imap (0.3.1)
+      net-protocol
+    net-pop (0.1.2)
+      net-protocol
+    net-protocol (0.2.0)
+      timeout
+    net-smtp (0.3.3)
+      net-protocol
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.9-x86_64-linux)
+    nokogiri (1.13.10-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.10-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     notiffany (0.1.3)
       nenv (~> 0.1)
@@ -357,11 +361,17 @@ GEM
     parser (3.1.3.0)
       ast (~> 2.4.1)
     pg (0.21.0)
+    process-group (1.2.4)
+      process-terminal (~> 0.2.0)
+    process-pipeline (1.0.2)
+      process-group
+    process-terminal (0.2.0)
+      ffi
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (5.0.0)
-    racc (1.6.0)
+    public_suffix (5.0.1)
+    racc (1.6.1)
     rack (2.2.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -481,15 +491,12 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.3.13)
-    sshkit (1.21.3)
-      net-scp (>= 1.1.2)
-      net-ssh (>= 2.8.0)
     ssrf_filter (1.1.1)
     temple (0.9.1)
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.11)
+    timeout (0.3.1)
     tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
@@ -520,25 +527,32 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  arm64-darwin-21
+  x86_64-darwin-18
+  x86_64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
+  actionmailer
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 2.3.2)
   byebug
-  capistrano-rails
   capybara
   carrierwave (~> 1.0)
   coffee-rails (~> 4.1.0)
   cucumber-rails (= 1.6.0)
   database_cleaner
+  decisiontree
   devise
   fog (~> 1.38)
+  graphr
+  graphviz
   guard-rspec
   haml
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  mail
   pg (~> 0.20)
   rails
   rails-controller-testing
@@ -551,7 +565,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   simplecov
   spring (< 3.0.0)
-  sqlite3 (~> 1.3.6, < 1.4)
+  sprockets-rails (>= 3.2.0)
   uglifier (>= 2.7.0)
   unicorn
   web-console

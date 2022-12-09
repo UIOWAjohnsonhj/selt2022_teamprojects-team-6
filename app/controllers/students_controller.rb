@@ -4,6 +4,4 @@ class StudentsController < ApplicationController
     @student = Student.find(id) # look up student by unique ID
   end
 
-
-
 end

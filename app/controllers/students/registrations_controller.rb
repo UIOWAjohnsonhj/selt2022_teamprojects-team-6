@@ -12,13 +12,19 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    # if params[:student][:email].blank? or params[:student][:first_name].blank? or params[:student][:last_name].blank?
+    #   flash[:notice] = "Please fill out all fields"
+    #   redirect_to new_student_registration_path and return
+    # end
     student=Student.where(email:params[:student][:email]).take
-    student_profile={:student_id=>student.id,:gre=>nil, :toefl => nil,
+    student_profile={:student_id=>student.id,:gpa=>nil,:gre=>nil, :toefl => nil,
                      :interested_major => nil, :term => nil,
                      :year =>nil }
 
     Profile.create!(student_profile)
 
+    #student_email = params[:student][:email]
+    #EmailStudentsMailer.create_account(student_email).deliver_now
   end
 
   # GET /resource/edit

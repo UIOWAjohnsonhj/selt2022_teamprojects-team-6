@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'malikystore@outlook.com'
+  default from: 'SimplApplySELT@gmail.com'
   layout 'mailer'
 end
 

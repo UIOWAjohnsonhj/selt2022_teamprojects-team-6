@@ -1,0 +1,23 @@
+<div class="login-box">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="user-box">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="user-box">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+    <a>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <%= f.submit "Login" %>
+    </a>
+    <%= render "faculty_members/shared/links" %>
+
+
+  <% end %>
+</div>

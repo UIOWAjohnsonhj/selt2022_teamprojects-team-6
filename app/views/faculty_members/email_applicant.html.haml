@@ -1,0 +1,13 @@
+%h1 Contact Applicant #{ @student.first_name } #{ @student.last_name }
+
+= form_tag faculty_members_email_student_path, :method => :post do
+  = label :label, :subject
+  = text_field :email, :subject
+  = label :label, :message
+  = text_area :email, :message, "rows" => 10, "cols" => 50
+  = hidden_field :email, :student_id, :value => @student.id
+  = submit_tag "Send", :id => "send_email_button"
+
+= form_tag main_index_path, :method => :post do
+  = submit_tag "Back", :id => "back_to_sign_up"
+
