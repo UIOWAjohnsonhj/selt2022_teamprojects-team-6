@@ -9,15 +9,35 @@ describe MainController do
   end
   # Sign Up Page
   describe 'Sign Up Page' do
+    it 'should show the sign up page for students' do
 
+    end
+    it 'should show the sign up page for faculty' do
+
+    end
+    it 'should '
   end
   # Edit Profiles Page
   describe 'Edit Profiles Page' do
 
   end
   # Login Page
-  describe 'Login Page' do
+  describe 'Login/Logout' do
+    it 'should show the login page' do
 
+    end
+    it 'should set the @student variable' do
+
+    end
+    it 'should set the @profiles variable' do
+
+    end
+    it 'should redirect to home page on logout' do
+
+    end
+    it 'should reset the session on logout' do
+
+    end
   end
   # Search Universities Page
   describe 'Search Universities' do

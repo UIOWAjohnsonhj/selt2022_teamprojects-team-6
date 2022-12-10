@@ -4,23 +4,8 @@ require 'json'
 class MainController < ApplicationController
   include BCrypt
   skip_before_filter :verify_authenticity_token
-  def initialize
-    super
-    @student = Student
-    @profiles = Profile
-    @faculty = FacultyMember
-    @current_profile = nil
-    @applications= Application
 
-  end
   def index
-
-  end
-
-  def login
-
-    @student = Student
-    @profiles = Profile
   end
 
   def intermediate_logout
@@ -28,28 +13,6 @@ class MainController < ApplicationController
     redirect_to root_path
   end
 
-  def intermediate_sign_up
-
-    faculty={:first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
-             :email => params[:user][:email],:password=>params[:user][:password],
-             :university=>params[:uni], :department_id=> params[:dept]}
-    FacultyMember.create!(faculty)
-    # id=@profiles.where(email:params[:user][:email])
-    # Commented out as we have yet to decide if we're making
-    # should redirect_to 'faculty_create'
-
-    flash[:notice]= "FacultyMember Account created successfully"
-
-    redirect_to root_path
-
-  end
-  def sign_up
-    session[:sign_up_type] = :student
-  end
-
-  def sign_up_faculty
-    session[:sign_up_type] = :faculty
-  end
   def view_profile
     if !student_signed_in?
       redirect_to root_path and return
@@ -124,11 +87,11 @@ class MainController < ApplicationController
     end
     redirect_to edit_profile_path
   end
+
   def general_sign_up
-
   end
-  def general_login
 
+  def general_login
   end
 
   def edit_profile
@@ -151,40 +114,6 @@ class MainController < ApplicationController
       @resume = "No resume uploaded"
     end
     @current_profile = Profile.where(student_id: @student.id).take
-  end
-
-  def intermediate_login
-    redirect_to login_path and return
-
-    given_email= params[:user][:email]
-    given_password = params[:user][:password]
-    @student = Student.find_by(email:given_email)
-    @faculty = FacultyMember.find_by(email:given_email)
-
-    begin
-      if not @student.nil? #student1 && student1.authenticate(given_password)
-        #&.authenticate(given_password)
-        #p @student
-        session[:student_id] = @student.id
-        session[:user_type] = :student
-        redirect_to view_profile_path(@student, student_id: @student.id)
-        #elsif not @faculty.nil?
-      elsif not @faculty.nil?
-        #&.authenticate(given_password)
-        session[:faculty_id] = @faculty.id
-        session[:user_type] = :faculty
-        redirect_to faculty_profile_path(@faculty, faculty_id: @faculty.id)
-
-      else
-        flash[:notice]="Invalid user"
-        redirect_to login_path
-      end
-    rescue BCrypt::Errors::InvalidHash
-      flash[:error] = 'We recently adjusted the way our passwords are store. Please Reset your password '
-    end
-    #else
-    # flash[:notice]="Invalid user 2"
-    #  redirect_to login_path
   end
   def reset_password
     #redirect_to reset_password_path
