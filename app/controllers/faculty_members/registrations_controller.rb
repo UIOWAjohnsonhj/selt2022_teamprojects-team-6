@@ -13,6 +13,7 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    flash[:notice] = "An Email has been sent to the faculty member you added with registration information"
   end
 
   # GET /resource/edit
