@@ -8,6 +8,7 @@ class PasswordRecoveryMailer < ApplicationMailer
   def password_recovery
     @greeting = "Hi"
 
-    mail to: "ezouhriadnane@gmail.com"
+    #mail to: "ezouhriadnane@gmail.com"
+    mail to: "cbaseme@uiowa.edu"
   end
 end
