@@ -5,39 +5,47 @@ require 'rails_helper'
 describe MainController do
   # Home Page
   describe 'Home Page' do
-
+    it 'should show the home page' do
+      allow(MainController).to receive(:index)
+      get :index
+      expect(response).to render_template('/')
+    end
   end
-  # Sign Up Page
-  describe 'Sign Up Page' do
-    it 'should show the sign up page for students' do
-
+  # Logout
+  describe 'Intermediate Logout' do
+    it 'should redirect to the home page' do
+      allow(MainController).to receive(:intermediate_logout)
+      get :intermediate_logout
+      expect(session[:id]).to eq(nil)
+      expect(response).to redirect_to('/')
     end
-    it 'should show the sign up page for faculty' do
-
-    end
-    it 'should '
   end
-  # Edit Profiles Page
-  describe 'Edit Profiles Page' do
+  # View Profile
+  describe 'View Profile Page' do
+    it 'should redirect to the home page if not logged in' do
 
+    end
+    it 'should show the profile page if logged in' do
+
+    end
   end
-  # Login Page
-  describe 'Login/Logout' do
-    it 'should show the login page' do
-
+  # Add Experience
+  describe 'Add Experience Page' do
+    it 'should redirect to the edit profile page on post' do
+      allow(MainController).to receive(:add_experience)
+      post :add_experience, params: { company: "Test", title: "Test", description: "Test", from: "01-01-2000", to: "01-01-20001" }
+      expect(response).to redirect_to('/edit_profile')
     end
-    it 'should set the @student variable' do
-
+    it 'should flash an error if all fields aren\'t filled out' do
+      allow(MainController).to receive(:add_experience)
+      post :add_experience, session: { experience_count: 0 }, params: {company: nil}
+      expect(response).to redirect_to('/edit_profile')
+      expect(flash[:notice]).to eq("Please fill out all fields")
     end
-    it 'should set the @profiles variable' do
+  end
+  # Remove Experience
+  describe 'Remove Experience' do
 
-    end
-    it 'should redirect to home page on logout' do
-
-    end
-    it 'should reset the session on logout' do
-
-    end
   end
   # Search Universities Page
   describe 'Search Universities' do
