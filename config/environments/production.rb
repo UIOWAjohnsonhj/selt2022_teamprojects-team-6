@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :address => 'https://still-waters-25668.herokuapp.com',
+    :address => 'still-waters-25668.herokuapp.com',
     :port => 587,
     :user_name => "SimplApplySELT@gmail.com",
     :password => "nqjarzbzugdqdavy",
