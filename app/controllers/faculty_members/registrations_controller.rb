@@ -18,7 +18,7 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
   # GET /resource/edit
   # def edit
   #   super
-  # end
+  # endstill-waters
 
   # PUT /resource
   # def update
