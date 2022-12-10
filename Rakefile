@@ -4,3 +4,6 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+#  bundle install --with development test production
+# bin/rails db:migrate RAILS_ENV=production
