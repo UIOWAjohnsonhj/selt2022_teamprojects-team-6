@@ -45,7 +45,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.default_url_options = {
-    :host => 'still-waters-25668.herokuapp.com'
+    :host => 'http://localhost:3000'
   }
   config.action_mailer.perform_deliveries = true
 
@@ -53,9 +53,10 @@ Rails.application.configure do
     :address              =>'smtp.gmail.com',
     :port                 => 587,
     :user_name            => 'SimplApplySELT@gmail.com',
-    :domain               => 'https://still-waters-25668.herokuapp.com',
-    :password             => 'IloveSELT!',
+    :password             => 'nqjarzbzugdqdavy',
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
 end
+
+# lsrnaycwfitvqtmv

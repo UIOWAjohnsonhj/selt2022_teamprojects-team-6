@@ -13,12 +13,13 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    session[:new_account]=true
   end
 
   # GET /resource/edit
   # def edit
   #   super
-  # end
+  # endstill-waters
 
   # PUT /resource
   # def update
