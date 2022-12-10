@@ -14,6 +14,7 @@
           <th>Reject</th>
           <th>Waitlist</th>
         <% end %>
+        <th>Contact</th>
       </tr>
       <% @student_app_dict.each do |student, app| %>
         <tr>
@@ -37,6 +38,7 @@
                 <%= button_to "Waitlist", faculty_members_waitlist_application_path(student, student_id: student.id), class: "btn btn-danger", confirm: "Are you sure that you wish to waitlist #{student.first_name} #{student.last_name}?" %>
             </td>
           <% end %>
+          <td><%= link_to "Email", create_email_path(student_id: student.id) %></td>
         </tr>
       <% end %>
     </table>

@@ -9,9 +9,6 @@
       <%= f.label :password %><br />
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
-
-    <%= render "faculty_members/shared/links" %>
-
     <a>
       <span></span>
       <span></span>
@@ -19,6 +16,8 @@
       <span></span>
       <%= f.submit "Login" %>
     </a>
+
+    <%= render "faculty_members/shared/links" %>
 
   <% end %>
 </div>

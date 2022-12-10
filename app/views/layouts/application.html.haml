@@ -36,6 +36,9 @@
             = submit_tag 'Admission Review'
           = form_tag edit_faculty_member_registration_path, :method => 'get', :class => 'form form-inline' do
             = submit_tag 'Edit Account'
+          -if current_faculty_member.chair?
+            = form_tag new_faculty_member_registration_path, :method => 'get', :class => 'form form-inline' do
+              = submit_tag 'Add Faculty'
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
