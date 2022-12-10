@@ -145,6 +145,12 @@ Rails.application.routes.draw do
   get 'predict_probability', to: 'predictor#predict_probability', as: 'predict_probability'
   post 'predictor/predict_probability'
 
+  get 'predictor_result', to: 'predictor#predictor_result', as: 'predict_result'
+  post 'predictor/predictor_result'
+
+  get 'loading', to: 'predictor#loading', as: 'loading'
+  post 'predictor/loading'
+
 
 
 
