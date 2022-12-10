@@ -68,8 +68,6 @@ class MainController < ApplicationController
         flash[:notice] = "Please fill out all fields"
         redirect_to edit_profile_path and return
       end
-      puts "HEREEEE"
-      puts params
       @current_profile.gpa = params[:gpa]
       @current_profile.gre = params[:gre]
       @current_profile.toefl = params[:toefl]
@@ -110,7 +108,6 @@ class MainController < ApplicationController
       end
     end
     puts @applied_departments
-    puts "ddsfddf"
   end
 
   def add_experience
@@ -290,6 +287,5 @@ class MainController < ApplicationController
       @faculties = FacultyMember.where(focus_area: @selected_focus_areas)
     end
     session[:focus_areas] = @selected_focus_areas
-    puts session[:focus_areas]
   end
 end

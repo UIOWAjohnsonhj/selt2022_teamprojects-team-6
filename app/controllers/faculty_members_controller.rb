@@ -66,7 +66,6 @@ class FacultyMembersController < ApplicationController
     end
   end
   def accept_application
-    puts params
     @application = Application.where(student_id: params[:student_id]).take
     @application.update(application_status: 'Accepted')
     student_email = Student.find(params[:student_id]).email
@@ -75,7 +74,6 @@ class FacultyMembersController < ApplicationController
   end
 
   def reject_application
-    puts params
     @application = Application.where(student_id: params[:student_id]).take
     @application.update(application_status: 'Rejected')
     student_email = Student.find(params[:student_id]).email
@@ -84,7 +82,6 @@ class FacultyMembersController < ApplicationController
   end
 
   def waitlist_application
-    puts params
     @application = Application.where(student_id: params[:student_id]).take
     @application.update(application_status: 'Waitlisted')
     student_email = Student.find(params[:student_id]).email
@@ -98,9 +95,7 @@ class FacultyMembersController < ApplicationController
     @profile = Profile.find_by(student_id: @student.id)
     @application = Application.where(student_id: @student.id, department_id: @faculty.department_id).take
     @evaluation = Evaluation.where(student_id: @student.id, faculty_id: @faculty.id).take
-    puts params
     if @evaluation.nil?
-      puts "evaluation is nil"
       @evaluation = Evaluation.new
       @evaluation.student_id = @student.id
       @evaluation.faculty_id = @faculty.id

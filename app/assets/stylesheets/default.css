@@ -459,7 +459,7 @@ input[type=submit]:hover {
 .rwd-table tr:first-child {
   border-top: black;
   background: black;
-  color: white;
+  color: gold;
 }
 
 .rwd-table tr {
