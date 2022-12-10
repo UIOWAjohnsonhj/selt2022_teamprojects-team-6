@@ -14,7 +14,6 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -46,17 +45,17 @@ Rails.application.configure do
 
 
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = {
-    :host => 'https://still-waters-25668.herokuapp.com'
-  }
 
-  config.action_mailer.smtp_settings = {
-    :address              =>'smtp.gmail.com',
-    :port                 => 587,
-    :domain               => 'still-waters-25668.herokuapp.com',
-    :user_name            => 'SimplApplySELT@gmail.com',
-    :password             => 'IloveSELT!',
-    :authentication       => 'plain',
+  config.action_mailer.raise_delivery_errors = true
+  host = 'still-waters-25668.herokuapp.com'
+  config.action_mailer.default_url_options = { host: host }
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => "SimplApplySELT@gmail.com",
+    :password       => "IloveSELT",
+    :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
 end
