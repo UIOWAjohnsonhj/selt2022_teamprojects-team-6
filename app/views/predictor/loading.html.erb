@@ -1,0 +1,32 @@
+<head>
+  <script type="text/javascript">
+    function delayedRedirect(){
+      var search = document.getElementById("search");
+      window.location = "/predictor_result" + "?search=" + search.value;
+    }
+  </script>
+</head>
+<body onLoad="setTimeout('delayedRedirect()', 3000)">
+
+<div class="loader_body">
+  <input type="hidden" value="<%= @search %>" id="search">
+  <div class="loader">
+    <span>L</span>
+    <span>O</span>
+    <span>A</span>
+    <span>D</span>
+    <span>I</span>
+    <span>N</span>
+    <span>G</span>
+
+    <div class="covers">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>

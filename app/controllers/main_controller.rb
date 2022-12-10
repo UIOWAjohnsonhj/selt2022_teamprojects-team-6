@@ -108,7 +108,6 @@ class MainController < ApplicationController
       end
     end
     puts @applied_departments
-    puts "ddsfddf"
   end
 
   def add_experience
@@ -288,6 +287,5 @@ class MainController < ApplicationController
       @faculties = FacultyMember.where(focus_area: @selected_focus_areas)
     end
     session[:focus_areas] = @selected_focus_areas
-    puts session[:focus_areas]
   end
 end

@@ -11,7 +11,6 @@ class ProfilesController < ApplicationController
     @resume = Resume.where(student_id: params[:student_id]).take
     @evaluation = Evaluation.where(student_id: params[:student_id], faculty_id: @professor.id).take
     if @evaluation.nil?
-      puts "evaluation is nil"
     end
     if @resume.nil?
       @resume = "No resume uploaded"
