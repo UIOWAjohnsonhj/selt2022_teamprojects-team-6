@@ -7,4 +7,7 @@
   session[:experience_count]=1
   -controller.redirect_to view_profile_path
 -if faculty_member_signed_in?
+  -if session[:new_account] ==true
+    -flash[:notice] = "The faculty member you created has been sent an email with registration information"
+    -session[:new_account]=false
   -controller.redirect_to faculty_profile_path
