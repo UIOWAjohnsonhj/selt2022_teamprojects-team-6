@@ -61,13 +61,13 @@
           null,
           null,
           1,
-          0,
-          0,
+          3,
+          1,
           null,
           null,
-          0,
-          0,
-          0,
+          2,
+          2,
+          2,
           0,
           0,
           0,
@@ -224,19 +224,19 @@
           null,
           null,
           1,
-          0,
-          0,
+          4,
+          1,
           null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
+          3,
+          2,
+          2,
           null,
           null,
-          0,
+          1,
+          1,
+          null,
+          null,
+          3,
           null,
           1,
           2,
@@ -269,6 +269,23 @@
           null,
           null,
           1,
+          null,
+          null
+        ]
+      },
+      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/profile.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
           null,
           null
         ]
@@ -822,25 +839,6 @@
         "branches": {
         }
       },
-      "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/profile.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/home/erbrewer/Documents/Github/selt2022_teamprojects-team-6/app/models/predictor.rb": {
         "lines": [
           0,
@@ -1106,6 +1104,6 @@
         }
       }
     },
-    "timestamp": 1670695303
+    "timestamp": 1670702053
   }
 }
