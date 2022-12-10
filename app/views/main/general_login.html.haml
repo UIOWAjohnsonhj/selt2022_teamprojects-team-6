@@ -3,6 +3,7 @@
 
 =form_tag new_student_session_path, :method=>:get do
   = submit_tag "Student", :id => "create_account_button"
+%br
 =form_tag new_faculty_member_session_path, :method=>:post do
   = submit_tag "Faculty", :id => "create_account_button"
 -if student_signed_in?
