@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
 
   def profile_viewer
+    puts "profile before"
+    puts params
     @student = Student.find(params[:student_id])
     @professor = FacultyMember.find(current_faculty_member.id)
     @current_profile = Profile.where(student_id: params[:student_id]).take

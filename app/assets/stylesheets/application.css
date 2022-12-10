@@ -56,7 +56,12 @@
   float: left;
   width: 1%;
 }
-
+#notice {
+  color: red;
+}
+.flash{
+  color: red;
+}
 .btn{
   border-radius: 30px;
   width: 100px;

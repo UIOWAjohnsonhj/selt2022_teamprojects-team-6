@@ -10,6 +10,7 @@
     <th>Score</th>
     <th>Comment</th>
     <th>Status</th>
+    <th>Contact</th>
   </tr>
 
   <tr>
@@ -22,6 +23,7 @@
           <td><%= eval.score  %></td>
           <td><%= eval.comment %></td>
           <td><%= eval.status  %></td>
+          <td><%= link_to "Email", create_email_path(student_id: student.id) %></td>
       <%  end  %>
     <%  end %>
   </tr>

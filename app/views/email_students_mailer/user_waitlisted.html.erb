@@ -4,11 +4,11 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1><%= @application.student.first_name %> 's Application Decision</h1>
+<h1><%= @application.student.first_name %>'s Application Decision</h1>
 <p>
   Dear <%= @application.student.first_name %> <%= @application.student.last_name %>,
   <br>
-  Thank you for your application to <%= @application.university %>'s <%= @application.department %> program.
+  Thank you for your application to <%= @application.university.name %>'s <%= @application.department.name %> program.
   After careful consideration, the selection committee is unable to make an offer of
   admission at this time, but would like to offer you a place on our wait list.
   Thank you for your application and interest in our program.
@@ -16,6 +16,6 @@
 </p>
 <p>
   Sincerely,<br>
-  The admissions department at <%= @application.university %></p>
+  The admissions department at <%= @application.university.name %></p>
 </body>
 </html>

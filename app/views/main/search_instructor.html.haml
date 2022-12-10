@@ -21,7 +21,10 @@
     - @faculties.all.each do |instructor|
       %tr
         %td= instructor[:first_name] + " " + instructor[:last_name]
-        %td= University.find(instructor[:university]).name
+        -if instructor[:university].class == Integer
+          %td= University.find(instructor[:university]).name
+        -else
+          %td= instructor[:university]
         %td= Department.find(instructor.department_id).name
         %td= instructor[:focus_area]
         %td
