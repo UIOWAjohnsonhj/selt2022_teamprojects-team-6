@@ -73,7 +73,6 @@ class MainController < ApplicationController
   end
 
   def add_experience
-    puts params[:company].empty?
     if params.include? "company" and (params[:company].empty? or params[:title].empty? or params[:description].empty? or params[:from].empty? or params[:to].empty?)
       flash[:notice] = "Please fill out all fields"
       redirect_to edit_profile_path and return
