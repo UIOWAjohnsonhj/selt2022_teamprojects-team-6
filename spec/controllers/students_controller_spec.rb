@@ -43,7 +43,7 @@ describe MainController do
   describe 'Add Experience Page' do
     it 'should redirect to the edit profile page on post' do
       allow(MainController).to receive(:add_experience)
-      post :add_experience, params: { company: "Test", title: "Test", description: "Test", from: "01-01-2000", to: "01-01-20001" }, session: { experience_count: 0 }
+      post :add_experience, params: { company: "Test", title: "Test", description: "Test", from: "01-01-2000", to: "01-01-20001", 'company' => 'Test' }, session: { experience_count: 0 }
       expect(response).to redirect_to('/edit_profile')
     end
     it 'should flash an error if all fields aren\'t filled out' do
@@ -118,14 +118,14 @@ describe MainController do
     it 'should set the @university variable' do
       allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
       allow(MainController).to receive(:view_university)
-      get :view_university, params: { name: 'University of Iowa' }
+      get :view_university, params: { name: 'The University of Iowa' }
       university = assigns(:university)
       expect(university).not_to eq(nil)
       end
     it 'should set the @departments variable' do
       allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
       allow(MainController).to receive(:view_university)
-      get :view_university, params: { name: 'University of Iowa' }
+      get :view_university, params: { name: 'University of Iowa', university_id: 1, department: 1 }
       departments = assigns(:departments)
       expect(departments).not_to eq(nil)
     end
@@ -142,6 +142,49 @@ describe MainController do
       allow(MainController).to receive(:search_instructor)
       get :search_instructor
       expect(response).to render_template('search_instructor')
+    end
+    it 'should set the search type to location' do
+      allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+      allow(MainController).to receive(:intermediate_search)
+      post :intermediate_search, params: { filter: "Location" }
+      expect(session[:search_type]).to eq(:location)
+    end
+    it 'should set the search type to supported' do
+      allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+      allow(MainController).to receive(:intermediate_search)
+      post :intermediate_search, params: { filter: "Supported" }
+      expect(session[:search_type]).to eq(:supported)
+    end
+    it 'should set the search type to country' do
+      allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+      allow(MainController).to receive(:intermediate_search)
+      post :intermediate_search, params: { filter: "Country" }
+      expect(session[:search_type]).to eq(:country)
+    end
+    it 'should set the search type to name' do
+      allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+      allow(MainController).to receive(:intermediate_search)
+      post :intermediate_search, params: { filter: "university name" }
+      expect(session[:search_type]).to eq(:name)
+    end
+    it 'should set the url when search type is country' do
+      allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+      allow(MainController).to receive(:intermediate_search)
+      post :intermediate_search, params: { filter: "Country" }
+      expect(session[:url]).not_to eq(nil)
+    end
+    it 'should set the url when search type is name' do
+      allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+      allow(MainController).to receive(:intermediate_search)
+      post :intermediate_search, params: { filter: "university name" }
+      expect(session[:url]).not_to eq(nil)
+    end
+    it 'should flash a message if fields aren\'t filled out' do
+      allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+      allow(MainController).to receive(:intermediate_search)
+      get :intermediate_search, params: { filter: false }
+      expect(session[:searrch_type]).to eq(nil)
+      expect(flash[:notice]).to eq("Please fill out all fields")
     end
   end
   # change_page action

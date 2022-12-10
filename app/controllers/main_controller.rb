@@ -73,7 +73,8 @@ class MainController < ApplicationController
   end
 
   def add_experience
-    if params.include? "company" and (params[:company].include? "" or params[:title].include? "" or params[:description].include? "" or params[:from].include? "" or params[:to].include? "")
+    puts params[:company].empty?
+    if params.include? "company" and (params[:company].empty? or params[:title].empty? or params[:description].empty? or params[:from].empty? or params[:to].empty?)
       flash[:notice] = "Please fill out all fields"
       redirect_to edit_profile_path and return
     end
@@ -196,7 +197,6 @@ class MainController < ApplicationController
       redirect_to root_path and return
     end
     @faculties = FacultyMember
-    puts "SAANBE---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------s"
     ordering,@name_header = {:name => :asc}, 'hilite'
     @all_focus_areas = ["All","Applied Physics", "Big Data/Data Mining/Machine Learning", "Bioinformatics", "Business", "Communication Systems",
                         "Computer Breadth", "Computer Hardware", "Computer Networks", "Control Systems", "Electrical Breadth", "Electrical Circuits",
@@ -211,6 +211,5 @@ class MainController < ApplicationController
       @faculties = FacultyMember.where(focus_area: @selected_focus_areas)
     end
     session[:focus_areas] = @selected_focus_areas
-    puts session[:focus_areas]
   end
 end
