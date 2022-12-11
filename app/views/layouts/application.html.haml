@@ -41,9 +41,8 @@
     -else
       .row1
         = form_tag main_index_path, :method => 'post', :class => 'form form-inline' do
-          = submit_tag 'Go Back'
-        = form_tag main_general_login_path, :method => 'post', :class => 'form form-inline' do
-          = submit_tag 'Login'
+          = submit_tag 'Back'
+
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]

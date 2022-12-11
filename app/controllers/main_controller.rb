@@ -204,7 +204,6 @@ class MainController < ApplicationController
       redirect_to root_path and return
     end
     @faculties = FacultyMember
-    puts "SAANBE---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------s"
     ordering,@name_header = {:name => :asc}, 'hilite'
     @all_focus_areas = ["All","Applied Physics", "Big Data/Data Mining/Machine Learning", "Bioinformatics", "Business", "Communication Systems",
                         "Computer Breadth", "Computer Hardware", "Computer Networks", "Control Systems", "Electrical Breadth", "Electrical Circuits",
