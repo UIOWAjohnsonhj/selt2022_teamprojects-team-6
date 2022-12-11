@@ -643,6 +643,31 @@ div#rwd-table th,
 div#rwd-table td {
   padding: .5em 1em;
 }
+
+div#rwd-table td a {
+  margin: auto;
+  width: auto;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: gold;
+  border: none;
+  border-radius: 45px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+div#rwd-table td a:hover {
+  background-color: gold;
+  box-shadow: 0px 15px 20px gold;
+  color: gold;
+  transform: translateY(-3px);
+}
+
 @media screen and (max-width: 601px) {
   div#rwd-table tr:nth-child(2) {
     border-top: 1px solid gold;
