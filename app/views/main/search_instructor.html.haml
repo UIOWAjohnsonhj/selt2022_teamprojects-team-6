@@ -8,32 +8,32 @@
     -@all_focus_areas.each do |efa|
       %option{:value => efa}= efa
   = submit_tag 'Refresh', :id => 'efa_submit'
-
+%br
 %div#rwd-table
-%table#instructors
-  %thead
-    %tr
-      %th Instructor Name
-      %th University
-      %th Department
-      %th Focus Area
-      %th Research
-  %tbody
-    - @faculties.all.each do |instructor|
+  %table#instructors
+    %thead
       %tr
-        %td= instructor[:first_name] + " " + instructor[:last_name]
-        -if instructor[:university].class == Integer
-          %td= University.find(instructor[:university]).name
-        -else
-          %td= instructor[:university]
-        %td= Department.find(instructor.department_id).name
-        %td= instructor[:focus_area]
-        %td
-          -if !instructor[:research_url].blank?
-            %a{:href => instructor[:research_url]}
-              %h3 View research
+        %th Instructor Name
+        %th University
+        %th Department
+        %th Focus Area
+        %th Research
+    %tbody
+      - @faculties.all.each do |instructor|
+        %tr
+          %td= instructor[:first_name] + " " + instructor[:last_name]
+          -if instructor[:university].class == Integer
+            %td= University.find(instructor[:university]).name
           -else
-            %h3 No research link
+            %td= instructor[:university]
+          %td= Department.find(instructor.department_id).name
+          %td= instructor[:focus_area]
+          %td
+            -if !instructor[:research_url].blank?
+              %a{:href => instructor[:research_url]}
+                %h3 View research
+            -else
+              %h3 No research link
 
 
 
