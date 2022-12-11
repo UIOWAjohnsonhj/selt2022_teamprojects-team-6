@@ -32,6 +32,9 @@ class FacultyMembersController < ApplicationController
   def faculty_evaluations
     @faculty = FacultyMember.find_by(id: current_faculty_member.id)
     @student = Student.find_by(id:  params[:student_id])
+    if @student.nil?
+      @student = Student.find_by(id:  1)
+    end
     @display_name = @faculty.first_name
     @evaluations = Evaluation.where(student_id: params[:student_id])
     @faculty_eval_dict = {}
