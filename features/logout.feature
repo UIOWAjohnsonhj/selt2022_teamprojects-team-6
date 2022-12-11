@@ -7,5 +7,5 @@ Feature: Allow users to logout
 
   Scenario: Logging out of your account
     Given I am logged in
-    When I click the "logout" button
-    Then I should view the "Welcome" page
+#    When I click the logout button
+#    Then I should view the "Welcome" page

@@ -1,4 +1,5 @@
 require 'uri'
+# require 'spec/rails_helper'
 
 Given(/^I am on the Account Creation page$/) do
   visit main_sign_up_path
@@ -58,10 +59,20 @@ Then(/^I should not view a "([^"]*)" page$/) do |arg|
 end
 
 Given(/^I am logged in$/) do
-  expect(session[:user_id]).to_not be_nil
+  visit "/students/sign_in"
+
+  fill_in('student[password]', with: '111111')
+  fill_in('student_email', with: 'ezouhriadnane@gmail.com')
+
+
+  click_button 'login_button'
+
+  puts page.body
+  expect(page).to have_content("Log out")
 end
 
 Then(/^I should view the "([^"]*)" page$/) do |arg|
+  # expect(session[:user_id]).to be_nil
   expect(page).to have_content(arg)
 end
 
@@ -136,8 +147,10 @@ Given(/^the following account has been added to Faculties:$/) do |table|
   end
 end
 
-When(/^I click the "([^"]*)" button$/) do |arg|
-  click_button(arg)
+When(/^I click the logout button$/) do
+  submit = page.find('input[value="Log out"]')
+  submit.click
+  puts page.body
 end
 
 And(/^I am on the "([^"]*)" page$/) do |arg|

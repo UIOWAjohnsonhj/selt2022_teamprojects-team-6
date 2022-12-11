@@ -11,7 +11,7 @@
     -if student_signed_in?
       .row1
 
-        = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
+        = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline', :id => 'logout_button' do
           = submit_tag 'Log out'
         = form_tag main_view_profile_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Profiles'
