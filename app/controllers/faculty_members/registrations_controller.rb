@@ -14,7 +14,9 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
   def create
     super
     faculty = FacultyMember.where(email:params[:faculty_member][:email]).take
-    faculty.university = current_faculty_member.university
+    puts "Faculty---------------",faculty
+    puts current_faculty_member.university
+     faculty.university = current_faculty_member.university
     faculty.department_id = current_faculty_member.department_id
     faculty.save
     session[:new_account]=true
