@@ -55,7 +55,7 @@ class MainController < ApplicationController
       @university= University.find(params[:university_id])
       @department = Department.find(params[:department])
       application = {:student_id=>current_student.id, :university_id=> @university.id,:department_id=>@department.id,:application_status=>"pending"}
-      @applications.create!(application)
+      Application.create!(application)
     end
     @experiences = Experiences.where(student: current_student)
     @applications = Application.where(student_id: current_student.id)
