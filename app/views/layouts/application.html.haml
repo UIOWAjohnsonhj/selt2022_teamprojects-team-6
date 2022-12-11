@@ -38,10 +38,7 @@
         -if current_faculty_member.chair?
           = form_tag new_faculty_member_registration_path, :method => 'get', :class => 'form form-inline' do
             = submit_tag 'Add Faculty'
-    -else
-      .row1
-        = form_tag main_index_path, :method => 'post', :class => 'form form-inline' do
-          = submit_tag 'Back'
+
 
     #main
       - if flash[:notice]
