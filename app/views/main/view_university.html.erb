@@ -1,17 +1,18 @@
 <h1><%=@university.name %></h1>
 <h2>Select a program to apply to</h2>
-<table>
-  <%@departments.all.each do |p| %>
-    <form method="post"action="<%=main_view_profile_path %>" >
-      <input type="hidden" value="<%=p.id%>" name="department">
-      <input type="hidden" value="<%=p.university_id %>" name="university_id">
+<div class="rwd-table">
+  <table>
+    <%@departments.all.each do |p| %>
+      <form method="post"action="<%=main_view_profile_path %>" >
+        <input type="hidden" value="<%=p.id%>" name="department">
+        <input type="hidden" value="<%=p.university_id %>" name="university_id">
 
-      <tr>
-        <td><%=p.id %></td>
-        <td><%=p.name %></td>
-        <td><input type="submit" value="Apply" class="btn"></td>
-      </tr>
-    </form>
-  <%end %>
-
-</table>
+        <tr>
+          <td><%=p.id %></td>
+          <td><%=p.name %></td>
+          <td><input type="submit" value="Apply" class="btn"></td>
+        </tr>
+      </form>
+    <%end %>
+  </table>
+</div>

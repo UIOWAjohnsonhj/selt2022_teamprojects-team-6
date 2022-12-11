@@ -1,26 +1,11 @@
-require 'spec_helper'
 require 'rails_helper'
-
-if RUBY_VERSION >= '2.6.0'
-  if Rails.version < '5'
-    class ActionController::TestResponse < ActionDispatch::TestResponse
-      def recycle!
-        # hack to avoid MonitorMixin double-initialize error:
-        @mon_mutex_owner_object_id = nil
-        @mon_mutex = nil
-        initialize
-      end
-    end
-  else
-    puts "Monkeypatch for ActionController::TestResponse no longer needed"
-  end
-end
+require 'spec_helper'
 
 describe FacultyMembersController do
   describe 'My Evaluations page' do
     it 'should show the My Evaluations page' do
       allow(FacultyMember).to receive(:my_evaluations)
-      get :my_evaluations, faculty_id: 1
+      get :my_evaluations, params: { faculty_id: faculty.id }
       expect(response).to render_template('my_evaluations')
     end
   end
@@ -39,15 +24,31 @@ describe FacultyMembersController do
     end
     it 'should show the FacultyMember Profile page if profile is found' do
       allow(FacultyMember).to receive(:faculty_profile)
-      get :faculty_profile, faculty_id: 1
+      get :faculty_profile, params: { faculty_id: 1 }
       expect(response).to render_template('faculty_profile')
     end
   end
   describe 'FacultyMember Evaluations page' do
-    it 'should show the FacultyMember Evaluations page' do
+    it 'should show the Faculty Evaluations page' do
       allow(FacultyMember).to receive(:faculty_evaluations)
       get :faculty_evaluations, faculty_id: 1, selected_student_id: 1
       expect(response).to render_template('faculty_evaluations')
     end
+    it 'should set @evaluations' do
+      allow(FacultyMember).to receive(:faculty_evaluations)
+      get :faculty_evaluations, params: { faculty_id: 1, selected_student_id: 1 }
+      expect(@evaluations).to not_eq(nil)
+    end
+    it 'should set @display_name' do
+      allow(FacultyMember).to receive(:faculty_evaluations)
+      get :faculty_evaluations, params: { faculty_id: 1, selected_student_id: 1 }
+
+    end
+    it 'should set @student_name' do
+      allow(FacultyMember).to receive(:faculty_evaluations)
+      get :faculty_evaluations, params: { faculty_id: 1, selected_student_id: 1 }
+
+    end
   end
+  describe 'FacultyMember '
 end

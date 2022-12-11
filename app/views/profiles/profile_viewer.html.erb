@@ -3,96 +3,102 @@
 <div class="profile">
   <div class="profile_features">
       <br>
-      <table>
-        <tr>
-          <th><label class="label">GRE</label></th>
-          <th><label class="label">TOEFL</label></th>
-          <th><label class="label">CAPA</label></th>
-        </tr>
-        <tr>
-          <td>
-            <label class="field" name="gre" style="text-align: center"><u><%= @current_profile.gre %></u></label>
-          </td>
-          <td>
-            <label class="field" name="toefl" style="text-align: center" ><u><%= @current_profile.toefl %></u></label>
-          </td>
-          <td>
-            <label class="field" name="capa" style="text-align: center"><u><%= @current_profile.capa %></u></label>
+      <div class="rwd-table">
+        <table>
+          <tr>
+            <th><label class="label">GRE</label></th>
+            <th><label class="label">TOEFL</label></th>
+            <th><label class="label">CAPA</label></th>
+          </tr>
+          <tr>
+            <td>
+              <label class="field" name="gre" style="text-align: center"><u><%= @current_profile.gre %></u></label>
+            </td>
+            <td>
+              <label class="field" name="toefl" style="text-align: center" ><u><%= @current_profile.toefl %></u></label>
+            </td>
+            <td>
+              <label class="field" name="capa" style="text-align: center"><u><%= @current_profile.capa %></u></label>
 
-          </td>
-        </tr>
-      </table>
+            </td>
+          </tr>
+        </table>
+      </div>
       <br>
-      <table>
-        <tr>
-          <th><label class="label">Intrested Major</label></th>
-          <th><label class="label">Term</label></th>
-          <th><label class="label">Year</label></th>
-        </tr>
-        <tr>
-          <td>
-            <label list="majors" class="field" name="major" style="text-align: center"><u><%= @current_profile.interested_major %></u></label>
-          </td>
-          <td>
-            <label list="term" class="field" name="term" style="text-align: center"><u><%= @current_profile.term %></u></label>
-          </td>
-          <td>
-            <label list="year" class="field" name="year" style="text-align: center"><u><%= @current_profile.year %></u></label>
-          </td>
-        </tr>
-      </table>
+      <div class="rwd-table">
+        <table>
+          <tr>
+            <th><label class="label">Intrested Major</label></th>
+            <th><label class="label">Term</label></th>
+            <th><label class="label">Year</label></th>
+          </tr>
+          <tr>
+            <td>
+              <label list="majors" class="field" name="major" style="text-align: center"><u><%= @current_profile.interested_major %></u></label>
+            </td>
+            <td>
+              <label list="term" class="field" name="term" style="text-align: center"><u><%= @current_profile.term %></u></label>
+            </td>
+            <td>
+              <label list="year" class="field" name="year" style="text-align: center"><u><%= @current_profile.year %></u></label>
+            </td>
+          </tr>
+        </table>
+      </div>
       <br>
       <br>
-      <table class="profile-table">
-        <tr>
-          <th><label class="label">Undergrad college</label></th>
-          <th><label class="label">Undergrad GPA</label></th>
-        </tr>
-        <tr>
-          <td>
-            <label class="field2" name="college_name"style="text-align: center" ><u><%= @current_profile.college_name %></u></label>
-          </td>
-          <td>
-            <label class="field2" name="gpa" style="text-align: center"><u><%= @current_profile.gpa %></u></label>
-          </td>
-        </tr>
-      </table>
+      <div class="rwd-table">
+        <table class="profile-table">
+          <tr>
+            <th><label class="label">Undergrad college</label></th>
+            <th><label class="label">Undergrad GPA</label></th>
+          </tr>
+          <tr>
+            <td>
+              <label class="field2" name="college_name"style="text-align: center" ><u><%= @current_profile.college_name %></u></label>
+            </td>
+            <td>
+              <label class="field2" name="gpa" style="text-align: center"><u><%= @current_profile.gpa %></u></label>
+            </td>
+          </tr>
+        </table>
+      </div>
       <br>
 
       <br>
       <h2>Work experience</h2>
       <br>
-      <table>
-        <tr>
-          <th>
-            <label class="label">Company name</label>
-          </th>
-          <th>
-            <label class="label">Job title</label>
-          </th>
-          <th>
-            <label class="label">Description</label>
-          </th>
-          <th>
-            <label class="label">from</label>
-          </th>
-          <th>
-            <label class="label">to</label>
-          </th>
-        </tr>
-        <%@experiences.all.each do |e| %>
+      <div class="rwd-table">
+        <table>
           <tr>
-            <td><label class="field2" style="text-align: center" ><u><%= e.company_name %></u></label></td>
-            <td><label class="field2" style="text-align: center" ><u><%= e.description %></u></label></td>
-            <td><label class="field2" style="text-align: center" ><u><%= e.job_title %></u></label></td>
-            <td><label class="field2" style="text-align: center" ><u><%= e.from %></u></label></td>
-            <td><label class="field2" style="text-align: center" ><u><%= e.to %></u></label></td>
-
+            <th>
+              <label class="label">Company name</label>
+            </th>
+            <th>
+              <label class="label">Job title</label>
+            </th>
+            <th>
+              <label class="label">Description</label>
+            </th>
+            <th>
+              <label class="label">from</label>
+            </th>
+            <th>
+              <label class="label">to</label>
+            </th>
           </tr>
-        <%end %>
-      </table>
+          <%@experiences.all.each do |e| %>
+            <tr>
+              <td><label class="field2" style="text-align: center" ><u><%= e.company_name %></u></label></td>
+              <td><label class="field2" style="text-align: center" ><u><%= e.description %></u></label></td>
+              <td><label class="field2" style="text-align: center" ><u><%= e.job_title %></u></label></td>
+              <td><label class="field2" style="text-align: center" ><u><%= e.from %></u></label></td>
+              <td><label class="field2" style="text-align: center" ><u><%= e.to %></u></label></td>
 
-
+            </tr>
+          <%end %>
+        </table>
+      </div>
       <br>
       <div>
         <% if @resume != "No resume uploaded" %>

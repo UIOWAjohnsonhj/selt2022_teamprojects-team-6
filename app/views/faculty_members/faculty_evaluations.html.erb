@@ -1,5 +1,4 @@
 <h1>Faculty Evaluations</h1>
-<h2>Hi <%= @display_name %></h2>
 <h3>Student: <%= @student_name %></h3>
 <table class="rwd-table">
   <tr>
@@ -8,12 +7,12 @@
     <th>Score</th>
     <th>Comment</th>
   </tr>
-  <tr>
-    <%= @evaluation.each do |eval| %>
-      <td><%= eval.professor %></td>
-      <td><%= eval.evaluation_date %></td>
-      <td><%= eval.score %></td>
-      <td><%= eval.comment %></td>
-    <%= end %>
-  </tr>
+  <% @faculty_eval_dict.each do |faculty, eval| %>
+    <tr>
+        <td><%= faculty.first_name %> <%= faculty.last_name %></td>
+        <td><%= eval.created_at %></td>
+        <td><%= eval.score %></td>
+        <td><%= eval.comment %></td>
+    </tr>
+  <% end %>
 </table>

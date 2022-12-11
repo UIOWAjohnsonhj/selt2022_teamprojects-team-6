@@ -3,7 +3,6 @@ require File.expand_path('../boot', __FILE__)
 # set :environment, Rails.env
 # set :output, Rails.root.join('log','cron.log')
 require 'rails/all'
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

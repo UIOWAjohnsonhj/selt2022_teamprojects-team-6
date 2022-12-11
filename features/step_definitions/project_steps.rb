@@ -221,6 +221,7 @@ When(/^I click the Waitlist button$/) do
   click_button 'Waitlist'
 end
 
+
 Given(/^I am on the Student Account Creation page$/) do
   visit "/students/sign_up"
 end
@@ -235,4 +236,5 @@ end
 
 Then(/^I should see "([^"]*)"$/) do |arg|
   expect(page).to have_content(arg)
+
 end

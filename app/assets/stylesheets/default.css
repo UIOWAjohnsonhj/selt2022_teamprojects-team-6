@@ -285,6 +285,12 @@ input[type=submit]:hover {
     0 0 100px gold;
 }
 
+.input_field {
+  width: 90%;
+  font-size: 16px;
+  color: gold;
+  background: transparent;
+}
 .login-box .user-box label {
   position: relative;
   top:0;
@@ -452,12 +458,12 @@ input[type=submit]:hover {
   margin: auto;
   min-width: 300px;
   max-width: 100%;
-  border: 4px black;
+  border: 4px gold;
   background: transparent linear-gradient(90deg, gold, black) repeat scroll 0% 0%;
 }
 
 .rwd-table tr:first-child {
-  border-top: black;
+  border-top: gold;
   background: black;
   color: gold;
 }
@@ -470,15 +476,22 @@ input[type=submit]:hover {
 
 .rwd-table tr:nth-child(odd):not(:first-child) {
   background-color: black;
+  color: gold;
+}
+
+.rwd-table tr:nth-child(even):not(:first-child) {
+  background-color: black;
+  color: gold;
 }
 
 .rwd-table th {
   display: none;
-  border: 3px black;
+  border: 3px gold;
 }
 
 .rwd-table td {
   display: block;
+  color: gold;
 }
 
 .rwd-table td:first-child {
@@ -494,7 +507,7 @@ input[type=submit]:hover {
   font-weight: bold;
   width: 120px;
   display: inline-block;
-  color: black;
+  color: gold;
 }
 
 .rwd-table th,
@@ -503,13 +516,17 @@ input[type=submit]:hover {
 }
 
 .rwd-table {
-  color: #333;
+  color: gold;
   border-radius: .4em;
   overflow: hidden;
+  border: 3px gold;
 }
 
 .rwd-table tr {
-  border: 2px black;
+  border: 2px gold;
+}
+.rwd-table td label {
+  color: gold;
 }
 
 .rwd-table th,
@@ -523,7 +540,7 @@ input[type=submit]:hover {
 }
 @media screen and (min-width: 600px) {
   .rwd-table tr:hover:not(:first-child) {
-    background-color: grey;
+    background-color: white;
   }
   .rwd-table td:before {
     display: none;
@@ -543,6 +560,141 @@ input[type=submit]:hover {
   }
   .rwd-table th,
   .rwd-table td {
+    padding: 1em !important;
+  }
+}
+
+div#rwd-table {
+  margin: auto;
+  min-width: 300px;
+  max-width: 100%;
+  border: 4px gold;
+  background: transparent linear-gradient(90deg, gold, black) repeat scroll 0% 0%;
+}
+
+div#rwd-table tr:first-child {
+  border-top: gold;
+  background: black;
+  color: gold;
+}
+
+div#rwd-table tr {
+  border-top: 1px gold;
+  border-bottom: 1px solid gold;
+  background-color: black;
+}
+
+div#rwd-table tr:nth-child(odd):not(:first-child) {
+  background-color: black;
+  color: gold;
+}
+
+div#rwd-table tr:nth-child(even):not(:first-child) {
+  background-color: black;
+  color: gold;
+}
+
+div#rwd-table th {
+  display: none;
+  border: 3px gold;
+}
+
+div#rwd-table td {
+  display: block;
+  color: gold;
+}
+
+div#rwd-table td:first-child {
+  margin-top: .5em;
+}
+
+div#rwd-table td:last-child {
+  margin-bottom: .5em;
+}
+
+div#rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 120px;
+  display: inline-block;
+  color: gold;
+}
+
+div#rwd-table th,
+#rwd-table td {
+  text-align: left;
+}
+
+div#rwd-table {
+  color: gold;
+  border-radius: .4em;
+  overflow: hidden;
+  border: 3px gold;
+}
+
+div#rwd-table tr {
+  border: 2px gold;
+}
+#rwd-table td label {
+  color: gold;
+}
+
+div#rwd-table th,
+div#rwd-table td {
+  padding: .5em 1em;
+}
+
+div#rwd-table td a {
+  margin: auto;
+  width: auto;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: gold;
+  border: none;
+  border-radius: 45px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+div#rwd-table td a:hover {
+  background-color: gold;
+  box-shadow: 0px 15px 20px gold;
+  color: gold;
+  transform: translateY(-3px);
+}
+
+@media screen and (max-width: 601px) {
+  div#rwd-table tr:nth-child(2) {
+    border-top: 1px solid gold;
+  }
+}
+@media screen and (min-width: 600px) {
+  div#rwd-table tr:hover:not(:first-child) {
+    background-color: white;
+  }
+  div#rwd-table td:before {
+    display: none;
+  }
+  div#rwd-table th,
+  div#rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+  div#rwd-table th:first-child,
+  div#rwd-table td:first-child {
+    padding-left: 0;
+  }
+  div#rwd-table th:last-child,
+  div#rwd-table td:last-child {
+    padding-right: 0;
+  }
+  div#rwd-table th,
+  div#rwd-table td {
     padding: 1em !important;
   }
 }
