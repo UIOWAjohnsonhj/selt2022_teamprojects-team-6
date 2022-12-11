@@ -11,9 +11,9 @@
             <th>TOEFL</th>
           </tr>
           <tr>
-            <td><input value="<%= @current_profile.gpa %>" class="field2" name="gpa"></td>
-            <td><input value="<%= @current_profile.gre %>" class="field2" name="gre"></td>
-            <td><input value="<%= @current_profile.toefl %>" class="field2" name="toefl"></td>
+            <td><input value="<%= @current_profile.gpa %>" class="input_field" name="gpa"></td>
+            <td><input value="<%= @current_profile.gre %>" class="input_field" name="gre"></td>
+            <td><input value="<%= @current_profile.toefl %>" class="input_field" name="toefl"></td>
           </tr>
         </table>
       </div>
@@ -25,8 +25,8 @@
             <th>Year</th>
           </tr>
           <tr>
-            <td><input value="<%= @current_profile.college_name %>" class="field2" name="college_name"></td>
-            <td><input value="<%= @current_profile.year %>" list="year" class="field2 " name="year">
+            <td><input value="<%= @current_profile.college_name %>" class="input_field" name="college_name"></td>
+            <td><input value="<%= @current_profile.year %>" list="year" class="input_field " name="year">
               <datalist id="year">
                 <option value="2022">
                 <option value="2023">
@@ -45,9 +45,9 @@
             <th>Term</th>
           </tr>
           <tr>
-            <td><input value="<%= @current_profile.capa %>" class="field2" name="capa"></td>
+            <td><input value="<%= @current_profile.capa %>" class="input_field" name="capa"></td>
             <td>
-              <select id="majors" name="major">
+              <select id="majors" name="major" class="input_field">
                 <option value="Mechanical Engineering">Mechanical Engineering</option>
                 <option value="Computer Science Engineering">Computer Science Engineering</option>
                 <option value="Biomedical Engineering">Biomedical Engineering</option>
@@ -56,7 +56,7 @@
               </select>
             </td>
             <td>
-              <select id="term" name="term">
+              <select id="term" name="term" class="input_field">
                 <option value="Fall">Fall</option>
                 <option value="Spring">Spring</option>
                 <option value="Summer">Summer</option>`
@@ -124,6 +124,7 @@
         <% end %>
       </div>
       <br>
+      <input type="hidden" name="hidden">
       <input type="submit" class = "button" value="save">
     </form>
   </div>

@@ -1,142 +1,9 @@
-<!--<h1>Profile</h1>-->
-<!--<h2>Hi <%#= @student.first_name %></h2>-->
-
-<!--<div class="profile">-->
-<!--  <div class="profile_features">-->
-<!--    <form method="post" action="<%#= main_edit_profile_path %>">-->
-<!--      <br>-->
-<!--      <table>-->
-<!--        <tr>-->
-<!--          <th><label class="label">GPA</label></th>-->
-<!--          <th><label class="label">GRE</label></th>-->
-<!--          <th><label class="label">TOEFL</label></th>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--          <td>-->
-<!--            <label class="field" name="gre" style="text-align: center"><u><%#= @current_profile.gpa %></u></label>-->
-<!--          </td>-->
-<!--          <td>-->
-<!--            <label class="field" name="toefl" style="text-align: center" ><u><%#= @current_profile.gre %></u></label>-->
-<!--          </td>-->
-<!--          <td>-->
-<!--            <label class="field" name="capa" style="text-align: center"><u><%#= @current_profile.toefl %></u></label>-->
-
-<!--          </td>-->
-<!--        </tr>-->
-<!--      </table>-->
-<!--      <br>-->
-<!--      <table>-->
-<!--        <tr>-->
-<!--          <th><label class="label">CAPA</label></th>-->
-<!--          <th><label class="label">Intrested Major</label></th>-->
-<!--          <th><label class="label">Term</label></th>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--          <td>-->
-<!--            <label list="majors" class="field" name="major" style="text-align: center"><u><%#= @current_profile.capa %></u></label>-->
-<!--          </td>-->
-<!--          <td>-->
-<!--            <label list="term" class="field" name="term" style="text-align: center"><u><%#= @current_profile.interested_major %></u></label>-->
-<!--          </td>-->
-<!--          <td>-->
-<!--            <label list="year" class="field" name="year" style="text-align: center"><u><%#= @current_profile.term %></u></label>-->
-<!--          </td>-->
-<!--        </tr>-->
-<!--      </table>-->
-<!--      <br>-->
-<!--      <br>-->
-<!--      <table class="profile-table">-->
-<!--        <tr>-->
-<!--          <th><label class="label">Year</label></th>-->
-<!--          <th><label class="label">Undergrad college</label></th>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--          <td><label class="field2" name="college_name"style="text-align: center" ><u><%#= @current_profile.year %></u></label></td>-->
-<!--          <td><label class="field2" name="college_name"style="text-align: center" ><u><%#= @current_profile.college_name %></u></label></td>-->
-<!--        </tr>-->
-<!--      </table>-->
-<!--      <br>-->
-
-<!--      <br>-->
-<!--      <h2>Work experience</h2>-->
-<!--      <br>-->
-<!--      <table>-->
-<!--        <tr>-->
-<!--          <th>-->
-<!--            <label class="label">Company name</label>-->
-<!--          </th>-->
-<!--          <th>-->
-<!--            <label class="label">Job title</label>-->
-<!--          </th>-->
-<!--          <th>-->
-<!--            <label class="label">Description</label>-->
-<!--          </th>-->
-<!--          <th>-->
-<!--            <label class="label">from</label>-->
-<!--          </th>-->
-<!--          <th>-->
-<!--            <label class="label">to</label>-->
-<!--          </th>-->
-<!--        </tr>-->
-        <%#@experiences.all.each do |e| %>
-<!--          <tr>-->
-<!--            <td><label class="field2" style="text-align: center" ><u><%#= e.company_name %></u></label></td>-->
-<!--            <td><label class="field2" style="text-align: center" ><u><%#= e.description %></u></label></td>-->
-<!--            <td><label class="field2" style="text-align: center" ><u><%#= e.job_title %></u></label></td>-->
-<!--            <td><label class="field2" style="text-align: center" ><u><%#= e.from %></u></label></td>-->
-<!--            <td><label class="field2" style="text-align: center" ><u><%#= e.to %></u></label></td>-->
-
-<!--          </tr>-->
-        <%#end %>
-<!--      </table>-->
-
-<!--      <br>-->
-<!--      <div class="row">-->
-        <%# if @resume != "No resume uploaded" %>
-<!--          <div>-->
-            <%#= link_to "Download Resume", @resume.attachment_url, class: "link1", target: :_blank %>
-<!--          </div>-->
-        <%# end %>
-<!--      </div>-->
-<!--      <br>-->
-<!--      <br>-->
-<!--      <input type="submit" class = "btn2" value="Edit profile">-->
-<!--      <input type="hidden" name="hidden">-->
-<!--      <br>-->
-<!--    </form>-->
-<!--    <br>-->
-<!--  </div>-->
-
-<!--  <div class="profile_features2">-->
-<!--    <div class="vl"></div>-->
-<!--  </div>-->
-<!--  <div class="profile_features">-->
-<!--    <h1>Universities Applied</h1>-->
-    <%# @applied_departments.each do |k,v| %>
-<!--      <br>-->
-<!--      <h2><%#=k %></h2>-->
-<!--      <table>-->
-<!--        <tr>-->
-<!--          <th>Department</th>-->
-<!--          <th>Status</th>-->
-<!--        </tr>-->
-        <%#v.each do |a| %>
-<!--          <tr>-->
-<!--            <td><%#=a[0] %></td>-->
-<!--            <td><%#=a[1] %></td>-->
-<!--          </tr>-->
-        <%#end %>
-<!--      </table>-->
-<!--      <br>-->
-    <%#end %>
-<!--  </div>-->
-<!--</div>-->
-
 <h1>Profile</h1>
 <div class="profile">
   <div class="profile_features">
     <br>
-    <form method="post" action="<%= main_view_profile_path %>">
+    <form method="post" action="<%= main_edit_profile_path %>">
+      <input type="hidden" name="hidden">
       <div class="rwd-table">
         <table>
           <tr>
@@ -211,9 +78,7 @@
         <% end %>
       </div>
       <br>
-      <input type="submit" class = "btn2" value="Edit profile">
-      <input type="hidden" name="hidden">
-      <br>
+      <input type="submit" class="button" value="Edit profile">
     </form>
     <br>
   </div>

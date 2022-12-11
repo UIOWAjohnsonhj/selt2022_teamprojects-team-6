@@ -286,9 +286,9 @@ input[type=submit]:hover {
 }
 
 .input_field {
-  width: 120px;
+  width: 90%;
   font-size: 16px;
-  color: black;
+  color: gold;
   background: transparent;
 }
 .login-box .user-box label {
@@ -458,12 +458,12 @@ input[type=submit]:hover {
   margin: auto;
   min-width: 300px;
   max-width: 100%;
-  border: 4px black;
+  border: 4px gold;
   background: transparent linear-gradient(90deg, gold, black) repeat scroll 0% 0%;
 }
 
 .rwd-table tr:first-child {
-  border-top: black;
+  border-top: gold;
   background: black;
   color: gold;
 }
@@ -476,15 +476,22 @@ input[type=submit]:hover {
 
 .rwd-table tr:nth-child(odd):not(:first-child) {
   background-color: black;
+  color: gold;
+}
+
+.rwd-table tr:nth-child(even):not(:first-child) {
+  background-color: black;
+  color: gold;
 }
 
 .rwd-table th {
   display: none;
-  border: 3px black;
+  border: 3px gold;
 }
 
 .rwd-table td {
   display: block;
+  color: gold;
 }
 
 .rwd-table td:first-child {
@@ -500,7 +507,7 @@ input[type=submit]:hover {
   font-weight: bold;
   width: 120px;
   display: inline-block;
-  color: black;
+  color: gold;
 }
 
 .rwd-table th,
@@ -509,13 +516,17 @@ input[type=submit]:hover {
 }
 
 .rwd-table {
-  color: #333;
+  color: gold;
   border-radius: .4em;
   overflow: hidden;
+  border: 3px gold;
 }
 
 .rwd-table tr {
-  border: 2px black;
+  border: 2px gold;
+}
+.rwd-table td label {
+  color: gold;
 }
 
 .rwd-table th,
@@ -529,7 +540,7 @@ input[type=submit]:hover {
 }
 @media screen and (min-width: 600px) {
   .rwd-table tr:hover:not(:first-child) {
-    background-color: grey;
+    background-color: white;
   }
   .rwd-table td:before {
     display: none;
