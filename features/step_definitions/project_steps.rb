@@ -1,3 +1,4 @@
+require 'uri'
 
 Given(/^I am on the Account Creation page$/) do
   visit main_sign_up_path
@@ -22,9 +23,6 @@ Then(/^A new student account should be created with first name "(.*?)", last nam
   expect(result).to be_truthy
 end
 
-And(/^the faculty radio button is clicked$/) do
-  click_button 'radio_button_faculty'
-end
 
 Then(/^I should be directed to the second sign up page to enter faculty specific information$/) do
   expect(page).to have_content("FacultyMember Sign Up")
@@ -52,7 +50,7 @@ Then(/^I should view a "([^"]*)" page$/) do |arg|
 end
 
 Given(/^I am a Student$/) do
-  pending
+  expect(@user).to be_a(Student)
 end
 
 Then(/^I should not view a "([^"]*)" page$/) do |arg|
@@ -60,7 +58,7 @@ Then(/^I should not view a "([^"]*)" page$/) do |arg|
 end
 
 Given(/^I am logged in$/) do
-  pending
+  expect(session[:user_id]).to_not be_nil
 end
 
 Then(/^I should view the "([^"]*)" page$/) do |arg|
@@ -153,8 +151,10 @@ Given(/^the following account has been added to Students:$/) do |table|
   end
 end
 
-Given(/^I am on the Welcome page$/) do |arg|
-  expect(page).to have_content(arg)
+Given(/^I am on the Welcome page$/) do
+  send(:visit, main_welcome_path)
+  # expect(page).to have_content(arg)
+  puts page.body.to_s
 end
 
 When(/^I click the "([^"]*)" link$/) do |arg|
@@ -162,11 +162,11 @@ When(/^I click the "([^"]*)" link$/) do |arg|
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |arg|
-  expect(page).to have_content(arg)
+  url = URI.parse(current_url).path
+  expect(url).to have_content(arg)
 end
 
 Given(/^I am on the admissions decision page of a student$/) do
-
   visit profile_viewer_path
 end
 
