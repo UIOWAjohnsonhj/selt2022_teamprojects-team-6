@@ -196,7 +196,10 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
-
+    puts params
+    if params.include? "search"
+      session[:search]=params[:search]
+    end
     if session[:search_type]=="supported"
       @universities=University
       @search_type = session[:search_type]
