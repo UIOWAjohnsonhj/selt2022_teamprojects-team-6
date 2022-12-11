@@ -125,7 +125,7 @@ class FacultyMembersController < ApplicationController
     @student = Student.find(params[:email][:student_id])
     email= @student.email
     EmailStudentsMailer.notify_user(email, params[:email][:subject], params[:email][:message]).deliver_now
-    render 'my_evaluations'
+    redirect_to my_evaluations_path(student_id: params[:email][:student_id])
   end
 end
 
