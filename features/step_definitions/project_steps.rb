@@ -153,12 +153,11 @@ end
 
 Given(/^I am on the Welcome page$/) do
   visit "/index"
-  # expect(page).to have_content(arg)
-  puts page.body.to_s
+  expect(page).to have_content("Welcome")
 end
 
 When(/^I click the "([^"]*)" link$/) do |arg|
-  click_link(arg)
+  click_button "#{arg}_button"
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |arg|
