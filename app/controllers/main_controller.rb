@@ -219,10 +219,14 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
-    @university = University.where(name:params[:name]).take
-    @departments = Department.where(university_id: @university.id)
-    @departments.all.each do |d|
-      puts d.name
+    puts"--------------------------------------------------------------------------"
+    puts params
+    if session[:search_type]=="supported"
+      @university = University.find(params[:id])
+      @departments = Department.where(university_id: params[:id])
+    else
+      @university = University.where(name: params[:name]).take
+      @departments = Department.where(university_id: @university.id)
     end
   end
 
@@ -278,7 +282,8 @@ class MainController < ApplicationController
                         "Computer Breadth", "Computer Hardware", "Computer Networks", "Control Systems", "Electrical Breadth", "Electrical Circuits",
                         "Entrepreneurship", "Integrated Circuits", "Internet of Things", "Photonic Systems", "Power Systems", "Pre-Law",
                         "Pre-Medicine", "Quantum Computing and Devices", "RF Electronics", "Semiconductor Devices", "Signal & Imaging Processing",
-                        "Software Engineering", "Sustainability"]
+                        "Software Engineering",
+    ]
     @selected_focus_areas = params[:focus_areas] || "All"
 
     if @selected_focus_areas == "All"
