@@ -26,7 +26,7 @@ And(/^the faculty radio button is clicked$/) do
   click_button 'radio_button_faculty'
 end
 
-Then (/^I should be directed to the second sign up page to enter faculty specific information$/) do
+Then(/^I should be directed to the second sign up page to enter faculty specific information$/) do
   expect(page).to have_content("FacultyMember Sign Up")
 end
 
