@@ -38,6 +38,7 @@ class FacultyMembersController < ApplicationController
   end
 
   def my_evaluations
+    @id = current_faculty_member.id
     @faculty = FacultyMember.find_by(id: @id)
     @evaluations = Evaluation.where(faculty_id: @faculty.id)
     @student_eval_dict = {}
@@ -53,6 +54,7 @@ class FacultyMembersController < ApplicationController
   def admission_decision
     # Below will be added when application is created and we have a university id
     # @application_list = Application.where(university_id: @faculty.university_id, department_id: @faculty.department_id)
+    @id = current_faculty_member.id
     @faculty = FacultyMember.find_by(id: @id)
     @application_list = Application.where(department_id: @faculty.department_id)
     @student_app_dict = {}
