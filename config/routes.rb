@@ -13,24 +13,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "main#index"
 
-  get 'login', to: 'main#login', as: 'login'
-  post 'main/login'
-
-
-  get 'main/intermediate_sign_up', to: redirect('sign_up')
-  # post 'sign_up'
-
-  get 'sign_up', to: 'main#sign_up', as: 'sign_up'
-  post 'main/sign_up'
-
   get 'general_sign_up', to: 'main#general_sign_up', as: 'general_sign_up'
   post 'main/general_sign_up'
 
   get 'general_login', to: 'main#general_login', as: 'general_login'
   post 'main/general_login'
-
-  get 'sign_up_faculty', to: 'main#sign_up_faculty', as: 'sign_up_faculty'
-  post 'main/sign_up_faculty'
 
   get 'index', to: 'main#index', as: 'index'
   post 'main/index'
@@ -45,21 +32,16 @@ Rails.application.routes.draw do
   post 'main/remove_experience'
 
   get 'search_instructor', to: 'main#search_instructor', as: 'search_instructor'
-  post 'main/search_instructor'
 
   get 'profile_viewer', to: 'profiles#profile_viewer', as: 'profile_viewer'
   post 'profiles/profile_viewer'
 
-  get 'intermediate_sign_up', to: 'main#intermediate_sign_up', as: 'intermediate_sign_up'
-  post 'main/intermediate_sign_up'
-
   get 'edit_profile', to: 'main#edit_profile', as: 'edit_profile'
   post 'main/edit_profile'
 
-  get 'intermediate_login', to: 'main#intermediate_login', as: 'intermediate_login'
-  post 'main/intermediate_login'
-
   get 'search_universities', to: 'main#search_universities', as: 'search_universities'
+  post 'main/intermediate_search'
+
   post 'main/search_universities'
 
   get 'view_university', to: 'main#view_university', as: 'view_university'

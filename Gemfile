@@ -10,7 +10,6 @@ gem 'mail'
 gem 'actionmailer'
 gem 'devise'
 
-gem 'actionmailer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails' # , '4.2.10'
 # Use SCSS for stylesheets
@@ -38,8 +37,6 @@ gem 'carrierwave', '~> 1.0'
 
 gem 'fog', '~> 1.38'
 
-gem "devise"
-
 gem 'decisiontree'
 
 gem 'graphviz'
@@ -51,7 +48,7 @@ gem 'sprockets-rails',  '>= 3.2.0'
 #bundle exec rails g devise:install
 gem 'bootstrap-sass', '~> 2.3.2'
 
-#gem 'sqlite3', '~> 1.3.6'
+gem 'sqlite3', '~> 1.3.6'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views

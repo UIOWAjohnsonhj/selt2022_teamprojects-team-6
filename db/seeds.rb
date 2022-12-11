@@ -15,8 +15,8 @@ students = [{:first_name => 'Kiana', :last_name => 'Erickson', :email => 'kberic
   	 ]
 
 #i added the faculty in front of first names to differentiate from the students names
-faculties = [{:first_name => 'Kian', :last_name => 'Weimer', :email => 'kianW@uiowa.edu', :focus_area=>"Computer Hardware", :password=>"123456",:chair=>true,:research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa",:department_id=>1},
-            {:first_name => 'Evan', :last_name => 'Bradley', :email => 'evanB@uiowa.edu', :focus_area=>"Control Systems", :password=>"123456",:chair=>true,:research_url=>"http://www.engineering.uiowa.edu", :university=>"University of Iowa",:department_id=>3},
+faculties = [{:first_name => 'Kian', :last_name => 'Weimer', :email => 'kianW123@uiowa.edu', :focus_area=>"Computer Hardware", :password=>"123456",:chair=>true,:research_url=>"http://www.cs.uiowa.edu", :university=>"University of Iowa",:department_id=>1},
+            {:first_name => 'Evan', :last_name => 'Bradley', :email => 'evanB123@uiowa.edu', :focus_area=>"Control Systems", :password=>"123456",:chair=>true,:research_url=>"http://www.engineering.uiowa.edu", :university=>"University of Iowa",:department_id=>3},
 ]
 
 

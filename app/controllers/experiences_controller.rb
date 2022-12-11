@@ -1,4 +1,4 @@
-class Experiences < ActiveRecord::Base
+class ExperiencesController < ActiveRecord::Base
 
 
 end
