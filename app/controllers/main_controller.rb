@@ -90,7 +90,8 @@ class MainController < ApplicationController
 
   def general_sign_up
   end
-
+  def sign_up_faculty
+  end
   def general_login
   end
 
