@@ -8,6 +8,14 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     super
+    puts student_signed_in?
+    puts faculty_member_signed_in?
+    if student_signed_in?
+      redirect_to view_profile_path and return
+    elsif faculty_member_signed_in?
+      redirect_to root_path and return
+    end
+    puts "HERLLLLLOS23981"
   end
 
   # POST /resource
