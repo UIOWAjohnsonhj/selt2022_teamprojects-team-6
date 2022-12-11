@@ -12,10 +12,9 @@
     <th>Status</th>
     <th>Contact</th>
   </tr>
-
-  <tr>
-    <% unless @student_eval_dict.nil? %>
-      <%  @student_eval_dict.each do |student, eval|  %>
+  <% unless @student_eval_dict.nil? %>
+    <%  @student_eval_dict.each do |student, eval|  %>
+    <tr>
           <td><%= student.first_name  %></td>
           <td><%= student.last_name %></td>
           <td><%= eval.applied_term  %></td>
@@ -24,7 +23,7 @@
           <td><%= eval.comment %></td>
           <td><%= eval.status  %></td>
           <td><%= link_to "Email", create_email_path(student_id: student.id), class: "link1"%></td>
-      <%  end  %>
-    <%  end %>
-  </tr>
+    </tr>
+    <%  end  %>
+  <%  end %>
 </table>
