@@ -25,5 +25,18 @@ module Rottenpotatoes
     config.active_record.raise_in_transactional_callbacks = true
     # config/application.rb
     config.assets.initialize_on_precompile = false
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.default_url_options = {
+      :host => 'https://still-waters-25668.herokuapp.com/'
+    }
+    config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :domain => "gmail.com",
+      :user_name => "SimplApplySELT@gmail.com",
+      :password => "nqjarzbzugdqdavy",
+      :authentication => "plain",
+      :enable_starttls_auto => true
+    }
   end
 end

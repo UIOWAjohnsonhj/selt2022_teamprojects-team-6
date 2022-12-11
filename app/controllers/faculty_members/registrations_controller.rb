@@ -13,22 +13,26 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    session[:new_account]=true
   end
 
   # GET /resource/edit
   # def edit
   #   super
-  # end
+  # endstill-waters
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    flash[:notice] = "Account Updated"
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+    flash[:notice] = "Account Deleted"
+    reset_session
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

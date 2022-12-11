@@ -123,7 +123,9 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
-
+    if params.include? "search"
+      session[:search]=params[:search]
+    end
     if session[:search_type]=="supported"
       @universities=University
       @search_type = session[:search_type]
@@ -146,8 +148,14 @@ class MainController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
-    @university = University.where(name:params[:name]).take
-    @departments = Department.where(university_id: @university.id)
+    puts params
+    if session[:search_type]=="supported"
+      @university = University.find(params[:id])
+      @departments = Department.where(university_id: params[:id])
+    else
+      @university = University.where(name: params[:name]).take
+      @departments = Department.where(university_id: @university.id)
+    end
   end
 
   def intermediate_search
@@ -196,12 +204,14 @@ class MainController < ApplicationController
       redirect_to root_path and return
     end
     @faculties = FacultyMember
+    puts "SAANBE---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------s"
     ordering,@name_header = {:name => :asc}, 'hilite'
     @all_focus_areas = ["All","Applied Physics", "Big Data/Data Mining/Machine Learning", "Bioinformatics", "Business", "Communication Systems",
                         "Computer Breadth", "Computer Hardware", "Computer Networks", "Control Systems", "Electrical Breadth", "Electrical Circuits",
                         "Entrepreneurship", "Integrated Circuits", "Internet of Things", "Photonic Systems", "Power Systems", "Pre-Law",
                         "Pre-Medicine", "Quantum Computing and Devices", "RF Electronics", "Semiconductor Devices", "Signal & Imaging Processing",
-                        "Software Engineering", "Sustainability"]
+                        "Software Engineering",
+    ]
     @selected_focus_areas = params[:focus_areas] || "All"
 
     if @selected_focus_areas == "All"

@@ -19,6 +19,8 @@ class FacultyMembersController < ApplicationController
     if !faculty_member_signed_in?
       flash[:notice] = "Faculty Account not Found"
       redirect_to controller: "main", action: 'index' and return
+    else
+      redirect_to controller: "faculty_members", action: 'my_evaluations' and return
     end
 
     @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
@@ -89,7 +91,6 @@ class FacultyMembersController < ApplicationController
     @profile = Profile.find_by(student_id: @student.id)
     @application = Application.where(student_id: @student.id, department_id: @faculty.department_id).take
     @evaluation = Evaluation.where(student_id: @student.id, faculty_id: @faculty.id).take
-    puts params
     if @evaluation.nil?
       @evaluation = Evaluation.new
       @evaluation.student_id = @student.id

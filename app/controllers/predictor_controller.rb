@@ -5,6 +5,12 @@ class PredictorController < ApplicationController
     if !student_signed_in?
       redirect_to root_path and return
     end
+  end
+
+  def predictor_result
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
     @student = "None"
     if params[:search] != ""
       @student = Student.find_by(id: current_student.id)
@@ -14,5 +20,13 @@ class PredictorController < ApplicationController
       @predicted_decision = predicted_probability["decision"]
       @accuracy = (predicted_probability["accuracy"]).to_s
     end
+  end
+
+  def loading
+    if !student_signed_in?
+      redirect_to root_path and return
+    end
+    puts params
+    @search = params[:search]
   end
 end
