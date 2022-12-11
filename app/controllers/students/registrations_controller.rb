@@ -16,15 +16,19 @@ class Students::RegistrationsController < Devise::RegistrationsController
     #   flash[:notice] = "Please fill out all fields"
     #   redirect_to new_student_registration_path and return
     # end
-    student=Student.where(email:params[:student][:email]).take
-    student_profile={:student_id=>student.id,:gpa=>nil,:gre=>nil, :toefl => nil,
-                     :interested_major => nil, :term => nil,
-                     :year =>nil }
+    # if !(params[:first_name].blank? or params[:last_name].blank? or params[:email].blank? or params[:password].blank? or params[:password_confirmation].blank? or params[:password].length<6 or params[:password_confirmation].length<6 or params[:password]!=params[:password_confirmation])
+      student=Student.where(email:params[:student][:email]).take
+    # puts "-----------------------------------asdasdasdasfsddfgdfwsadfsfdgdf"
+      student_profile={:student_id=>student.id,:gpa=>nil,:gre=>nil, :toefl => nil,
+                       :interested_major => nil, :term => nil,
+                       :year =>nil }
 
-    Profile.create!(student_profile)
+      Profile.create!(student_profile)
 
-    student_email = params[:student][:email]
-    EmailStudentsMailer.create_account(student_email).deliver_now
+      student_email = params[:student][:email]
+      EmailStudentsMailer.create_account(student_email).deliver_now
+    # end
+
   end
 
   # GET /resource/edit
@@ -33,14 +37,16 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    flash[:notice] = "Account Updated"
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+    reset_session
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
