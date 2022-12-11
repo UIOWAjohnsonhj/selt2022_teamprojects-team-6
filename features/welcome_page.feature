@@ -7,6 +7,6 @@ Feature: Visit the welcome page
 
   Scenario:
     Given I am on the Welcome page
-#    When I click the "login" link
-#    Then I should be on the "login" page
+    When I click the "login" link
+    Then I should be on the "login" page
 
