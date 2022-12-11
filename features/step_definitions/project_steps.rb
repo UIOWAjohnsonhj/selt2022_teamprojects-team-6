@@ -152,7 +152,7 @@ Given(/^the following account has been added to Students:$/) do |table|
 end
 
 Given(/^I am on the Welcome page$/) do
-  send(:visit, main_welcome_path)
+  visit "/index"
   # expect(page).to have_content(arg)
   puts page.body.to_s
 end
