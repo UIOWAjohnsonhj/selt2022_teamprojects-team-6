@@ -6,23 +6,25 @@ Feature: Allow users to create an account
 
 
 Scenario: Creating a student account
-  Given I am on the Account Creation page
-  And I fill in "First name" with "Adnane"
-  And I fill in "Last name" with "Ezouhri"
-  And I fill in "Email address" with "aezouhri@uiowa.edu"
-  And I fill in "Password" with "password"
-  And the student radio button is clicked
-  When I Click "Create account"
+  Given I am on the Student Account Creation page
+  And I fill in "first name" with "Adnane"
+  And I fill in "last name" with "Ezouhri"
+  And I fill in "email" with "aezouhri@uiowa.edu"
+  And I fill in "password" with "password"
+  And I fill in "password confirmation" with "password"
+  When I Click Sign Up
   Then A new student account should be created with first name "Adnane", last name "Ezouhri", and email address "aezouhri@uiowa.edu"
 
 Scenario: Creating a faculty account
-  Given I am on the Account Creation page
+  Given I am on the Faculty Account Creation page
   And I fill in "First name" with "Kiana"
   And I fill in "Last name" with "Erickson"
-  And I fill in "Email address" with "kerickson@uiowa.edu"
+  And I fill in "Email" with "kerickson@uiowa.edu"
   And I fill in "Password" with "password"
-  And the faculty radio button is clicked
-  Then I should be directed to the second sign up page to enter faculty specific information
+  And I fill in "password confirmation" with "password"
+  When I Click Sign Up
+  Then A new faculty account should be created with first name "Kiana", last name "Erickson", and email address "
+
 
   Given I am on the second sign up page for faculty
   And I fill in "University Name" with "University of Iowa"
