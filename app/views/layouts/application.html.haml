@@ -21,8 +21,6 @@
           = submit_tag 'Search Instructors'
         = form_tag predictor_predict_probability_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Predictor'
-        = form_tag edit_student_registration_path, :method => 'get', :class => 'form form-inline' do
-          = submit_tag 'Edit Account'
     -elsif faculty_member_signed_in?
       .row1
         = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
@@ -33,8 +31,6 @@
           = submit_tag 'My Evaluations'
         = form_tag admission_decision_path, :method => 'get', :class => 'form form-inline' do
           = submit_tag 'Admission Review'
-        = form_tag edit_faculty_member_registration_path, :method => 'get', :class => 'form form-inline' do
-          = submit_tag 'Edit Account'
         -if current_faculty_member.chair?
           = form_tag new_faculty_member_registration_path, :method => 'get', :class => 'form form-inline' do
             = submit_tag 'Add Faculty'
