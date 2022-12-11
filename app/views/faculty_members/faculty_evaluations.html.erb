@@ -7,12 +7,12 @@
     <th>Score</th>
     <th>Comment</th>
   </tr>
-  <tr>
-    <% @faculty_eval_dict.each do |faculty, eval| %>
-      <td><%= faculty.first_name %> <%= faculty.last_name %></td>
-      <td><%= eval.created_at %></td>
-      <td><%= eval.score %></td>
-      <td><%= eval.comment %></td>
-    <% end %>
-  </tr>
+  <% @faculty_eval_dict.each do |faculty, eval| %>
+    <tr>
+        <td><%= faculty.first_name %> <%= faculty.last_name %></td>
+        <td><%= eval.created_at %></td>
+        <td><%= eval.score %></td>
+        <td><%= eval.comment %></td>
+    </tr>
+  <% end %>
 </table>
