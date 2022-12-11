@@ -138,26 +138,26 @@ describe MainController do
       get :view_university
       expect(response).to redirect_to('/')
     end
-  #   it 'should redirect to view_university if student logged in' do
-  #     allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
-  #     allow(MainController).to receive(:view_university)
-  #     get :view_university, params: { name: 'University of Iowa' }
-  #     expect(response).to render_template('view_university')
-  #   end
-  #   it 'should set the @university variable' do
-  #     allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
-  #     allow(MainController).to receive(:view_university)
-  #     get :view_university, params: { name: 'The University of Iowa' }
-  #     university = assigns(:university)
-  #     expect(university).not_to eq(nil)
-  #     end
-  #   it 'should set the @departments variable' do
-  #     allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
-  #     allow(MainController).to receive(:view_university)
-  #     get :view_university, params: { name: 'University of Iowa', university_id: 1, department: 1 }
-  #     departments = assigns(:departments)
-  #     expect(departments).not_to eq(nil)
-  #   end
+    # it 'should redirect to view_university if student logged in' do
+    #   allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+    #   allow(MainController).to receive(:view_university)
+    #   get :view_university, params: { name: 'University of Iowa' }
+    #   expect(response).to render_template('view_university')
+    # end
+    # it 'should set the @university variable' do
+    #   allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+    #   allow(MainController).to receive(:view_university)
+    #   get :view_university, params: { name: 'The University of Iowa' }
+    #   university = assigns(:university)
+    #   expect(university).not_to eq(nil)
+    #   end
+    # it 'should set the @departments variable' do
+    #   allow_any_instance_of(Devise::Controllers::Helpers).to receive(:student_signed_in?).and_return(true)
+    #   allow(MainController).to receive(:view_university)
+    #   get :view_university, params: { name: 'University of Iowa', university_id: 1, department: 1 }
+    #   departments = assigns(:departments)
+    #   expect(departments).not_to eq(nil)
+    # end
   end
   # Search Instructor Page
   describe 'Search Instructor' do
