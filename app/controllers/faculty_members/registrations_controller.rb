@@ -13,6 +13,10 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    # faculty = FacultyMember.where(email:params[:faculty_member][:email]).take
+    # faculty.university = current_faculty_member.university
+    # faculty.department_id = current_faculty_member.department_id
+    # faculty.save
     session[:new_account]=true
   end
 

@@ -30,17 +30,17 @@ universities = [{:name=> "University of Iowa",:rank=>12,:state=>"Iowa"},
                 {:name=> "University of Florida",:rank=>19,:state=>"Florida"},
                 ]
 department = [{:university_id=>1,:name=>"Electrical Engineering"},{:university_id=>1,:name=>"Mechanical Engineering"},
-              {:university_id=>1,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"},
-              {:university_id=>2,:name=>"Electrical Engineering"},{:university_id=>2,:name=>"Mechanical Engineering"},
+              {:university_id=>1,:name=>"Computer Science Engineering"},
+              {:university_id=>2,:name=>"Electrical and Computer Engineering"},{:university_id=>2,:name=>"Health"},
               {:university_id=>2,:name=>"Hardware Engineering"},{:university_id=>2,:name=>"Physics"},
-              {:university_id=>3,:name=>"Electrical Engineering"},{:university_id=>1,:name=>"Mechanical Engineering"},
-              {:university_id=>3,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"},
-              {:university_id=>4,:name=>"Electrical Engineering"},{:university_id=>2,:name=>"Mechanical Engineering"},
-              {:university_id=>4,:name=>"Hardware Engineering"},{:university_id=>2,:name=>"Physics"},
-              {:university_id=>5,:name=>"Electrical Engineering"},{:university_id=>1,:name=>"Mechanical Engineering"},
-              {:university_id=>5,:name=>"Computer Science Engineering"},{:university_id=>1,:name=>"Industrial Engineering"},
-              {:university_id=>6,:name=>"Electrical Engineering"},{:university_id=>2,:name=>"Mechanical Engineering"},
-              {:university_id=>6,:name=>"Hardware Engineering"},{:university_id=>2,:name=>"Physics"}
+              {:university_id=>3,:name=>"Environmental Sciences"},{:university_id=>3,:name=>"Anthropology"},
+              {:university_id=>3,:name=>"Machine Learning"},{:university_id=>3,:name=>"Industrial Engineering"},
+              {:university_id=>4,:name=>"Math"},{:university_id=>2,:name=>"Chemistry"},
+              {:university_id=>4,:name=>"Natural Sciences"},{:university_id=>4,:name=>"Language processing"},
+              {:university_id=>5,:name=>"Criminology"},{:university_id=>5,:name=>"Psychology"},
+              {:university_id=>5,:name=>"Game Theory"},{:university_id=>5,:name=>"Physical Therapy"},
+              {:university_id=>6,:name=>"Consulting"},{:university_id=>6,:name=>"Business"},
+              {:university_id=>6,:name=>"Sociology"}
 
 ]
 

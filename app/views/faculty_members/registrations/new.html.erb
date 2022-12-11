@@ -30,11 +30,11 @@
 
   <div class="field">
     <%= f.label :university %><br />
-    <%= f.collection_select :university, current_faculty_member.university,:name,:name, include_blank: true, autofocus: true %>
+    <%= f.collection_select :university, University.order(:name),:name,:name, include_blank: true, autofocus: true %>
   </div>
   <div class="field">
     <%= f.label :department %><br />
-    <%= f.collection_select :department_id, Department.find(current_faculty_member.department_id).name,:id,:name, include_blank: true, autofocus: true%>
+    <%= f.collection_select :department_id, Department.order(:name),:id,:name, include_blank: true, autofocus: true%>
   </div>
   <div class="field">
     <%= f.label :focus_area %><br />

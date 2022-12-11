@@ -18,7 +18,8 @@ class Students::RegistrationsController < Devise::RegistrationsController
     # end
     # if !(params[:first_name].blank? or params[:last_name].blank? or params[:email].blank? or params[:password].blank? or params[:password_confirmation].blank? or params[:password].length<6 or params[:password_confirmation].length<6 or params[:password]!=params[:password_confirmation])
       student=Student.where(email:params[:student][:email]).take
-    # puts "-----------------------------------asdasdasdasfsddfgdfwsadfsfdgdf"
+     puts "-----------------------------------asdasdasdasfsddfgdfwsadfsfdgdf"
+    puts params
       student_profile={:student_id=>student.id,:gpa=>nil,:gre=>nil, :toefl => nil,
                        :interested_major => nil, :term => nil,
                        :year =>nil }
