@@ -35,14 +35,7 @@
     <%= f.label :research_url %><br />
     <%= f.text_field :research_url, autofocus: true, autocomplete: "last name" %>
   </div>
-  <div class="field">
-    <%= f.label :university %><br />
-    <%= f.collection_select :university, University.order(:name),:name,:name, include_blank: true, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :department %><br />
-    <%= f.collection_select :department_id, Department.order(:name),:id,:name, include_blank: true, autofocus: true%>
-  </div>
+
   <div class="field">
     <%= f.label :chair %><br />
     <%= f.select :chair, [["Yes",true],["No",false]] %>

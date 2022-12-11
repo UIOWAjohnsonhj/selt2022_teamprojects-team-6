@@ -14,8 +14,8 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
   def create
     super
     faculty = FacultyMember.where(email:params[:faculty_member][:email]).take
-    #  faculty.university = current_faculty_member.university
-    # faculty.department_id = current_faculty_member.department_id
+     faculty.university = current_faculty_member.university
+    faculty.department_id = current_faculty_member.department_id
     faculty.save
     session[:new_account]=true
   end
@@ -53,8 +53,8 @@ class FacultyMembers::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:university])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:department_id])
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:university])
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:department_id])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:focus_area])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:research_url])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:chair])
