@@ -10,7 +10,7 @@
     %h1.title ApplicationHub
     -if student_signed_in?
       .row1
-
+        = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline', :id => 'logout_button' do
         = form_tag intermediate_logout_path, :method => 'get', :class => 'form form-inline' do
           = submit_tag 'Log out'
         = form_tag view_profile_path, :method => 'get', :class => 'form form-inline' do

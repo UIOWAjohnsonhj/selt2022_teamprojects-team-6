@@ -14,7 +14,7 @@
       <span></span>
       <span></span>
       <span></span>
-      <%= f.submit "Login" %>
+      <%= f.submit "Login", :id => "login_button",  data: { disable_with: false }%>
     </a>
     <div class="login-padding">
       <%= render "students/shared/links" %>

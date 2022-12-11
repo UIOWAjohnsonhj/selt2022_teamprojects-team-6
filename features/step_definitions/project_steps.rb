@@ -1,10 +1,17 @@
+require 'uri'
+# require 'spec/rails_helper'
 
-Given(/^I am on the Account Creation page$/) do
-  visit main_sign_up_path
-end
 
 And(/^I fill in "([^"]*)" with "([^"]*)"$/) do |arg1, arg2|
-  fill_in arg1, :with => arg2
+  url = URI.parse(current_url)
+  arg1= arg1.gsub(/ /, '_').downcase
+  if url.path == "/students/sign_up"
+    puts "test"
+    fill_in "student_#{arg1}", :with => arg2
+  else
+    fill_in "faculty_member_#{arg1}", :with => arg2
+  end
+
 end
 
 And(/^the student radio button is clicked$/) do
@@ -13,20 +20,24 @@ end
 
 Then(/^A new student account should be created with first name "(.*?)", last name "(.*?)", and email address "(.*?)"$/) do |first, last, email|
   result=false
-  all("tr").each do |tr|
-    if tr.has_content?(first) && tr.has_content?(last) && tr.has_content?(email)
-      result = true
-      break
-    end
+  if Student.find_by_first_name(first) && Student.find_by_last_name(last) && Student.find_by_email(email)
+    result=true
   end
   expect(result).to be_truthy
 end
 
-And(/^the faculty radio button is clicked$/) do
-  click_button 'radio_button_faculty'
+Then(/^a new faculty account should be created with first name "(.*?)", last name (.*?)", and email address "(.*?)"$/) do |first, last, email|
+  result=false
+  if Faculty.find_by_first_name(first) && Faculty.find_by_last_name(last) && Faculty.find_by_email(email)
+    result=true
+  end
+  expect(result).to be_truthy
+
 end
 
-Then (/^I should be directed to the second sign up page to enter faculty specific information$/) do
+
+
+Then(/^I should be directed to the second sign up page to enter faculty specific information$/) do
   expect(page).to have_content("FacultyMember Sign Up")
 end
 
@@ -34,8 +45,8 @@ And(/^my credentials are filled in$/) do
   pending
 end
 
-When(/^I Click "([^"]*)"$/) do |arg|
-  click_button(arg)
+When(/^I Click Sign Up$/) do
+  click_button("sign_up_button")
 end
 
 Given(/^I am an Instructor$/) do
@@ -52,7 +63,7 @@ Then(/^I should view a "([^"]*)" page$/) do |arg|
 end
 
 Given(/^I am a Student$/) do
-  pending
+  expect(@user).to be_a(Student)
 end
 
 Then(/^I should not view a "([^"]*)" page$/) do |arg|
@@ -60,10 +71,20 @@ Then(/^I should not view a "([^"]*)" page$/) do |arg|
 end
 
 Given(/^I am logged in$/) do
-  pending
+  visit "/students/sign_in"
+
+  fill_in('student[password]', with: '111111')
+  fill_in('student_email', with: 'ezouhriadnane@gmail.com')
+
+
+  click_button 'login_button'
+
+  puts page.body
+  expect(page).to have_content("Log out")
 end
 
 Then(/^I should view the "([^"]*)" page$/) do |arg|
+  # expect(session[:user_id]).to be_nil
   expect(page).to have_content(arg)
 end
 
@@ -138,8 +159,10 @@ Given(/^the following account has been added to Faculties:$/) do |table|
   end
 end
 
-When(/^I click the "([^"]*)" button$/) do |arg|
-  click_button(arg)
+When(/^I click the logout button$/) do
+  submit = page.find('input[value="Log out"]')
+  submit.click
+  puts page.body
 end
 
 And(/^I am on the "([^"]*)" page$/) do |arg|
@@ -153,20 +176,21 @@ Given(/^the following account has been added to Students:$/) do |table|
   end
 end
 
-Given(/^I am on the Welcome page$/) do |arg|
-  expect(page).to have_content(arg)
+Given(/^I am on the Welcome page$/) do
+  visit "/index"
+  expect(page).to have_content("Welcome")
 end
 
 When(/^I click the "([^"]*)" link$/) do |arg|
-  click_link(arg)
+  click_button "#{arg}_button"
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |arg|
-  expect(page).to have_content(arg)
+  url = URI.parse(current_url).path
+  expect(url).to have_content(arg)
 end
 
 Given(/^I am on the admissions decision page of a student$/) do
-
   visit profile_viewer_path
 end
 
@@ -197,10 +221,20 @@ When(/^I click the Waitlist button$/) do
   click_button 'Waitlist'
 end
 
-Given(/^I am a student$/) do
-  visit main_index_path
-  click_button 'Login'
-  click_button 'student_button'
-  fill_in 'email', :with => 'ben.desollar01@gmail.com'
-  fill_in 'password', :with => '123456'
+
+Given(/^I am on the Student Account Creation page$/) do
+  visit "/students/sign_up"
+end
+
+Given(/^I am on the Faculty Account Creation page$/) do
+  visit("/faculty_members/sign_up")
+end
+
+Then(/^A new faculty account should be created with first name "([^"]*)", last name "([^"]*)", and email address "([^"]*)"$/) do |first_name, last_name, email|
+
+end
+
+Then(/^I should see "([^"]*)"$/) do |arg|
+  expect(page).to have_content(arg)
+
 end
