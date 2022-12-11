@@ -8,6 +8,7 @@
         <th>Last Name</th>
         <th>Email</th>
         <th>Current Decision</th>
+        <th>Other Reviews</th>
         <th>Review Profile</th>
         <% if @faculty.chair %>
           <th>Accept</th>
@@ -22,6 +23,7 @@
           <td><%= student.last_name %></td>
           <td><%= student.email %></td>
           <td><%= app.application_status %></td>
+          <td><%= button_to 'Other Reviews', faculty_members_faculty_evaluations_path(student, student_id: student.id), class: "btn btn-danger" %></td>
           <td><%= link_to "Review", profile_viewer_path(app, student_id: student.id), class: 'link1' %></td>
           <% if @faculty.chair %>
             <td>

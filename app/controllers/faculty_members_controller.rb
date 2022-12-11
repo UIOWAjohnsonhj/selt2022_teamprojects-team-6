@@ -30,11 +30,16 @@ class FacultyMembersController < ApplicationController
   end
 
   def faculty_evaluations
-    @faculty = FacultyMember.find_by(id: session[:faculty_id])
-    student_eval = Student.find_by(id: session[:selected_student_id])
+    @faculty = FacultyMember.find_by(id: current_faculty_member.id)
+    @student = Student.find_by(id:  params[:student_id])
     @display_name = @faculty.first_name
-    @evaluations = Evaluation.where(student_id: student_eval.id)
-    @student_name = "#{student_eval.first_name} #{student_eval.last_name}"
+    @evaluations = Evaluation.where(student_id: params[:student_id])
+    @faculty_eval_dict = {}
+    @evaluations.each do |eval|
+      @faculty = FacultyMember.find(eval.faculty_id)
+      @faculty_eval_dict[@faculty] = eval
+    end
+    @student_name = "#{@student.first_name} #{@student.last_name}"
   end
 
   def my_evaluations
