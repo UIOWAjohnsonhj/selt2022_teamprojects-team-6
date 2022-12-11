@@ -196,3 +196,11 @@ When(/^I click the Waitlist button$/) do
   ActionMailer::Base.deliveries.clear
   click_button 'Waitlist'
 end
+
+Given(/^I am a student$/) do
+  visit main_index_path
+  click_button 'Login'
+  click_button 'student_button'
+  fill_in 'email', :with => 'ben.desollar01@gmail.com'
+  fill_in 'password', :with => '123456'
+end
