@@ -1,12 +1,11 @@
 require 'uri'
 # require 'spec/rails_helper'
 
-Given(/^I am on the Account Creation page$/) do
-  visit main_sign_up_path
-end
 
 And(/^I fill in "([^"]*)" with "([^"]*)"$/) do |arg1, arg2|
-  fill_in arg1, :with => arg2
+  arg1= arg1.gsub(/ /, '_')
+  puts arg1
+  fill_in "student_#{arg1}", :with => arg2
 end
 
 And(/^the student radio button is clicked$/) do
@@ -15,11 +14,8 @@ end
 
 Then(/^A new student account should be created with first name "(.*?)", last name "(.*?)", and email address "(.*?)"$/) do |first, last, email|
   result=false
-  all("tr").each do |tr|
-    if tr.has_content?(first) && tr.has_content?(last) && tr.has_content?(email)
-      result = true
-      break
-    end
+  if Student.find_by_first_name(first) && Student.find_by_last_name(last) && Student.find_by_email(email)
+    result=true
   end
   expect(result).to be_truthy
 end
@@ -33,8 +29,8 @@ And(/^my credentials are filled in$/) do
   pending
 end
 
-When(/^I Click "([^"]*)"$/) do |arg|
-  click_button(arg)
+When(/^I Click Sign Up$/) do
+  click_button("sign_up_button")
 end
 
 Given(/^I am an Instructor$/) do
@@ -207,4 +203,16 @@ When(/^I click the Waitlist button$/) do
   ActionMailer::Base.perform_deliveries = true
   ActionMailer::Base.deliveries.clear
   click_button 'Waitlist'
+end
+
+Given(/^I am on the Student Account Creation page$/) do
+  visit "/students/sign_up"
+end
+
+Given(/^I am on the Faculty Account Creation page$/) do
+  pending
+end
+
+Then(/^A new faculty account should be created with first name "([^"]*)", last name "([^"]*)", and email address "([^"]*)"$/) do |first_name, last_name, email|
+
 end
