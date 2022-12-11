@@ -233,8 +233,6 @@ Then(/^A new faculty account should be created with first name "([^"]*)", last n
 
 end
 
-And(/^I select "([^"]*)" from "([^"]*)"$/) do |arg1, arg2|
-  arg2= arg2.gsub(/ /, '_').downcase
-  select "University of Iowa", :from => "faculty_member_university_id"
-
+Then(/^I should see "([^"]*)"$/) do |arg|
+  expect(page).to have_content(arg)
 end

@@ -22,22 +22,5 @@ Scenario: Creating a faculty account
   And I fill in "Email" with "kerickson@uiowa.edu"
   And I fill in "Password" with "password"
   And I fill in "password confirmation" with "password"
-#  And I select "Computer Science" from "Department"
-  And I select "University of Iowa" from "University"
-  And I select "Computer Science Engineering" from "Department"
-  And I select "No" from "Chair"
   When I Click Sign Up
-  Then a new faculty account should be created with first name "Kiana", last name "Erickson", and email address "kerickson@uiowa.edu"
-
-
-
-  Given I am on the second sign up page for faculty
-  And I fill in "University Name" with "University of Iowa"
-  And I upload an image of my "college_id"
-  When I click "Sign Up"
-  Then a new faculty account should be created
-
-  Given I am on the second sign up page for faculty
-  And I fill in "University Page Link" with "www.myuniversity.com"
-  When I click "Sign Up"
-  Then a new faculty account should be created
+  Then I should see "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
