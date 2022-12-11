@@ -34,7 +34,7 @@
   </div>
   <div class="field">
     <%= f.label :department %><br />
-    <%= f.collection_select :department_id, Department.order(:name),:id,:name, include_blank: true, autofocus: true%>
+    <%= f.collection_select :department, Department.order(:name),:id,:name, include_blank: true, autofocus: true%>
   </div>
   <div class="field">
     <%= f.label :focus_area %><br />

@@ -22,8 +22,13 @@ Scenario: Creating a faculty account
   And I fill in "Email" with "kerickson@uiowa.edu"
   And I fill in "Password" with "password"
   And I fill in "password confirmation" with "password"
+#  And I select "Computer Science" from "Department"
+  And I select "University of Iowa" from "University"
+  And I select "Computer Science Engineering" from "Department"
+  And I select "No" from "Chair"
   When I Click Sign Up
-  Then A new faculty account should be created with first name "Kiana", last name "Erickson", and email address "
+  Then a new faculty account should be created with first name "Kiana", last name "Erickson", and email address "kerickson@uiowa.edu"
+
 
 
   Given I am on the second sign up page for faculty

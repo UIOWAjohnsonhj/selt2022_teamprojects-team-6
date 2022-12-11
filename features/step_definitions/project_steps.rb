@@ -3,9 +3,15 @@ require 'uri'
 
 
 And(/^I fill in "([^"]*)" with "([^"]*)"$/) do |arg1, arg2|
-  arg1= arg1.gsub(/ /, '_')
-  puts arg1
-  fill_in "student_#{arg1}", :with => arg2
+  url = URI.parse(current_url)
+  arg1= arg1.gsub(/ /, '_').downcase
+  if url.path == "/students/sign_up"
+    puts "test"
+    fill_in "student_#{arg1}", :with => arg2
+  else
+    fill_in "faculty_member_#{arg1}", :with => arg2
+  end
+
 end
 
 And(/^the student radio button is clicked$/) do
@@ -19,6 +25,16 @@ Then(/^A new student account should be created with first name "(.*?)", last nam
   end
   expect(result).to be_truthy
 end
+
+Then(/^a new faculty account should be created with first name "(.*?)", last name (.*?)", and email address "(.*?)"$/) do |first, last, email|
+  result=false
+  if Faculty.find_by_first_name(first) && Faculty.find_by_last_name(last) && Faculty.find_by_email(email)
+    result=true
+  end
+  expect(result).to be_truthy
+
+end
+
 
 
 Then(/^I should be directed to the second sign up page to enter faculty specific information$/) do
@@ -210,9 +226,15 @@ Given(/^I am on the Student Account Creation page$/) do
 end
 
 Given(/^I am on the Faculty Account Creation page$/) do
-  pending
+  visit("/faculty_members/sign_up")
 end
 
 Then(/^A new faculty account should be created with first name "([^"]*)", last name "([^"]*)", and email address "([^"]*)"$/) do |first_name, last_name, email|
+
+end
+
+And(/^I select "([^"]*)" from "([^"]*)"$/) do |arg1, arg2|
+  arg2= arg2.gsub(/ /, '_').downcase
+  select "University of Iowa", :from => "faculty_member_university_id"
 
 end
