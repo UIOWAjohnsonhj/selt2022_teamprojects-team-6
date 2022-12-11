@@ -38,7 +38,7 @@
                 <%= button_to "Waitlist", faculty_members_waitlist_application_path(student, student_id: student.id), class: "btn btn-danger", confirm: "Are you sure that you wish to waitlist #{student.first_name} #{student.last_name}?" %>
             </td>
           <% end %>
-          <td><%= link_to "Email", create_email_path(student_id: student.id) %></td>
+          <td><%= link_to "Email", create_email_path(student_id: student.id), class: "link1" %></td>
         </tr>
       <% end %>
     </table>
