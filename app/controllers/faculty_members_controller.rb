@@ -16,7 +16,6 @@ class FacultyMembersController < ApplicationController
 
   def faculty_profile
     @faculty = current_faculty_member
-    puts "s-------------------------------------------ddddddd",faculty_member_signed_in?
     if !faculty_member_signed_in?
       flash[:notice] = "Faculty Account not Found"
       redirect_to controller: "main", action: 'index' and return
@@ -29,8 +28,6 @@ class FacultyMembersController < ApplicationController
   end
 
   def faculty_evaluations
-    @user_type = session[:user_type].to_sym # need to remove this and put it in a before_filter with authentication
-    @id = session[:faculty_id] # need to remove this and put it in a before_filter with authentication
     @faculty = FacultyMember.find_by(id: session[:faculty_id])
     student_eval = Student.find_by(id: session[:selected_student_id])
     @display_name = @faculty.first_name
@@ -39,7 +36,6 @@ class FacultyMembersController < ApplicationController
   end
 
   def my_evaluations
-    @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
     @faculty = FacultyMember.find_by(id: @id)
     @evaluations = Evaluation.where(faculty_id: @faculty.id)
     @student_eval_dict = {}
@@ -53,7 +49,6 @@ class FacultyMembersController < ApplicationController
   end
 
   def admission_decision
-    @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
     # Below will be added when application is created and we have a university id
     # @application_list = Application.where(university_id: @faculty.university_id, department_id: @faculty.department_id)
     @faculty = FacultyMember.find_by(id: @id)
@@ -65,7 +60,6 @@ class FacultyMembersController < ApplicationController
     end
   end
   def accept_application
-    puts params
     @application = Application.where(student_id: params[:student_id]).take
     @application.update(application_status: 'Accepted')
     student_email = Student.find(params[:student_id]).email
@@ -74,7 +68,6 @@ class FacultyMembersController < ApplicationController
   end
 
   def reject_application
-    puts params
     @application = Application.where(student_id: params[:student_id]).take
     @application.update(application_status: 'Rejected')
     student_email = Student.find(params[:student_id]).email
@@ -83,7 +76,6 @@ class FacultyMembersController < ApplicationController
   end
 
   def waitlist_application
-    puts params
     @application = Application.where(student_id: params[:student_id]).take
     @application.update(application_status: 'Waitlisted')
     student_email = Student.find(params[:student_id]).email
@@ -99,7 +91,6 @@ class FacultyMembersController < ApplicationController
     @evaluation = Evaluation.where(student_id: @student.id, faculty_id: @faculty.id).take
     puts params
     if @evaluation.nil?
-      puts "evaluation is nil"
       @evaluation = Evaluation.new
       @evaluation.student_id = @student.id
       @evaluation.faculty_id = @faculty.id
@@ -111,14 +102,9 @@ class FacultyMembersController < ApplicationController
       @evaluation.application_id = @application.id
       @evaluation.save
     else
-      puts "evaluation already exists"
       @evaluation.update(comment: params[:comment], status: params[:decision], score: params[:score])
     end
     redirect_to my_evaluations_path
-  end
-
-  def sign_up_faculty
-
   end
 
   def create_email
