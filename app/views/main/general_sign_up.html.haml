@@ -3,13 +3,14 @@
 
 =form_tag new_student_registration_path, :method=>:get do
   = submit_tag "Student", :id => "create_account_button"
-=form_tag new_faculty_member_registration_path, :method=>:get do
+%br
+=form_tag main_sign_up_faculty_path, :method=>:post do
   = submit_tag "Faculty", :id => "create_account_button"
+%br
+= form_tag main_index_path, :method => 'post', :class => 'form form-inline' do
+  = submit_tag 'Back'
+
 -if student_signed_in?
   -controller.redirect_to view_profile_path
 -if faculty_member_signed_in?
   -controller.redirect_to root_path
-%br/
-%br/
-= form_tag main_index_path, :method => :post do
-  = submit_tag "Return", :id => "return_to_welcome"

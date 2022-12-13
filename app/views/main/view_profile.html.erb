@@ -1,95 +1,74 @@
 <h1>Profile</h1>
-<h2>Hi <%= @student.first_name %></h2>
-
 <div class="profile">
   <div class="profile_features">
+    <br>
     <form method="post" action="<%= main_edit_profile_path %>">
+      <input type="hidden" name="hidden">
+      <div class="rwd-table">
+        <table>
+          <tr>
+            <th>GPA</th>
+            <th>GRE</th>
+            <th>TOEFL</th>
+          </tr>
+          <tr>
+            <td><label class="field2" style="text-align: center"><%= @current_profile.gpa %></label></td>
+            <td><label class="field2" style="text-align: center"><%= @current_profile.gre %></label></td>
+            <td><label class="field2" style="text-align: center"><%= @current_profile.toefl %></label></td>
+          </tr>
+        </table>
+      </div>
       <br>
-      <table>
-        <tr>
-          <th><label class="label">GPA</label></th>
-          <th><label class="label">GRE</label></th>
-          <th><label class="label">TOEFL</label></th>
-        </tr>
-        <tr>
-          <td>
-            <label class="field" name="gre" style="text-align: center"><u><%= @current_profile.gpa %></u></label>
-          </td>
-          <td>
-            <label class="field" name="toefl" style="text-align: center" ><u><%= @current_profile.gre %></u></label>
-          </td>
-          <td>
-            <label class="field" name="capa" style="text-align: center"><u><%= @current_profile.toefl %></u></label>
-
-          </td>
-        </tr>
-      </table>
+      <div class="rwd-table">
+        <table>
+          <tr>
+            <th>College name</th>
+            <th>Year</th>
+          </tr>
+          <tr>
+            <td><label class="field2" style="text-align: center"><%= @current_profile.college_name %></label></td>
+            <td><label class="field2" style="text-align: center"><%= @current_profile.year %></label></td>
+          </tr>
+        </table>
+      </div>
       <br>
-      <table>
-        <tr>
-          <th><label class="label">CAPA</label></th>
-          <th><label class="label">Intrested Major</label></th>
-          <th><label class="label">Term</label></th>
-        </tr>
-        <tr>
-          <td>
-            <label list="majors" class="field" name="major" style="text-align: center"><u><%= @current_profile.capa %></u></label>
-          </td>
-          <td>
-            <label list="term" class="field" name="term" style="text-align: center"><u><%= @current_profile.interested_major %></u></label>
-          </td>
-          <td>
-            <label list="year" class="field" name="year" style="text-align: center"><u><%= @current_profile.term %></u></label>
-          </td>
-        </tr>
-      </table>
-      <br>
-      <br>
-      <table class="profile-table">
-        <tr>
-          <th><label class="label">Year</label></th>
-          <th><label class="label">Undergrad college</label></th>
-        </tr>
-        <tr>
-          <td><label class="field2" name="college_name"style="text-align: center" ><u><%= @current_profile.year %></u></label></td>
-          <td><label class="field2" name="college_name"style="text-align: center" ><u><%= @current_profile.college_name %></u></label></td>
-        </tr>
-      </table>
-      <br>
-
+      <div class="rwd-table">
+        <table>
+          <tr>
+            <th>CAPA</th>
+            <th>Interested Major</th>
+            <th>Term</th>
+          </tr>
+          <tr>
+            <td><label class="field2" style="text-align: center"><%= @current_profile.capa %></label></td>
+            <td><label class="field2" style="text-align: center"><%= @current_profile.interested_major %></label></td>
+            <td><label class="field2" style="text-align: center"><%= @current_profile.term %></label></td>
+          </tr>
+        </table>
+      </div>
       <br>
       <h2>Work experience</h2>
       <br>
-      <table>
-        <tr>
-          <th>
-            <label class="label">Company name</label>
-          </th>
-          <th>
-            <label class="label">Job title</label>
-          </th>
-          <th>
-            <label class="label">Description</label>
-          </th>
-          <th>
-            <label class="label">from</label>
-          </th>
-          <th>
-            <label class="label">to</label>
-          </th>
-        </tr>
-        <%@experiences.all.each do |e| %>
+      <div class="rwd-table">
+        <table>
           <tr>
-            <td><label class="field2" style="text-align: center" ><u><%= e.company_name %></u></label></td>
-            <td><label class="field2" style="text-align: center" ><u><%= e.description %></u></label></td>
-            <td><label class="field2" style="text-align: center" ><u><%= e.job_title %></u></label></td>
-            <td><label class="field2" style="text-align: center" ><u><%= e.from %></u></label></td>
-            <td><label class="field2" style="text-align: center" ><u><%= e.to %></u></label></td>
-
+            <th>Company</th>
+            <th>Position</th>
+            <th>Description</th>
+            <th>Start date</th>
+            <th>End date</th>
           </tr>
-        <%end %>
-      </table>
-
+          <%@experiences.all.each do |experience| %>
+              <tr>
+                <td><label class="field2" style="text-align: center"><%= experience.company_name %></label></td>
+                <td><label class="field2" style="text-align: center"><%= experience.job_title %></label></td>
+                <td><label class="field2" style="text-align: center"><%= experience.description %></label></td>
+                <td><label class="field2" style="text-align: center"><%= experience.from %></label></td>
+                <td><label class="field2" style="text-align: center"><%= experience.to %></label></td>
+              </tr>
+            <% end %>
+        </table>
+      </div>
       <br>
       <div class="row">
         <% if @resume != "No resume uploaded" %>
@@ -99,10 +78,7 @@
         <% end %>
       </div>
       <br>
-      <br>
-      <input type="submit" class = "btn2" value="Edit profile">
-      <input type="hidden" name="hidden">
-      <br>
+      <input type="submit" class="button" value="Edit profile">
     </form>
     <br>
   </div>
@@ -115,6 +91,7 @@
     <% @applied_departments.each do |k,v| %>
       <br>
       <h2><%=k %></h2>
+      <div class="rwd-table">
       <table>
         <tr>
           <th>Department</th>
@@ -127,8 +104,8 @@
           </tr>
         <%end %>
       </table>
+      </div>
       <br>
     <%end %>
   </div>
 </div>
-

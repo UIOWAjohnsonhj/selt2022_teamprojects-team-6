@@ -17,9 +17,13 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
+  <div class="field">
     <%= f.submit "Change my password" %>
   </div>
 <% end %>
 
-<%= render "faculty_members/shared/links" %>
+<%= form_for(resource, as: resource_name, url: root_path, html: { method: :get }) do |f| %>
+  <div class="field">
+    <%= f.submit "Home" %>
+  </div>
+<% end %>

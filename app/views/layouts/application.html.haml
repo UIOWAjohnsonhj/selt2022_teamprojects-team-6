@@ -10,35 +10,32 @@
     %h1.title ApplicationHub
     -if student_signed_in?
       .row1
-
-        = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
+        = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline', :id => 'logout_button' do
+        = form_tag intermediate_logout_path, :method => 'get', :class => 'form form-inline' do
           = submit_tag 'Log out'
-        = form_tag main_view_profile_path, :method => 'post', :class => 'form form-inline' do
-          = submit_tag 'Profiles'
-        = form_tag main_search_universities_path, :method => 'post', :class => 'form form-inline' do
+        = form_tag view_profile_path, :method => 'get', :class => 'form form-inline' do
+          = submit_tag 'Profile'
+        = form_tag search_universities_path, :method => 'get', :class => 'form form-inline' do
           = submit_tag 'Search Universities'
-        = form_tag main_search_instructor_path, :method => 'post', :class => 'form form-inline' do
+        = form_tag search_instructor_path, :method => 'get', :class => 'form form-inline' do
           = submit_tag 'Search Instructors'
         = form_tag predictor_predict_probability_path, :method => 'post', :class => 'form form-inline' do
           = submit_tag 'Predictor'
-        = form_tag edit_student_registration_path, :method => 'get', :class => 'form form-inline' do
-          = submit_tag 'Edit Account'
-    -else
-      -if faculty_member_signed_in?
-        .row1
-          = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
-            = submit_tag 'Log out'
-          -# = form_tag faculty_profile_path, :method => 'get', :class => 'form form-inline' do
-          -#   = submit_tag 'My Profile'
-          = form_tag my_evaluations_path, :method => 'get', :class => 'form form-inline' do
-            = submit_tag 'My Evaluations'
-          = form_tag admission_decision_path, :method => 'get', :class => 'form form-inline' do
-            = submit_tag 'Admission Review'
-          = form_tag edit_faculty_member_registration_path, :method => 'get', :class => 'form form-inline' do
-            = submit_tag 'Edit Account'
-          -if current_faculty_member.chair?
-            = form_tag new_faculty_member_registration_path, :method => 'get', :class => 'form form-inline' do
-              = submit_tag 'Add Faculty'
+    -elsif faculty_member_signed_in?
+      .row1
+        = form_tag main_intermediate_logout_path, :method => 'post', :class => 'form form-inline' do
+          = submit_tag 'Log out'
+        -# = form_tag faculty_profile_path, :method => 'get', :class => 'form form-inline' do
+        -#   = submit_tag 'My Profile'
+        = form_tag my_evaluations_path, :method => 'get', :class => 'form form-inline' do
+          = submit_tag 'My Evaluations'
+        = form_tag admission_decision_path, :method => 'get', :class => 'form form-inline' do
+          = submit_tag 'Admission Review'
+        -if current_faculty_member.chair?
+          = form_tag new_faculty_member_registration_path, :method => 'get', :class => 'form form-inline' do
+            = submit_tag 'Add Faculty'
+
+
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]

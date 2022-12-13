@@ -10,7 +10,6 @@ gem 'mail'
 gem 'actionmailer'
 gem 'devise'
 
-gem 'actionmailer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails' # , '4.2.10'
 # Use SCSS for stylesheets
@@ -37,8 +36,6 @@ gem 'rails-controller-testing'
 gem 'carrierwave', '~> 1.0'
 
 gem 'fog', '~> 1.38'
-
-gem "devise"
 
 gem 'decisiontree'
 
@@ -71,7 +68,7 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '< 3.0.0'
+  # gem 'spring', '< 3.0.0'
 end
 
 group :test do

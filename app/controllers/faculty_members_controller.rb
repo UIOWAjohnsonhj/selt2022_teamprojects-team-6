@@ -30,17 +30,23 @@ class FacultyMembersController < ApplicationController
   end
 
   def faculty_evaluations
-    @user_type = session[:user_type].to_sym # need to remove this and put it in a before_filter with authentication
-    @id = session[:faculty_id] # need to remove this and put it in a before_filter with authentication
-    @faculty = FacultyMember.find_by(id: session[:faculty_id])
-    student_eval = Student.find_by(id: session[:selected_student_id])
+    @faculty = FacultyMember.find_by(id: current_faculty_member.id)
+    @student = Student.find_by(id:  params[:student_id])
+    if @student.nil?
+      @student = Student.find_by(id:  1)
+    end
     @display_name = @faculty.first_name
-    @evaluations = Evaluation.where(student_id: student_eval.id)
-    @student_name = "#{student_eval.first_name} #{student_eval.last_name}"
+    @evaluations = Evaluation.where(student_id: params[:student_id])
+    @faculty_eval_dict = {}
+    @evaluations.each do |eval|
+      @faculty = FacultyMember.find(eval.faculty_id)
+      @faculty_eval_dict[@faculty] = eval
+    end
+    @student_name = "#{@student.first_name} #{@student.last_name}"
   end
 
   def my_evaluations
-    @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
+    @id = current_faculty_member.id
     @faculty = FacultyMember.find_by(id: @id)
     @evaluations = Evaluation.where(faculty_id: @faculty.id)
     @student_eval_dict = {}
@@ -54,9 +60,9 @@ class FacultyMembersController < ApplicationController
   end
 
   def admission_decision
-    @id = current_faculty_member.id # need to remove this and put it in a before_filter with authentication
     # Below will be added when application is created and we have a university id
     # @application_list = Application.where(university_id: @faculty.university_id, department_id: @faculty.department_id)
+    @id = current_faculty_member.id
     @faculty = FacultyMember.find_by(id: @id)
     @application_list = Application.where(department_id: @faculty.department_id)
     @student_app_dict = {}
@@ -107,14 +113,9 @@ class FacultyMembersController < ApplicationController
       @evaluation.application_id = @application.id
       @evaluation.save
     else
-      puts "evaluation already exists"
       @evaluation.update(comment: params[:comment], status: params[:decision], score: params[:score])
     end
     redirect_to my_evaluations_path
-  end
-
-  def sign_up_faculty
-
   end
 
   def create_email
@@ -127,7 +128,7 @@ class FacultyMembersController < ApplicationController
     @student = Student.find(params[:email][:student_id])
     email= @student.email
     EmailStudentsMailer.notify_user(email, params[:email][:subject], params[:email][:message]).deliver_now
-    render 'my_evaluations'
+    redirect_to my_evaluations_path(student_id: params[:email][:student_id])
   end
 end
 

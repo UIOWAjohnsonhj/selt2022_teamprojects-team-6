@@ -12,7 +12,7 @@
 <html lang="en">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<h2>Search US Universities</h2>
+<h2>Search Universities Around the globe</h2>
 
 <div class="row">
   <h3 class="label">Entry</h3>
@@ -20,14 +20,43 @@
 </div>
 
 <form method="post" action="<%= main_intermediate_search_path %>">
-  <input name="search" class="field2"/>
-  <select id="filters" class="field2" name="filter">
-    <option value="<%session[:search_type] %>"><%=session[:search_type] %></option>
-    <option value="Location">Location</option>
-    <option value="university name">University name</option>
-    <option value="Country">Country</option>
-    <option value="Supported">Supported</option>
-  </select>
+  <input name="search" class="field2" placeholder="<%session[:search] %>"/>
+  <%if session[:search_type]=="location" %>
+    <select id="filters" class="field2" name="filter">
+      <option value="Location" selected>Location</option>
+      <option value="university name">University name</option>
+      <option value="Country">Country</option>
+      <option value="Supported">Supported by ApplicationHub</option>
+    </select>
+  <%elsif session[:search_type]=="name" %>
+    <select id="filters" class="field2" name="filter">
+      <option value="Location" >Location</option>
+      <option value="university name" selected>University name</option>
+      <option value="Country">Country</option>
+      <option value="Supported">Supported by ApplicationHub</option>
+    </select>
+  <%elsif session[:search_type]=="country" %>
+    <select id="filters" class="field2" name="filter">
+      <option value="Location" >Location</option>
+      <option value="university name">University name</option>
+      <option value="Country" selected>Country</option>
+      <option value="Supported">Supported by ApplicationHub</option>
+    </select>
+  <%elsif session[:search_type]=="supported" %>
+    <select id="filters" class="field2" name="filter">
+      <option value="Location" >Location</option>
+      <option value="university name" >University name</option>
+      <option value="Country">Country</option>
+      <option value="Supported" selected>Supported by ApplicationHub</option>
+    </select>
+  <%else %>
+    <select id="filters" class="field2" name="filter">
+      <option value="Location" >Location</option>
+      <option value="university name" >University name</option>
+      <option value="Country">Country</option>
+      <option value="Supported" >Supported by ApplicationHub</option>
+    </select>
+  <%end %>
   <input type="submit" value="search" class="btn">
 
 </form>
@@ -36,7 +65,7 @@
   <br>
   <br>
 
-  <table class="table">
+  <table class="rwd-table">
     <th>University</th>
     <th>Location</th>
     <th>National Rank</th>

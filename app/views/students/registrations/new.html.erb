@@ -32,10 +32,8 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
   <div class="field">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", :id => "sign_up_button" %>
   </div>
 <% end %>
 
-<%= render "students/shared/links" %>
